@@ -22,7 +22,8 @@
 | [01 产品定义与真实感规范](docs/01-product-and-realism.md) | 目标体验、真实感的可验收行为清单、人格设计 |
 | [02 系统架构](docs/02-architecture.md) | 整体架构、语音链路、大脑、表演系统、协议、技术选型 |
 | [03 记忆系统](docs/03-memory.md) | 记忆分层、写入/巩固/遗忘/检索、主动回忆 |
-| [04 路线图与风险](docs/04-roadmap.md) | 里程碑、验收指标、风险、待决策事项 |
+| [04 路线图与风险](docs/04-roadmap.md) | 里程碑、验收指标、风险、已定决策 |
+| [05 美术需求书](docs/05-art-brief.md) | 角色设定、画风、各需求包的规格与验收标准 |
 
 ## 规划中的仓库结构
 
@@ -36,6 +37,8 @@ amadeus/
 │   └── protocol/         # 客户端/服务端共享的表演事件协议 (JSON Schema → TS/Python 类型)
 ├── assets/
 │   ├── persona/          # 人设文件（角色圣经、口癖、观点库）
+│   ├── concept/          # 角色概念与设定图
+│   ├── backgrounds/      # 场景背景
 │   ├── avatar/           # 模型 (VRM)
 │   └── motions/          # 动作库 (VRMA)
 ├── evals/                # 延迟基准、记忆召回测试、真实感评测脚本
