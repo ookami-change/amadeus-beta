@@ -1,0 +1,368 @@
+{
+  "sample_rate": 16000,
+  "channels": 1,
+  "encoding": "pcm_s16le",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "engine": "edge-tts",
+  "note": "合成语料只用于测量。它不是角色声线候选，也不是 D2 的供应商对比。",
+  "pause_ms": 750.0,
+  "tail_silence_ms": 1200.0,
+  "counts": {
+    "greeting": 3,
+    "statement": 8,
+    "pause": 5,
+    "question": 4
+  },
+  "items": [
+    {
+      "id": "01",
+      "category": "greeting",
+      "text": "店长，你来了。",
+      "audio": "01.wav",
+      "speech_end_ms": 1180.0,
+      "segments": [
+        {
+          "text": "店长，你来了。",
+          "start_ms": 0.0,
+          "end_ms": 1180.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "02",
+      "category": "greeting",
+      "text": "今天也好。",
+      "audio": "02.wav",
+      "speech_end_ms": 840.0,
+      "segments": [
+        {
+          "text": "今天也好。",
+          "start_ms": 0.0,
+          "end_ms": 840.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "03",
+      "category": "greeting",
+      "text": "嗯，我在。",
+      "audio": "03.wav",
+      "speech_end_ms": 950.0,
+      "segments": [
+        {
+          "text": "嗯，我在。",
+          "start_ms": 0.0,
+          "end_ms": 950.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "04",
+      "category": "statement",
+      "text": "杯子我都擦过了，柄朝同一个方向。",
+      "audio": "04.wav",
+      "speech_end_ms": 2670.0,
+      "segments": [
+        {
+          "text": "杯子我都擦过了，柄朝同一个方向。",
+          "start_ms": 0.0,
+          "end_ms": 2670.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "05",
+      "category": "statement",
+      "text": "账对过了，今天没有差。",
+      "audio": "05.wav",
+      "speech_end_ms": 1980.0,
+      "segments": [
+        {
+          "text": "账对过了，今天没有差。",
+          "start_ms": 0.0,
+          "end_ms": 1980.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "06",
+      "category": "statement",
+      "text": "这本书我看到第三章，讲的是时间的方向。",
+      "audio": "06.wav",
+      "speech_end_ms": 3520.0,
+      "segments": [
+        {
+          "text": "这本书我看到第三章，讲的是时间的方向。",
+          "start_ms": 0.0,
+          "end_ms": 3520.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "07",
+      "category": "statement",
+      "text": "打烊之后店里会安静很多。",
+      "audio": "07.wav",
+      "speech_end_ms": 2460.0,
+      "segments": [
+        {
+          "text": "打烊之后店里会安静很多。",
+          "start_ms": 0.0,
+          "end_ms": 2460.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "08",
+      "category": "statement",
+      "text": "明天的豆子我已经称好了。",
+      "audio": "08.wav",
+      "speech_end_ms": 2090.0,
+      "segments": [
+        {
+          "text": "明天的豆子我已经称好了。",
+          "start_ms": 0.0,
+          "end_ms": 2090.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "09",
+      "category": "statement",
+      "text": "外面在下雨，伞放在门口。",
+      "audio": "09.wav",
+      "speech_end_ms": 2240.0,
+      "segments": [
+        {
+          "text": "外面在下雨，伞放在门口。",
+          "start_ms": 0.0,
+          "end_ms": 2240.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "10",
+      "category": "statement",
+      "text": "这个配方不能再少糖，少了会苦。",
+      "audio": "10.wav",
+      "speech_end_ms": 2880.0,
+      "segments": [
+        {
+          "text": "这个配方不能再少糖，少了会苦。",
+          "start_ms": 0.0,
+          "end_ms": 2880.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "11",
+      "category": "statement",
+      "text": "我把你上次说的话记在便签上了。",
+      "audio": "11.wav",
+      "speech_end_ms": 2540.0,
+      "segments": [
+        {
+          "text": "我把你上次说的话记在便签上了。",
+          "start_ms": 0.0,
+          "end_ms": 2540.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "12",
+      "category": "pause",
+      "text": "理论上这样写是对的，只是没有人会真的这么做。",
+      "audio": "12.wav",
+      "speech_end_ms": 4530.0,
+      "segments": [
+        {
+          "text": "理论上这样写是对的，只是",
+          "start_ms": 0.0,
+          "end_ms": 2320.0
+        },
+        {
+          "text": "没有人会真的这么做。",
+          "start_ms": 3070.0,
+          "end_ms": 4530.0
+        }
+      ],
+      "pauses": [
+        {
+          "start_ms": 2320.0,
+          "end_ms": 3070.0
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "category": "pause",
+      "text": "家规里写了不许说没有把握的话，所以这个我先不回答你。",
+      "audio": "13.wav",
+      "speech_end_ms": 5320.0,
+      "segments": [
+        {
+          "text": "家规里写了不许说没有把握的话，所以",
+          "start_ms": 0.0,
+          "end_ms": 3230.0
+        },
+        {
+          "text": "这个我先不回答你。",
+          "start_ms": 3980.0,
+          "end_ms": 5320.0
+        }
+      ],
+      "pauses": [
+        {
+          "start_ms": 3230.0,
+          "end_ms": 3980.0
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "category": "pause",
+      "text": "你要是累了可以先坐一下，咖啡我重新热一下。",
+      "audio": "14.wav",
+      "speech_end_ms": 4460.0,
+      "segments": [
+        {
+          "text": "你要是累了可以先坐一下，咖啡",
+          "start_ms": 0.0,
+          "end_ms": 2660.0
+        },
+        {
+          "text": "我重新热一下。",
+          "start_ms": 3410.0,
+          "end_ms": 4460.0
+        }
+      ],
+      "pauses": [
+        {
+          "start_ms": 2660.0,
+          "end_ms": 3410.0
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "category": "pause",
+      "text": "我刚才算了一遍，还是差三块，我不能就这样下班。",
+      "audio": "15.wav",
+      "speech_end_ms": 4780.0,
+      "segments": [
+        {
+          "text": "我刚才算了一遍，还是",
+          "start_ms": 0.0,
+          "end_ms": 1920.0
+        },
+        {
+          "text": "差三块，我不能就这样下班。",
+          "start_ms": 2670.0,
+          "end_ms": 4780.0
+        }
+      ],
+      "pauses": [
+        {
+          "start_ms": 1920.0,
+          "end_ms": 2670.0
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "category": "pause",
+      "text": "上次你说面试很紧张，后来你想听我讲讲我的看法吗？",
+      "audio": "16.wav",
+      "speech_end_ms": 5050.0,
+      "segments": [
+        {
+          "text": "上次你说面试很紧张，后来",
+          "start_ms": 0.0,
+          "end_ms": 2570.0
+        },
+        {
+          "text": "你想听我讲讲我的看法吗？",
+          "start_ms": 3320.0,
+          "end_ms": 5050.0
+        }
+      ],
+      "pauses": [
+        {
+          "start_ms": 2570.0,
+          "end_ms": 3320.0
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "category": "question",
+      "text": "店长今天想喝点什么？",
+      "audio": "17.wav",
+      "speech_end_ms": 1630.0,
+      "segments": [
+        {
+          "text": "店长今天想喝点什么？",
+          "start_ms": 0.0,
+          "end_ms": 1630.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "18",
+      "category": "question",
+      "text": "这件事，你是认真的吗？",
+      "audio": "18.wav",
+      "speech_end_ms": 1790.0,
+      "segments": [
+        {
+          "text": "这件事，你是认真的吗？",
+          "start_ms": 0.0,
+          "end_ms": 1790.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "19",
+      "category": "question",
+      "text": "你明天的面试，准备到哪一步了？",
+      "audio": "19.wav",
+      "speech_end_ms": 2470.0,
+      "segments": [
+        {
+          "text": "你明天的面试，准备到哪一步了？",
+          "start_ms": 0.0,
+          "end_ms": 2470.0
+        }
+      ],
+      "pauses": []
+    },
+    {
+      "id": "20",
+      "category": "question",
+      "text": "我是不是说得太多了？",
+      "audio": "20.wav",
+      "speech_end_ms": 1540.0,
+      "segments": [
+        {
+          "text": "我是不是说得太多了？",
+          "start_ms": 0.0,
+          "end_ms": 1540.0
+        }
+      ],
+      "pauses": []
+    }
+  ]
+}

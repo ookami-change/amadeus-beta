@@ -28,7 +28,37 @@
 | [开发规约](AGENTS.md) | 分工、工作流程、架构红线、技术约定 |
 | [M0 任务单](docs/tasks/M0.md) | 技术验证阶段的四个开发任务与验收标准 |
 
-## 规划中的仓库结构
+## 本地跑起来
+
+需要 Node.js 22、pnpm 10、Python 3.12、uv。全新克隆后：
+
+```bash
+pnpm install
+uv sync --directory services/agent
+uv sync --directory evals
+pnpm lint
+pnpm typecheck
+pnpm test
+```
+
+形象演示还要示例模型（CC0，约 14MB，不入库）：
+
+```bash
+pnpm download:vrm
+pnpm dev
+```
+
+浏览器打开 `http://127.0.0.1:5173`。模型来源写在 `apps/web/public/models/SOURCE.md`。
+
+供应商时延和试听需要根目录 `.env`（从 `.env.example` 复制），并且测试机应在中国大陆。没有密钥时可以先跑不联网的断句对比：
+
+```bash
+pnpm latency
+```
+
+说明见 `evals/latency/REPORT.md`。试听页是 `evals/tts/index.html`，双击即可。
+
+## 仓库结构
 
 ```
 amadeus/
@@ -50,4 +80,4 @@ amadeus/
 
 ## 状态
 
-立项阶段 —— 目前只有规划与设计文档，尚无代码。下一步见 [路线图 M0](docs/04-roadmap.md)。
+M0 技术验证进行中：脚手架、延迟测量工具、TTS 试听页、形象演示都在仓库里。供应商组合的端到端数字要等密钥和国内网络，结论写在 `evals/latency/REPORT.md`、`evals/tts/REPORT.md` 和 `apps/web/M0_REPORT.md`。

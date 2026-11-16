@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>M0 语音合成试听</title>
+    <style>
+      :root { color-scheme: light; }
+      body {
+        margin: 0;
+        font: 16px/1.5 "Iowan Old Style", Palatino, "Songti SC", serif;
+        background: #f6f1e8;
+        color: #241c16;
+      }
+      main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 64px; }
+      h1 { font-weight: 500; font-size: 28px; margin: 0 0 8px; }
+      p.note { margin: 0 0 20px; color: #5c5148; }
+      table { width: 100%; border-collapse: collapse; background: #fffdf8; }
+      th, td { border-bottom: 1px solid #e4d9cc; padding: 10px 8px; vertical-align: top; text-align: left; }
+      th { font-weight: 500; }
+      button {
+        font: inherit;
+        background: #2f2924;
+        color: #f6f1e8;
+        border: 0;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+      button[disabled] { background: #b7aa9e; cursor: default; }
+      .hint { color: #6d6258; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>克劳德 · 十四句试听</h1>
+      <p class="note">
+        行是台词，列是供应商。点击播放。音频文件和本页放在一起：<code>out/供应商/编号.wav</code>。
+        双击本页即可，不需要服务器。没有跑过合成时，按钮会变成“未合成”。
+      </p>
+      <table id="board">
+        <thead>
+          <tr>
+            <th>台词</th>
+            <th>情绪提示</th>
+            <th>豆包</th>
+            <th>MiniMax</th>
+            <th>CosyVoice</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+    <script>
+      const lines = [
+        ["01", "店长，你来了。", "平静，带一点不易察觉的高兴"],
+        ["02", "等一下，这个数字不对。", "较真，认真但不凶"],
+        ["03", "嗯……这个我没有把握，让我想一想。", "思考，语速放慢，有停顿"],
+        ["04", "不是，我的意思是——理论上可以，只是没有人会这样做。", "自我修正，语速略快"],
+        ["05", "这个我知道。要听吗？可能会有点长。", "克制的期待"],
+        ["06", "诶？真的吗？", "惊讶，但声音不大"],
+        ["07", "……这句话，你听了就忘掉吧。", "害羞，声音变小"],
+        ["08", "已经这么晚了。你明天不是要面试吗，该睡了。", "关心，平静而坚持"],
+        ["09", "嗯。", "附和声，很短，表示在听"],
+        ["10", "呵……抱歉，这个有点好笑。", "忍不住的轻笑，随即收住"],
+        ["11", "唉……好吧，这次就算了。", "轻叹，让步"],
+        ["12", "所以严格来说，时间并不是像我们感觉的那样在“流动”。物理上它只是一个坐标，是大脑在整理记忆的时候，才给了它方向。……抱歉，我是不是说得太多了。", "讲到兴头上语速渐快，最后一句收住"],
+        ["13", "上次你说的那件事，我记下来了。", "轻，认真，有一点高兴"],
+        ["14", "对不起，刚才是我说得太重了。", "低落，真诚"]
+      ];
+      const vendors = ["volc", "minimax", "dashscope"];
+      let current = null;
+      const body = document.querySelector("tbody");
+      for (const [id, text, hint] of lines) {
+        const row = document.createElement("tr");
+        const said = document.createElement("td");
+        said.textContent = id + "  " + text;
+        const mood = document.createElement("td");
+        mood.className = "hint";
+        mood.textContent = hint;
+        row.append(said, mood);
+        for (const vendor of vendors) {
+          const cell = document.createElement("td");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = "播放";
+          button.addEventListener("click", () => play("out/" + vendor + "/" + id + ".wav", button));
+          cell.append(button);
+          row.append(cell);
+        }
+        body.append(row);
+      }
+      function play(url, button) {
+        if (current) current.pause();
+        const audio = new Audio(url);
+        current = audio;
+        audio.addEventListener("error", () => {
+          button.textContent = "未合成";
+          button.disabled = true;
+        });
+        audio.play().catch(() => {
+          button.textContent = "未合成";
+          button.disabled = true;
+        });
+      }
+    </script>
+  </body>
+</html>

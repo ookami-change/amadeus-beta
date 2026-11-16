@@ -1,0 +1,26 @@
+[project]
+name = "amadeus-agent"
+version = "0.0.1"
+description = "Realtime agent shell. Speech, director, and memory start after M0."
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = ["mypy>=1.13", "ruff>=0.8"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src"]
+mypy_path = "src"
