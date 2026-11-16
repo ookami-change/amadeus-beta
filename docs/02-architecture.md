@@ -89,15 +89,15 @@ flowchart LR
 - **慢脑**：按需触发（知识性问题、需要搜索、需要翻找久远记忆）。更强的模型 + 工具，异步运行，结果注入快脑的下一句。期间快脑维持对话
 - **后台脑**：会话外运行，做记忆巩固、准备下次开场话题（见 03 文档）
 
-模型层做成可替换接口。默认方案用 Claude 系列：快脑用 Haiku 档，慢脑与后台用 Sonnet / Opus 档，具体型号在 M0 以延迟实测决定。
+模型层做成可替换接口。项目走国内线：快脑用国内模型的低延迟档，慢脑与后台用旗舰档，具体型号在 M0 以延迟实测和人设稳定性试听决定，候选见 [06 供应商候选](06-vendors.md)。
 
 ### 3.2 表演脚本格式
 
 快脑的输出是带内联标注的流式文本：
 
 ```
-[emo:annoyed+0.3][gaze:away]哈？[pause:300]你是认真在问这个吗。
-[gesture:arms_cross][gaze:user]……算了，[emo:smug]听好了，我只讲一遍。
+[gaze:away][expr:thinking]嗯……[pause:400]这个我没有把握。
+[gaze:user][emo:curious+0.2]不过可以查。[gesture:hand_on_chin]店长是从哪里听来的？
 ```
 
 - 标注词表是**封闭集合**，由协议定义（表情、视线、手势、姿态、停顿、情绪增量）
@@ -175,9 +175,9 @@ flowchart LR
 | 实时传输 | WebRTC（候选：LiveKit） | 自带回声消除、抖动缓冲、数据通道 |
 | 智能体框架 | Python（候选：LiveKit Agents / Pipecat） | 提供流式管线和打断处理的骨架，核心的导演逻辑自己写 |
 | VAD / 断句 | Silero VAD + 语义断句模型 | |
-| ASR | 候选：云端流式 ASR / SenseVoice·FunASR（中文强，附带情绪识别） | 需要中文流式 + 低延迟 |
-| LLM | Claude（快脑 Haiku 档 / 慢脑 Sonnet·Opus 档） | 接口可替换；人设提示词走缓存 |
-| TTS | 候选：商用流式情感 TTS / CosyVoice·GPT-SoVITS 等开源方案自训练声线 | **全项目最关键的选型**，决定"像不像人"的一半 |
+| ASR | 国内线候选：豆包流式识别、阿里 Paraformer 实时版；自托管备选 SenseVoice·FunASR | 需要中文流式 + 低延迟 |
+| LLM | 国内线候选：豆包、通义千问等（快脑用低延迟档，慢脑用旗舰档） | 接口可替换；人设提示词走缓存 |
+| TTS | 国内线候选：豆包语音合成大模型、MiniMax、CosyVoice；远期自训练声线 | **全项目最关键的选型**，决定"像不像人"的一半 |
 | 记忆库 | Postgres + pgvector | 一个库解决结构化 + 向量 + 全文 |
 | 模型资产 | 原型用 VRoid Studio；正式版定制 | |
 | 动作资产 | VRMA；来源：动捕库重定向 + 手 K 关键动作 | |
