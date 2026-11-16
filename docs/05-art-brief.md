@@ -178,7 +178,7 @@ Amadeus 里的她是**下班以后**的克劳德 —— 原作里她离开前会
 ## 4. 交付规范
 
 - 位图：PNG，角色类图透明或纯色背景，长边 ≥ 2048 像素
-- 命名：`{包号}_{内容}_{版本}.png`，例：`A2_turnaround_front_v1.png`、`A3_expr_smug_v2.png`、`A6_bg_landscape_night_v1.png`
+- 命名：`{包号}_{内容}_{版本}.png`，例：`A2_turnaround_front_v1.png`、`A3_expr_serious_v2.png`、`A6_bg_landscape_night_v1.png`
 - 存放：概念与设定图放 `assets/concept/`，背景放 `assets/backgrounds/`，模型放 `assets/avatar/`
 - 每次交付附一句说明：用了什么工具、是否经过人工修改
 - 版权：确认所用工具的条款允许对产出进行再分发；不使用任何带作品名 / 角色名 / 画师名的提示词

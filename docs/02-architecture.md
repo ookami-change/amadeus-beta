@@ -155,8 +155,8 @@ flowchart LR
 
 // 时间轴类：绑定到某段语音的播放时间
 { "type": "timeline", "utterance_id": "u_42", "events": [
-    { "t": 0,    "expression": "annoyed", "gaze": "away" },
-    { "t": 1150, "gesture": "arms_cross", "gaze": "user" }
+    { "t": 0,    "expression": "thinking", "gaze": "away" },
+    { "t": 1150, "gesture": "hand_on_chin", "gaze": "user" }
   ],
   "visemes": [ { "t": 0, "v": "a" }, { "t": 90, "v": "i" } ]
 }
