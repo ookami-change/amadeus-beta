@@ -20,7 +20,7 @@ MiniMax（`speech-2.8-hd`，Intellectual Girl）和 CosyVoice（`cosyvoice-v3-fl
 
 每条台词的情绪提示和准备下发的参数在 `lines.py`。MiniMax 没有“轻笑”或“叹气”这两个枚举，第 10、11 条只能用 `calm`，笑声和叹气要靠台词里的“呵”“唉”。`whisper` 在 speech-2.8 的文档里不可用，第 7 条用降低音量代替。CosyVoice 选定的音色不能下指令，就按原句合成。
 
-延迟测量如果开跑，MiniMax 用 `speech-2.8-turbo`。试听如果开跑，MiniMax 用 `speech-2.8-hd`，因为这条任务看的是表现力。
+链路测量用的是 MiniMax `speech-2.8-turbo`。试听用的是 `speech-2.8-hd`。
 
 ## 能力矩阵
 
