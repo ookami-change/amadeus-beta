@@ -25,7 +25,7 @@ from latency.scoring import classify_endpoint
 
 FRAME_MS = 20.0
 ASR_PACKET_MS = 200.0
-ASR_WAIT_S = 0.6
+ASR_WAIT_S = 3.0
 
 
 @dataclass
@@ -172,9 +172,15 @@ async def realtime_trial(
             break
         await asyncio.sleep(0.02)
     try:
-        await asyncio.wait_for(asr_task, timeout=2.0)
+        await asyncio.wait_for(asr_task, timeout=3.0)
     except TimeoutError:
         asr_task.cancel()
+        try:
+            await asr_task
+        except asyncio.CancelledError:
+            pass
+        except Exception:
+            pass
 
     # Decision.t_ms is the paced audio time plus model compute, which matches the
     # wall clock at the moment of the decision. Measuring it again after the ASR

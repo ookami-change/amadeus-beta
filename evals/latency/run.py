@@ -185,57 +185,118 @@ async def _realtime_matrix(
             model = semantic_model if mode == "semantic" else None
             for repeat in range(1, repeats + 1):
                 for item in items:
-                    asr = build_asr(asr_name, settings)
-                    if isinstance(asr, MockASR):
-                        asr.transcript = item.text
-                    llm = build_llm(llm_name, settings)
-                    tts = build_tts(tts_name, settings)
-                    try:
-                        trial = await realtime_trial(
-                            item,
-                            combo=f"{asr_name}/{llm_name}/{tts_name}",
-                            mode=mode,
-                            repeat=repeat,
-                            asr=asr,
-                            llm=llm,
-                            tts=tts,
-                            system=system,
-                            history=history,
-                            model=model,
-                            oracle_partials=oracle,
-                            mock=mock,
-                            instruction=STABLE_INSTRUCTION,
-                        )
-                    except Exception as exc:
-                        trial = Trial(
-                            combo=f"{asr_name}/{llm_name}/{tts_name}",
-                            endpoint=mode,
-                            item_id=item.item_id,
-                            category=item.category,
-                            repeat=repeat,
-                            ok=False,
-                            error=redact(str(exc)),
-                            partial_source="oracle" if oracle else "asr",
-                            t_speech_end=item.speech_end_ms,
-                            t_endpoint=None,
-                            t_asr_final=None,
-                            t_llm_first_token=None,
-                            t_llm_first_clause=None,
-                            t_tts_first_audio=None,
-                            early=False,
-                            false_barge_in=False,
-                            asr_used_partial=False,
-                            endpoint_reason="error",
-                            transcript="",
-                            reply="",
-                            cached_tokens=None,
-                            prompt_tokens=None,
-                            mock=mock,
-                        )
+                    trial = await _one_trial(
+                        item,
+                        asr_name=asr_name,
+                        llm_name=llm_name,
+                        tts_name=tts_name,
+                        mode=mode,
+                        repeat=repeat,
+                        settings=settings,
+                        system=system,
+                        history=history,
+                        model=model,
+                        oracle=oracle,
+                        mock=mock,
+                    )
                     trials.append(trial)
                     state = "ok" if trial.ok else trial.error
                     print(f"{trial.combo} {mode} #{repeat} {item.item_id} {state}", flush=True)
+                    if not mock:
+                        await asyncio.sleep(1.5)
     return trials
+
+
+async def _one_trial(
+    item: Item,
+    *,
+    asr_name: str,
+    llm_name: str,
+    tts_name: str,
+    mode: str,
+    repeat: int,
+    settings: Settings,
+    system: str,
+    history: list[dict[str, str]],
+    model: CompletenessModel | None,
+    oracle: bool,
+    mock: bool,
+) -> Trial:
+    trial: Trial | None = None
+    for attempt in range(1, 4):
+        asr = build_asr(asr_name, settings)
+        if isinstance(asr, MockASR):
+            asr.transcript = item.text
+        llm = build_llm(llm_name, settings)
+        tts = build_tts(tts_name, settings)
+        try:
+            trial = await realtime_trial(
+                item,
+                combo=f"{asr_name}/{llm_name}/{tts_name}",
+                mode=mode,
+                repeat=repeat,
+                asr=asr,
+                llm=llm,
+                tts=tts,
+                system=system,
+                history=history,
+                model=model,
+                oracle_partials=oracle,
+                mock=mock,
+                instruction=STABLE_INSTRUCTION,
+            )
+        except Exception as exc:
+            trial = _failed_trial(item, asr_name, llm_name, tts_name, mode, repeat, mock, oracle, redact(str(exc)))
+        if trial.ok or not _retryable(trial.error) or attempt == 3:
+            return trial
+        await asyncio.sleep(8.0 * attempt)
+    assert trial is not None
+    return trial
+
+
+def _retryable(error: str | None) -> bool:
+    if not error:
+        return False
+    text = error.lower()
+    return any(token in text for token in ("429", "limit_requests", "throttl", "empty transcript"))
+
+
+def _failed_trial(
+    item: Item,
+    asr_name: str,
+    llm_name: str,
+    tts_name: str,
+    mode: str,
+    repeat: int,
+    mock: bool,
+    oracle: bool,
+    error: str,
+) -> Trial:
+    return Trial(
+        combo=f"{asr_name}/{llm_name}/{tts_name}",
+        endpoint=mode,
+        item_id=item.item_id,
+        category=item.category,
+        repeat=repeat,
+        ok=False,
+        error=error,
+        partial_source="oracle" if oracle else "asr",
+        t_speech_end=item.speech_end_ms,
+        t_endpoint=None,
+        t_asr_final=None,
+        t_llm_first_token=None,
+        t_llm_first_clause=None,
+        t_tts_first_audio=None,
+        early=False,
+        false_barge_in=False,
+        asr_used_partial=False,
+        endpoint_reason="error",
+        transcript="",
+        reply="",
+        cached_tokens=None,
+        prompt_tokens=None,
+        mock=mock,
+    )
 
 
 def _history() -> list[dict[str, str]]:

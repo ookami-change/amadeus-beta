@@ -1,0 +1,761 @@
+{
+  "line": 11,
+  "text": "唉……好吧，这次就算了。",
+  "hint": "轻叹，让步",
+  "instruction": "轻叹，然后让步。不抱怨。",
+  "emotion": "calm",
+  "speed": 0.92,
+  "volume": 1.0,
+  "first_audio_ms": 3245.1,
+  "sample_rate": 22050,
+  "marks": [
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "唉",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 68,
+                  "end_time": 275
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 275,
+                  "end_time": 379
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 379,
+                  "end_time": 482
+                },
+                {
+                  "text": "好",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 482,
+                  "end_time": 620
+                }
+              ]
+            },
+            "type": "sentence-begin",
+            "original_text": "唉……好吧，这次就算了。",
+            "normalized_text": "唉……好吧，这次就算了。"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "唉",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 68,
+                  "end_time": 275
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 275,
+                  "end_time": 379
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 379,
+                  "end_time": 482
+                },
+                {
+                  "text": "好",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 482,
+                  "end_time": 620
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "唉",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 68,
+                  "end_time": 275
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 275,
+                  "end_time": 379
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 379,
+                  "end_time": 482
+                },
+                {
+                  "text": "好",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 482,
+                  "end_time": 827
+                },
+                {
+                  "text": "吧",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 827,
+                  "end_time": 965
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 965,
+                  "end_time": 1103
+                },
+                {
+                  "text": "这",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1172,
+                  "end_time": 1586
+                },
+                {
+                  "text": "次",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1655,
+                  "end_time": 1793
+                },
+                {
+                  "text": "就",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 1793,
+                  "end_time": 1931
+                },
+                {
+                  "text": "算",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 1931,
+                  "end_time": 2068
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "唉",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 68,
+                  "end_time": 275
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 275,
+                  "end_time": 379
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 379,
+                  "end_time": 482
+                },
+                {
+                  "text": "好",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 482,
+                  "end_time": 827
+                },
+                {
+                  "text": "吧",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 827,
+                  "end_time": 965
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 965,
+                  "end_time": 1103
+                },
+                {
+                  "text": "这",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1172,
+                  "end_time": 1586
+                },
+                {
+                  "text": "次",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1655,
+                  "end_time": 1793
+                },
+                {
+                  "text": "就",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 1793,
+                  "end_time": 1931
+                },
+                {
+                  "text": "算",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 1931,
+                  "end_time": 2068
+                },
+                {
+                  "text": "了",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 2137,
+                  "end_time": 2344
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "be3ae802-ff52-4c98-82d3-4a7f82eb1289",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "唉",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 68,
+                  "end_time": 275
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 275,
+                  "end_time": 379
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 379,
+                  "end_time": 482
+                },
+                {
+                  "text": "好",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 482,
+                  "end_time": 827
+                },
+                {
+                  "text": "吧",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 827,
+                  "end_time": 965
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 965,
+                  "end_time": 1103
+                },
+                {
+                  "text": "这",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1172,
+                  "end_time": 1586
+                },
+                {
+                  "text": "次",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1655,
+                  "end_time": 1793
+                },
+                {
+                  "text": "就",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 1793,
+                  "end_time": 1931
+                },
+                {
+                  "text": "算",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 1931,
+                  "end_time": 2068
+                },
+                {
+                  "text": "了",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 2137,
+                  "end_time": 2344
+                }
+              ]
+            },
+            "type": "sentence-end",
+            "original_text": "唉……好吧，这次就算了。",
+            "normalized_text": "唉……好吧，这次就算了。"
+          },
+          "usage": {
+            "characters": 20
+          }
+        }
+      }
+    }
+  ]
+}

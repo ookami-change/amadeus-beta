@@ -23,15 +23,28 @@ uv run --directory evals python -m latency.run --region "所在城市"
 
 ## 供应商组合
 
-计划中的 12 组（2 家 ASR × 2 家 LLM × 3 家 TTS）一次都没有打到对方服务器。
+密钥放在本机 `.env`，没有入库。2026-11-17 23:17（新加坡时间）从俄勒冈打了一轮。机器仍不在国内，所以这些数字含跨境往返，不能当成「国内 P50 ≤ 800ms」的结论。
 
-| 环节 | 计划 | 本次 |
-|---|---|---|
-| ASR | 豆包流式识别 2.0、Paraformer 实时 | 未调用 |
-| LLM | `doubao-seed-1-6-flash-250828`（关闭思考）、`qwen3.6-flash`（关闭思考） | 未调用 |
-| TTS | 豆包语音合成 2.0、MiniMax `speech-2.8-turbo`、CosyVoice `cosyvoice-v3-flash` | 未调用 |
+| 环节 | 这把密钥的结果 |
+|---|---|
+| 豆包流式识别、豆包语音合成 | 鉴权通过。小时版、并发版、1.0、2.0 都返回 `resource not granted`，商品没开通 |
+| 方舟快脑 | 鉴权通过。`doubao-seed-1-6-flash-250828` 以及账号模型列表里的 turbo / lite / mini / character 都是 `ModelNotOpen`，控制台还没开通 |
+| Paraformer 实时 | 开头能识别。连打之后变成 1007，再单呼一次是账号状态异常 |
+| 通义 | `qwen3.6-flash` 先通了一次，随后 `AccessDenied.Unpurchased`。`qwen-turbo` 能通，但测量打满后返回 429 |
+| MiniMax `speech-2.8-turbo` | 链路里可用 |
+| CosyVoice `longanwen_v3` | 14 条试听合成成功。接着再呼返回账号状态异常 |
 
-因此没有端到端 `t_tts_first_audio − t_speech_end`，也没有 P50 800ms / P95 1500ms 的结论。瓶颈在哪一环，要等国内实测才能说。
+因此 12 组里只有 `Paraformer + qwen-turbo + MiniMax` 有成功样本，而且 60 次里成功 14 次、其中未抢话 9 次。`Paraformer + qwen-turbo + CosyVoice` 60 次全部失败。没有凑满 8 组。账号已经限流，没有继续打。
+
+未抢话的 9 次，端到端和分环节（毫秒，最近秩）：
+
+| 组合 | n | 端到端 P50 | 端到端 P95 | 断句 P50 | ASR P50 | LLM 首 token P50 | 子句 P50 | TTS 首包 P50 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Paraformer / qwen-turbo / MiniMax | 9 | 6761 | 18679 | 500 | 510 | 5373 | 17 | 492 |
+
+P95 只有 9 个点，不稳定。能看清的是：断句就是 500ms 阈值，TTS 首包大约 0.5s，时间主要耗在从俄勒冈打到通义的首 token（P50 约 5.4s）。国内同地域把这一跳拿掉之后，800ms 仍要重测，不能用这张表下结论。
+
+原始记录：`results/cascade-oregon.json`。断句用的是固定 500ms。标点模型那套语义断句会提前截断，没有拿去跑供应商链路。
 
 ## 语料
 

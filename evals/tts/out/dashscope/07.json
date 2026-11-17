@@ -1,0 +1,713 @@
+{
+  "line": 7,
+  "text": "……这句话，你听了就忘掉吧。",
+  "hint": "害羞，声音变小",
+  "instruction": "害羞，声音变小，几乎不想让人听清。",
+  "emotion": "calm",
+  "speed": 0.94,
+  "volume": 0.6,
+  "first_audio_ms": 3093.9,
+  "sample_rate": 22050,
+  "marks": [
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "…",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 107
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 107,
+                  "end_time": 214
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 214,
+                  "end_time": 357
+                },
+                {
+                  "text": "句",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 357,
+                  "end_time": 500
+                },
+                {
+                  "text": "话",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 500,
+                  "end_time": 642
+                }
+              ]
+            },
+            "type": "sentence-begin",
+            "original_text": "……这句话，你听了就忘掉吧。",
+            "normalized_text": "……这句话，你听了就忘掉吧。"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "…",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 107
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 107,
+                  "end_time": 214
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 214,
+                  "end_time": 357
+                },
+                {
+                  "text": "句",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 357,
+                  "end_time": 500
+                },
+                {
+                  "text": "话",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 500,
+                  "end_time": 642
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "…",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 107
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 107,
+                  "end_time": 214
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 214,
+                  "end_time": 357
+                },
+                {
+                  "text": "句",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 357,
+                  "end_time": 500
+                },
+                {
+                  "text": "话",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 500,
+                  "end_time": 642
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 642,
+                  "end_time": 928
+                },
+                {
+                  "text": "你",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 928,
+                  "end_time": 1142
+                },
+                {
+                  "text": "听",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1214,
+                  "end_time": 1357
+                },
+                {
+                  "text": "了",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 1357,
+                  "end_time": 1500
+                },
+                {
+                  "text": "就",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 1571,
+                  "end_time": 1642
+                },
+                {
+                  "text": "忘",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 1642,
+                  "end_time": 1785
+                },
+                {
+                  "text": "掉",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 1857,
+                  "end_time": 2000
+                },
+                {
+                  "text": "吧",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 2000,
+                  "end_time": 2142
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "ba9b382d-0d3b-4749-8dbb-226482d7d2ae",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "…",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 107
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 107,
+                  "end_time": 214
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 214,
+                  "end_time": 357
+                },
+                {
+                  "text": "句",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 357,
+                  "end_time": 500
+                },
+                {
+                  "text": "话",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 500,
+                  "end_time": 642
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 642,
+                  "end_time": 928
+                },
+                {
+                  "text": "你",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 928,
+                  "end_time": 1142
+                },
+                {
+                  "text": "听",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1214,
+                  "end_time": 1357
+                },
+                {
+                  "text": "了",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 1357,
+                  "end_time": 1500
+                },
+                {
+                  "text": "就",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 1571,
+                  "end_time": 1642
+                },
+                {
+                  "text": "忘",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 1642,
+                  "end_time": 1785
+                },
+                {
+                  "text": "掉",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 1857,
+                  "end_time": 2000
+                },
+                {
+                  "text": "吧",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 2000,
+                  "end_time": 2142
+                }
+              ]
+            },
+            "type": "sentence-end",
+            "original_text": "……这句话，你听了就忘掉吧。",
+            "normalized_text": "……这句话，你听了就忘掉吧。"
+          },
+          "usage": {
+            "characters": 24
+          }
+        }
+      }
+    }
+  ]
+}
