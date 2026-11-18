@@ -1,0 +1,68 @@
+{
+  "line": 1,
+  "text": "店长，你来了。",
+  "hint": "平静，带一点不易察觉的高兴",
+  "instruction": "平静，带一点几乎听不出来的高兴。声音不大。",
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 1.0,
+  "first_audio_ms": 2446.0,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "店长，你来了。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "店长，你来了。",
+        "words": [
+          {
+            "confidence": 0.86273384,
+            "endTime": 0.155,
+            "startTime": 0,
+            "word": "店"
+          },
+          {
+            "confidence": 0.93374753,
+            "endTime": 0.465,
+            "startTime": 0.155,
+            "word": "长，"
+          },
+          {
+            "confidence": 0.9311205,
+            "endTime": 0.765,
+            "startTime": 0.635,
+            "word": "你"
+          },
+          {
+            "confidence": 0.9581063,
+            "endTime": 0.965,
+            "startTime": 0.765,
+            "word": "来"
+          },
+          {
+            "confidence": 0.9512475,
+            "endTime": 1.175,
+            "startTime": 0.965,
+            "word": "了。"
+          }
+        ]
+      }
+    }
+  ]
+}

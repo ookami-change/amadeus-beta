@@ -1,0 +1,140 @@
+{
+  "line": 5,
+  "text": "这个我知道。要听吗？可能会有点长。",
+  "hint": "克制的期待",
+  "instruction": "有一点期待，压着，不兴奋。",
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 1.0,
+  "first_audio_ms": 2254.4,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "这个我知道。要听吗？可能会有点长。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "这个我知道。",
+        "words": [
+          {
+            "confidence": 0.94002914,
+            "endTime": 0.155,
+            "startTime": 0,
+            "word": "这"
+          },
+          {
+            "confidence": 0.44141597,
+            "endTime": 0.255,
+            "startTime": 0.155,
+            "word": "个"
+          },
+          {
+            "confidence": 0.77383757,
+            "endTime": 0.375,
+            "startTime": 0.255,
+            "word": "我"
+          },
+          {
+            "confidence": 0.8789433,
+            "endTime": 0.535,
+            "startTime": 0.375,
+            "word": "知"
+          },
+          {
+            "confidence": 0.9795946,
+            "endTime": 0.785,
+            "startTime": 0.535,
+            "word": "道。"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "要听吗？",
+        "words": [
+          {
+            "confidence": 0.45768154,
+            "endTime": 1.5850416,
+            "startTime": 1.5400417,
+            "word": "要"
+          },
+          {
+            "confidence": 0.23204295,
+            "endTime": 1.6450417,
+            "startTime": 1.5850416,
+            "word": "听"
+          },
+          {
+            "confidence": 0.3420546,
+            "endTime": 1.9750416,
+            "startTime": 1.9150417,
+            "word": "吗？"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "可能会有点长。",
+        "words": [
+          {
+            "confidence": 0.4542038,
+            "endTime": 2.0550833,
+            "startTime": 1.9800833,
+            "word": "可"
+          },
+          {
+            "confidence": 0.16836543,
+            "endTime": 2.1150835,
+            "startTime": 2.0550833,
+            "word": "能"
+          },
+          {
+            "confidence": 0.61633325,
+            "endTime": 2.1850834,
+            "startTime": 2.1150835,
+            "word": "会"
+          },
+          {
+            "confidence": 0.938472,
+            "endTime": 2.2750833,
+            "startTime": 2.1850834,
+            "word": "有"
+          },
+          {
+            "confidence": 0.9731864,
+            "endTime": 2.4150834,
+            "startTime": 2.2750833,
+            "word": "点"
+          },
+          {
+            "confidence": 0.9782647,
+            "endTime": 2.7950833,
+            "startTime": 2.4150834,
+            "word": "长。"
+          }
+        ]
+      }
+    }
+  ]
+}
