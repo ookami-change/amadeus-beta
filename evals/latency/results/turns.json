@@ -1,0 +1,803 @@
+{
+  "kind": "turn-detection",
+  "generated_at": "2026-11-18T17:25:23.532391+00:00",
+  "python": "3.12.3",
+  "platform": "Linux-6.12.113+-x86_64-with-glibc2.39",
+  "asr": "sherpa-onnx streaming paraformer",
+  "consult_ms": 200.0,
+  "cap_ms": 1200.0,
+  "livekit_threshold": 0.0066,
+  "notes": [
+    "文本模型的输入是流式 Paraformer 的当前整句假设，不是语料原文。",
+    "静音满 200ms 问一次模型；模型判没说完就继续听，静音满 1200ms 强制结束。",
+    "端点滞后只统计没有提前截断的样本。推理耗时是每次调用模型的 CPU 时间。",
+    "TEN Turn Detection 只发布了四份 safetensors，合计 15231271864 字节，没有 onnx 或 gguf。当时这台机器可用内存约 4.5 GiB，没有加载它，所以没有它的数字。"
+  ],
+  "summary": {
+    "fixed-500": {
+      "n": 20,
+      "early": 15,
+      "early_rate": 0.75,
+      "false_barge_in": 15,
+      "false_barge_in_rate": 0.75,
+      "lag_ms": {
+        "p50": 510.0,
+        "p95": 510.0,
+        "n": 5
+      },
+      "infer_ms": {
+        "p50": null,
+        "p95": null,
+        "n": 0
+      }
+    },
+    "smart-turn+200/1200": {
+      "n": 20,
+      "early": 13,
+      "early_rate": 0.65,
+      "false_barge_in": 0,
+      "false_barge_in_rate": 0.0,
+      "lag_ms": {
+        "p50": 255.8,
+        "p95": 1244.4,
+        "n": 7
+      },
+      "infer_ms": {
+        "p50": 42.34,
+        "p95": 85.68,
+        "n": 45
+      }
+    },
+    "livekit-text+200/1200": {
+      "n": 20,
+      "early": 18,
+      "early_rate": 0.9,
+      "false_barge_in": 10,
+      "false_barge_in_rate": 0.5,
+      "lag_ms": {
+        "p50": 231.3,
+        "p95": 715.0,
+        "n": 2
+      },
+      "infer_ms": {
+        "p50": 13.19,
+        "p95": 21.3,
+        "n": 41
+      }
+    }
+  },
+  "trials": {
+    "fixed-500": [
+      {
+        "id": "t01",
+        "endpoint_ms": 4140.0,
+        "lag_ms": 510.0,
+        "reason": "silence-500",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "杯子我都擦过了然后饼再转到同一",
+        "infer_ms": []
+      },
+      {
+        "id": "t02",
+        "endpoint_ms": 2420.0,
+        "lag_ms": -2400.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "让我又对了一遍就",
+        "infer_ms": []
+      },
+      {
+        "id": "t03",
+        "endpoint_ms": 3020.0,
+        "lag_ms": -2360.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "这本书我看到第三章",
+        "infer_ms": []
+      },
+      {
+        "id": "t04",
+        "endpoint_ms": 4860.0,
+        "lag_ms": 510.0,
+        "reason": "silence-500",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "你要是累了就是先坐下咖啡我重新热",
+        "infer_ms": []
+      },
+      {
+        "id": "t05",
+        "endpoint_ms": 3160.0,
+        "lag_ms": -1430.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "上次你说面试很紧张",
+        "infer_ms": []
+      },
+      {
+        "id": "t06",
+        "endpoint_ms": 3040.0,
+        "lag_ms": -2110.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "打样之后店里会安静",
+        "infer_ms": []
+      },
+      {
+        "id": "t07",
+        "endpoint_ms": 4680.0,
+        "lag_ms": 510.0,
+        "reason": "silence-500",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "外面在下雨就是俺还放在门口你别忘",
+        "infer_ms": []
+      },
+      {
+        "id": "t08",
+        "endpoint_ms": 3040.0,
+        "lag_ms": -1720.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "这个配方不能再少糖",
+        "infer_ms": []
+      },
+      {
+        "id": "t09",
+        "endpoint_ms": 3720.0,
+        "lag_ms": -1690.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "我把你上次说的话记在便签上就",
+        "infer_ms": []
+      },
+      {
+        "id": "t10",
+        "endpoint_ms": 2760.0,
+        "lag_ms": -1950.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "理论上这样写是对的然后",
+        "infer_ms": []
+      },
+      {
+        "id": "t11",
+        "endpoint_ms": 3160.0,
+        "lag_ms": -1480.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "家规里不许说没有把握的话",
+        "infer_ms": []
+      },
+      {
+        "id": "t12",
+        "endpoint_ms": 5180.0,
+        "lag_ms": 500.0,
+        "reason": "silence-500",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "你明天不是要面试吗就是第一句我们先说顺就好",
+        "infer_ms": []
+      },
+      {
+        "id": "t13",
+        "endpoint_ms": 2740.0,
+        "lag_ms": -1350.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "我刚才把杯子扣好了然",
+        "infer_ms": []
+      },
+      {
+        "id": "t14",
+        "endpoint_ms": 2920.0,
+        "lag_ms": -1380.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "这件事我没有把握就",
+        "infer_ms": []
+      },
+      {
+        "id": "t15",
+        "endpoint_ms": 2620.0,
+        "lag_ms": -2600.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "店长你说的那件事然后",
+        "infer_ms": []
+      },
+      {
+        "id": "t16",
+        "endpoint_ms": 2600.0,
+        "lag_ms": -2770.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "要是没有那本厚书就是",
+        "infer_ms": []
+      },
+      {
+        "id": "t17",
+        "endpoint_ms": 4980.0,
+        "lag_ms": 500.0,
+        "reason": "silence-500",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "今天的豆子我已经称好然后明天不用再称",
+        "infer_ms": []
+      },
+      {
+        "id": "t18",
+        "endpoint_ms": 2260.0,
+        "lag_ms": -1870.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "你要是不想讲就",
+        "infer_ms": []
+      },
+      {
+        "id": "t19",
+        "endpoint_ms": 2180.0,
+        "lag_ms": -2070.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "我不是要上课然后",
+        "infer_ms": []
+      },
+      {
+        "id": "t20",
+        "endpoint_ms": 2280.0,
+        "lag_ms": -2420.0,
+        "reason": "silence-500",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "已经这么晚了就",
+        "infer_ms": []
+      }
+    ],
+    "smart-turn+200/1200": [
+      {
+        "id": "t01",
+        "endpoint_ms": 1402.5,
+        "lag_ms": -2227.5,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "杯子我",
+        "infer_ms": [
+          62.46
+        ]
+      },
+      {
+        "id": "t02",
+        "endpoint_ms": 1437.4,
+        "lag_ms": -3382.6,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "让我又",
+        "infer_ms": [
+          117.41
+        ]
+      },
+      {
+        "id": "t03",
+        "endpoint_ms": 2099.4,
+        "lag_ms": -3280.6,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "这本书我看到第三",
+        "infer_ms": [
+          59.36
+        ]
+      },
+      {
+        "id": "t04",
+        "endpoint_ms": 4605.8,
+        "lag_ms": 255.8,
+        "reason": "complete",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "你要是累了就是先坐下咖啡我重新热",
+        "infer_ms": [
+          85.68,
+          82.27,
+          47.31,
+          31.72,
+          45.83
+        ]
+      },
+      {
+        "id": "t05",
+        "endpoint_ms": 2158.3,
+        "lag_ms": -2431.7,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "上次你说面试很紧",
+        "infer_ms": [
+          38.26
+        ]
+      },
+      {
+        "id": "t06",
+        "endpoint_ms": 2079.5,
+        "lag_ms": -3070.5,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "打样之后店里会安",
+        "infer_ms": [
+          39.49
+        ]
+      },
+      {
+        "id": "t07",
+        "endpoint_ms": 4415.7,
+        "lag_ms": 245.7,
+        "reason": "complete",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "外面在下雨就是俺还放在门口",
+        "infer_ms": [
+          54.3,
+          96.56,
+          46.77,
+          38.58,
+          35.71
+        ]
+      },
+      {
+        "id": "t08",
+        "endpoint_ms": 2099.3,
+        "lag_ms": -2660.7,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "这个配方不能再少",
+        "infer_ms": [
+          39.29
+        ]
+      },
+      {
+        "id": "t09",
+        "endpoint_ms": 2668.6,
+        "lag_ms": -2741.4,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "我把你上次说的话记在便签",
+        "infer_ms": [
+          48.56
+        ]
+      },
+      {
+        "id": "t10",
+        "endpoint_ms": 1755.4,
+        "lag_ms": -2954.6,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "理论上这样写",
+        "infer_ms": [
+          55.4
+        ]
+      },
+      {
+        "id": "t11",
+        "endpoint_ms": 2175.4,
+        "lag_ms": -2464.6,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "家规里不许说没有把握",
+        "infer_ms": [
+          35.35
+        ]
+      },
+      {
+        "id": "t12",
+        "endpoint_ms": 5924.4,
+        "lag_ms": 1244.4,
+        "reason": "silence-cap",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "你明天不是要面试吗就是第一句我们先说顺就好",
+        "infer_ms": [
+          35.88,
+          43.29,
+          40.17,
+          36.77,
+          44.42
+        ]
+      },
+      {
+        "id": "t13",
+        "endpoint_ms": 4342.0,
+        "lag_ms": 252.0,
+        "reason": "complete",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "我刚才把杯子扣好了然后灯只",
+        "infer_ms": [
+          46.16,
+          41.51,
+          34.43,
+          42.03
+        ]
+      },
+      {
+        "id": "t14",
+        "endpoint_ms": 4564.8,
+        "lag_ms": 264.8,
+        "reason": "complete",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "这件事我没有把握就是我想一想再告",
+        "infer_ms": [
+          55.65,
+          62.77,
+          64.81
+        ]
+      },
+      {
+        "id": "t15",
+        "endpoint_ms": 5454.6,
+        "lag_ms": 234.6,
+        "reason": "complete",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "店长你说的那件事然后我记下来了不是第一",
+        "infer_ms": [
+          35.42,
+          35.16,
+          36.0,
+          42.34,
+          34.56
+        ]
+      },
+      {
+        "id": "t16",
+        "endpoint_ms": 5628.8,
+        "lag_ms": 258.8,
+        "reason": "complete",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "要是没有那本厚书就是我也不知道自己会变",
+        "infer_ms": [
+          38.01,
+          33.67,
+          35.9,
+          51.15,
+          48.79
+        ]
+      },
+      {
+        "id": "t17",
+        "endpoint_ms": 2179.0,
+        "lag_ms": -2301.0,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "今天的豆子我已经称",
+        "infer_ms": [
+          39.04
+        ]
+      },
+      {
+        "id": "t18",
+        "endpoint_ms": 1237.0,
+        "lag_ms": -2893.0,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "你要是不",
+        "infer_ms": [
+          36.96
+        ]
+      },
+      {
+        "id": "t19",
+        "endpoint_ms": 1271.1,
+        "lag_ms": -2978.9,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "我不是",
+        "infer_ms": [
+          51.12
+        ]
+      },
+      {
+        "id": "t20",
+        "endpoint_ms": 1233.6,
+        "lag_ms": -3466.4,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "已经这",
+        "infer_ms": [
+          53.58
+        ]
+      }
+    ],
+    "livekit-text+200/1200": [
+      {
+        "id": "t01",
+        "endpoint_ms": 1425.0,
+        "lag_ms": -2205.0,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "杯子我都擦过",
+        "infer_ms": [
+          59.66,
+          25.04
+        ]
+      },
+      {
+        "id": "t02",
+        "endpoint_ms": 3536.6,
+        "lag_ms": -1283.4,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "让我又对了一遍就是还差",
+        "infer_ms": [
+          16.78,
+          17.03,
+          17.05,
+          16.63
+        ]
+      },
+      {
+        "id": "t03",
+        "endpoint_ms": 2734.0,
+        "lag_ms": -2646.0,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "这本书我看到第三章",
+        "infer_ms": [
+          13.91,
+          13.96
+        ]
+      },
+      {
+        "id": "t04",
+        "endpoint_ms": 1012.1,
+        "lag_ms": -3337.9,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "你要是",
+        "infer_ms": [
+          12.14
+        ]
+      },
+      {
+        "id": "t05",
+        "endpoint_ms": 2133.7,
+        "lag_ms": -2456.3,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "上次你说面试很紧",
+        "infer_ms": [
+          13.69
+        ]
+      },
+      {
+        "id": "t06",
+        "endpoint_ms": 2054.5,
+        "lag_ms": -3095.5,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "打样之后店里会安",
+        "infer_ms": [
+          14.49
+        ]
+      },
+      {
+        "id": "t07",
+        "endpoint_ms": 1952.7,
+        "lag_ms": -2217.3,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "外面在下雨",
+        "infer_ms": [
+          11.98,
+          12.72
+        ]
+      },
+      {
+        "id": "t08",
+        "endpoint_ms": 2753.1,
+        "lag_ms": -2006.9,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "这个配方不能再少糖",
+        "infer_ms": [
+          12.83,
+          13.1
+        ]
+      },
+      {
+        "id": "t09",
+        "endpoint_ms": 2635.2,
+        "lag_ms": -2774.8,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "我把你上次说的话记在便签",
+        "infer_ms": [
+          15.16
+        ]
+      },
+      {
+        "id": "t10",
+        "endpoint_ms": 2473.3,
+        "lag_ms": -2236.7,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "理论上这样写是对的",
+        "infer_ms": [
+          11.68,
+          13.32
+        ]
+      },
+      {
+        "id": "t11",
+        "endpoint_ms": 2154.6,
+        "lag_ms": -2485.4,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "家规里不许说没有把握",
+        "infer_ms": [
+          14.59
+        ]
+      },
+      {
+        "id": "t12",
+        "endpoint_ms": 1772.9,
+        "lag_ms": -2907.1,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": false,
+        "hypothesis": "你明天不是要",
+        "infer_ms": [
+          12.9
+        ]
+      },
+      {
+        "id": "t13",
+        "endpoint_ms": 2453.5,
+        "lag_ms": -1636.5,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "我刚才把杯子扣好了",
+        "infer_ms": [
+          13.16,
+          13.54
+        ]
+      },
+      {
+        "id": "t14",
+        "endpoint_ms": 5015.0,
+        "lag_ms": 715.0,
+        "reason": "complete",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "这件事我没有把握就是我想一想再告诉你",
+        "infer_ms": [
+          11.26,
+          12.57,
+          15.81,
+          15.02
+        ]
+      },
+      {
+        "id": "t15",
+        "endpoint_ms": 2333.1,
+        "lag_ms": -2886.9,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "店长你说的那件事",
+        "infer_ms": [
+          13.14,
+          13.07
+        ]
+      },
+      {
+        "id": "t16",
+        "endpoint_ms": 5601.3,
+        "lag_ms": 231.3,
+        "reason": "complete",
+        "early": false,
+        "false_barge_in": false,
+        "hypothesis": "要是没有那本厚书就是我也不知道自己会变",
+        "infer_ms": [
+          12.45,
+          13.01,
+          12.81,
+          14.31,
+          21.3
+        ]
+      },
+      {
+        "id": "t17",
+        "endpoint_ms": 2854.2,
+        "lag_ms": -1625.8,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "今天的豆子我已经称好",
+        "infer_ms": [
+          14.15,
+          14.17
+        ]
+      },
+      {
+        "id": "t18",
+        "endpoint_ms": 1973.2,
+        "lag_ms": -2156.8,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "你要是不想讲",
+        "infer_ms": [
+          12.26,
+          13.19
+        ]
+      },
+      {
+        "id": "t19",
+        "endpoint_ms": 1891.7,
+        "lag_ms": -2358.3,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "我不是要上课",
+        "infer_ms": [
+          11.26,
+          11.72
+        ]
+      },
+      {
+        "id": "t20",
+        "endpoint_ms": 1992.0,
+        "lag_ms": -2708.0,
+        "reason": "complete",
+        "early": true,
+        "false_barge_in": true,
+        "hypothesis": "已经这么晚了",
+        "infer_ms": [
+          11.12,
+          11.97
+        ]
+      }
+    ]
+  }
+}

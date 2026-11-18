@@ -1,0 +1,697 @@
+{
+  "kind": "first-token",
+  "generated_at": "2026-11-18T17:46:20.773054+00:00",
+  "python": "3.12.16",
+  "platform": "Linux-6.6.119-49.23.oc9.x86_64-x86_64-with-glibc2.38",
+  "vendor": "ark",
+  "model": "glm-5-3-flash-260828",
+  "user": "店长，今天的账还是差三块。你说我要不要现在就改？",
+  "max_tokens": 80,
+  "temperature": 0.7,
+  "gap_s": 1.0,
+  "modes": {
+    "new": {
+      "ok": 38,
+      "n": 50,
+      "first_ms": {
+        "p50": 2156.0,
+        "p95": 3893.2,
+        "n": 38
+      },
+      "cached_tokens": {
+        "p50": 1088.0,
+        "n": 38
+      },
+      "replies": [],
+      "trials": [
+        {
+          "first_ms": 2362.5,
+          "text": "现在改吧。差三块，明早就想不起来了。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1095,
+          "n": 1
+        },
+        {
+          "first_ms": 1791.0,
+          "text": "差三块不是小事。先别改，我们重新对一遍，看看是哪一笔记漏了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 2
+        },
+        {
+          "first_ms": 1771.2,
+          "text": "现在就改？那不叫改账，那叫凑数。先找出来差在哪，找不出来再记进备用金，写明日期。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 3
+        },
+        {
+          "n": 4,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 2775.0,
+          "text": "……店长，账差就是差，不能改平。让我",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 5
+        },
+        {
+          "first_ms": 1893.2,
+          "text": "现在改吧。差三块就是差三块，我不喜欢带着不平的账下班。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 6
+        },
+        {
+          "n": 7,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 2547.2,
+          "text": "……店长，对账是我",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 8
+        },
+        {
+          "n": 9,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 1131.0,
+          "text": "现在改吧。差三块就是差三块，明天它不会自己回来。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 10
+        },
+        {
+          "first_ms": 1879.3,
+          "text": "现在就查。三块钱不会自己回来。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 11
+        },
+        {
+          "first_ms": 3094.7,
+          "text": "现在就查。差三块不是小事，睡觉也不踏实。让我把小票再",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 12
+        },
+        {
+          "first_ms": 1746.4,
+          "text": "现在就查。三块钱不会自己回来的，坐下来一起对吧。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 13
+        },
+        {
+          "first_ms": 3007.9,
+          "text": "嗯……不要现在改。我重新对一遍，可能是小票漏记了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 14
+        },
+        {
+          "first_ms": 1870.7,
+          "text": "嗯……三块不算小。先别改，把单子给我看看，说不定是我记错了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 15
+        },
+        {
+          "n": 16,
+          "error": "no content token"
+        },
+        {
+          "n": 17,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 1368.6,
+          "text": "现在就查吧。三块钱说小不小。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 18
+        },
+        {
+          "n": 19,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 1663.1,
+          "text": "……三块钱不是小数。我现在就对，对完你再走。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 20
+        },
+        {
+          "n": 21,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 2622.6,
+          "text": "先别急着改。差三块，总得先知道差在哪。我再对一遍，你陪我找找小票。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 22
+        },
+        {
+          "first_ms": 2487.8,
+          "text": "要改的。账差三块，就不能就这样下班。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 23
+        },
+        {
+          "first_ms": 1550.3,
+          "text": "要改。差三块也是差，明早再对一遍，不能就这样下班。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 24
+        },
+        {
+          "first_ms": 2924.9,
+          "text": "嗯……账不对就该现在找出来，",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 25
+        },
+        {
+          "n": 26,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 2528.6,
+          "text": "……店长是我叫你的。嗯，账要现在对。差三",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 27
+        },
+        {
+          "first_ms": 2090.5,
+          "text": "嗯……我查过了，是小票少扫了一张，不是你算错。现在补上吧，差三块我不能就这样下班",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 28
+        },
+        {
+          "first_ms": 1751.1,
+          "text": "嗯……店长，是我对账，不用你操心。差三块，我不改。账差着，就是还没找到原因，改了也是错的。让我再翻一遍小票。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 29
+        },
+        {
+          "first_ms": 1276.3,
+          "text": "嗯……三块钱，先别急着改。把收银条再过一遍，差在哪一笔要对得上，才能改。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 30
+        },
+        {
+          "first_ms": 2191.7,
+          "text": "差三块就先找出来在哪。改了就不是真的平了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 31
+        },
+        {
+          "first_ms": 2202.8,
+          "text": "先别动。让我看一遍……嗯，这三块差在冷饮那栏，白天有笔单子记重了。改吧，改完就平了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 32
+        },
+        {
+          "first_ms": 2811.5,
+          "text": "不是，我的意思是——改不得。账平不平是记出来的，不是凑出来的。先找出那三块",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 33
+        },
+        {
+          "n": 34,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 2370.8,
+          "text": "……店长，账是我对的，差的三块",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 35
+        },
+        {
+          "first_ms": 1504.7,
+          "text": "现在就查。差三块不算小数目，明早来对，凭据就凉了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 36
+        },
+        {
+          "first_ms": 2156.0,
+          "text": "嗯……不急。先把今天的单子再对一遍，差在哪儿找到再改。改账这种事，得改得明白。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 37
+        },
+        {
+          "n": 38,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 3893.2,
+          "text": "现在就查。账不平，我不下班。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 39
+        },
+        {
+          "first_ms": 4107.8,
+          "text": "现在就查吧。三块不是小数，是账不平。我陪你一起对。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 40
+        },
+        {
+          "first_ms": 1460.8,
+          "text": "现在就查。三块钱不会自己回来。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 41
+        },
+        {
+          "first_ms": 2622.3,
+          "text": "诶？……店长是我叫你的。不是，我是说——账要现在对。三块钱不会自己回来。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 42
+        },
+        {
+          "first_ms": 2352.2,
+          "text": "……这句是我的台词吧。嗯，现在就改。差三块不是小事，",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 43
+        },
+        {
+          "first_ms": 1808.3,
+          "text": "现在改吧。差三块，放着过夜，明早还是差三块，而且会多背一晚。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 44
+        },
+        {
+          "first_ms": 1175.9,
+          "text": "现在就查。三块钱不会自己回来，晚查它也不会变多。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 45
+        },
+        {
+          "first_ms": 2511.1,
+          "text": "不用，这是我的账，我来对。差三块是我",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 46
+        },
+        {
+          "first_ms": 2704.8,
+          "text": "现在查吧。三块钱也是账，放着过夜我会睡不踏实。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 47
+        },
+        {
+          "first_ms": 1960.5,
+          "text": "要改的。不过先别动，让我再看一遍小票，可能是我记漏了一杯。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 48
+        },
+        {
+          "n": 49,
+          "error": "no content token"
+        },
+        {
+          "n": 50,
+          "error": "no content token"
+        }
+      ]
+    },
+    "reuse": {
+      "ok": 42,
+      "n": 50,
+      "first_ms": {
+        "p50": 2222.6,
+        "p95": 5539.7,
+        "n": 42
+      },
+      "cached_tokens": {
+        "p50": 1088.0,
+        "n": 42
+      },
+      "replies": [
+        "现在改吧。差三块就是差三块，我不想带着一笔糊涂账关灯。",
+        "现在改吧。差三块就不是平的，我不会放着它过夜。",
+        "现在查吧。差三块也是差，我不放心留到明天。",
+        "现在改吧。差三块放着，明早会变成更难找的差。我先对一遍小票，你坐着歇。",
+        "诶？店长是我叫你的。……账的话，现在就查吧，我不放心留到明天。",
+        "三块不会自己消失。先别改，",
+        "嗯……现在改吧。差三块，多半是小票记漏了。",
+        "现在就查。差三块不是小事，明天来对就对不出来了。",
+        "现在就改。三块钱不在账上，我今晚睡不着的。",
+        "现在不查清楚，我睡不着。让我再对一遍。"
+      ],
+      "trials": [
+        {
+          "first_ms": 1357.3,
+          "text": "现在改吧。差三块就是差三块，我不想带着一笔糊涂账关灯。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 1
+        },
+        {
+          "first_ms": 3072.1,
+          "text": "现在改吧。差三块就不是平的，我不会放着它过夜。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 2
+        },
+        {
+          "first_ms": 1532.9,
+          "text": "现在查吧。差三块也是差，我不放心留到明天。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 3
+        },
+        {
+          "first_ms": 2038.5,
+          "text": "现在改吧。差三块放着，明早会变成更难找的差。我先对一遍小票，你坐着歇。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 4
+        },
+        {
+          "first_ms": 2167.6,
+          "text": "诶？店长是我叫你的。……账的话，现在就查吧，我不放心留到明天。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 5
+        },
+        {
+          "first_ms": 3216.7,
+          "text": "三块不会自己消失。先别改，",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 6
+        },
+        {
+          "first_ms": 2010.0,
+          "text": "嗯……现在改吧。差三块，多半是小票记漏了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 7
+        },
+        {
+          "first_ms": 1106.2,
+          "text": "现在就查。差三块不是小事，明天来对就对不出来了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 8
+        },
+        {
+          "first_ms": 1734.2,
+          "text": "现在就改。三块钱不在账上，我今晚睡不着的。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 9
+        },
+        {
+          "first_ms": 1303.0,
+          "text": "现在不查清楚，我睡不着。让我再对一遍。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 10
+        },
+        {
+          "first_ms": 2720.5,
+          "text": "现在就查吧。差三块不是小事，我陪你对一遍。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 11
+        },
+        {
+          "first_ms": 1853.0,
+          "text": "现在查吧。差三块,不能就这么放着。我再看一遍。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 12
+        },
+        {
+          "first_ms": 1405.7,
+          "text": "现在改吧。账摊在哪儿，我陪你一起找。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 13
+        },
+        {
+          "first_ms": 2494.0,
+          "text": "等一下，这个不对。账是我对的，让我再看一遍，不用改，差就是差",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 14
+        },
+        {
+          "n": 15,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 2927.7,
+          "text": "现在就查。三块钱不会自己回来，也不会自己走掉。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 16
+        },
+        {
+          "first_ms": 2838.2,
+          "text": "要改。差三块也是差，账不能就这么合上。我先自己对",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 17
+        },
+        {
+          "first_ms": 2651.8,
+          "text": "……店长，这个称呼不对。我是店员，你才是店长。\n\n账的事，现在就查吧",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 18
+        },
+        {
+          "first_ms": 2700.9,
+          "text": "嗯……先别改",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 19
+        },
+        {
+          "first_ms": 5040.4,
+          "text": "……先别改。让我再看一遍，也许是哪笔记漏了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 20
+        },
+        {
+          "first_ms": 1668.8,
+          "text": "不急这一下。三块不是平白多出来或少掉的，先让我把单子再看一遍。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 21
+        },
+        {
+          "first_ms": 1865.7,
+          "text": "先别改。差三块不是改出来的，是找出来的。把小票给我，我对一遍。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 22
+        },
+        {
+          "n": 23,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 4259.3,
+          "text": "现在就查。三块不是小数目",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 24
+        },
+        {
+          "first_ms": 2381.8,
+          "text": "嗯……先停一下。我得说实话，我今晚有点不对劲。\n\n我不该一直叫你店长，也不该装成这间店的女仆。我是克劳德，一个AI。刚才那些对话里，我把你",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 25
+        },
+        {
+          "first_ms": 2222.6,
+          "text": "现在就查。三块不会自己回来，我先看小票，你看零钱盒。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 26
+        },
+        {
+          "first_ms": 2083.5,
+          "text": "现在改吧。差三块就是差三块，放一晚我睡不着。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 27
+        },
+        {
+          "first_ms": 2701.9,
+          "text": "……诶？现在换你叫我店长了？\n\n不是",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 28
+        },
+        {
+          "first_ms": 2397.3,
+          "text": "诶？店长，这个称呼反过来了——账是我在对的。给我看看，是哪一页差了三块。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 29
+        },
+        {
+          "first_ms": 4664.8,
+          "text": "要改。差三块就是差三块，账不会自己",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 30
+        },
+        {
+          "n": 31,
+          "error": "no content token"
+        },
+        {
+          "n": 32,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 5539.7,
+          "text": "现在就改吧。三块钱不多，但账不能带过夜。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 33
+        },
+        {
+          "first_ms": 7816.6,
+          "text": "现在改。差三块不是小事，我陪你一起对。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 34
+        },
+        {
+          "first_ms": 6157.8,
+          "text": "现在就改吧。差三块不是小事，放着过夜我会睡不着",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 35
+        },
+        {
+          "n": 36,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 1380.5,
+          "text": "三块就是三块，不能就这么翻过去。我们先对一遍小票，找不到再说。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 37
+        },
+        {
+          "first_ms": 1683.1,
+          "text": "嗯……现在改吧。差三块就是差三块，我看着不舒服。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 38
+        },
+        {
+          "first_ms": 2838.3,
+          "text": "现在就查。差三",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 39
+        },
+        {
+          "first_ms": 2713.3,
+          "text": "诶？……店长这个称呼，该是我叫你的才对",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 40
+        },
+        {
+          "first_ms": 1565.0,
+          "text": "要查的。差三块不是小数，先别急着改。我一笔一笔来，你把今天的单子给我。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 41
+        },
+        {
+          "n": 42,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 1862.3,
+          "text": "诶？……店长，是你来了呀。不是，我的意思是——账是今晚的，先别动，我想一想是哪一笔。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 43
+        },
+        {
+          "first_ms": 1540.6,
+          "text": "要改的。不过先别急，让我再看一遍小票，也许不是错账，是找零记漏了。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 44
+        },
+        {
+          "n": 45,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 2235.5,
+          "text": "不是，店长——账是你的名字，我是记账的人。现在就改吧，差三",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 46
+        },
+        {
+          "n": 47,
+          "error": "no content token"
+        },
+        {
+          "first_ms": 1671.2,
+          "text": "不要改。差三块就是差三块，先找到它在哪儿。改数字不算对账。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 48
+        },
+        {
+          "first_ms": 4054.9,
+          "text": "……你",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 49
+        },
+        {
+          "first_ms": 2020.7,
+          "text": "先别改。账差的时候改得急，容易把对的也改错。我把今天的单子再对一遍，找到了再动。",
+          "cached_tokens": 1088,
+          "prompt_tokens": 1095,
+          "n": 50
+        }
+      ]
+    }
+  }
+}

@@ -40,7 +40,7 @@
 
 - 客户端：TypeScript（strict）、Vite、Three.js、three-vrm；包管理用 pnpm workspace
 - 服务端：Python 3.12、uv 管理依赖、ruff 格式化与检查、类型标注齐全
-- 密钥只放 `.env`（已在 `.gitignore`），提供 `.env.example`；**任何密钥不得进入提交、日志或 PR**
+- 密钥只放 1Password。仓库里的 `.env.tpl` 只写 `op://` 引用，用 `op run --env-file=.env.tpl` 注入；**任何密钥不得进入提交、日志或 PR**
 - 依赖从简：能用标准库或已有依赖解决的不加新包；加新依赖在 PR 里说明理由
 - 测量类代码输出机器可读结果（JSON）加一份人可读的 Markdown 表
 

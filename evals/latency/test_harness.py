@@ -25,6 +25,8 @@ from latency.pcm import frames
 from latency.pipeline import endpoint_trial, realtime_trial
 from latency.prompts import load_persona
 from latency.scoring import Pause, classify_endpoint, percentile
+from latency.turn_models import _normalize_livekit
+from latency.turn_script import TURNS, validate
 
 
 def _tone(ms: int, amplitude: int = 9000) -> bytes:
@@ -122,6 +124,16 @@ class EndpointTests(unittest.TestCase):
         gate = EnergyGate()
         self.assertFalse(gate.speech(_silence(20)))
         self.assertTrue(gate.speech(_tone(20)))
+
+
+class TurnScriptTests(unittest.TestCase):
+    def test_twenty_pauses_sit_on_a_connector(self) -> None:
+        validate()
+        self.assertEqual(len(TURNS), 20)
+        self.assertTrue(all(400 <= line.pause_ms <= 1000 for line in TURNS))
+
+    def test_livekit_normalization_drops_chinese_punctuation(self) -> None:
+        self.assertEqual(_normalize_livekit("然后，就是。"), "然后就是")
 
 
 class RetryTests(unittest.TestCase):

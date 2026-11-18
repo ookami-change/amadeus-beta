@@ -50,13 +50,33 @@ pnpm dev
 
 浏览器打开 `http://127.0.0.1:5173`。模型来源写在 `apps/web/public/models/SOURCE.md`。
 
-供应商时延和试听需要根目录 `.env`（从 `.env.example` 复制），并且测试机应在中国大陆。没有密钥时可以先跑不联网的断句对比：
+供应商时延和试听从 1Password 注入，不在磁盘上留 `.env`。仓库里的 `.env.tpl` 只有 `op://` 引用。测试机应在中国大陆。
 
 ```bash
-pnpm latency
+op run --env-file=.env.tpl -- pnpm latency
+op run --env-file=.env.tpl -- pnpm latency:full
+op run --env-file=.env.tpl -- pnpm tts
 ```
 
-说明见 `evals/latency/REPORT.md`。试听页是 `evals/tts/index.html`，双击即可。
+`pnpm latency` 本身只跑断句，不读密钥。`latency:full` 和 `pnpm tts` 会用到注入的密钥。说明见 `evals/latency/REPORT.md`。试听页是 `evals/tts/index.html`，双击即可。
+
+## 上海测试机上的 Python 3.12
+
+实测机器是腾讯云 CVM，上海二区（`ap-shanghai-2`），OpenCloudOS 9.6。这不是采购建议里的北京轻量。系统自带的是 Python 3.11，不要改系统解释器。
+
+uv 默认从 GitHub 拉 CPython 独立包，这台机器上会卡住。改用 npmmirror 上的同一份 python-build-standalone：
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | env UV_UNMANAGED_INSTALL=1 UV_INSTALL_DIR="$HOME/.local/bin" sh
+export PATH="$HOME/.local/bin:$PATH"
+export UV_PYTHON_INSTALL_MIRROR=https://registry.npmmirror.com/-/binary/python-build-standalone
+uv python install 3.12
+uv sync --directory evals
+```
+
+`UV_PYTHON_INSTALL_MIRROR` 替换的是 `https://github.com/astral-sh/python-build-standalone/releases/download` 这个前缀。装好之后 `uv run --directory evals python -V` 应显示 3.12。测量进程用这份解释器，不动机器上别的服务。
+
+2026-11-19 01:43（Asia/Singapore）之前，在这台机器上按这个镜像装过一次：uv 0.13.9 放进测量目录，CPython 3.12.16 的压缩包 33.1MiB，安装用了 2.66 秒。随后的首 token 测量就是这份 3.12.16。解释器和 uv 都在 `/var/tmp` 的独立目录里，测完已删除，没有改系统 Python。
 
 ## 仓库结构
 

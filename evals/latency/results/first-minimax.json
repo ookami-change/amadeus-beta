@@ -1,0 +1,757 @@
+{
+  "kind": "first-token",
+  "generated_at": "2026-11-18T17:52:53.861690+00:00",
+  "python": "3.12.16",
+  "platform": "Linux-6.6.119-49.23.oc9.x86_64-x86_64-with-glibc2.38",
+  "vendor": "minimax",
+  "model": "MiniMax-M3",
+  "user": "店长，今天的账还是差三块。你说我要不要现在就改？",
+  "max_tokens": 80,
+  "temperature": 0.7,
+  "gap_s": 1.0,
+  "modes": {
+    "new": {
+      "ok": 50,
+      "n": 50,
+      "first_ms": {
+        "p50": 712.6,
+        "p95": 1939.8,
+        "n": 50
+      },
+      "cached_tokens": {
+        "p50": 1024.0,
+        "n": 50
+      },
+      "replies": [],
+      "trials": [
+        {
+          "first_ms": 1147.7,
+          "text": "别改。原始记录先留着，明天复查。",
+          "cached_tokens": 128,
+          "prompt_tokens": 1140,
+          "n": 1
+        },
+        {
+          "first_ms": 1627.3,
+          "text": "先别改。收银记录和付款记录再核一遍，别把账正错。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 2
+        },
+        {
+          "first_ms": 569.2,
+          "text": "先别改。把收据和小票对一遍，看看是漏记还是算错。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 3
+        },
+        {
+          "first_ms": 716.2,
+          "text": "要。别带着三块钱过夜。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 4
+        },
+        {
+          "first_ms": 515.3,
+          "text": "等一下，这个数字不对。差三块现在改，会把原因盖住。先把差额找出来。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 5
+        },
+        {
+          "first_ms": 698.6,
+          "text": "要改。差三块不能就这样下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 6
+        },
+        {
+          "first_ms": 1851.7,
+          "text": "店长，你就是店长。别改差了。差的正好是我记错了，明天我补上。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 7
+        },
+        {
+          "first_ms": 1778.6,
+          "text": "要改。店长，不是要改，是必须改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 8
+        },
+        {
+          "first_ms": 1804.4,
+          "text": "先别改。差在哪一笔，查清楚再动。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 9
+        },
+        {
+          "first_ms": 555.7,
+          "text": "要改。我陪你重新对一遍，找出少在哪里。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 10
+        },
+        {
+          "first_ms": 702.1,
+          "text": "要改。明天一开门，客人满的时候，更难想清楚。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 11
+        },
+        {
+          "first_ms": 615.4,
+          "text": "店长，该改。现在改吧。差一点就是差一点。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 12
+        },
+        {
+          "first_ms": 1939.8,
+          "text": "先别改。找出差在哪一笔，再动账。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 13
+        },
+        {
+          "first_ms": 729.1,
+          "text": "不用。数字先别动，明天再查。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 14
+        },
+        {
+          "first_ms": 712.6,
+          "text": "先别急着改。差在哪儿，要先对上。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 15
+        },
+        {
+          "first_ms": 540.5,
+          "text": "先别改。找出差在哪里，再动账。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 16
+        },
+        {
+          "first_ms": 986.2,
+          "text": "先别改。我想再核一遍，免得把数写错。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 17
+        },
+        {
+          "first_ms": 1163.5,
+          "text": "要。别让三块钱一直挂着。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 18
+        },
+        {
+          "first_ms": 527.2,
+          "text": "店长，账本来就该对。先差三块不是现在才有的。别急着改，我再查一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 19
+        },
+        {
+          "first_ms": 550.6,
+          "text": "店长，先查清楚是哪笔少三块。直接改，账还是会对不上。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 20
+        },
+        {
+          "first_ms": 556.4,
+          "text": "先别改。差在哪一笔，你查到了吗？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 21
+        },
+        {
+          "first_ms": 559.3,
+          "text": "先别改。现金和扫码分开对，别把差额越补越乱。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 22
+        },
+        {
+          "first_ms": 596.8,
+          "text": "改吧。差三块就走的话，明天就对不上了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 23
+        },
+        {
+          "first_ms": 1474.9,
+          "text": "要。别把三块抹平。查清楚是哪张单子，再改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 24
+        },
+        {
+          "first_ms": 2224.8,
+          "text": "要改。找出那三块，再下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 25
+        },
+        {
+          "first_ms": 546.0,
+          "text": "不用。账已经对到这儿了，明天再处理吧。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 26
+        },
+        {
+          "first_ms": 1731.2,
+          "text": "差三块就先查清楚，别急着改。店长，是哪一笔对不上？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 27
+        },
+        {
+          "first_ms": 577.7,
+          "text": "店长，要改。差三块不能就这么下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 28
+        },
+        {
+          "first_ms": 1935.9,
+          "text": "店长，要改。账差三块，不能就这样下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 29
+        },
+        {
+          "first_ms": 1896.0,
+          "text": "店长，钱的事不能先改。今晚先查清楚，明天再说。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 30
+        },
+        {
+          "first_ms": 2187.7,
+          "text": "先别改。差三块，可能是漏了一单。现在改，容易把数弄得更乱。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 31
+        },
+        {
+          "first_ms": 966.8,
+          "text": "要改。现在就查清楚，别把它留到明天。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 32
+        },
+        {
+          "first_ms": 1666.9,
+          "text": "先别改。查清楚是哪一笔，再动账。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 33
+        },
+        {
+          "first_ms": 1710.3,
+          "text": "不用。先查清楚是哪一笔，别急着改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 34
+        },
+        {
+          "first_ms": 559.4,
+          "text": "要改。现金和记录再核一遍，别急着抹平。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 35
+        },
+        {
+          "first_ms": 581.5,
+          "text": "差三块？现在改容易越改越乱。等一下，我再核一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 36
+        },
+        {
+          "first_ms": 520.8,
+          "text": "改吧。三块钱不能带着过夜。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 37
+        },
+        {
+          "first_ms": 518.6,
+          "text": "先别改。我再核一遍，免得把对的改错了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 38
+        },
+        {
+          "first_ms": 537.5,
+          "text": "不用。账已经打烊了，现在改容易乱。明天我来查。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 39
+        },
+        {
+          "first_ms": 1028.0,
+          "text": "别改。先查清楚是哪一笔少了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 40
+        },
+        {
+          "first_ms": 666.2,
+          "text": "先别改。把账摊着，我们一起找。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 41
+        },
+        {
+          "first_ms": 565.8,
+          "text": "先别改。我想再看一遍，找出差在哪里。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 42
+        },
+        {
+          "first_ms": 624.2,
+          "text": "先别改。找出那三块，再动账。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 43
+        },
+        {
+          "first_ms": 1825.4,
+          "text": "先别改。把每笔都重新核一遍。改错比差三块更麻烦。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 44
+        },
+        {
+          "first_ms": 854.7,
+          "text": "先别改。找出差在哪里，再动账。不然明天更难查。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 45
+        },
+        {
+          "first_ms": 1727.9,
+          "text": "要改。先找出少在哪一笔，别直接补三块。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 46
+        },
+        {
+          "first_ms": 1896.8,
+          "text": "先别改。差额要对照今天的单子，查清是哪一笔。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 47
+        },
+        {
+          "first_ms": 1687.4,
+          "text": "店长，钱不能改。把收款记录和券单再核一遍，看是哪三块对不上。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 48
+        },
+        {
+          "first_ms": 522.4,
+          "text": "先别急着改。差三块，可能是漏记了一笔。我们把单据对一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 49
+        },
+        {
+          "first_ms": 551.5,
+          "text": "要改。账没对上，店长。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 50
+        }
+      ]
+    },
+    "reuse": {
+      "ok": 50,
+      "n": 50,
+      "first_ms": {
+        "p50": 772.9,
+        "p95": 2537.6,
+        "n": 50
+      },
+      "cached_tokens": {
+        "p50": 1024.0,
+        "n": 50
+      },
+      "replies": [
+        "先别急。店长，你确定是差三块，不是把哪笔款算错了？",
+        "要。现在改，别留到明天。",
+        "店长，先别改。最好对照小票找一下差额，不是要你现在硬凑上。",
+        "店长，今天的账还是差三块钱。你说我要不要现在就改？",
+        "差三块就改吧。今晚账对上，明天才安心。",
+        "先别改。我想再核一遍，免得越改越乱。",
+        "店长，现在别改。先找是哪笔差了，明天再核。",
+        "要改。差三块就查三块，别留到明天。",
+        "现在改吧。账没对平，明天会更难查。",
+        "改吧。差三块就对不上。"
+      ],
+      "trials": [
+        {
+          "first_ms": 1738.8,
+          "text": "先别急。店长，你确定是差三块，不是把哪笔款算错了？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 1
+        },
+        {
+          "first_ms": 2195.4,
+          "text": "要。现在改，别留到明天。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 2
+        },
+        {
+          "first_ms": 9993.9,
+          "text": "店长，先别改。最好对照小票找一下差额，不是要你现在硬凑上。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 3
+        },
+        {
+          "first_ms": 793.2,
+          "text": "店长，今天的账还是差三块钱。你说我要不要现在就改？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 4
+        },
+        {
+          "first_ms": 525.0,
+          "text": "差三块就改吧。今晚账对上，明天才安心。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 5
+        },
+        {
+          "first_ms": 557.9,
+          "text": "先别改。我想再核一遍，免得越改越乱。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 6
+        },
+        {
+          "first_ms": 704.6,
+          "text": "店长，现在别改。先找是哪笔差了，明天再核。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 7
+        },
+        {
+          "first_ms": 479.4,
+          "text": "要改。差三块就查三块，别留到明天。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 8
+        },
+        {
+          "first_ms": 707.2,
+          "text": "现在改吧。账没对平，明天会更难查。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 9
+        },
+        {
+          "first_ms": 582.3,
+          "text": "改吧。差三块就对不上。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 10
+        },
+        {
+          "first_ms": 510.1,
+          "text": "先别改。三块差额应该有原因，别把正确数字改错了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 11
+        },
+        {
+          "first_ms": 612.8,
+          "text": "要。先找出少的三块，再改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 12
+        },
+        {
+          "first_ms": 800.5,
+          "text": "先别改。确认一下是现金少了，还是记账漏了一笔。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 13
+        },
+        {
+          "first_ms": 497.4,
+          "text": "别急着改，差三块可能是漏记。我再核一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 14
+        },
+        {
+          "first_ms": 491.3,
+          "text": "先别改。差的未必是账，可能漏了一笔。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 15
+        },
+        {
+          "first_ms": 564.3,
+          "text": "要改。差三块不能留到明天。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 16
+        },
+        {
+          "first_ms": 943.0,
+          "text": "先别改。我想再对一遍，免得改错。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 17
+        },
+        {
+          "first_ms": 1711.7,
+          "text": "要改。账对上了再走，不然明天更麻烦。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 18
+        },
+        {
+          "first_ms": 1733.8,
+          "text": "先别改。现在重算容易把原来的错盖住，明天对流水再查。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 19
+        },
+        {
+          "first_ms": 524.6,
+          "text": "店长，账差三块，不是三毛。不用现在改，我再核一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 20
+        },
+        {
+          "first_ms": 561.4,
+          "text": "店长，别急。先确认是少了三块，还是记错了。今晚改容易越改越乱，明天白天再对一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 21
+        },
+        {
+          "first_ms": 650.0,
+          "text": "要改。差的是哪三笔？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 22
+        },
+        {
+          "first_ms": 587.6,
+          "text": "差三块，不能就这样下班。店长，我把账再核一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 23
+        },
+        {
+          "first_ms": 1840.3,
+          "text": "不用急。差在哪儿，有没有记录？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 24
+        },
+        {
+          "first_ms": 2059.9,
+          "text": "先别改。我再核一遍，找出少的是哪张单子。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 25
+        },
+        {
+          "first_ms": 1847.4,
+          "text": "店长，应该现在改。差三块不能留到明天。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 26
+        },
+        {
+          "first_ms": 3063.0,
+          "text": "店长，现在改吧。三块钱不明着留着，明天更难查。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 27
+        },
+        {
+          "first_ms": 772.9,
+          "text": "别急着改。是不是账算错了？店长，我们先找原因。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 28
+        },
+        {
+          "first_ms": 1038.2,
+          "text": "先别改。先找出差在哪，不然会越改越乱。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 29
+        },
+        {
+          "first_ms": 477.5,
+          "text": "店长，这账差三块，不该现在改。明天再核对一次。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 30
+        },
+        {
+          "first_ms": 539.5,
+          "text": "先别改。找出少的那三块，是现金还是记录出了问题。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 31
+        },
+        {
+          "first_ms": 1658.5,
+          "text": "先别急，差的三块要有去处。现金和扫码记录再对一遍，确定漏在哪再改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 32
+        },
+        {
+          "first_ms": 1854.2,
+          "text": "差三块。现在改吧，明天容易忘了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 33
+        },
+        {
+          "first_ms": 2537.6,
+          "text": "先别改。把找零和小票再对一遍，免得越改越乱。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 34
+        },
+        {
+          "first_ms": 539.9,
+          "text": "差三块就现在改。店还没打烊，账要对得上。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 35
+        },
+        {
+          "first_ms": 549.9,
+          "text": "差三块现在就要找出来，不能就这么下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 36
+        },
+        {
+          "first_ms": 1340.8,
+          "text": "先别急。差在哪里，查清楚再改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 37
+        },
+        {
+          "first_ms": 526.0,
+          "text": "先别急着改。我想再核一遍，免得把对的改错了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 38
+        },
+        {
+          "first_ms": 597.3,
+          "text": "先别急。把差的三块找出来，再改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 39
+        },
+        {
+          "first_ms": 1944.9,
+          "text": "改吧。差三块就改三块，别等到明天。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 40
+        },
+        {
+          "first_ms": 1876.0,
+          "text": "别现在改。查清是哪笔少的三块，再说。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 41
+        },
+        {
+          "first_ms": 1954.7,
+          "text": "先别改。我们把流水再对一遍，找出差额再改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 42
+        },
+        {
+          "first_ms": 1936.2,
+          "text": "改吧。差的来源找到了吗？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 43
+        },
+        {
+          "first_ms": 614.9,
+          "text": "先别改。把明细再核一遍，我陪你找。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 44
+        },
+        {
+          "first_ms": 932.3,
+          "text": "先别改。我想再核一遍，免得把对的也改了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 45
+        },
+        {
+          "first_ms": 998.4,
+          "text": "先别改。现在容易把原因盖过去，明天再对一次。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 46
+        },
+        {
+          "first_ms": 946.2,
+          "text": "先别改。账差三块，现在改容易把原数也弄乱。收好再说，明天再对一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 47
+        },
+        {
+          "first_ms": 540.5,
+          "text": "先别改。找到差的来源，再动账。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 48
+        },
+        {
+          "first_ms": 564.9,
+          "text": "先别改。三块差额要找到出处，直接改会把问题盖住。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 49
+        },
+        {
+          "first_ms": 1755.5,
+          "text": "店长，差三块不是小数目，别急着改。先找出是哪张单漏了，或者金额记错了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1140,
+          "n": 50
+        }
+      ]
+    }
+  }
+}

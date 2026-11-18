@@ -8,19 +8,30 @@
 
 ## 测试环境
 
+级联数字来自国内这台机器，不是俄勒冈。
+
+| 项 | 值 |
+|---|---|
+| 机器 | 腾讯云 CVM，地域 `ap-shanghai`，可用区 `ap-shanghai-2`，实例 `ins-658mfauh` |
+| 系统 | OpenCloudOS 9.6，内核 6.6.119，x86_64 |
+| 解释器 | 系统 Python 3.11.6 的独立 venv。3.12 的装法写在仓库 README 的「上海测试机」一节 |
+| 网络 | 公网出口在上海。到各家接入点的握手时间见「上海全量」 |
+
+2026-11-16 的断句对比是另一台机器，只测了本地端点，没有打供应商：
+
 | 项 | 值 |
 |---|---|
 | 机器 | AWS us-west-2，Boardman，Oregon，美国 |
 | 系统 | Linux 6.12，x86_64，Python 3.12.3 |
-| 网络 | 公网出口在美国西部，不是中国大陆 |
-| 供应商密钥 | 本环境没有火山引擎、阿里云百炼、MiniMax 的任何密钥 |
+| 网络 | 公网出口在美国西部 |
+| 供应商密钥 | 那次环境里没有火山引擎、阿里云百炼、MiniMax 的密钥 |
 
-任务单要求测试机在国内，并且至少 2×2×2 个供应商组合有端到端数据。这两条这次都没有满足。下面不编造豆包、通义、MiniMax、CosyVoice 的延迟。
+俄勒冈后来补过一轮级联，数字含跨境往返，保留在「供应商组合」里，不拿来当国内结论。
 
 全链路命令（有密钥、并且人在国内的机器上）：
 
 ```bash
-uv run --directory evals python -m latency.run --region "所在城市"
+op run --env-file=.env.tpl -- uv run --directory evals python -m latency.run --region "所在城市"
 ```
 
 每个组合 20 条 × 3 遍，录音按实时速率送入。TTS 会话在断句时建立，和 LLM 首 token 重叠；文本仍等到第一个可朗读的子句才发送。
@@ -169,7 +180,7 @@ P95 只有 9 个点，不稳定。能看清的是：断句就是 500ms 阈值，
 
 上海全量之后仍然不能说级联达到了 800ms。12 组里最快的端到端 P50 是 1712ms，P95 是 2240ms，差在快脑首 token，不差在到上海的网络。豆包识别 + `qwen3.8-flash` + MiniMax `speech-2.8-turbo` 是这 12 组里最快的，但不够进 M1 的延迟线。DeepSeek-V4.1-Flash 比 `qwen3.8-flash` 慢一截。合成三家里 MiniMax 首包最短，大约 200ms；CosyVoice v3-flash 大约 240ms；豆包合成 2.0 大约 330–360ms。CosyVoice 没有换成 v3.5，因为那个型号没有系统音色。
 
-断句这一侧，固定 500ms 守不住句中长停顿。把一个通用标点模型当成话轮检测，会在更早的逗号停顿上抢话。下一步需要的是专门判断“这句话还没说完”的模型，并且用真实 ASR 的中间结果再测一遍，而不是理想文本。
+断句这一侧，固定 500ms 守不住句中长停顿。把一个通用标点模型当成话轮检测，会在更早的逗号停顿上抢话。专门的话轮模型和真实 ASR 中间结果在下一节，上面这张表的结论不变。
 
 复现断句表：
 
@@ -180,3 +191,57 @@ uv run --directory evals python -m latency.run --endpoint-only --oracle-text \
   --region "AWS us-west-2, Boardman, Oregon" \
   --out evals/latency/results/endpoint-oracle.json
 ```
+
+## 话轮检测
+
+上一节的标点模型留在原处，没有改测量方法，也没有改原来的 20 条语料。这一节是另一套语料：20 句，每句在「然后」或「就是」后面停 400–1000ms，句尾再留 1600ms 静音。文本在 `turn_script.py`，音频在 `turns/`，同样是 edge-tts `zh-CN-XiaoxiaoNeural`，不是角色声线。
+
+文本模型看到的不是原文，是 sherpa-onnx 流式 Paraformer（`csukuangfj/sherpa-onnx-streaming-paraformer-bilingual-zh-en` 的 int8）每 200ms 更新一次的整句假设。静音满 200ms 问一次模型；模型说还没说完就继续听；静音满 1200ms 强制结束。能量门限仍是 0.02。端点时刻沿用原来的定义，包含这次模型调用的 CPU 时间。端点滞后只统计没有提前截断的样本。误抢话仍是「提前，并且落在标注停顿里」。
+
+本机 Python 3.12.3。原始结果 `evals/latency/results/turns.json`，生成时间 2026-11-19 01:25（Asia/Singapore）。
+
+| 方案 | 提前截断 | 标注停顿上的误抢话 | 未提前截断的端点滞后 P50 | P95 | 滞后样本 | 单次推理 P50 | P95 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 固定静音 500ms | 15/20 | 15/20（75%） | 510ms | 510ms | 5 | — | — |
+| Smart Turn v3.2，200/1200 | 13/20 | 0/20（0%） | 255.8ms | 1244.4ms | 7 | 42.3ms | 85.7ms |
+| LiveKit 多语言文本，200/1200 | 18/20 | 10/20（50%） | 231.3ms | 715.0ms | 2 | 13.2ms | 21.3ms |
+
+LiveKit 的中文阈值取自 `languages.json` 的 `zh`，是 0.0066。概率大于等于这个数算说完。Smart Turn 用官方 0.5。
+
+按「误抢话 ≤ 5% 里端点滞后最低」这一条，只有 Smart Turn 入选。它在 20 个标注停顿里没有一次把端点落进去，没被提前截断的 7 条 P50 是 255.8ms。这不是能单独上线的结果：13/20 在标注停顿之前的短间隙上就被判成说完，假设往往还是前半句的几个字，比如「杯子我」。提前截断率 65%。LiveKit 更快，但误抢话 50%，而且没被提前截断的只有 2 条，滞后数字不能拿来排名。固定 500ms 在停顿长于大约 500ms 的句子上仍会抢话，15/20。
+
+TEN Turn Detection 没有数字。Hugging Face 上 `TEN-framework/TEN_Turn_Detection` 只有四份 safetensors，合计 15231271864 字节，没有 onnx 或 gguf。当时这台机器可用内存约 4.5 GiB，没有加载它。
+
+豆包和 Paraformer 的服务端断句参数没有测。这一节不需要供应商密钥。
+
+## 快脑首 token
+
+只测文本，不接音频。人设 1503 字，历史 4 轮，用户句是「店长，今天的账还是差三块。你说我要不要现在就改？」。思考关闭，`max_tokens` 80，`temperature` 0.7，每个模型先计 50 次新建连接，再预热一次后用同一条连接计 50 次。间隔 1 秒，并发 1。机器是腾讯云 CVM 上海二区 `ap-shanghai-2`，实例 `ins-658mfauh`，OpenCloudOS 9.6，Python 3.12.16。原始结果在 `evals/latency/results/first-qwen.json`、`first-glm.json`、`first-minimax.json`。10 条回复原文在 `evals/latency/results/first-token-replies.md`，取的是复用连接那 50 次的前 10 条。
+
+| 模型 | 新建 P50 | 新建 P95 | 复用 P50 | 复用 P95 | 复用减新建（P50） | 新建成功 | 复用成功 | 缓存 token P50 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `qwen3.8-flash` | 442.9ms | 812.8ms | 446.4ms | 989.8ms | +3.5ms | 50/50 | 50/50 | 1024 |
+| `glm-5-3-flash-260828` | 2156.0ms | 3893.2ms | 2222.6ms | 5539.7ms | +66.6ms | 38/50 | 42/50 | 1088 |
+| `MiniMax-M3` | 712.6ms | 1939.8ms | 772.9ms | 2537.6ms | +60.3ms | 50/50 | 50/50 | 1024 |
+
+三家里新建连接的 P50 最低的是 `qwen3.8-flash`，442.9ms。连接复用没有把它再降下来，P50 还高了 3.5ms，落在这 50 次的抖动里。服务端提示词缓存两种接法都命中了，所以握手那几十毫秒不是这组数字的大头。全量级联里这个模型的首 token 曾是 689ms，那是链路里的一次计时，不是这一节的条件。
+
+`glm-5-3-flash-260828` 走方舟，请求里带了 `thinking: {type: disabled}`。它仍然先吐 `reasoning_content`。`max_tokens` 80 有时在出现正文前就用完，新建连接 12 次、复用连接 8 次因此没有正文 token，上表的分位数不含这 20 次。即便只看有正文的次数，P50 也在 2.2 秒。
+
+`MiniMax-M3` 是 MiniMax 里能关掉思考的型号。`MiniMax-M3.1-Flash` 官方写明不能关思考，关掉会返回 400。`MiniMax-M2.5-highspeed` 和 `MiniMax-M2.7-highspeed` 返回 404，已经下线。M3 在关闭思考后 50 次都有正文，但比 `qwen3.8-flash` 慢。
+
+没有测到的：
+
+- 豆包低延迟档。方舟模型列表里看得到 `doubao-seed-2-1-lite-260915`、`doubao-seed-2-1-turbo-260628`、`doubao-seed-2-0-lite-260428`、`doubao-seed-2-0-mini-260428`，聊天接口都返回 `ModelNotOpen`。没有首 token 数字。
+- 混元。保险库里没有混元的 API 密钥。
+- 百炼上的 `ZHIPU/GLM-5.3-Flash`、`stepfun/step-3.7-flash`、`antdigital/Ling-3.1-flash` 都是产品未开通。百炼的 `glm-5.3` 还要求 `enable_thinking` 必须为 true，不符合「关闭思考」。
+
+价格是公开标价，不是这次用量的账单。
+
+| 模型 | 输入 | 输出 | 缓存命中 | 来源 |
+|---|---:|---:|---:|---|
+| `qwen3.8-flash`，华北 2（北京），0 到 1M | 0.8 元 | 2.7 元 | 0.1 元 | [百炼模型价格](https://help.aliyun.com/zh/model-studio/model-pricing) |
+| `glm-5-3-flash`，方舟在线推理 | 0.80 元 | 2.80 元 | 0.23 元 | [方舟模型价格](https://ark.volcengine.com/region:cn-beijing/docs/model-pricing) |
+| `MiniMax-M3`，标准档，输入 ≤ 512k | 0.30 美元 | 1.20 美元 | 0.06 美元 | [MiniMax 价格](https://platform.minimax.io/docs/pricing/overview) |
+
+MiniMax 这一档页面上同时写着原价输入 0.60 美元、输出 2.40 美元，现价标成长期五折。上表写的是现价。单位都是每百万 token。豆包 seed 2.1 lite 的方舟标价是输入 0.80 元、输出 2.70 元，但这个账号没有开通，所以没有对应的延迟。
