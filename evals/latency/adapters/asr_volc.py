@@ -59,6 +59,16 @@ class VolcASR:
                     open_timeout=10,
                 ) as ws:
                     await ws.send(build_asr_full_client(payload))
+                    # The server drops the socket if audio arrives before this ack is read.
+                    ack = await asyncio.wait_for(ws.recv(), timeout=8)
+                    if isinstance(ack, bytes):
+                        frame = parse_frame(ack)
+                        if frame.msg_type == MSG_ERROR:
+                            detail = frame.payload.decode("utf-8", "replace")[:600]
+                            raise AdapterError("volc-asr", detail or f"error {frame.error_code}")
+                        update = _hypothesis(frame)
+                        if update is not None:
+                            await queue.put(update)
 
                     async def send() -> None:
                         sequence = 1

@@ -83,14 +83,12 @@ def build_asr_full_client(payload: dict[str, object]) -> bytes:
 
 
 def build_asr_audio(pcm: bytes, *, sequence: int, last: bool) -> bytes:
-    flags = FLAG_NEG_SEQ if last else FLAG_POS_SEQ
-    seq = -abs(sequence) if last else sequence
+    # The vendor example's audio frame has no sequence field. A sequence here
+    # makes the server reset the socket. The last packet is flag 0b0010.
+    del sequence
+    flags = FLAG_LAST if last else FLAG_NO_SEQ
     compressed = gzip.compress(pcm)
-    return (
-        _header(MSG_AUDIO_CLIENT, flags, SER_RAW, COMP_GZIP)
-        + int(seq).to_bytes(4, "big", signed=True)
-        + _sized(compressed)
-    )
+    return _header(MSG_AUDIO_CLIENT, flags, SER_RAW, COMP_GZIP) + _sized(compressed)
 
 
 def build_tts_event(

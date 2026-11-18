@@ -44,6 +44,13 @@ def main() -> None:
     parser.add_argument("--mock", action="store_true", help="In-process adapters. Not a measurement.")
     parser.add_argument("--check-config", action="store_true")
     parser.add_argument("--region", default="", help="Where this machine is. Written into the summary, not looked up.")
+    parser.add_argument("--gap", type=float, default=2.0, help="Seconds to wait between vendor trials.")
+    parser.add_argument(
+        "--max-consecutive-failures",
+        type=int,
+        default=3,
+        help="Stop a combo after this many failures in a row. Earlier trials are kept.",
+    )
     parser.add_argument("--punct-model", type=Path, default=HERE / "models" / "punct" / "model.onnx")
     args = parser.parse_args()
 
@@ -72,6 +79,7 @@ def main() -> None:
             if not modes:
                 raise SystemExit("没有可跑的断句方式")
 
+    stopped: list[str] = []
     if args.endpoint_only:
         trials = [
             endpoint_trial(item, mode=mode, model=semantic_model if mode == "semantic" else None)
@@ -83,7 +91,7 @@ def main() -> None:
         repeats = args.repeats or (1 if args.mock else 3)
         combos = _combos(args.combos, mock=args.mock)
         _require_keys(settings, combos, mock=args.mock)
-        trials = asyncio.run(
+        trials, stopped = asyncio.run(
             _realtime_matrix(
                 items,
                 combos=combos,
@@ -93,6 +101,8 @@ def main() -> None:
                 semantic_model=semantic_model,
                 oracle=args.oracle_text,
                 mock=args.mock,
+                gap=args.gap,
+                max_consecutive_failures=args.max_consecutive_failures,
             )
         )
         kind = "mock" if args.mock else "cascade"
@@ -106,6 +116,20 @@ def main() -> None:
         "platform": platform.platform(),
         "partial_source": trials[0].partial_source if trials else "",
         "mock": args.mock,
+        "gap_s": args.gap,
+        "models": {
+            "ark": settings.ark_model,
+            "qwen": settings.qwen_model,
+            "volc_asr_resource": settings.volc_asr_resource,
+            "volc_tts_resource": settings.volc_tts_resource,
+            "volc_voice": settings.volc_voice,
+            "minimax": settings.minimax_model,
+            "minimax_voice": settings.minimax_voice,
+            "cosyvoice": settings.cosyvoice_model,
+            "cosyvoice_voice": settings.cosyvoice_voice,
+            "dashscope_asr": settings.dashscope_asr_model,
+        },
+        "stopped_combos": stopped,
         "notes": _notes(kind),
         "summary": summary,
         "trials": [trial.as_json() for trial in trials],
@@ -176,14 +200,24 @@ async def _realtime_matrix(
     semantic_model: CompletenessModel | None,
     oracle: bool,
     mock: bool,
-) -> list[Trial]:
+    gap: float,
+    max_consecutive_failures: int,
+) -> tuple[list[Trial], list[str]]:
     system = PERSONA_PATH.read_text(encoding="utf-8").strip() + "\n"
     history = _history()
     trials: list[Trial] = []
+    stopped: list[str] = []
     for asr_name, llm_name, tts_name in combos:
+        combo_name = f"{asr_name}/{llm_name}/{tts_name}"
+        consecutive = 0
+        halt = False
         for mode in modes:
+            if halt:
+                break
             model = semantic_model if mode == "semantic" else None
             for repeat in range(1, repeats + 1):
+                if halt:
+                    break
                 for item in items:
                     trial = await _one_trial(
                         item,
@@ -202,9 +236,19 @@ async def _realtime_matrix(
                     trials.append(trial)
                     state = "ok" if trial.ok else trial.error
                     print(f"{trial.combo} {mode} #{repeat} {item.item_id} {state}", flush=True)
-                    if not mock:
-                        await asyncio.sleep(1.5)
-    return trials
+                    if trial.ok:
+                        consecutive = 0
+                    else:
+                        consecutive += 1
+                        if max_consecutive_failures > 0 and consecutive >= max_consecutive_failures:
+                            halted = f"{combo_name} {mode}"
+                            stopped.append(halted)
+                            print(f"stop {halted} after {consecutive} consecutive failures", flush=True)
+                            halt = True
+                            break
+                    if not mock and gap > 0:
+                        await asyncio.sleep(gap)
+    return trials, stopped
 
 
 async def _one_trial(

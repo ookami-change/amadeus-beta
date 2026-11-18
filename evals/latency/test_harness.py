@@ -73,7 +73,8 @@ class ProtocolTests(unittest.TestCase):
         self.assertEqual(parsed.json_payload()["request"], {"model_name": "bigmodel"})
         audio = build_asr_audio(b"\x01\x02", sequence=3, last=True)
         parsed_audio = parse_frame(audio)
-        self.assertEqual(parsed_audio.sequence, -3)
+        self.assertIsNone(parsed_audio.sequence)
+        self.assertEqual(parsed_audio.flags, 0x2)
         self.assertEqual(parsed_audio.payload, b"\x01\x02")
 
 

@@ -77,14 +77,14 @@ class Settings:
             volc_access_token=_get("VOLC_ACCESS_TOKEN"),
             ark_key=_get("ARK_API_KEY"),
             ark_base_url=_get("ARK_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3").rstrip("/"),
-            ark_model=_get("ARK_MODEL", "doubao-seed-1-6-flash-250828"),
+            ark_model=_get("ARK_MODEL", "deepseek-v4-1-flash-261017"),
             dashscope_key=_get("DASHSCOPE_API_KEY"),
             dashscope_workspace=workspace,
             dashscope_base_url=_get("DASHSCOPE_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1").rstrip(
                 "/"
             ),
             dashscope_ws_url=ws_url,
-            qwen_model=_get("QWEN_MODEL", "qwen3.6-flash"),
+            qwen_model=_get("QWEN_MODEL", "qwen3.8-flash"),
             minimax_key=_get("MINIMAX_API_KEY"),
             minimax_base_url=_get("MINIMAX_BASE_URL", "https://api.minimaxi.com").rstrip("/"),
             minimax_model=_get("MINIMAX_TTS_MODEL", "speech-2.8-turbo"),
