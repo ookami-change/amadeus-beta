@@ -40,7 +40,9 @@ class SmartTurn:
         options.inter_op_num_threads = 1
         options.intra_op_num_threads = 2
         self._session = ort.InferenceSession(str(model_path), sess_options=options, providers=["CPUExecutionProvider"])
-        self._features = WhisperFeatureExtractor(chunk_length=SMART_SECONDS)  # type: ignore[no-untyped-call]
+        # The constructor is untyped when transformers is installed, and Any when it is not.
+        factory: Any = WhisperFeatureExtractor
+        self._features = factory(chunk_length=SMART_SECONDS)
 
     def complete(self, pcm: bytes, text: str) -> bool:
         import numpy as np
