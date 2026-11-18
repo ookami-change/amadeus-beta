@@ -1,0 +1,176 @@
+{
+  "line": 4,
+  "text": "不是，我的意思是——理论上可以，只是没有人会这样做。",
+  "hint": "自我修正，语速略快",
+  "instruction": "自我修正，语速略快，仍然客气。",
+  "emotion": "fluent",
+  "speed": 1.08,
+  "volume": 1.0,
+  "first_audio_ms": 709.3,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "不是，我的意思是——理论上可以，只是没有人会这样做。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "不是，我的意思是——理论上可以，只是没有人会这样做。",
+        "words": [
+          {
+            "confidence": 0.8087156,
+            "endTime": 0.115,
+            "startTime": 0,
+            "word": "不"
+          },
+          {
+            "confidence": 0.95615166,
+            "endTime": 0.435,
+            "startTime": 0.115,
+            "word": "是，"
+          },
+          {
+            "confidence": 0.83624107,
+            "endTime": 0.695,
+            "startTime": 0.575,
+            "word": "我"
+          },
+          {
+            "confidence": 0.8729117,
+            "endTime": 0.785,
+            "startTime": 0.695,
+            "word": "的"
+          },
+          {
+            "confidence": 0.809492,
+            "endTime": 0.915,
+            "startTime": 0.785,
+            "word": "意"
+          },
+          {
+            "confidence": 0.49823114,
+            "endTime": 1.045,
+            "startTime": 0.915,
+            "word": "思"
+          },
+          {
+            "confidence": 0.85092187,
+            "endTime": 1.365,
+            "startTime": 1.045,
+            "word": "是"
+          },
+          {
+            "confidence": 0.26388332,
+            "endTime": 1.455,
+            "startTime": 1.425,
+            "word": "—"
+          },
+          {
+            "confidence": 0.20999622,
+            "endTime": 1.545,
+            "startTime": 1.515,
+            "word": "—"
+          },
+          {
+            "confidence": 0.7787254,
+            "endTime": 1.675,
+            "startTime": 1.545,
+            "word": "理"
+          },
+          {
+            "confidence": 0.89282304,
+            "endTime": 1.805,
+            "startTime": 1.675,
+            "word": "论"
+          },
+          {
+            "confidence": 0.90602237,
+            "endTime": 1.985,
+            "startTime": 1.805,
+            "word": "上"
+          },
+          {
+            "confidence": 0.84187835,
+            "endTime": 2.155,
+            "startTime": 1.985,
+            "word": "可"
+          },
+          {
+            "confidence": 0.8624463,
+            "endTime": 2.365,
+            "startTime": 2.155,
+            "word": "以，"
+          },
+          {
+            "confidence": 0.92734057,
+            "endTime": 2.675,
+            "startTime": 2.565,
+            "word": "只"
+          },
+          {
+            "confidence": 0.9550481,
+            "endTime": 2.815,
+            "startTime": 2.675,
+            "word": "是"
+          },
+          {
+            "confidence": 0.9829296,
+            "endTime": 2.975,
+            "startTime": 2.815,
+            "word": "没"
+          },
+          {
+            "confidence": 0.9730072,
+            "endTime": 3.015,
+            "startTime": 2.975,
+            "word": "有"
+          },
+          {
+            "confidence": 0.9714029,
+            "endTime": 3.165,
+            "startTime": 3.015,
+            "word": "人"
+          },
+          {
+            "confidence": 0.9530615,
+            "endTime": 3.315,
+            "startTime": 3.165,
+            "word": "会"
+          },
+          {
+            "confidence": 0.945714,
+            "endTime": 3.435,
+            "startTime": 3.315,
+            "word": "这"
+          },
+          {
+            "confidence": 0.9839165,
+            "endTime": 3.525,
+            "startTime": 3.435,
+            "word": "样"
+          },
+          {
+            "confidence": 0.96261746,
+            "endTime": 3.845,
+            "startTime": 3.525,
+            "word": "做。"
+          }
+        ]
+      }
+    }
+  ]
+}

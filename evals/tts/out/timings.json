@@ -194,5 +194,131 @@
     "first_audio_ms": 1415.6,
     "mark_count": 24,
     "bytes": 156454
+  },
+  {
+    "vendor": "volc",
+    "line": 1,
+    "first_audio_ms": 837.1,
+    "mark_count": 3,
+    "bytes": 56654,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 2,
+    "first_audio_ms": 685.4,
+    "mark_count": 3,
+    "bytes": 94872,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 3,
+    "first_audio_ms": 723.7,
+    "mark_count": 3,
+    "bytes": 190158,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 4,
+    "first_audio_ms": 709.3,
+    "mark_count": 3,
+    "bytes": 195086,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 5,
+    "first_audio_ms": 1466.1,
+    "mark_count": 5,
+    "bytes": 152130,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 6,
+    "first_audio_ms": 594.7,
+    "mark_count": 3,
+    "bytes": 67116,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 7,
+    "first_audio_ms": 766.5,
+    "mark_count": 3,
+    "bytes": 122046,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 8,
+    "first_audio_ms": 600.3,
+    "mark_count": 4,
+    "bytes": 205454,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 9,
+    "first_audio_ms": 776.2,
+    "mark_count": 2,
+    "bytes": 28888,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 10,
+    "first_audio_ms": 682.1,
+    "mark_count": 3,
+    "bytes": 132884,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 11,
+    "first_audio_ms": 599.6,
+    "mark_count": 3,
+    "bytes": 144890,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 12,
+    "first_audio_ms": 655.7,
+    "mark_count": 5,
+    "bytes": 571980,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 13,
+    "first_audio_ms": 735.4,
+    "mark_count": 3,
+    "bytes": 124656,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
+  },
+  {
+    "vendor": "volc",
+    "line": 14,
+    "first_audio_ms": 552.8,
+    "mark_count": 3,
+    "bytes": 132704,
+    "where": "腾讯云上海二区",
+    "model": "seed-tts-2.0"
   }
 ]

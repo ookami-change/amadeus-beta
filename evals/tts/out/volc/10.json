@@ -1,0 +1,104 @@
+{
+  "line": 10,
+  "text": "呵……抱歉，这个有点好笑。",
+  "hint": "忍不住的轻笑，随即收住",
+  "instruction": "忍不住轻轻笑一下，马上收住。",
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 0.9,
+  "first_audio_ms": 682.1,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "呵……抱歉，这个有点好笑。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "呵……抱歉，这个有点好笑。",
+        "words": [
+          {
+            "confidence": 0.64698184,
+            "endTime": 0.235,
+            "startTime": 0.155,
+            "word": "呵"
+          },
+          {
+            "confidence": 0.32388014,
+            "endTime": 0.265,
+            "startTime": 0.235,
+            "word": "…"
+          },
+          {
+            "confidence": 0.4533872,
+            "endTime": 0.515,
+            "startTime": 0.485,
+            "word": "…"
+          },
+          {
+            "confidence": 0.7796035,
+            "endTime": 0.875,
+            "startTime": 0.745,
+            "word": "抱"
+          },
+          {
+            "confidence": 0.88765585,
+            "endTime": 1.155,
+            "startTime": 0.875,
+            "word": "歉，"
+          },
+          {
+            "confidence": 0.9712727,
+            "endTime": 1.515,
+            "startTime": 1.375,
+            "word": "这"
+          },
+          {
+            "confidence": 0.41833642,
+            "endTime": 1.575,
+            "startTime": 1.515,
+            "word": "个"
+          },
+          {
+            "confidence": 0.887475,
+            "endTime": 1.705,
+            "startTime": 1.575,
+            "word": "有"
+          },
+          {
+            "confidence": 0.88442445,
+            "endTime": 1.835,
+            "startTime": 1.705,
+            "word": "点"
+          },
+          {
+            "confidence": 0.9235622,
+            "endTime": 1.995,
+            "startTime": 1.835,
+            "word": "好"
+          },
+          {
+            "confidence": 0.9384531,
+            "endTime": 2.355,
+            "startTime": 1.995,
+            "word": "笑。"
+          }
+        ]
+      }
+    }
+  ]
+}

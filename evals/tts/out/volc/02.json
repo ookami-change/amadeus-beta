@@ -1,0 +1,92 @@
+{
+  "line": 2,
+  "text": "等一下，这个数字不对。",
+  "hint": "较真，认真但不凶",
+  "instruction": "认真，平静，不凶。",
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 1.0,
+  "first_audio_ms": 685.4,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "等一下，这个数字不对。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "等一下，这个数字不对。",
+        "words": [
+          {
+            "confidence": 0.83040696,
+            "endTime": 0.175,
+            "startTime": 0,
+            "word": "等"
+          },
+          {
+            "confidence": 0.75101525,
+            "endTime": 0.225,
+            "startTime": 0.175,
+            "word": "一"
+          },
+          {
+            "confidence": 0.9636502,
+            "endTime": 0.485,
+            "startTime": 0.225,
+            "word": "下，"
+          },
+          {
+            "confidence": 0.97321063,
+            "endTime": 0.805,
+            "startTime": 0.675,
+            "word": "这"
+          },
+          {
+            "confidence": 0.43658087,
+            "endTime": 0.875,
+            "startTime": 0.805,
+            "word": "个"
+          },
+          {
+            "confidence": 0.8196069,
+            "endTime": 1.055,
+            "startTime": 0.875,
+            "word": "数"
+          },
+          {
+            "confidence": 0.8159975,
+            "endTime": 1.185,
+            "startTime": 1.055,
+            "word": "字"
+          },
+          {
+            "confidence": 0.88144803,
+            "endTime": 1.315,
+            "startTime": 1.185,
+            "word": "不"
+          },
+          {
+            "confidence": 0.96636486,
+            "endTime": 1.615,
+            "startTime": 1.315,
+            "word": "对。"
+          }
+        ]
+      }
+    }
+  ]
+}
