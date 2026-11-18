@@ -17,7 +17,7 @@ from pathlib import Path
 
 from latency.adapters.factory import ASR_NAMES, LLM_NAMES, TTS_NAMES, build_asr, build_llm, build_tts
 from latency.adapters.mock import MockASR
-from latency.adapters.types import redact
+from latency.adapters.types import redact, retryable_error
 from latency.corpus import Item, load_corpus
 from latency.endpoint import CompletenessModel, PunctuationCompleteness
 from latency.env import Settings, load_dotenv
@@ -291,18 +291,11 @@ async def _one_trial(
             )
         except Exception as exc:
             trial = _failed_trial(item, asr_name, llm_name, tts_name, mode, repeat, mock, oracle, redact(str(exc)))
-        if trial.ok or not _retryable(trial.error) or attempt == 3:
+        if trial.ok or not retryable_error(trial.error) or attempt == 3:
             return trial
         await asyncio.sleep(8.0 * attempt)
     assert trial is not None
     return trial
-
-
-def _retryable(error: str | None) -> bool:
-    if not error:
-        return False
-    text = error.lower()
-    return any(token in text for token in ("429", "limit_requests", "throttl", "empty transcript"))
 
 
 def _failed_trial(

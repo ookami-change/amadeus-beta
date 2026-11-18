@@ -10,6 +10,7 @@ import wave
 from pathlib import Path
 
 from latency.adapters.mock import MockASR, MockLLM, MockTTS
+from latency.adapters.types import retryable_error
 from latency.adapters.volc_frame import (
     build_asr_audio,
     build_asr_full_client,
@@ -121,6 +122,12 @@ class EndpointTests(unittest.TestCase):
         gate = EnergyGate()
         self.assertFalse(gate.speech(_silence(20)))
         self.assertTrue(gate.speech(_tone(20)))
+
+
+class RetryTests(unittest.TestCase):
+    def test_minimax_rpm_text_is_retried(self) -> None:
+        self.assertTrue(retryable_error("minimax-tts: rate limit exceeded(RPM)"))
+        self.assertFalse(retryable_error("volc-asr: no close frame received or sent"))
 
 
 class ScoreTests(unittest.TestCase):

@@ -97,3 +97,12 @@ def redact(text: str) -> str:
         if len(value) >= 6:
             cleaned = cleaned.replace(value, "***")
     return cleaned
+
+
+def retryable_error(error: str | None) -> bool:
+    """True when another attempt may succeed: quota, throttle, or a blank transcript."""
+
+    if not error:
+        return False
+    text = error.lower()
+    return any(token in text for token in ("429", "limit_requests", "throttl", "rate limit", "empty transcript"))
