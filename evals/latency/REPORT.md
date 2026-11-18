@@ -1,6 +1,8 @@
 # D1 报告：语音链路延迟
 
-测量时间：2026-11-16 20:12（新加坡时间，UTC+8）。原始记录在 `results/endpoint-oracle.json`。
+断句测量时间：2026-11-16 20:12（新加坡时间，UTC+8）。原始记录在 `results/endpoint-oracle.json`。
+
+2026-11-18 14:32–14:39（新加坡时间）在腾讯云上海二区做了密钥 smoke。端到端小批量没有开跑，原因见「上海实测」。原始记录在 `results/smoke-shanghai.json`。
 
 ## 测试环境
 
@@ -46,6 +48,33 @@ P95 只有 9 个点，不稳定。能看清的是：断句就是 500ms 阈值，
 
 原始记录：`results/cascade-oregon.json`。断句用的是固定 500ms。标点模型那套语义断句会提前截断，没有拿去跑供应商链路。
 
+## 上海实测
+
+机器是腾讯云 CVM，地域 `ap-shanghai`，可用区 `ap-shanghai-2`，实例 `ins-658mfauh`，OpenCloudOS 9.6。SSH 保持 host key 校验。客户端公钥指纹与约定的 SHA256 指纹一致，私钥只在本机 600 临时文件里，用完删除。
+
+测量目录是 `/var/tmp/amadeus-m0-d1-5194`，跑完已整目录删除。没有改防火墙、监听端口、systemd 单元或已有配置。跑前跑后的监听端口一致。解释器用的是系统 Python 3.11.6 的独立 venv：服务器从 GitHub 拉 CPython 3.12 独立包时卡住了，没有为了这一轮去改系统 Python。调用并发是 1，两次调用之间停 2 秒。
+
+1Password 里百炼条目没有 workspace id。Paraformer 和 CosyVoice 走的是公开地址 `wss://dashscope.aliyuncs.com/api-ws/v1/inference`。请求已经到达账号，失败原因不是域名解析。
+
+每个供应商只打了连通性，不是级联，也不是百分位。
+
+| 调用 | 结果 |
+|---|---|
+| 方舟 `doubao-seed-1-6-flash-250828` | HTTP 404，`InvalidEndpointOrModel.NotFound` |
+| 方舟 `GET /models` | HTTP 200，55 个 id，其中 `ep-` 接入点 0 个。名称里带 flash 的豆包对话模型没有（已排除生图、生视频、3D） |
+| 方舟 `doubao-seed-2-0-mini-260428` | HTTP 404，`ModelNotOpen`。其余模型没有再打 |
+| 通义 `qwen3.6-flash` | HTTP 403，`AccessDenied.Unpurchased` |
+| 通义 `qwen-turbo` | HTTP 429，`limit_requests`。到这里就停，没有换别的通义模型 |
+| MiniMax `speech-2.8-turbo` | 通。从发起到首个音频块 933ms，PCM 97340 字节，32 kHz。这是单次合成耗时，不是 `t_tts_first_audio − t_speech_end` |
+| 豆包识别 `volc.seedasr.sauc.duration` | HTTP 403，`requested resource not granted` |
+| 豆包合成，请求资源 `seed-tts-2.0` | HTTP 403，服务端回的是 `resource_id=volc.seedtts.default`，`requested resource not granted` |
+| Paraformer `paraformer-realtime-v2` | 拒绝访问，账号没有该模型资格 |
+| CosyVoice `cosyvoice-v3-flash` | 拒绝访问，账号状态异常 |
+
+小批量级联没有跑。计划是：smoke 里 ASR、LLM、TTS 都通过的组合，3 条语料（寒暄、陈述、提问），1 遍，固定 500ms 断句。这一轮没有任何一个组合三端都通。识别两条都不通，快脑两条也不通。测量脚本对 429 会再试 3 次，继续打只会撞已经限流的通义，所以停在 smoke。
+
+没有新的端到端 P50 / P95。800ms 这条仍然没有国内级联数据。
+
 ## 语料
 
 20 条中文，16 kHz 单声道，edge-tts `zh-CN-XiaoxiaoNeural` 合成后再峰值归一化。这是测量输入，不是角色声线。
@@ -79,7 +108,7 @@ P95 只有 9 个点，不稳定。能看清的是：断句就是 500ms 阈值，
 
 ## 推荐
 
-现在不能推荐供应商组合，也不能说级联链路的 P50 能到 800ms。国内实测量出来之前，不要带着“已经达标”进入 M1。
+现在不能推荐供应商组合，也不能说级联链路的 P50 能到 800ms。上海 smoke 之后仍然没有一组识别、快脑、合成同时可用，不要带着“已经达标”进入 M1。要补的是开通，不是再把同一批 403 和 429 打一遍：豆包语音商品、方舟对话模型、百炼账号状态和通义额度。MiniMax 合成在上海能通，但单次首包 933ms 只说明这一跳，不能拿来当端到端。
 
 断句这一侧，固定 500ms 守不住句中长停顿。把一个通用标点模型当成话轮检测，会在更早的逗号停顿上抢话。下一步需要的是专门判断“这句话还没说完”的模型，并且用真实 ASR 的中间结果再测一遍，而不是理想文本。
 
