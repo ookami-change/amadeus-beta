@@ -1,0 +1,44 @@
+{
+  "line": 9,
+  "text": "嗯。",
+  "hint": "附和声，很短，表示在听",
+  "instruction": "很短的附和，表示在听。",
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 1.0,
+  "first_audio_ms": 2414.9,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "嗯。\n",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "嗯。\n",
+        "words": [
+          {
+            "confidence": 0.9145745,
+            "endTime": 0.345,
+            "startTime": 0,
+            "word": "嗯。"
+          }
+        ]
+      }
+    }
+  ]
+}
