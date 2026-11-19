@@ -17,15 +17,29 @@ from pathlib import Path
 from latency.adapters.factory import build_tts
 from latency.adapters.types import AudioChunk, TTSMark, redact
 from latency.env import Settings, load_dotenv
-from tts.lines import LINES, Line
+from tts.lines import DOUBAO_TUNED, LINES, Line
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"
 VENDORS = ("volc", "minimax", "dashscope")
 
 
-async def _one(vendor: str, line: Line, settings: Settings, out_dir: Path) -> dict[str, object]:
-    model = "speech-2.8-hd" if vendor == "minimax" else None
+async def _one(
+    vendor: str,
+    line: Line,
+    settings: Settings,
+    out_dir: Path,
+    *,
+    folder: str | None = None,
+    instruction: str | None = None,
+    model: str | None = None,
+    voice: str | None = None,
+    allow_instruction: bool | None = None,
+    sample_rate: int = 22050,
+) -> dict[str, object]:
+    spoken = line.instruction if instruction is None else instruction
+    if model is None and vendor == "minimax":
+        model = "speech-2.8-hd"
     tts = build_tts(
         vendor,
         settings,
@@ -33,6 +47,9 @@ async def _one(vendor: str, line: Line, settings: Settings, out_dir: Path) -> di
         speed=line.speed,
         volume=line.volume,
         model=model,
+        voice=voice,
+        allow_instruction=allow_instruction,
+        sample_rate=sample_rate,
     )
     marks: list[dict[str, object]] = []
     pcm = bytearray()
@@ -43,7 +60,7 @@ async def _one(vendor: str, line: Line, settings: Settings, out_dir: Path) -> di
     async def text_once() -> AsyncIterator[str]:
         yield line.text
 
-    await tts.open(instruction=line.instruction)
+    await tts.open(instruction=spoken)
     try:
         async for item in tts.speak(text_once()):
             if isinstance(item, AudioChunk) and item.pcm:
@@ -57,17 +74,19 @@ async def _one(vendor: str, line: Line, settings: Settings, out_dir: Path) -> di
         await tts.close()
     if first_ms is None or not pcm:
         raise RuntimeError(f"{vendor} line {line.number} produced no audio")
-    folder = out_dir / vendor
-    folder.mkdir(parents=True, exist_ok=True)
-    wav_path = folder / f"{line.number:02d}.wav"
+    target = out_dir / (folder or vendor)
+    target.mkdir(parents=True, exist_ok=True)
+    wav_path = target / f"{line.number:02d}.wav"
     _write_wav(wav_path, bytes(pcm), sample_rate)
-    (folder / f"{line.number:02d}.json").write_text(
+    (target / f"{line.number:02d}.json").write_text(
         json.dumps(
             {
                 "line": line.number,
                 "text": line.text,
                 "hint": line.hint,
-                "instruction": line.instruction,
+                "instruction": spoken,
+                "model": model,
+                "voice": voice,
                 "emotion": line.emotion,
                 "speed": line.speed,
                 "volume": line.volume,
@@ -98,7 +117,7 @@ def _write_wav(path: Path, pcm: bytes, rate: int) -> None:
         handle.writeframes(pcm)
 
 
-async def _run(vendors: list[str], settings: Settings, out_dir: Path) -> list[dict[str, object]]:
+async def _run(vendors: list[str], settings: Settings, out_dir: Path, *, tuned: bool) -> list[dict[str, object]]:
     missing: list[str] = []
     for vendor in vendors:
         for name in settings.missing_for("-", "-", vendor):
@@ -112,7 +131,8 @@ async def _run(vendors: list[str], settings: Settings, out_dir: Path) -> list[di
     for vendor in vendors:
         for line in LINES:
             try:
-                result = await _one(vendor, line, settings, out_dir)
+                spoken = DOUBAO_TUNED[line.number] if tuned else None
+                result = await _one(vendor, line, settings, out_dir, instruction=spoken)
             except Exception as exc:
                 result = {"vendor": vendor, "line": line.number, "error": redact(str(exc))}
             results.append(result)
@@ -124,11 +144,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Synthesize the D2 listening set")
     parser.add_argument("--out", type=Path, default=OUT)
     parser.add_argument("--vendor", action="append", dest="vendors")
+    parser.add_argument("--tuned", action="store_true", help="Use the per-line Doubao context_texts")
     args = parser.parse_args()
     load_dotenv(Path.cwd())
     settings = Settings.from_environ()
     vendors = args.vendors or list(VENDORS)
-    results = asyncio.run(_run(vendors, settings, args.out))
+    results = asyncio.run(_run(vendors, settings, args.out, tuned=args.tuned))
     (args.out / "timings.json").write_text(
         json.dumps(results, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",

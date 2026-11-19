@@ -21,12 +21,21 @@ class DashScopeTTS:
         emotion: str | None = None,
         speed: float = 1.0,
         volume: float = 1.0,
+        model: str | None = None,
+        voice: str | None = None,
+        allow_instruction: bool | None = None,
+        sample_rate: int = 22050,
     ) -> None:
         self._settings = settings
         self._speed = speed
         self._volume = volume
+        self._model = model or settings.cosyvoice_model
+        self._voice = voice or settings.cosyvoice_voice
+        self._allow_instruction = settings.cosyvoice_instruction if allow_instruction is None else allow_instruction
+        self._sample_rate = sample_rate
         # CosyVoice's emotion control is the instruction string, not this field.
-        # The selected voice (龙安温) does not accept instructions unless the operator opts in.
+        # 龙安温 does not accept instructions unless the operator opts in.
+        # A v3.5 designed voice does, so the caller can set allow_instruction.
         self._emotion = emotion
         self._ws: ClientConnection | None = None
         self._reader: asyncio.Task[None] | None = None
@@ -40,15 +49,15 @@ class DashScopeTTS:
         headers = {"Authorization": f"Bearer {self._settings.dashscope_key}"}
         parameters: dict[str, object] = {
             "text_type": "PlainText",
-            "voice": self._settings.cosyvoice_voice,
+            "voice": self._voice,
             "format": "pcm",
-            "sample_rate": 22050,
+            "sample_rate": self._sample_rate,
             "word_timestamp_enabled": True,
             "rate": self._speed,
             "pitch": 1.0,
             "volume": int(round(max(0.0, min(1.0, self._volume)) * 100)),
         }
-        if instruction and self._settings.cosyvoice_instruction:
+        if instruction and self._allow_instruction:
             parameters["instruction"] = instruction
         start = {
             "header": {"action": "run-task", "task_id": self._task_id, "streaming": "duplex"},
@@ -56,7 +65,7 @@ class DashScopeTTS:
                 "task_group": "audio",
                 "task": "tts",
                 "function": "SpeechSynthesizer",
-                "model": self._settings.cosyvoice_model,
+                "model": self._model,
                 "parameters": parameters,
                 "input": {},
             },
@@ -109,7 +118,7 @@ class DashScopeTTS:
                     raise item
                 if isinstance(item, bytes):
                     if item:
-                        yield AudioChunk(pcm=item, sample_rate=22050)
+                        yield AudioChunk(pcm=item, sample_rate=self._sample_rate)
                     continue
                 event = _object(json.loads(item))
                 name = _event_name(event)

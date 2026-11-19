@@ -45,13 +45,25 @@ def build_tts(
     speed: float = 1.0,
     volume: float = 1.0,
     model: str | None = None,
+    voice: str | None = None,
+    allow_instruction: bool | None = None,
+    sample_rate: int = 22050,
 ) -> TTSAdapter:
     if name == "volc":
         return VolcTTS(settings, emotion=emotion, speed=speed, volume=volume)
     if name == "minimax":
         return MiniMaxTTS(settings, emotion=emotion, speed=speed, volume=volume, model=model)
     if name == "dashscope":
-        return DashScopeTTS(settings, emotion=emotion, speed=speed, volume=volume)
+        return DashScopeTTS(
+            settings,
+            emotion=emotion,
+            speed=speed,
+            volume=volume,
+            model=model,
+            voice=voice,
+            allow_instruction=allow_instruction,
+            sample_rate=sample_rate,
+        )
     if name == "mock":
         return MockTTS()
     raise KeyError(name)
