@@ -11,9 +11,10 @@
         background: #f6f1e8;
         color: #241c16;
       }
-      main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 64px; }
+      main { max-width: 1280px; margin: 0 auto; padding: 28px 20px 64px; }
       h1 { font-weight: 500; font-size: 28px; margin: 0 0 8px; }
-      p.note { margin: 0 0 20px; color: #5c5148; }
+      p.note { margin: 0 0 16px; color: #5c5148; }
+      .bar { display: flex; gap: 8px; margin: 0 0 16px; }
       table { width: 100%; border-collapse: collapse; background: #fffdf8; }
       th, td { border-bottom: 1px solid #e4d9cc; padding: 10px 8px; vertical-align: top; text-align: left; }
       th { font-weight: 500; }
@@ -26,6 +27,7 @@
         cursor: pointer;
       }
       button[disabled] { background: #b7aa9e; cursor: default; }
+      button.quiet { background: transparent; color: #2f2924; border: 1px solid #2f2924; }
       .hint { color: #6d6258; font-size: 14px; }
     </style>
   </head>
@@ -33,20 +35,16 @@
     <main>
       <h1>克劳德 · 十四句试听</h1>
       <p class="note">
-        行是台词，列是供应商和这次实际使用的型号。点击播放。音频文件和本页放在一起：<code>out/供应商/编号.wav</code>。
-        双击本页即可，不需要服务器。没有跑过合成时，按钮会变成“未合成”。
-        CosyVoice 这一列仍是 <code>cosyvoice-v3-flash</code> 的龙安温：<code>cosyvoice-v3.5-flash</code> 没有系统音色，龙安温在 v3.5 上返回 418。
+        行是台词。点击播放。音频和本页放在一起，双击本页即可，不需要服务器。没有合成过的按钮会变成“未合成”。
+        盲听把六路声音的顺序打乱并隐去名字，选完再揭晓。
       </p>
+      <div class="bar">
+        <button type="button" id="labeled" class="quiet">对照</button>
+        <button type="button" id="blind">盲听</button>
+        <button type="button" id="reveal" class="quiet" hidden>揭晓</button>
+      </div>
       <table id="board">
-        <thead>
-          <tr>
-            <th>台词</th>
-            <th>情绪提示</th>
-            <th>豆包<br />seed-tts-2.0<br />知性女声</th>
-            <th>MiniMax<br />speech-2.8-hd<br />Intellectual Girl</th>
-            <th>CosyVoice<br />cosyvoice-v3-flash<br />龙安温</th>
-          </tr>
-        </thead>
+        <thead><tr></tr></thead>
         <tbody></tbody>
       </table>
     </main>
@@ -67,28 +65,32 @@
         ["13", "上次你说的那件事，我记下来了。", "轻，认真，有一点高兴"],
         ["14", "对不起，刚才是我说得太重了。", "低落，真诚"]
       ];
-      const vendors = ["volc", "minimax", "dashscope"];
+      const labeled = [
+        { name: "豆包 2.0\n知性女声\n原指令", dir: "out/volc" },
+        { name: "豆包 2.0\n知性女声\n逐条调优", dir: "out/volc-tuned" },
+        { name: "MiniMax\nspeech-2.8-hd\nIntellectual Girl", dir: "out/minimax" },
+        { name: "CosyVoice\nv3-flash\n龙安温", dir: "out/dashscope" },
+        { name: "CosyVoice\nv3.5-flash\n设计 V1", dir: "out/design/v1" },
+        { name: "CosyVoice\nv3.5-flash\n设计 V2", dir: "out/design/v2" },
+        { name: "CosyVoice\nv3.5-flash\n设计 V3", dir: "out/design/v3" }
+      ];
+      // Fixed shuffle of the six blind candidates. Names stay hidden until 揭晓.
+      const blindOrder = [4, 1, 5, 0, 3, 2];
+      const blindPool = [
+        { name: "CosyVoice v3.5-flash 设计 V1", dir: "out/design/v1" },
+        { name: "CosyVoice v3.5-flash 设计 V2", dir: "out/design/v2" },
+        { name: "CosyVoice v3.5-flash 设计 V3", dir: "out/design/v3" },
+        { name: "豆包 2.0 逐条调优", dir: "out/volc-tuned" },
+        { name: "MiniMax speech-2.8-hd Intellectual Girl", dir: "out/minimax" },
+        { name: "CosyVoice v3-flash 龙安温", dir: "out/dashscope" }
+      ];
       let current = null;
+      let revealed = false;
+      let mode = "blind";
+      const head = document.querySelector("thead tr");
       const body = document.querySelector("tbody");
-      for (const [id, text, hint] of lines) {
-        const row = document.createElement("tr");
-        const said = document.createElement("td");
-        said.textContent = id + "  " + text;
-        const mood = document.createElement("td");
-        mood.className = "hint";
-        mood.textContent = hint;
-        row.append(said, mood);
-        for (const vendor of vendors) {
-          const cell = document.createElement("td");
-          const button = document.createElement("button");
-          button.type = "button";
-          button.textContent = "播放";
-          button.addEventListener("click", () => play("out/" + vendor + "/" + id + ".wav", button));
-          cell.append(button);
-          row.append(cell);
-        }
-        body.append(row);
-      }
+      const revealButton = document.getElementById("reveal");
+
       function play(url, button) {
         if (current) current.pause();
         const audio = new Audio(url);
@@ -102,6 +104,62 @@
           button.disabled = true;
         });
       }
+
+      function headerCell(text) {
+        const cell = document.createElement("th");
+        cell.style.whiteSpace = "pre-line";
+        cell.textContent = text;
+        return cell;
+      }
+
+      function render() {
+        if (current) current.pause();
+        head.replaceChildren();
+        body.replaceChildren();
+        const columns = mode === "blind"
+          ? blindOrder.map((index) => blindPool[index])
+          : labeled;
+        head.append(headerCell("台词"), headerCell("情绪提示"));
+        columns.forEach((column, index) => {
+          const hidden = mode === "blind" && !revealed;
+          head.append(headerCell(hidden ? "声音 " + String.fromCharCode(65 + index) : column.name));
+        });
+        for (const [id, text, hint] of lines) {
+          const row = document.createElement("tr");
+          const said = document.createElement("td");
+          said.textContent = id + "  " + text;
+          const mood = document.createElement("td");
+          mood.className = "hint";
+          mood.textContent = hint;
+          row.append(said, mood);
+          for (const column of columns) {
+            const cell = document.createElement("td");
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = "播放";
+            button.addEventListener("click", () => play(column.dir + "/" + id + ".wav", button));
+            cell.append(button);
+            row.append(cell);
+          }
+          body.append(row);
+        }
+        revealButton.hidden = mode !== "blind" || revealed;
+      }
+
+      document.getElementById("labeled").addEventListener("click", () => {
+        mode = "labeled";
+        render();
+      });
+      document.getElementById("blind").addEventListener("click", () => {
+        mode = "blind";
+        revealed = false;
+        render();
+      });
+      revealButton.addEventListener("click", () => {
+        revealed = true;
+        render();
+      });
+      render();
     </script>
   </body>
 </html>

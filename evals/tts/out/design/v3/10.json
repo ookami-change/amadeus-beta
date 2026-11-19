@@ -1,0 +1,965 @@
+{
+  "line": 10,
+  "text": "呵……抱歉，这个有点好笑。",
+  "hint": "忍不住的轻笑，随即收住",
+  "instruction": "你忍不住轻轻笑一下，马上收住，带着一点歉意。",
+  "model": "cosyvoice-v3.5-flash",
+  "voice": "cosyvoice-v3.5-flash-vd-claudev3-f610591be0df4cbf9dff7fe1ba5a9868",
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 0.9,
+  "first_audio_ms": 690.4,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "呵",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 80,
+                  "end_time": 240
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 240,
+                  "end_time": 320
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 320,
+                  "end_time": 400
+                },
+                {
+                  "text": "抱",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 400,
+                  "end_time": 800
+                }
+              ]
+            },
+            "type": "sentence-begin",
+            "original_text": "呵……抱歉，这个有点好笑。",
+            "normalized_text": "呵……抱歉，这个有点好笑。"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "呵",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 80,
+                  "end_time": 240
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 240,
+                  "end_time": 320
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 320,
+                  "end_time": 400
+                },
+                {
+                  "text": "抱",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 400,
+                  "end_time": 800
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "呵",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 80,
+                  "end_time": 240
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 240,
+                  "end_time": 320
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 320,
+                  "end_time": 400
+                },
+                {
+                  "text": "抱",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 400,
+                  "end_time": 720
+                },
+                {
+                  "text": "歉",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 1760,
+                  "end_time": 1920
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 2000,
+                  "end_time": 2160
+                },
+                {
+                  "text": "这",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 2160,
+                  "end_time": 2480
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "呵",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 80,
+                  "end_time": 240
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 240,
+                  "end_time": 320
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 320,
+                  "end_time": 400
+                },
+                {
+                  "text": "抱",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 400,
+                  "end_time": 720
+                },
+                {
+                  "text": "歉",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 1760,
+                  "end_time": 1920
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 2000,
+                  "end_time": 2160
+                },
+                {
+                  "text": "这",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 2160,
+                  "end_time": 2960
+                },
+                {
+                  "text": "个",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 2960,
+                  "end_time": 3040
+                },
+                {
+                  "text": "有",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 3040,
+                  "end_time": 3200
+                },
+                {
+                  "text": "点",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 3200,
+                  "end_time": 3360
+                },
+                {
+                  "text": "好",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 3360,
+                  "end_time": 3440
+                },
+                {
+                  "text": "笑",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 3520,
+                  "end_time": 3680
+                },
+                {
+                  "text": "。",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 3680,
+                  "end_time": 4160
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "2d175059-dea0-4233-b497-be1c9b8635b9",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "呵",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 80,
+                  "end_time": 240
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 240,
+                  "end_time": 320
+                },
+                {
+                  "text": "…",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 320,
+                  "end_time": 400
+                },
+                {
+                  "text": "抱",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 400,
+                  "end_time": 720
+                },
+                {
+                  "text": "歉",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 1760,
+                  "end_time": 1920
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 2000,
+                  "end_time": 2160
+                },
+                {
+                  "text": "这",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 2160,
+                  "end_time": 2960
+                },
+                {
+                  "text": "个",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 2960,
+                  "end_time": 3040
+                },
+                {
+                  "text": "有",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 3040,
+                  "end_time": 3200
+                },
+                {
+                  "text": "点",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 3200,
+                  "end_time": 3360
+                },
+                {
+                  "text": "好",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 3360,
+                  "end_time": 3440
+                },
+                {
+                  "text": "笑",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 3520,
+                  "end_time": 3680
+                },
+                {
+                  "text": "。",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 3680,
+                  "end_time": 4160
+                }
+              ]
+            },
+            "type": "sentence-end",
+            "original_text": "呵……抱歉，这个有点好笑。",
+            "normalized_text": "呵……抱歉，这个有点好笑。"
+          },
+          "usage": {
+            "characters": 22
+          }
+        }
+      }
+    }
+  ]
+}

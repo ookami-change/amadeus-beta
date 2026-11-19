@@ -1,0 +1,235 @@
+{
+  "line": 9,
+  "text": "嗯。",
+  "hint": "附和声，很短，表示在听",
+  "instruction": "你很短地应一声，表示在听，不要拖长。",
+  "model": "cosyvoice-v3.5-flash",
+  "voice": "cosyvoice-v3.5-flash-vd-claudev2-1d734a813bb549c0bc1cd731677fade1",
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 1.0,
+  "first_audio_ms": 644.6,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "1d268822-2063-4ced-9166-319d95e325fd",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "嗯",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 160
+                },
+                {
+                  "text": "。",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 160,
+                  "end_time": 480
+                }
+              ]
+            },
+            "type": "sentence-begin",
+            "original_text": "嗯。",
+            "normalized_text": "嗯。"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "1d268822-2063-4ced-9166-319d95e325fd",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "嗯",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 160
+                },
+                {
+                  "text": "。",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 160,
+                  "end_time": 480
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "1d268822-2063-4ced-9166-319d95e325fd",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "1d268822-2063-4ced-9166-319d95e325fd",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "1d268822-2063-4ced-9166-319d95e325fd",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "1d268822-2063-4ced-9166-319d95e325fd",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "1d268822-2063-4ced-9166-319d95e325fd",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "1d268822-2063-4ced-9166-319d95e325fd",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "嗯",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 160
+                },
+                {
+                  "text": "。",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 160,
+                  "end_time": 480
+                }
+              ]
+            },
+            "type": "sentence-end",
+            "original_text": "嗯。",
+            "normalized_text": "嗯。"
+          },
+          "usage": {
+            "characters": 3
+          }
+        }
+      }
+    }
+  ]
+}

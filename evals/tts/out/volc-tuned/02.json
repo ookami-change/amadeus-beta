@@ -1,0 +1,94 @@
+{
+  "line": 2,
+  "text": "等一下，这个数字不对。",
+  "hint": "较真，认真但不凶",
+  "instruction": "你认真地说，平静，不凶，像在核对一个数字。",
+  "model": null,
+  "voice": null,
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 1.0,
+  "first_audio_ms": 623.6,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "等一下，这个数字不对。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "等一下，这个数字不对。",
+        "words": [
+          {
+            "confidence": 0.8367389,
+            "endTime": 0.135,
+            "startTime": 0,
+            "word": "等"
+          },
+          {
+            "confidence": 0.77692497,
+            "endTime": 0.185,
+            "startTime": 0.135,
+            "word": "一"
+          },
+          {
+            "confidence": 0.9720396,
+            "endTime": 0.445,
+            "startTime": 0.185,
+            "word": "下，"
+          },
+          {
+            "confidence": 0.9626824,
+            "endTime": 0.755,
+            "startTime": 0.615,
+            "word": "这"
+          },
+          {
+            "confidence": 0.41775754,
+            "endTime": 0.825,
+            "startTime": 0.755,
+            "word": "个"
+          },
+          {
+            "confidence": 0.80588347,
+            "endTime": 1.005,
+            "startTime": 0.825,
+            "word": "数"
+          },
+          {
+            "confidence": 0.85454035,
+            "endTime": 1.115,
+            "startTime": 1.005,
+            "word": "字"
+          },
+          {
+            "confidence": 0.85036886,
+            "endTime": 1.245,
+            "startTime": 1.115,
+            "word": "不"
+          },
+          {
+            "confidence": 0.95582724,
+            "endTime": 1.555,
+            "startTime": 1.245,
+            "word": "对。"
+          }
+        ]
+      }
+    }
+  ]
+}

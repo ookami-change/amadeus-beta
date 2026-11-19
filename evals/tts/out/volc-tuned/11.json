@@ -1,0 +1,100 @@
+{
+  "line": 11,
+  "text": "唉……好吧，这次就算了。",
+  "hint": "轻叹，让步",
+  "instruction": "你先轻叹一声，然后让步，不抱怨。",
+  "model": null,
+  "voice": null,
+  "emotion": "calm",
+  "speed": 0.92,
+  "volume": 1.0,
+  "first_audio_ms": 532.4,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "唉……好吧，这次就算了。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "唉……好吧，这次就算了。",
+        "words": [
+          {
+            "confidence": 0.9154556,
+            "endTime": 0.575,
+            "startTime": 0,
+            "word": "唉"
+          },
+          {
+            "confidence": 0.35524088,
+            "endTime": 0.635,
+            "startTime": 0.605,
+            "word": "…"
+          },
+          {
+            "confidence": 0.40394995,
+            "endTime": 0.735,
+            "startTime": 0.705,
+            "word": "…"
+          },
+          {
+            "confidence": 0.8792281,
+            "endTime": 1.305,
+            "startTime": 1.095,
+            "word": "好"
+          },
+          {
+            "confidence": 0.9600065,
+            "endTime": 1.595,
+            "startTime": 1.305,
+            "word": "吧，"
+          },
+          {
+            "confidence": 0.98011947,
+            "endTime": 1.975,
+            "startTime": 1.835,
+            "word": "这"
+          },
+          {
+            "confidence": 0.94287694,
+            "endTime": 2.105,
+            "startTime": 1.975,
+            "word": "次"
+          },
+          {
+            "confidence": 0.92096376,
+            "endTime": 2.255,
+            "startTime": 2.105,
+            "word": "就"
+          },
+          {
+            "confidence": 0.95355976,
+            "endTime": 2.555,
+            "startTime": 2.255,
+            "word": "算"
+          },
+          {
+            "confidence": 0.9293377,
+            "endTime": 2.785,
+            "startTime": 2.555,
+            "word": "了。"
+          }
+        ]
+      }
+    }
+  ]
+}

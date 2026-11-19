@@ -27,6 +27,8 @@ from latency.prompts import load_persona
 from latency.scoring import Pause, classify_endpoint, percentile
 from latency.turn_models import _normalize_livekit
 from latency.turn_script import TURNS, validate
+from tts.lines import DOUBAO_TUNED, LINES
+from tts.voices import DESIGNS, PREVIEW_TEXT, instruction_units
 
 
 def _tone(ms: int, amplitude: int = 9000) -> bytes:
@@ -134,6 +136,18 @@ class TurnScriptTests(unittest.TestCase):
 
     def test_livekit_normalization_drops_chinese_punctuation(self) -> None:
         self.assertEqual(_normalize_livekit("然后，就是。"), "然后就是")
+
+
+class VoiceDesignTests(unittest.TestCase):
+    def test_prompts_fit_the_documented_limits(self) -> None:
+        self.assertEqual(len(DESIGNS), 3)
+        self.assertTrue(15 <= len(PREVIEW_TEXT) <= 200)
+        for design in DESIGNS:
+            self.assertLessEqual(len(design.prompt), 500)
+            self.assertLessEqual(len(design.prefix), 10)
+            self.assertTrue(design.prefix.isalnum())
+        self.assertEqual(set(DOUBAO_TUNED), {line.number for line in LINES})
+        self.assertTrue(all(instruction_units(text) <= 100 for text in DOUBAO_TUNED.values()))
 
 
 class RetryTests(unittest.TestCase):
