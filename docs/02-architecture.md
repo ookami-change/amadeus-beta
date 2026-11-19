@@ -177,7 +177,7 @@ flowchart LR
 | VAD / 断句 | Silero VAD + 语义断句模型 | |
 | ASR | 国内线候选：豆包流式识别、阿里 Paraformer 实时版；自托管备选 SenseVoice·FunASR | 需要中文流式 + 低延迟 |
 | LLM | 国内线候选：豆包、通义千问等（快脑用低延迟档，慢脑用旗舰档） | 接口可替换；人设提示词走缓存 |
-| TTS | 国内线候选：豆包语音合成大模型、MiniMax、CosyVoice；远期自训练声线 | **全项目最关键的选型**，决定"像不像人"的一半 |
+| TTS | **MiniMax speech-2.8，音色 Intellectual Girl**（M0 盲听选定）；备选 CosyVoice v3.5-flash 设计音色；远期专属声线 | **全项目最关键的选型**，决定"像不像人"的一半 |
 | 记忆库 | Postgres + pgvector | 一个库解决结构化 + 向量 + 全文 |
 | 模型资产 | 原型用 VRoid Studio；正式版定制 | |
 | 动作资产 | VRMA；来源：动捕库重定向 + 手 K 关键动作 | |
