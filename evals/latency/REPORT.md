@@ -216,23 +216,27 @@ TEN Turn Detection 没有数字。Hugging Face 上 `TEN-framework/TEN_Turn_Detec
 
 ## 快脑首 token
 
-只测文本，不接音频。人设 1503 字，历史 4 轮，用户句是「店长，今天的账还是差三块。你说我要不要现在就改？」。思考关闭，`max_tokens` 80，`temperature` 0.7，每个模型先计 50 次新建连接，再预热一次后用同一条连接计 50 次。间隔 1 秒，并发 1。机器是腾讯云 CVM 上海二区 `ap-shanghai-2`，实例 `ins-658mfauh`，OpenCloudOS 9.6，Python 3.12.16。原始结果在 `evals/latency/results/first-qwen.json`、`first-glm.json`、`first-minimax.json`。10 条回复原文在 `evals/latency/results/first-token-replies.md`，取的是复用连接那 50 次的前 10 条。
+只测文本，不接音频。人设 1503 字，历史 4 轮，用户句是「店长，今天的账还是差三块。你说我要不要现在就改？」。思考关闭，`max_tokens` 80，`temperature` 0.7，每个模型先计 50 次新建连接，再预热一次后用同一条连接计 50 次。间隔 1 秒，并发 1。机器是腾讯云 CVM 上海二区 `ap-shanghai-2`，实例 `ins-658mfauh`，OpenCloudOS 9.6，Python 3.12.16。原始结果在 `evals/latency/results/first-qwen.json`、`first-glm.json`、`first-minimax.json`、`first-doubao-lite.json`、`first-doubao-turbo.json`。10 条回复原文在 `evals/latency/results/first-token-replies.md`，取的是复用连接那 50 次的前 10 条。豆包两档是 2026-11-19 16:03 起（新加坡时间）在同一台上海机器上补测的，条件与上表三家相同。
 
 | 模型 | 新建 P50 | 新建 P95 | 复用 P50 | 复用 P95 | 复用减新建（P50） | 新建成功 | 复用成功 | 缓存 token P50 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | `qwen3.8-flash` | 442.9ms | 812.8ms | 446.4ms | 989.8ms | +3.5ms | 50/50 | 50/50 | 1024 |
 | `glm-5-3-flash-260828` | 2156.0ms | 3893.2ms | 2222.6ms | 5539.7ms | +66.6ms | 38/50 | 42/50 | 1088 |
 | `MiniMax-M3` | 712.6ms | 1939.8ms | 772.9ms | 2537.6ms | +60.3ms | 50/50 | 50/50 | 1024 |
+| `doubao-seed-2-1-lite-260915` | 624.7ms | 1212.0ms | 632.7ms | 1790.4ms | +8.0ms | 50/50 | 50/50 | 1222 |
+| `doubao-seed-2-1-turbo-260628` | 1981.0ms | 3362.9ms | 1788.0ms | 3103.7ms | −193.0ms | 50/50 | 50/50 | 0 |
 
-三家里新建连接的 P50 最低的是 `qwen3.8-flash`，442.9ms。连接复用没有把它再降下来，P50 还高了 3.5ms，落在这 50 次的抖动里。服务端提示词缓存两种接法都命中了，所以握手那几十毫秒不是这组数字的大头。全量级联里这个模型的首 token 曾是 689ms，那是链路里的一次计时，不是这一节的条件。
+新建连接的 P50 最低的仍是 `qwen3.8-flash`，442.9ms。豆包 lite 开通后新建 P50 是 624.7ms，比它慢 181.8ms。turbo 新建 P50 是 1981.0ms。R6 的快脑继续用 `qwen3.8-flash`。连接复用没有把 `qwen3.8-flash` 再降下来，P50 还高了 3.5ms，落在这 50 次的抖动里。服务端提示词缓存两种接法都命中了，所以握手那几十毫秒不是这组数字的大头。全量级联里这个模型的首 token 曾是 689ms，那是链路里的一次计时，不是这一节的条件。
 
 `glm-5-3-flash-260828` 走方舟，请求里带了 `thinking: {type: disabled}`。它仍然先吐 `reasoning_content`。`max_tokens` 80 有时在出现正文前就用完，新建连接 12 次、复用连接 8 次因此没有正文 token，上表的分位数不含这 20 次。即便只看有正文的次数，P50 也在 2.2 秒。
 
 `MiniMax-M3` 是 MiniMax 里能关掉思考的型号。`MiniMax-M3.1-Flash` 官方写明不能关思考，关掉会返回 400。`MiniMax-M2.5-highspeed` 和 `MiniMax-M2.7-highspeed` 返回 404，已经下线。M3 在关闭思考后 50 次都有正文，但比 `qwen3.8-flash` 慢。
 
+`doubao-seed-2-1-lite-260915` 和 `doubao-seed-2-1-turbo-260628` 走方舟，请求里同样是 `thinking: {type: disabled}`。两档各 50 次新建、50 次复用都有正文，没有像 GLM 那样在正文出现前把 `max_tokens` 用完。lite 的缓存 token 在新建连接里有 46/50 是 1222，复用连接 50/50 都是 1222，和当次 `prompt_tokens` 相同，提示词缓存命中了。turbo 的 100 次 `cached_tokens` 都是 0，接口带回了这个字段，但没有命中。turbo 复用连接的 P50 比新建低 193ms，仍是 `qwen3.8-flash` 复用 P50 的约四倍。
+
 没有测到的：
 
-- 豆包低延迟档。方舟模型列表里看得到 `doubao-seed-2-1-lite-260915`、`doubao-seed-2-1-turbo-260628`、`doubao-seed-2-0-lite-260428`、`doubao-seed-2-0-mini-260428`，聊天接口都返回 `ModelNotOpen`。没有首 token 数字。
+- 方舟上另外两只仍未开通的豆包：`doubao-seed-2-0-lite-260428`、`doubao-seed-2-0-mini-260428`。上一轮它们返回 `ModelNotOpen`，这次没有再打。
 - 混元。保险库里没有混元的 API 密钥。
 - 百炼上的 `ZHIPU/GLM-5.3-Flash`、`stepfun/step-3.7-flash`、`antdigital/Ling-3.1-flash` 都是产品未开通。百炼的 `glm-5.3` 还要求 `enable_thinking` 必须为 true，不符合「关闭思考」。
 
@@ -244,4 +248,4 @@ TEN Turn Detection 没有数字。Hugging Face 上 `TEN-framework/TEN_Turn_Detec
 | `glm-5-3-flash`，方舟在线推理 | 0.80 元 | 2.80 元 | 0.23 元 | [方舟模型价格](https://ark.volcengine.com/region:cn-beijing/docs/model-pricing) |
 | `MiniMax-M3`，标准档，输入 ≤ 512k | 0.30 美元 | 1.20 美元 | 0.06 美元 | [MiniMax 价格](https://platform.minimax.io/docs/pricing/overview) |
 
-MiniMax 这一档页面上同时写着原价输入 0.60 美元、输出 2.40 美元，现价标成长期五折。上表写的是现价。单位都是每百万 token。豆包 seed 2.1 lite 的方舟标价是输入 0.80 元、输出 2.70 元，但这个账号没有开通，所以没有对应的延迟。
+MiniMax 这一档页面上同时写着原价输入 0.60 美元、输出 2.40 美元，现价标成长期五折。上表写的是现价。单位都是每百万 token。豆包 seed 2.1 lite 的方舟标价是输入 0.80 元、输出 2.70 元。账号已经开通，延迟见上表，仍慢于 `qwen3.8-flash`。turbo 的标价这次没有另核。
