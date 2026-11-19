@@ -1,0 +1,965 @@
+{
+  "line": 7,
+  "text": "……这句话，你听了就忘掉吧。",
+  "hint": "害羞，声音变小",
+  "instruction": "你害羞了，声音变小，几乎不想让人听清。",
+  "model": "cosyvoice-v3.5-flash",
+  "voice": "cosyvoice-v3.5-flash-vd-claudev3-f610591be0df4cbf9dff7fe1ba5a9868",
+  "emotion": "calm",
+  "speed": 0.94,
+  "volume": 0.6,
+  "first_audio_ms": 749.0,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "…",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 290
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 290,
+                  "end_time": 580
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 580,
+                  "end_time": 829
+                }
+              ]
+            },
+            "type": "sentence-begin",
+            "original_text": "……这句话，你听了就忘掉吧。",
+            "normalized_text": "……这句话，你听了就忘掉吧。"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "…",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 290
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 290,
+                  "end_time": 580
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 580,
+                  "end_time": 829
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "…",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 290
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 290,
+                  "end_time": 580
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 580,
+                  "end_time": 1244
+                },
+                {
+                  "text": "句",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 1327,
+                  "end_time": 1493
+                },
+                {
+                  "text": "话",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 1493,
+                  "end_time": 1742
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 1742,
+                  "end_time": 1991
+                },
+                {
+                  "text": "你",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1991,
+                  "end_time": 2572
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "…",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 290
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 290,
+                  "end_time": 580
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 580,
+                  "end_time": 1244
+                },
+                {
+                  "text": "句",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 1327,
+                  "end_time": 1493
+                },
+                {
+                  "text": "话",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 1493,
+                  "end_time": 1742
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 1742,
+                  "end_time": 1991
+                },
+                {
+                  "text": "你",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1991,
+                  "end_time": 2572
+                },
+                {
+                  "text": "听",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 2572,
+                  "end_time": 2821
+                },
+                {
+                  "text": "了",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 2904,
+                  "end_time": 3070
+                },
+                {
+                  "text": "就",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 3070,
+                  "end_time": 3153
+                },
+                {
+                  "text": "忘",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 3236,
+                  "end_time": 3402
+                },
+                {
+                  "text": "掉",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 3402,
+                  "end_time": 3651
+                },
+                {
+                  "text": "吧",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 3651,
+                  "end_time": 3900
+                },
+                {
+                  "text": "。",
+                  "begin_index": 13,
+                  "end_index": 14,
+                  "begin_time": 3900,
+                  "end_time": 4149
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "b9641848-f9ba-4e61-88b8-d745c916bad1",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "…",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 290
+                },
+                {
+                  "text": "…",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 290,
+                  "end_time": 580
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 580,
+                  "end_time": 1244
+                },
+                {
+                  "text": "句",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 1327,
+                  "end_time": 1493
+                },
+                {
+                  "text": "话",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 1493,
+                  "end_time": 1742
+                },
+                {
+                  "text": "，",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 1742,
+                  "end_time": 1991
+                },
+                {
+                  "text": "你",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1991,
+                  "end_time": 2572
+                },
+                {
+                  "text": "听",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 2572,
+                  "end_time": 2821
+                },
+                {
+                  "text": "了",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 2904,
+                  "end_time": 3070
+                },
+                {
+                  "text": "就",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 3070,
+                  "end_time": 3153
+                },
+                {
+                  "text": "忘",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 3236,
+                  "end_time": 3402
+                },
+                {
+                  "text": "掉",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 3402,
+                  "end_time": 3651
+                },
+                {
+                  "text": "吧",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 3651,
+                  "end_time": 3900
+                },
+                {
+                  "text": "。",
+                  "begin_index": 13,
+                  "end_index": 14,
+                  "begin_time": 3900,
+                  "end_time": 4149
+                }
+              ]
+            },
+            "type": "sentence-end",
+            "original_text": "……这句话，你听了就忘掉吧。",
+            "normalized_text": "……这句话，你听了就忘掉吧。"
+          },
+          "usage": {
+            "characters": 24
+          }
+        }
+      }
+    }
+  ]
+}

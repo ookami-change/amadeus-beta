@@ -1,0 +1,895 @@
+{
+  "line": 14,
+  "text": "对不起，刚才是我说得太重了。",
+  "hint": "低落，真诚",
+  "instruction": "你低落、真诚，声音放轻，像在道歉。",
+  "model": "cosyvoice-v3.5-flash",
+  "voice": "cosyvoice-v3.5-flash-vd-claudev2-1d734a813bb549c0bc1cd731677fade1",
+  "emotion": "sad",
+  "speed": 0.94,
+  "volume": 0.85,
+  "first_audio_ms": 753.0,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "对",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 165
+                },
+                {
+                  "text": "不",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 165,
+                  "end_time": 331
+                },
+                {
+                  "text": "起",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 331,
+                  "end_time": 497
+                },
+                {
+                  "text": "，",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 580,
+                  "end_time": 746
+                }
+              ]
+            },
+            "type": "sentence-begin",
+            "original_text": "对不起，刚才是我说得太重了。",
+            "normalized_text": "对不起，刚才是我说得太重了。"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "对",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 165
+                },
+                {
+                  "text": "不",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 165,
+                  "end_time": 331
+                },
+                {
+                  "text": "起",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 331,
+                  "end_time": 497
+                },
+                {
+                  "text": "，",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 580,
+                  "end_time": 746
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "对",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 165
+                },
+                {
+                  "text": "不",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 165,
+                  "end_time": 331
+                },
+                {
+                  "text": "起",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 331,
+                  "end_time": 497
+                },
+                {
+                  "text": "，",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 580,
+                  "end_time": 746
+                },
+                {
+                  "text": "刚",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 746,
+                  "end_time": 1576
+                },
+                {
+                  "text": "才",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 1659,
+                  "end_time": 1825
+                },
+                {
+                  "text": "是",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1825,
+                  "end_time": 1991
+                },
+                {
+                  "text": "我",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1991,
+                  "end_time": 2157
+                },
+                {
+                  "text": "说",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 2157,
+                  "end_time": 2323
+                },
+                {
+                  "text": "得",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 2323,
+                  "end_time": 2489
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "对",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 165
+                },
+                {
+                  "text": "不",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 165,
+                  "end_time": 331
+                },
+                {
+                  "text": "起",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 331,
+                  "end_time": 497
+                },
+                {
+                  "text": "，",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 580,
+                  "end_time": 746
+                },
+                {
+                  "text": "刚",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 746,
+                  "end_time": 1576
+                },
+                {
+                  "text": "才",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 1659,
+                  "end_time": 1825
+                },
+                {
+                  "text": "是",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1825,
+                  "end_time": 1991
+                },
+                {
+                  "text": "我",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1991,
+                  "end_time": 2157
+                },
+                {
+                  "text": "说",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 2157,
+                  "end_time": 2323
+                },
+                {
+                  "text": "得",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 2323,
+                  "end_time": 2489
+                },
+                {
+                  "text": "太",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 2489,
+                  "end_time": 2572
+                },
+                {
+                  "text": "重",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 2572,
+                  "end_time": 2821
+                },
+                {
+                  "text": "了",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 2821,
+                  "end_time": 3070
+                },
+                {
+                  "text": "。",
+                  "begin_index": 13,
+                  "end_index": 14,
+                  "begin_time": 3070,
+                  "end_time": 3319
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5382874e-f956-4d67-acda-89d8fa45f6ce",
+          "event": "result-generated",
+          "attributes": {
+            "x-dashscope-inner-response-type": "ws"
+          }
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "对",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 165
+                },
+                {
+                  "text": "不",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 165,
+                  "end_time": 331
+                },
+                {
+                  "text": "起",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 331,
+                  "end_time": 497
+                },
+                {
+                  "text": "，",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 580,
+                  "end_time": 746
+                },
+                {
+                  "text": "刚",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 746,
+                  "end_time": 1576
+                },
+                {
+                  "text": "才",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 1659,
+                  "end_time": 1825
+                },
+                {
+                  "text": "是",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1825,
+                  "end_time": 1991
+                },
+                {
+                  "text": "我",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1991,
+                  "end_time": 2157
+                },
+                {
+                  "text": "说",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 2157,
+                  "end_time": 2323
+                },
+                {
+                  "text": "得",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 2323,
+                  "end_time": 2489
+                },
+                {
+                  "text": "太",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 2489,
+                  "end_time": 2572
+                },
+                {
+                  "text": "重",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 2572,
+                  "end_time": 2821
+                },
+                {
+                  "text": "了",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 2821,
+                  "end_time": 3070
+                },
+                {
+                  "text": "。",
+                  "begin_index": 13,
+                  "end_index": 14,
+                  "begin_time": 3070,
+                  "end_time": 3319
+                }
+              ]
+            },
+            "type": "sentence-end",
+            "original_text": "对不起，刚才是我说得太重了。",
+            "normalized_text": "对不起，刚才是我说得太重了。"
+          },
+          "usage": {
+            "characters": 26
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,430 @@
+{
+  "line": 12,
+  "text": "所以严格来说，时间并不是像我们感觉的那样在“流动”。物理上它只是一个坐标，是大脑在整理记忆的时候，才给了它方向。……抱歉，我是不是说得太多了。",
+  "hint": "讲到兴头上语速渐快、有重音，最后一句收住，略不好意思",
+  "instruction": "你讲到兴头上时稍快、有重音，最后一句放慢，有一点不好意思。",
+  "model": null,
+  "voice": null,
+  "emotion": "calm",
+  "speed": 1.04,
+  "volume": 1.0,
+  "first_audio_ms": 652.4,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "所以严格来说，时间并不是像我们感觉的那样在“流动”。",
+        "words": [
+          {
+            "confidence": 0.8069497,
+            "endTime": 0.155,
+            "startTime": 0,
+            "word": "所"
+          },
+          {
+            "confidence": 0.93871814,
+            "endTime": 0.355,
+            "startTime": 0.155,
+            "word": "以"
+          },
+          {
+            "confidence": 0.9218652,
+            "endTime": 0.525,
+            "startTime": 0.385,
+            "word": "严"
+          },
+          {
+            "confidence": 0.72535145,
+            "endTime": 0.645,
+            "startTime": 0.525,
+            "word": "格"
+          },
+          {
+            "confidence": 0.9713322,
+            "endTime": 0.785,
+            "startTime": 0.645,
+            "word": "来"
+          },
+          {
+            "confidence": 0.9705087,
+            "endTime": 1.135,
+            "startTime": 0.785,
+            "word": "说，"
+          },
+          {
+            "confidence": 0.95939285,
+            "endTime": 1.445,
+            "startTime": 1.225,
+            "word": "时"
+          },
+          {
+            "confidence": 0.965383,
+            "endTime": 1.645,
+            "startTime": 1.445,
+            "word": "间"
+          },
+          {
+            "confidence": 0.9347964,
+            "endTime": 1.785,
+            "startTime": 1.645,
+            "word": "并"
+          },
+          {
+            "confidence": 0.8876475,
+            "endTime": 1.915,
+            "startTime": 1.785,
+            "word": "不"
+          },
+          {
+            "confidence": 0.9405102,
+            "endTime": 2.095,
+            "startTime": 1.915,
+            "word": "是"
+          },
+          {
+            "confidence": 0.95697474,
+            "endTime": 2.265,
+            "startTime": 2.095,
+            "word": "像"
+          },
+          {
+            "confidence": 0.92936397,
+            "endTime": 2.385,
+            "startTime": 2.265,
+            "word": "我"
+          },
+          {
+            "confidence": 0.95633185,
+            "endTime": 2.515,
+            "startTime": 2.385,
+            "word": "们"
+          },
+          {
+            "confidence": 0.9710631,
+            "endTime": 2.715,
+            "startTime": 2.515,
+            "word": "感"
+          },
+          {
+            "confidence": 0.98664147,
+            "endTime": 2.875,
+            "startTime": 2.715,
+            "word": "觉"
+          },
+          {
+            "confidence": 0.9613307,
+            "endTime": 2.965,
+            "startTime": 2.875,
+            "word": "的"
+          },
+          {
+            "confidence": 0.8338641,
+            "endTime": 3.075,
+            "startTime": 2.965,
+            "word": "那"
+          },
+          {
+            "confidence": 0.7560892,
+            "endTime": 3.235,
+            "startTime": 3.075,
+            "word": "样"
+          },
+          {
+            "confidence": 0.20237708,
+            "endTime": 3.375,
+            "startTime": 3.345,
+            "word": "在“"
+          },
+          {
+            "confidence": 0.82868755,
+            "endTime": 3.595,
+            "startTime": 3.375,
+            "word": "流"
+          },
+          {
+            "confidence": 0.5494032,
+            "endTime": 4.255,
+            "startTime": 4.225,
+            "word": "动”。"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "物理上它只是一个坐标，是大脑在整理记忆的时候，才给了它方向。……",
+        "words": [
+          {
+            "confidence": 0.6126152,
+            "endTime": 4.305042,
+            "startTime": 4.2600417,
+            "word": "物"
+          },
+          {
+            "confidence": 0.90837663,
+            "endTime": 4.4250417,
+            "startTime": 4.305042,
+            "word": "理"
+          },
+          {
+            "confidence": 0.9581766,
+            "endTime": 4.6350417,
+            "startTime": 4.4250417,
+            "word": "上"
+          },
+          {
+            "confidence": 0.9541368,
+            "endTime": 4.8150415,
+            "startTime": 4.6350417,
+            "word": "它"
+          },
+          {
+            "confidence": 0.9595501,
+            "endTime": 4.9250417,
+            "startTime": 4.8150415,
+            "word": "只"
+          },
+          {
+            "confidence": 0.9532483,
+            "endTime": 5.0650415,
+            "startTime": 4.9250417,
+            "word": "是"
+          },
+          {
+            "confidence": 0.93121,
+            "endTime": 5.125042,
+            "startTime": 5.0650415,
+            "word": "一"
+          },
+          {
+            "confidence": 0.98734194,
+            "endTime": 5.225042,
+            "startTime": 5.125042,
+            "word": "个"
+          },
+          {
+            "confidence": 0.9663183,
+            "endTime": 5.4050417,
+            "startTime": 5.225042,
+            "word": "坐"
+          },
+          {
+            "confidence": 0.90935224,
+            "endTime": 5.6950417,
+            "startTime": 5.4050417,
+            "word": "标，"
+          },
+          {
+            "confidence": 0.913974,
+            "endTime": 6.165042,
+            "startTime": 5.8950415,
+            "word": "是"
+          },
+          {
+            "confidence": 0.9608859,
+            "endTime": 6.3450418,
+            "startTime": 6.165042,
+            "word": "大"
+          },
+          {
+            "confidence": 0.8873593,
+            "endTime": 6.5250416,
+            "startTime": 6.3450418,
+            "word": "脑"
+          },
+          {
+            "confidence": 0.96254086,
+            "endTime": 6.7350416,
+            "startTime": 6.5250416,
+            "word": "在"
+          },
+          {
+            "confidence": 0.9315026,
+            "endTime": 6.8950415,
+            "startTime": 6.7350416,
+            "word": "整"
+          },
+          {
+            "confidence": 0.9046718,
+            "endTime": 7.0250416,
+            "startTime": 6.8950415,
+            "word": "理"
+          },
+          {
+            "confidence": 0.8977745,
+            "endTime": 7.245042,
+            "startTime": 7.0250416,
+            "word": "记"
+          },
+          {
+            "confidence": 0.91956055,
+            "endTime": 7.3150415,
+            "startTime": 7.245042,
+            "word": "忆"
+          },
+          {
+            "confidence": 0.92192215,
+            "endTime": 7.4250417,
+            "startTime": 7.3150415,
+            "word": "的"
+          },
+          {
+            "confidence": 0.95795465,
+            "endTime": 7.585042,
+            "startTime": 7.4250417,
+            "word": "时"
+          },
+          {
+            "confidence": 0.82029176,
+            "endTime": 7.8450418,
+            "startTime": 7.585042,
+            "word": "候，"
+          },
+          {
+            "confidence": 0.9524983,
+            "endTime": 8.165042,
+            "startTime": 7.9850416,
+            "word": "才"
+          },
+          {
+            "confidence": 0.9746993,
+            "endTime": 8.315042,
+            "startTime": 8.165042,
+            "word": "给"
+          },
+          {
+            "confidence": 0.92446005,
+            "endTime": 8.405042,
+            "startTime": 8.315042,
+            "word": "了"
+          },
+          {
+            "confidence": 0.8252763,
+            "endTime": 8.535042,
+            "startTime": 8.405042,
+            "word": "它"
+          },
+          {
+            "confidence": 0.959649,
+            "endTime": 8.695042,
+            "startTime": 8.535042,
+            "word": "方"
+          },
+          {
+            "confidence": 0.86674947,
+            "endTime": 8.915042,
+            "startTime": 8.695042,
+            "word": "向。"
+          },
+          {
+            "confidence": 0.3081296,
+            "endTime": 8.945042,
+            "startTime": 8.915042,
+            "word": "…"
+          },
+          {
+            "confidence": 0.3060907,
+            "endTime": 9.395042,
+            "startTime": 9.365042,
+            "word": "…"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "所以严格来说，时间并不是像我们感觉的那样在“流动”。物理上它只是一个坐标，是大脑在整理记忆的时候，才给了它方向。……抱歉，我是不是说得太多了。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "抱歉，我是不是说得太多了。",
+        "words": [
+          {
+            "confidence": 0.64662325,
+            "endTime": 9.635083,
+            "startTime": 9.515083,
+            "word": "抱"
+          },
+          {
+            "confidence": 0.887256,
+            "endTime": 9.905084,
+            "startTime": 9.635083,
+            "word": "歉，"
+          },
+          {
+            "confidence": 0.9514786,
+            "endTime": 10.205084,
+            "startTime": 10.085084,
+            "word": "我"
+          },
+          {
+            "confidence": 0.97367764,
+            "endTime": 10.365084,
+            "startTime": 10.205084,
+            "word": "是"
+          },
+          {
+            "confidence": 0.664726,
+            "endTime": 10.435083,
+            "startTime": 10.365084,
+            "word": "不"
+          },
+          {
+            "confidence": 0.9550384,
+            "endTime": 10.555083,
+            "startTime": 10.435083,
+            "word": "是"
+          },
+          {
+            "confidence": 0.7025893,
+            "endTime": 10.635083,
+            "startTime": 10.555083,
+            "word": "说"
+          },
+          {
+            "confidence": 0.34805483,
+            "endTime": 10.695084,
+            "startTime": 10.635083,
+            "word": "得"
+          },
+          {
+            "confidence": 0.32331672,
+            "endTime": 10.755083,
+            "startTime": 10.695084,
+            "word": "太"
+          },
+          {
+            "confidence": 0.15365669,
+            "endTime": 10.8150835,
+            "startTime": 10.755083,
+            "word": "多"
+          },
+          {
+            "confidence": 0.18861727,
+            "endTime": 10.875084,
+            "startTime": 10.8150835,
+            "word": "了。"
+          }
+        ]
+      }
+    }
+  ]
+}

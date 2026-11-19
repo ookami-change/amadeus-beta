@@ -1,0 +1,64 @@
+{
+  "line": 6,
+  "text": "诶？真的吗？",
+  "hint": "惊讶，但声音不大",
+  "instruction": "你有点惊讶，但是轻声，不要叫出来。",
+  "model": null,
+  "voice": null,
+  "emotion": "surprised",
+  "speed": 1.0,
+  "volume": 0.85,
+  "first_audio_ms": 699.4,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "诶？真的吗？",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "诶？真的吗？",
+        "words": [
+          {
+            "confidence": 0.88382006,
+            "endTime": 0.235,
+            "startTime": 0,
+            "word": "诶？"
+          },
+          {
+            "confidence": 0.95458007,
+            "endTime": 0.625,
+            "startTime": 0.445,
+            "word": "真"
+          },
+          {
+            "confidence": 0.9793916,
+            "endTime": 0.745,
+            "startTime": 0.625,
+            "word": "的"
+          },
+          {
+            "confidence": 0.9760178,
+            "endTime": 1.075,
+            "startTime": 0.745,
+            "word": "吗？"
+          }
+        ]
+      }
+    }
+  ]
+}

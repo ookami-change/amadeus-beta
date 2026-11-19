@@ -1,0 +1,112 @@
+{
+  "line": 14,
+  "text": "对不起，刚才是我说得太重了。",
+  "hint": "低落，真诚",
+  "instruction": "你低落、真诚，声音放轻，像在道歉。",
+  "model": null,
+  "voice": null,
+  "emotion": "sad",
+  "speed": 0.94,
+  "volume": 0.85,
+  "first_audio_ms": 682.4,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "对不起，刚才是我说得太重了。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "对不起，刚才是我说得太重了。",
+        "words": [
+          {
+            "confidence": 0.87508863,
+            "endTime": 0.115,
+            "startTime": 0,
+            "word": "对"
+          },
+          {
+            "confidence": 0.8162668,
+            "endTime": 0.215,
+            "startTime": 0.115,
+            "word": "不"
+          },
+          {
+            "confidence": 0.9582736,
+            "endTime": 0.515,
+            "startTime": 0.215,
+            "word": "起，"
+          },
+          {
+            "confidence": 0.9467597,
+            "endTime": 0.885,
+            "startTime": 0.735,
+            "word": "刚"
+          },
+          {
+            "confidence": 0.97356325,
+            "endTime": 1.075,
+            "startTime": 0.885,
+            "word": "才"
+          },
+          {
+            "confidence": 0.93172383,
+            "endTime": 1.235,
+            "startTime": 1.075,
+            "word": "是"
+          },
+          {
+            "confidence": 0.9835704,
+            "endTime": 1.345,
+            "startTime": 1.235,
+            "word": "我"
+          },
+          {
+            "confidence": 0.9880746,
+            "endTime": 1.515,
+            "startTime": 1.345,
+            "word": "说"
+          },
+          {
+            "confidence": 0.9423451,
+            "endTime": 1.625,
+            "startTime": 1.515,
+            "word": "得"
+          },
+          {
+            "confidence": 0.95959574,
+            "endTime": 1.805,
+            "startTime": 1.625,
+            "word": "太"
+          },
+          {
+            "confidence": 0.96368545,
+            "endTime": 2.065,
+            "startTime": 1.805,
+            "word": "重"
+          },
+          {
+            "confidence": 0.95621955,
+            "endTime": 2.305,
+            "startTime": 2.065,
+            "word": "了。"
+          }
+        ]
+      }
+    }
+  ]
+}

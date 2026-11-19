@@ -1,0 +1,130 @@
+{
+  "line": 3,
+  "text": "嗯……这个我没有把握，让我想一想。",
+  "hint": "思考，语速放慢，有停顿",
+  "instruction": "你想一想再说，语速放慢，停顿自然，不要急。",
+  "model": null,
+  "voice": null,
+  "emotion": "calm",
+  "speed": 0.86,
+  "volume": 1.0,
+  "first_audio_ms": 597.3,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "嗯……这个我没有把握，让我想一想。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "嗯……这个我没有把握，让我想一想。",
+        "words": [
+          {
+            "confidence": 0.90646106,
+            "endTime": 0.565,
+            "startTime": 0.085,
+            "word": "嗯"
+          },
+          {
+            "confidence": 0.43806475,
+            "endTime": 0.645,
+            "startTime": 0.615,
+            "word": "…"
+          },
+          {
+            "confidence": 0.5064302,
+            "endTime": 0.705,
+            "startTime": 0.675,
+            "word": "…"
+          },
+          {
+            "confidence": 0.95621896,
+            "endTime": 1.115,
+            "startTime": 0.905,
+            "word": "这"
+          },
+          {
+            "confidence": 0.5091546,
+            "endTime": 1.205,
+            "startTime": 1.115,
+            "word": "个"
+          },
+          {
+            "confidence": 0.9017676,
+            "endTime": 1.335,
+            "startTime": 1.205,
+            "word": "我"
+          },
+          {
+            "confidence": 0.98171,
+            "endTime": 1.525,
+            "startTime": 1.335,
+            "word": "没"
+          },
+          {
+            "confidence": 0.9541606,
+            "endTime": 1.575,
+            "startTime": 1.525,
+            "word": "有"
+          },
+          {
+            "confidence": 0.8587689,
+            "endTime": 1.815,
+            "startTime": 1.575,
+            "word": "把"
+          },
+          {
+            "confidence": 0.72926986,
+            "endTime": 2.065,
+            "startTime": 1.815,
+            "word": "握，"
+          },
+          {
+            "confidence": 0.879822,
+            "endTime": 2.565,
+            "startTime": 2.395,
+            "word": "让"
+          },
+          {
+            "confidence": 0.9714585,
+            "endTime": 2.645,
+            "startTime": 2.565,
+            "word": "我"
+          },
+          {
+            "confidence": 0.97305554,
+            "endTime": 2.975,
+            "startTime": 2.645,
+            "word": "想"
+          },
+          {
+            "confidence": 0.75806016,
+            "endTime": 3.015,
+            "startTime": 2.975,
+            "word": "一"
+          },
+          {
+            "confidence": 0.9387989,
+            "endTime": 3.325,
+            "startTime": 3.015,
+            "word": "想。"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "line": 13,
+  "text": "上次你说的那件事，我记下来了。",
+  "hint": "轻，认真，有一点高兴",
+  "instruction": "你轻声、认真地说，带一点高兴。",
+  "model": null,
+  "voice": null,
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 0.9,
+  "first_audio_ms": 590.5,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "上次你说的那件事，我记下来了。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "上次你说的那件事，我记下来了。",
+        "words": [
+          {
+            "confidence": 0.9494788,
+            "endTime": 0.225,
+            "startTime": 0,
+            "word": "上"
+          },
+          {
+            "confidence": 0.9499722,
+            "endTime": 0.365,
+            "startTime": 0.225,
+            "word": "次"
+          },
+          {
+            "confidence": 0.93882984,
+            "endTime": 0.515,
+            "startTime": 0.365,
+            "word": "你"
+          },
+          {
+            "confidence": 0.98593533,
+            "endTime": 0.685,
+            "startTime": 0.515,
+            "word": "说"
+          },
+          {
+            "confidence": 0.90740865,
+            "endTime": 0.785,
+            "startTime": 0.685,
+            "word": "的"
+          },
+          {
+            "confidence": 0.9217466,
+            "endTime": 0.925,
+            "startTime": 0.785,
+            "word": "那"
+          },
+          {
+            "confidence": 0.9754877,
+            "endTime": 1.085,
+            "startTime": 0.925,
+            "word": "件"
+          },
+          {
+            "confidence": 0.9405717,
+            "endTime": 1.445,
+            "startTime": 1.085,
+            "word": "事，"
+          },
+          {
+            "confidence": 0.8040119,
+            "endTime": 1.605,
+            "startTime": 1.495,
+            "word": "我"
+          },
+          {
+            "confidence": 0.8648023,
+            "endTime": 1.765,
+            "startTime": 1.605,
+            "word": "记"
+          },
+          {
+            "confidence": 0.97200453,
+            "endTime": 1.925,
+            "startTime": 1.765,
+            "word": "下"
+          },
+          {
+            "confidence": 0.95720285,
+            "endTime": 2.115,
+            "startTime": 1.925,
+            "word": "来"
+          },
+          {
+            "confidence": 0.9667073,
+            "endTime": 2.295,
+            "startTime": 2.115,
+            "word": "了。"
+          }
+        ]
+      }
+    }
+  ]
+}

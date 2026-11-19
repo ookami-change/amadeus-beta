@@ -1,0 +1,39 @@
+{
+  "voices": [
+    {
+      "key": "v1",
+      "prefix": "claudev1",
+      "prompt": "年轻女性，二十岁上下。音色清澈、柔和，音量偏小。语速中等偏慢，吐字清楚。音调中等。安静、温和，带一点书卷气。不要甜，不要嗲，不要元气，不要播音腔。",
+      "preview_text": "店长，你来了。今晚的账我又对了一遍。",
+      "target_model": "cosyvoice-v3.5-flash",
+      "voice_id": "cosyvoice-v3.5-flash-vd-claudev1-c120f554fd2a4ab497ec7b4599bf55dc",
+      "status": "OK",
+      "error": null
+    },
+    {
+      "key": "v2",
+      "prefix": "claudev2",
+      "prompt": "年轻女性，二十岁上下。音高中高，说话时的基频大多在一百六十到二百六十赫兹，中位数大约二百赫兹。音色明亮、干净，气声很少，共鸣靠前，吐字清楚。语速中等，音量不大。安静、温和，略带书卷气。不要甜，不要嗲，不要元气。",
+      "preview_text": "店长，你来了。今晚的账我又对了一遍。",
+      "target_model": "cosyvoice-v3.5-flash",
+      "voice_id": "cosyvoice-v3.5-flash-vd-claudev2-1d734a813bb549c0bc1cd731677fade1",
+      "status": "OK",
+      "error": null
+    },
+    {
+      "key": "v3",
+      "prefix": "claudev3",
+      "prompt": "年轻女性，二十岁出头。音色清澈，但比一般年轻女声略低、略沉。语速偏慢，音量偏小，像夜里打烊之后轻轻说话。吐字清楚，安静、温和，带一点书卷气。不要甜，不要嗲，不要元气，也不要中年人的厚嗓。",
+      "preview_text": "店长，你来了。今晚的账我又对了一遍。",
+      "target_model": "cosyvoice-v3.5-flash",
+      "voice_id": "cosyvoice-v3.5-flash-vd-claudev3-f610591be0df4cbf9dff7fe1ba5a9868",
+      "status": "OK",
+      "error": null
+    }
+  ],
+  "doubao_voice_design": {
+    "called": true,
+    "http": 500,
+    "detail": "{\"code\":[id],\"message\":\"resource ID is mismatched with speaker related resource\"}"
+  }
+}
