@@ -1,0 +1,126 @@
+{
+  "line": 7,
+  "text": "……这句话，你听了就忘掉吧。",
+  "hint": "害羞，声音变小",
+  "instruction": "害羞，声音变小，几乎不想让人听清。",
+  "model": "speech-2.8-hd",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 0.82,
+  "volume": 0.4,
+  "pitch": -1,
+  "first_audio_ms": 316.1,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "……这句话，你听了就忘掉吧。",
+        "time_begin": 0,
+        "time_end": 3181.587301587301,
+        "text_begin": 0,
+        "text_end": 14,
+        "timestamped_words": [
+          {
+            "word": "…",
+            "time_begin": 52.03252032520325,
+            "time_end": 260.1626016260162,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "…",
+            "time_begin": 260.1626016260162,
+            "time_end": 312.1951219512195,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "这",
+            "time_begin": 312.1951219512195,
+            "time_end": 468.2926829268293,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "句",
+            "time_begin": 468.2926829268293,
+            "time_end": 676.4227642276422,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "话",
+            "time_begin": 676.4227642276422,
+            "time_end": 832.520325203252,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "，",
+            "time_begin": 832.520325203252,
+            "time_end": 884.5528455284552,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "你",
+            "time_begin": 884.5528455284552,
+            "time_end": 1404.878048780488,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "听",
+            "time_begin": 1404.878048780488,
+            "time_end": 1769.1056910569105,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "了",
+            "time_begin": 1769.1056910569105,
+            "time_end": 1977.2357723577236,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "就",
+            "time_begin": 1977.2357723577236,
+            "time_end": 2081.30081300813,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "忘",
+            "time_begin": 2081.30081300813,
+            "time_end": 2237.39837398374,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "掉",
+            "time_begin": 2237.39837398374,
+            "time_end": 2445.528455284553,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "吧",
+            "time_begin": 2445.528455284553,
+            "time_end": 2653.6585365853653,
+            "word_begin": 12,
+            "word_end": 13
+          },
+          {
+            "word": "。",
+            "time_begin": 2653.6585365853653,
+            "time_end": 2861.788617886179,
+            "word_begin": 13,
+            "word_end": 14
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,537 @@
+{
+  "line": 12,
+  "text": "所以严格来说，时间并不是像我们感觉的那样在“流动”。物理上它只是一个坐标，是大脑在整理记忆的时候，才给了它方向。……抱歉，我是不是说得太多了。",
+  "hint": "讲到兴头上语速渐快、有重音，最后一句收住，略不好意思",
+  "instruction": "前半句渐渐快一点，有重音；最后一句放慢，有一点不好意思。",
+  "model": "speech-2.8-turbo",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 1.04,
+  "volume": 1.0,
+  "pitch": 0,
+  "first_audio_ms": 238.4,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "所以严格来说，时间并不是像我们感觉的那样在“流动”。物理上它只是一个坐标，是大脑在整理记忆的时候，才给了它方向。",
+        "time_begin": 0,
+        "time_end": 10256.099773242631,
+        "text_begin": 0,
+        "text_end": 56,
+        "timestamped_words": [
+          {
+            "word": "所",
+            "time_begin": 41.02564102564102,
+            "time_end": 369.2307692307692,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "以",
+            "time_begin": 369.2307692307692,
+            "time_end": 574.3589743589743,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "严",
+            "time_begin": 574.3589743589743,
+            "time_end": 697.4358974358973,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "格",
+            "time_begin": 697.4358974358973,
+            "time_end": 861.5384615384615,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "来",
+            "time_begin": 861.5384615384615,
+            "time_end": 984.6153846153845,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "说",
+            "time_begin": 984.6153846153845,
+            "time_end": 1148.7179487179485,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "，",
+            "time_begin": 1148.7179487179485,
+            "time_end": 1189.7435897435898,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "时",
+            "time_begin": 1189.7435897435898,
+            "time_end": 1764.1025641025642,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "间",
+            "time_begin": 1764.1025641025642,
+            "time_end": 2010.25641025641,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "并",
+            "time_begin": 2010.25641025641,
+            "time_end": 2174.3589743589746,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "不",
+            "time_begin": 2174.3589743589746,
+            "time_end": 2297.435897435897,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "是",
+            "time_begin": 2297.435897435897,
+            "time_end": 2461.5384615384614,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "像",
+            "time_begin": 2461.5384615384614,
+            "time_end": 2584.6153846153843,
+            "word_begin": 12,
+            "word_end": 13
+          },
+          {
+            "word": "我",
+            "time_begin": 2584.6153846153843,
+            "time_end": 2748.7179487179483,
+            "word_begin": 13,
+            "word_end": 14
+          },
+          {
+            "word": "们",
+            "time_begin": 2748.7179487179483,
+            "time_end": 2830.7692307692305,
+            "word_begin": 14,
+            "word_end": 15
+          },
+          {
+            "word": "感",
+            "time_begin": 2830.7692307692305,
+            "time_end": 2953.846153846154,
+            "word_begin": 15,
+            "word_end": 16
+          },
+          {
+            "word": "觉",
+            "time_begin": 2953.846153846154,
+            "time_end": 3076.923076923076,
+            "word_begin": 16,
+            "word_end": 17
+          },
+          {
+            "word": "的",
+            "time_begin": 3076.923076923076,
+            "time_end": 3117.948717948718,
+            "word_begin": 17,
+            "word_end": 18
+          },
+          {
+            "word": "那",
+            "time_begin": 3117.948717948718,
+            "time_end": 3323.076923076923,
+            "word_begin": 18,
+            "word_end": 19
+          },
+          {
+            "word": "样",
+            "time_begin": 3323.076923076923,
+            "time_end": 3487.179487179487,
+            "word_begin": 19,
+            "word_end": 20
+          },
+          {
+            "word": "在",
+            "time_begin": 3487.179487179487,
+            "time_end": 3856.4102564102564,
+            "word_begin": 20,
+            "word_end": 21
+          },
+          {
+            "word": "“",
+            "time_begin": 3856.4102564102564,
+            "time_end": 3979.4871794871788,
+            "word_begin": 21,
+            "word_end": 22
+          },
+          {
+            "word": "流",
+            "time_begin": 3979.4871794871788,
+            "time_end": 4061.5384615384614,
+            "word_begin": 22,
+            "word_end": 23
+          },
+          {
+            "word": "动",
+            "time_begin": 4061.5384615384614,
+            "time_end": 4225.641025641025,
+            "word_begin": 23,
+            "word_end": 24
+          },
+          {
+            "word": "”",
+            "time_begin": 4225.641025641025,
+            "time_end": 4348.717948717949,
+            "word_begin": 24,
+            "word_end": 25
+          },
+          {
+            "word": "。",
+            "time_begin": 4348.717948717949,
+            "time_end": 4389.743589743589,
+            "word_begin": 25,
+            "word_end": 26
+          },
+          {
+            "word": "物",
+            "time_begin": 4389.743589743589,
+            "time_end": 5087.179487179487,
+            "word_begin": 26,
+            "word_end": 27
+          },
+          {
+            "word": "理",
+            "time_begin": 5087.179487179487,
+            "time_end": 5374.358974358974,
+            "word_begin": 27,
+            "word_end": 28
+          },
+          {
+            "word": "上",
+            "time_begin": 5374.358974358974,
+            "time_end": 5497.435897435897,
+            "word_begin": 28,
+            "word_end": 29
+          },
+          {
+            "word": "它",
+            "time_begin": 5497.435897435897,
+            "time_end": 5702.564102564102,
+            "word_begin": 29,
+            "word_end": 30
+          },
+          {
+            "word": "只",
+            "time_begin": 5702.564102564102,
+            "time_end": 5907.692307692308,
+            "word_begin": 30,
+            "word_end": 31
+          },
+          {
+            "word": "是",
+            "time_begin": 5907.692307692308,
+            "time_end": 6030.76923076923,
+            "word_begin": 31,
+            "word_end": 32
+          },
+          {
+            "word": "一",
+            "time_begin": 6030.76923076923,
+            "time_end": 6153.846153846152,
+            "word_begin": 32,
+            "word_end": 33
+          },
+          {
+            "word": "个",
+            "time_begin": 6153.846153846152,
+            "time_end": 6276.923076923077,
+            "word_begin": 33,
+            "word_end": 34
+          },
+          {
+            "word": "坐",
+            "time_begin": 6276.923076923077,
+            "time_end": 6358.974358974358,
+            "word_begin": 34,
+            "word_end": 35
+          },
+          {
+            "word": "标",
+            "time_begin": 6358.974358974358,
+            "time_end": 6523.076923076923,
+            "word_begin": 35,
+            "word_end": 36
+          },
+          {
+            "word": "，",
+            "time_begin": 6523.076923076923,
+            "time_end": 6564.1025641025635,
+            "word_begin": 36,
+            "word_end": 37
+          },
+          {
+            "word": "是",
+            "time_begin": 6564.1025641025635,
+            "time_end": 7015.384615384614,
+            "word_begin": 37,
+            "word_end": 38
+          },
+          {
+            "word": "大",
+            "time_begin": 7015.384615384614,
+            "time_end": 7589.743589743589,
+            "word_begin": 38,
+            "word_end": 39
+          },
+          {
+            "word": "脑",
+            "time_begin": 7589.743589743589,
+            "time_end": 7753.846153846153,
+            "word_begin": 39,
+            "word_end": 40
+          },
+          {
+            "word": "在",
+            "time_begin": 7753.846153846153,
+            "time_end": 7876.923076923076,
+            "word_begin": 40,
+            "word_end": 41
+          },
+          {
+            "word": "整",
+            "time_begin": 7876.923076923076,
+            "time_end": 8000,
+            "word_begin": 41,
+            "word_end": 42
+          },
+          {
+            "word": "理",
+            "time_begin": 8000,
+            "time_end": 8164.1025641025635,
+            "word_begin": 42,
+            "word_end": 43
+          },
+          {
+            "word": "记",
+            "time_begin": 8164.1025641025635,
+            "time_end": 8287.179487179486,
+            "word_begin": 43,
+            "word_end": 44
+          },
+          {
+            "word": "忆",
+            "time_begin": 8287.179487179486,
+            "time_end": 8451.28205128205,
+            "word_begin": 44,
+            "word_end": 45
+          },
+          {
+            "word": "的",
+            "time_begin": 8451.28205128205,
+            "time_end": 8492.30769230769,
+            "word_begin": 45,
+            "word_end": 46
+          },
+          {
+            "word": "时",
+            "time_begin": 8492.30769230769,
+            "time_end": 8615.384615384613,
+            "word_begin": 46,
+            "word_end": 47
+          },
+          {
+            "word": "候",
+            "time_begin": 8615.384615384613,
+            "time_end": 8779.487179487178,
+            "word_begin": 47,
+            "word_end": 48
+          },
+          {
+            "word": "，",
+            "time_begin": 8779.487179487178,
+            "time_end": 8820.51282051282,
+            "word_begin": 48,
+            "word_end": 49
+          },
+          {
+            "word": "才",
+            "time_begin": 8820.51282051282,
+            "time_end": 9189.743589743588,
+            "word_begin": 49,
+            "word_end": 50
+          },
+          {
+            "word": "给",
+            "time_begin": 9189.743589743588,
+            "time_end": 9435.897435897434,
+            "word_begin": 50,
+            "word_end": 51
+          },
+          {
+            "word": "了",
+            "time_begin": 9435.897435897434,
+            "time_end": 9558.974358974358,
+            "word_begin": 51,
+            "word_end": 52
+          },
+          {
+            "word": "它",
+            "time_begin": 9558.974358974358,
+            "time_end": 9641.02564102564,
+            "word_begin": 52,
+            "word_end": 53
+          },
+          {
+            "word": "方",
+            "time_begin": 9641.02564102564,
+            "time_end": 9805.128205128203,
+            "word_begin": 53,
+            "word_end": 54
+          },
+          {
+            "word": "向",
+            "time_begin": 9805.128205128203,
+            "time_end": 9969.23076923077,
+            "word_begin": 54,
+            "word_end": 55
+          },
+          {
+            "word": "。",
+            "time_begin": 9969.23076923077,
+            "time_end": 10174.358974358975,
+            "word_begin": 55,
+            "word_end": 56
+          }
+        ]
+      }
+    },
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "……抱歉，我是不是说得太多了。",
+        "time_begin": 10456.099773242631,
+        "time_end": 13212.154195011339,
+        "text_begin": 56,
+        "text_end": 71,
+        "timestamped_words": [
+          {
+            "word": "…",
+            "time_begin": 10497.125414268272,
+            "time_end": 10702.253619396477,
+            "word_begin": 56,
+            "word_end": 57
+          },
+          {
+            "word": "…",
+            "time_begin": 10702.253619396477,
+            "time_end": 10743.279260422118,
+            "word_begin": 57,
+            "word_end": 58
+          },
+          {
+            "word": "抱",
+            "time_begin": 10743.279260422118,
+            "time_end": 10825.3305424734,
+            "word_begin": 58,
+            "word_end": 59
+          },
+          {
+            "word": "歉",
+            "time_begin": 10825.3305424734,
+            "time_end": 10989.433106575965,
+            "word_begin": 59,
+            "word_end": 60
+          },
+          {
+            "word": "，",
+            "time_begin": 10989.433106575965,
+            "time_end": 11030.458747601606,
+            "word_begin": 60,
+            "word_end": 61
+          },
+          {
+            "word": "我",
+            "time_begin": 11030.458747601606,
+            "time_end": 11317.638234781092,
+            "word_begin": 61,
+            "word_end": 62
+          },
+          {
+            "word": "是",
+            "time_begin": 11317.638234781092,
+            "time_end": 11809.945927088786,
+            "word_begin": 62,
+            "word_end": 63
+          },
+          {
+            "word": "不",
+            "time_begin": 11809.945927088786,
+            "time_end": 11974.04849119135,
+            "word_begin": 63,
+            "word_end": 64
+          },
+          {
+            "word": "是",
+            "time_begin": 11974.04849119135,
+            "time_end": 12056.099773242631,
+            "word_begin": 64,
+            "word_end": 65
+          },
+          {
+            "word": "说",
+            "time_begin": 12056.099773242631,
+            "time_end": 12220.202337345196,
+            "word_begin": 65,
+            "word_end": 66
+          },
+          {
+            "word": "得",
+            "time_begin": 12220.202337345196,
+            "time_end": 12343.279260422118,
+            "word_begin": 66,
+            "word_end": 67
+          },
+          {
+            "word": "太",
+            "time_begin": 12343.279260422118,
+            "time_end": 12466.356183499041,
+            "word_begin": 67,
+            "word_end": 68
+          },
+          {
+            "word": "多",
+            "time_begin": 12466.356183499041,
+            "time_end": 12630.458747601606,
+            "word_begin": 68,
+            "word_end": 69
+          },
+          {
+            "word": "了",
+            "time_begin": 12630.458747601606,
+            "time_end": 12794.56131170417,
+            "word_begin": 69,
+            "word_end": 70
+          },
+          {
+            "word": "。",
+            "time_begin": 12794.56131170417,
+            "time_end": 12958.663875806735,
+            "word_begin": 70,
+            "word_end": 71
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "voices": [
+    {
+      "key": "v2-clean",
+      "prefix": "claudev2c",
+      "prompt": "年轻女性，二十岁上下。音高中高，说话时的基频大多在一百六十到二百六十赫兹，中位数大约二百赫兹。音色明亮、干净，气声很少，共鸣靠前，吐字清楚。语速中等，音量不大。安静、温和，略带书卷气。不要甜，不要嗲，不要元气。录音干净，没有底噪，没有电流声，没有房间杂音。",
+      "preview_text": "店长，你来了。今晚的账我又对了一遍。",
+      "target_model": "cosyvoice-v3.5-flash",
+      "voice_id": "cosyvoice-v3.5-flash-vd-claudev2c-7e36febcb23b4d268c410c8dd967a677",
+      "status": "OK",
+      "error": null
+    }
+  ]
+}

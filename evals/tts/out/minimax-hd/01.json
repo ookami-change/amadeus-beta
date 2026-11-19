@@ -1,0 +1,77 @@
+{
+  "line": 1,
+  "text": "店长，你来了。",
+  "hint": "平静，带一点不易察觉的高兴",
+  "instruction": "平静，带一点几乎听不出来的高兴。声音不大。",
+  "model": "speech-2.8-hd",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 1.0,
+  "pitch": 0,
+  "first_audio_ms": 631.8,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "店长，你来了。",
+        "time_begin": 0,
+        "time_end": 1641.4965986394557,
+        "text_begin": 0,
+        "text_end": 7,
+        "timestamped_words": [
+          {
+            "word": "店",
+            "time_begin": 42.666666666666664,
+            "time_end": 256,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "长",
+            "time_begin": 256,
+            "time_end": 384,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "，",
+            "time_begin": 384,
+            "time_end": 426.66666666666663,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "你",
+            "time_begin": 426.66666666666663,
+            "time_end": 768,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "来",
+            "time_begin": 768,
+            "time_end": 1152,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "了",
+            "time_begin": 1152,
+            "time_end": 1280,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "。",
+            "time_begin": 1280,
+            "time_end": 1408,
+            "word_begin": 6,
+            "word_end": 7
+          }
+        ]
+      }
+    }
+  ]
+}

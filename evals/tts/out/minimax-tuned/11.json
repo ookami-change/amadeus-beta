@@ -1,0 +1,112 @@
+{
+  "line": 11,
+  "text": "唉……好吧，这次就算了。",
+  "hint": "轻叹，让步",
+  "instruction": "轻叹，然后让步。不抱怨。",
+  "model": "speech-2.8-hd",
+  "voice": null,
+  "emotion": "sad",
+  "speed": 0.84,
+  "volume": 0.78,
+  "pitch": -2,
+  "first_audio_ms": 300.6,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "唉……好吧，这次就算了。",
+        "time_begin": 0,
+        "time_end": 4915.510204081633,
+        "text_begin": 0,
+        "text_end": 12,
+        "timestamped_words": [
+          {
+            "word": "唉",
+            "time_begin": 50.79365079365079,
+            "time_end": 355.55555555555554,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "…",
+            "time_begin": 355.55555555555554,
+            "time_end": 660.3174603174602,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "…",
+            "time_begin": 660.3174603174602,
+            "time_end": 711.1111111111111,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "好",
+            "time_begin": 711.1111111111111,
+            "time_end": 1930.1587301587301,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "吧",
+            "time_begin": 1930.1587301587301,
+            "time_end": 2234.9206349206347,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "，",
+            "time_begin": 2234.9206349206347,
+            "time_end": 2285.714285714286,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "这",
+            "time_begin": 2285.714285714286,
+            "time_end": 3301.5873015873017,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "次",
+            "time_begin": 3301.5873015873017,
+            "time_end": 3860.3174603174602,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "就",
+            "time_begin": 3860.3174603174602,
+            "time_end": 4012.6984126984125,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "算",
+            "time_begin": 4012.6984126984125,
+            "time_end": 4165.079365079365,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "了",
+            "time_begin": 4165.079365079365,
+            "time_end": 4419.047619047618,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "。",
+            "time_begin": 4419.047619047618,
+            "time_end": 4673.015873015873,
+            "word_begin": 11,
+            "word_end": 12
+          }
+        ]
+      }
+    }
+  ]
+}

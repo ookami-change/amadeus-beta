@@ -1,0 +1,147 @@
+{
+  "line": 3,
+  "text": "嗯……这个我没有把握，让我想一想。",
+  "hint": "思考，语速放慢，有停顿",
+  "instruction": "在想，语速放慢，停顿自然。",
+  "model": "speech-2.8-turbo",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 0.86,
+  "volume": 1.0,
+  "pitch": 0,
+  "first_audio_ms": 372.8,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "嗯……这个我没有把握，让我想一想。",
+        "time_begin": 0,
+        "time_end": 4276.961451247165,
+        "text_begin": 0,
+        "text_end": 17,
+        "timestamped_words": [
+          {
+            "word": "嗯",
+            "time_begin": 49.61240310077519,
+            "time_end": 297.6744186046512,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "…",
+            "time_begin": 297.6744186046512,
+            "time_end": 496.1240310077519,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "…",
+            "time_begin": 496.1240310077519,
+            "time_end": 545.7364341085271,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "这",
+            "time_begin": 545.7364341085271,
+            "time_end": 1537.984496124031,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "个",
+            "time_begin": 1537.984496124031,
+            "time_end": 1736.4341085271317,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "我",
+            "time_begin": 1736.4341085271317,
+            "time_end": 1835.6589147286822,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "没",
+            "time_begin": 1835.6589147286822,
+            "time_end": 2034.108527131783,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "有",
+            "time_begin": 2034.108527131783,
+            "time_end": 2133.3333333333335,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "把",
+            "time_begin": 2133.3333333333335,
+            "time_end": 2282.170542635659,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "握",
+            "time_begin": 2282.170542635659,
+            "time_end": 2431.0077519379843,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "，",
+            "time_begin": 2431.0077519379843,
+            "time_end": 2480.62015503876,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "让",
+            "time_begin": 2480.62015503876,
+            "time_end": 3274.4186046511627,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "我",
+            "time_begin": 3274.4186046511627,
+            "time_end": 3423.2558139534885,
+            "word_begin": 12,
+            "word_end": 13
+          },
+          {
+            "word": "想",
+            "time_begin": 3423.2558139534885,
+            "time_end": 3522.4806201550387,
+            "word_begin": 13,
+            "word_end": 14
+          },
+          {
+            "word": "一",
+            "time_begin": 3522.4806201550387,
+            "time_end": 3720.930232558139,
+            "word_begin": 14,
+            "word_end": 15
+          },
+          {
+            "word": "想",
+            "time_begin": 3720.930232558139,
+            "time_end": 3869.767441860465,
+            "word_begin": 15,
+            "word_end": 16
+          },
+          {
+            "word": "。",
+            "time_begin": 3869.767441860465,
+            "time_end": 4117.829457364341,
+            "word_begin": 16,
+            "word_end": 17
+          }
+        ]
+      }
+    }
+  ]
+}

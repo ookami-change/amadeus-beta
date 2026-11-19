@@ -71,6 +71,51 @@ LINES: tuple[Line, ...] = (
     Line(14, "对不起，刚才是我说得太重了。", "低落，真诚", "低落，真诚，声音放轻。", "sad", 0.94, 0.85),
 )
 
+
+@dataclass(frozen=True)
+class MiniMaxTune:
+    """One Intellectual Girl take. Text may change only in punctuation."""
+
+    number: int
+    emotion: str
+    speed: float
+    volume: float
+    pitch: int
+    text: str
+    why: str
+
+
+def _base(number: int) -> Line:
+    return next(line for line in LINES if line.number == number)
+
+
+# speech-2.8 has no laugh or sigh enum, and whisper is rejected. Pitch is the
+# integer semitone offset, from -12 to 12. Focus lines are 1, 7, 10, 11, 14.
+MINIMAX_TUNED: tuple[MiniMaxTune, ...] = (
+    MiniMaxTune(1, "calm", 0.94, 0.82, 1, _base(1).text, "高兴只抬一个半音，音量收一点，避免变甜。"),
+    MiniMaxTune(2, "calm", 0.98, 1.0, 0, _base(2).text, "核对数字，保持平，略慢一点。"),
+    MiniMaxTune(3, "calm", 0.8, 0.9, 0, _base(3).text, "想的时候再放慢。"),
+    MiniMaxTune(4, "fluent", 1.12, 1.0, 0, _base(4).text, "改口时略快，仍用生动而不是急。"),
+    MiniMaxTune(5, "calm", 0.98, 0.9, 1, _base(5).text, "期待压着，只抬一个半音。"),
+    MiniMaxTune(6, "surprised", 1.0, 0.72, 1, _base(6).text, "惊讶留着，音量再小一点。"),
+    MiniMaxTune(7, "calm", 0.82, 0.4, -1, _base(7).text, "害羞没有对应枚举，改成更慢、更轻、低一个半音。"),
+    MiniMaxTune(8, "calm", 0.94, 0.95, 0, _base(8).text, "关心，语速放慢，不加压。"),
+    MiniMaxTune(9, "calm", 1.05, 0.9, 0, _base(9).text, "短附和，不拖。"),
+    MiniMaxTune(
+        10,
+        "happy",
+        1.0,
+        0.7,
+        1,
+        "呵，抱歉，这个有点好笑。",
+        "没有轻笑枚举。用 happy，并把「呵……」收成逗号，免得拖成犹豫。",
+    ),
+    MiniMaxTune(11, "sad", 0.84, 0.78, -2, _base(11).text, "让步靠更低、更慢，不换成抱怨。"),
+    MiniMaxTune(12, "calm", 1.08, 1.0, 0, _base(12).text, "兴头略快，最后一句仍靠原文的省略号收住。"),
+    MiniMaxTune(13, "calm", 0.96, 0.8, 1, _base(13).text, "轻，略亮。"),
+    MiniMaxTune(14, "sad", 0.86, 0.62, -2, _base(14).text, "道歉再轻、再低。"),
+)
+
 # Second-person requests, the shape Doubao's context_texts examples use.
 # These do not replace LINES. The original 14 recordings stay as they were.
 DOUBAO_TUNED: dict[int, str] = {

@@ -1,0 +1,175 @@
+{
+  "line": 8,
+  "text": "已经这么晚了。你明天不是要面试吗，该睡了。",
+  "hint": "关心，平静而坚持",
+  "instruction": "关心，平静，轻轻地坚持。",
+  "model": "speech-2.8-turbo",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 0.98,
+  "volume": 1.0,
+  "pitch": 0,
+  "first_audio_ms": 242.0,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "已经这么晚了。你明天不是要面试吗，该睡了。",
+        "time_begin": 0,
+        "time_end": 3800.9523809523807,
+        "text_begin": 0,
+        "text_end": 21,
+        "timestamped_words": [
+          {
+            "word": "已",
+            "time_begin": 43.53741496598639,
+            "time_end": 304.7619047619047,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "经",
+            "time_begin": 304.7619047619047,
+            "time_end": 391.83673469387753,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "这",
+            "time_begin": 391.83673469387753,
+            "time_end": 565.9863945578231,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "么",
+            "time_begin": 565.9863945578231,
+            "time_end": 696.5986394557823,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "晚",
+            "time_begin": 696.5986394557823,
+            "time_end": 827.2108843537414,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "了",
+            "time_begin": 827.2108843537414,
+            "time_end": 957.8231292517006,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "。",
+            "time_begin": 957.8231292517006,
+            "time_end": 1044.8979591836735,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "你",
+            "time_begin": 1044.8979591836735,
+            "time_end": 1480.2721088435374,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "明",
+            "time_begin": 1480.2721088435374,
+            "time_end": 1610.8843537414966,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "天",
+            "time_begin": 1610.8843537414966,
+            "time_end": 1741.4965986394557,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "不",
+            "time_begin": 1741.4965986394557,
+            "time_end": 1915.6462585034012,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "是",
+            "time_begin": 1915.6462585034012,
+            "time_end": 2046.2585034013605,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "要",
+            "time_begin": 2046.2585034013605,
+            "time_end": 2133.333333333333,
+            "word_begin": 12,
+            "word_end": 13
+          },
+          {
+            "word": "面",
+            "time_begin": 2133.333333333333,
+            "time_end": 2263.9455782312925,
+            "word_begin": 13,
+            "word_end": 14
+          },
+          {
+            "word": "试",
+            "time_begin": 2263.9455782312925,
+            "time_end": 2438.0952380952376,
+            "word_begin": 14,
+            "word_end": 15
+          },
+          {
+            "word": "吗",
+            "time_begin": 2438.0952380952376,
+            "time_end": 2655.78231292517,
+            "word_begin": 15,
+            "word_end": 16
+          },
+          {
+            "word": "，",
+            "time_begin": 2655.78231292517,
+            "time_end": 2699.3197278911566,
+            "word_begin": 16,
+            "word_end": 17
+          },
+          {
+            "word": "该",
+            "time_begin": 2699.3197278911566,
+            "time_end": 3134.6938775510203,
+            "word_begin": 17,
+            "word_end": 18
+          },
+          {
+            "word": "睡",
+            "time_begin": 3134.6938775510203,
+            "time_end": 3265.3061224489793,
+            "word_begin": 18,
+            "word_end": 19
+          },
+          {
+            "word": "了",
+            "time_begin": 3265.3061224489793,
+            "time_end": 3482.9931972789113,
+            "word_begin": 19,
+            "word_end": 20
+          },
+          {
+            "word": "。",
+            "time_begin": 3482.9931972789113,
+            "time_end": 3613.6054421768704,
+            "word_begin": 20,
+            "word_end": 21
+          }
+        ]
+      }
+    }
+  ]
+}

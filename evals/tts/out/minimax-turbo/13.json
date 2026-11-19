@@ -1,0 +1,133 @@
+{
+  "line": 13,
+  "text": "上次你说的那件事，我记下来了。",
+  "hint": "轻，认真，有一点高兴",
+  "instruction": "轻声，认真，有一点高兴。",
+  "model": "speech-2.8-turbo",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 0.9,
+  "pitch": 0,
+  "first_audio_ms": 270.5,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "上次你说的那件事，我记下来了。",
+        "time_begin": 0,
+        "time_end": 2953.4240362811793,
+        "text_begin": 0,
+        "text_end": 15,
+        "timestamped_words": [
+          {
+            "word": "上",
+            "time_begin": 42.666666666666664,
+            "time_end": 298.66666666666663,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "次",
+            "time_begin": 298.66666666666663,
+            "time_end": 554.6666666666666,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "你",
+            "time_begin": 554.6666666666666,
+            "time_end": 682.6666666666666,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "说",
+            "time_begin": 682.6666666666666,
+            "time_end": 810.6666666666666,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "的",
+            "time_begin": 810.6666666666666,
+            "time_end": 853.3333333333333,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "那",
+            "time_begin": 853.3333333333333,
+            "time_end": 1024,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "件",
+            "time_begin": 1024,
+            "time_end": 1237.3333333333335,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "事",
+            "time_begin": 1237.3333333333335,
+            "time_end": 1365.3333333333333,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "，",
+            "time_begin": 1365.3333333333333,
+            "time_end": 1408,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "我",
+            "time_begin": 1408,
+            "time_end": 1834.6666666666667,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "记",
+            "time_begin": 1834.6666666666667,
+            "time_end": 2218.6666666666665,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "下",
+            "time_begin": 2218.6666666666665,
+            "time_end": 2346.6666666666665,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "来",
+            "time_begin": 2346.6666666666665,
+            "time_end": 2517.333333333333,
+            "word_begin": 12,
+            "word_end": 13
+          },
+          {
+            "word": "了",
+            "time_begin": 2517.333333333333,
+            "time_end": 2645.3333333333335,
+            "word_begin": 13,
+            "word_end": 14
+          },
+          {
+            "word": "。",
+            "time_begin": 2645.3333333333335,
+            "time_end": 2816,
+            "word_begin": 14,
+            "word_end": 15
+          }
+        ]
+      }
+    }
+  ]
+}

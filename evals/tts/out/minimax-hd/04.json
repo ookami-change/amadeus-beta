@@ -1,0 +1,203 @@
+{
+  "line": 4,
+  "text": "不是，我的意思是——理论上可以，只是没有人会这样做。",
+  "hint": "自我修正，语速略快",
+  "instruction": "自我修正，语速略快，仍然客气。",
+  "model": "speech-2.8-hd",
+  "voice": null,
+  "emotion": "fluent",
+  "speed": 1.08,
+  "volume": 1.0,
+  "pitch": 0,
+  "first_audio_ms": 287.2,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "不是，我的意思是——理论上可以，只是没有人会这样做。",
+        "time_begin": 0,
+        "time_end": 4439.501133786848,
+        "text_begin": 0,
+        "text_end": 26,
+        "timestamped_words": [
+          {
+            "word": "不",
+            "time_begin": 39.50617283950617,
+            "time_end": 197.53086419753083,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "是",
+            "time_begin": 197.53086419753083,
+            "time_end": 316.04938271604937,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "，",
+            "time_begin": 316.04938271604937,
+            "time_end": 355.55555555555554,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "我",
+            "time_begin": 355.55555555555554,
+            "time_end": 592.5925925925926,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "的",
+            "time_begin": 592.5925925925926,
+            "time_end": 1027.1604938271603,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "意",
+            "time_begin": 1027.1604938271603,
+            "time_end": 1224.6913580246915,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "思",
+            "time_begin": 1224.6913580246915,
+            "time_end": 1343.2098765432097,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "是",
+            "time_begin": 1343.2098765432097,
+            "time_end": 1501.2345679012344,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "—",
+            "time_begin": 1501.2345679012344,
+            "time_end": 1659.2592592592591,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "理",
+            "time_begin": 1659.2592592592591,
+            "time_end": 2054.3209876543206,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "论",
+            "time_begin": 2054.3209876543206,
+            "time_end": 2212.345679012345,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "上",
+            "time_begin": 2212.345679012345,
+            "time_end": 2330.8641975308637,
+            "word_begin": 12,
+            "word_end": 13
+          },
+          {
+            "word": "可",
+            "time_begin": 2330.8641975308637,
+            "time_end": 2488.8888888888882,
+            "word_begin": 13,
+            "word_end": 14
+          },
+          {
+            "word": "以",
+            "time_begin": 2488.8888888888882,
+            "time_end": 2686.4197530864194,
+            "word_begin": 14,
+            "word_end": 15
+          },
+          {
+            "word": "，",
+            "time_begin": 2686.4197530864194,
+            "time_end": 2725.9259259259256,
+            "word_begin": 15,
+            "word_end": 16
+          },
+          {
+            "word": "只",
+            "time_begin": 2725.9259259259256,
+            "time_end": 3160.4938271604933,
+            "word_begin": 16,
+            "word_end": 17
+          },
+          {
+            "word": "是",
+            "time_begin": 3160.4938271604933,
+            "time_end": 3318.5185185185182,
+            "word_begin": 17,
+            "word_end": 18
+          },
+          {
+            "word": "没",
+            "time_begin": 3318.5185185185182,
+            "time_end": 3437.0370370370365,
+            "word_begin": 18,
+            "word_end": 19
+          },
+          {
+            "word": "有",
+            "time_begin": 3437.0370370370365,
+            "time_end": 3516.049382716049,
+            "word_begin": 19,
+            "word_end": 20
+          },
+          {
+            "word": "人",
+            "time_begin": 3516.049382716049,
+            "time_end": 3634.567901234567,
+            "word_begin": 20,
+            "word_end": 21
+          },
+          {
+            "word": "会",
+            "time_begin": 3634.567901234567,
+            "time_end": 3792.592592592592,
+            "word_begin": 21,
+            "word_end": 22
+          },
+          {
+            "word": "这",
+            "time_begin": 3792.592592592592,
+            "time_end": 3911.111111111111,
+            "word_begin": 22,
+            "word_end": 23
+          },
+          {
+            "word": "样",
+            "time_begin": 3911.111111111111,
+            "time_end": 3990.123456790123,
+            "word_begin": 23,
+            "word_end": 24
+          },
+          {
+            "word": "做",
+            "time_begin": 3990.123456790123,
+            "time_end": 4108.641975308641,
+            "word_begin": 24,
+            "word_end": 25
+          },
+          {
+            "word": "。",
+            "time_begin": 4108.641975308641,
+            "time_end": 4306.172839506173,
+            "word_begin": 25,
+            "word_end": 26
+          }
+        ]
+      }
+    }
+  ]
+}
