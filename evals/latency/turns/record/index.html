@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>话轮录音</title>
+    <style>
+      :root { color-scheme: light; }
+      body {
+        margin: 0;
+        font: 16px/1.5 "Iowan Old Style", Palatino, "Songti SC", serif;
+        background: #f6f1e8;
+        color: #241c16;
+      }
+      main { max-width: 980px; margin: 0 auto; padding: 28px 20px 64px; }
+      h1 { font-weight: 500; font-size: 28px; margin: 0 0 8px; }
+      p.note { margin: 0 0 16px; color: #5c5148; }
+      label { display: block; margin: 0 0 16px; }
+      input[type="text"] {
+        font: inherit;
+        padding: 6px 8px;
+        border: 1px solid #c8bbae;
+        background: #fffdf8;
+      }
+      table { width: 100%; border-collapse: collapse; background: #fffdf8; }
+      th, td { border-bottom: 1px solid #e4d9cc; padding: 10px 8px; vertical-align: top; text-align: left; }
+      th { font-weight: 500; }
+      button {
+        font: inherit;
+        background: #2f2924;
+        color: #f6f1e8;
+        border: 0;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+      button.stop { background: #8a3b2b; }
+      .hint { color: #6d6258; font-size: 14px; }
+      .meter { height: 8px; background: #e4d9cc; margin-top: 6px; }
+      .meter span { display: block; height: 100%; width: 0; background: #2f2924; }
+      #status { min-height: 1.5em; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>话轮录音</h1>
+      <p class="note">
+        安静的房间，用平时说话的音量。点「录」再说，说完点「停」，浏览器会下载一条 16 kHz 单声道 wav。
+        文件名就是编号。录音只在这台电脑上下载，不会上传。
+        麦克风只在 localhost 上可用。在这个目录执行 <code>python3 -m http.server</code>，然后打开它给出的本机地址。
+      </p>
+      <label>第二个人再录一套时，在这里写一个字母，文件名会变成 <code>b-t01.wav</code>。自己录就留空。
+        <input id="speaker" type="text" maxlength="8" />
+      </label>
+      <p id="status" class="hint"></p>
+      <table>
+        <thead>
+          <tr><th>编号</th><th>说什么</th><th>说明</th><th></th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </main>
+    <script>
+      const status = document.getElementById("status");
+      const rows = document.getElementById("rows");
+      let audioContext = null;
+      let stream = null;
+      let worklet = null;
+      let chunks = [];
+      let recordingId = "";
+      let openedAt = 0;
+
+      function filename(id) {
+        const speaker = document.getElementById("speaker").value.trim().replace(/[^A-Za-z0-9_-]/g, "");
+        return (speaker ? speaker + "-" : "") + id + ".wav";
+      }
+
+      function resample(input, fromRate, toRate) {
+        if (fromRate === toRate) return input;
+        const ratio = fromRate / toRate;
+        const length = Math.max(1, Math.round(input.length / ratio));
+        const output = new Float32Array(length);
+        for (let i = 0; i < length; i += 1) {
+          const position = i * ratio;
+          const left = Math.floor(position);
+          const right = Math.min(left + 1, input.length - 1);
+          const mix = position - left;
+          output[i] = input[left] * (1 - mix) + input[right] * mix;
+        }
+        return output;
+      }
+
+      function encodeWav(samples, rate) {
+        const buffer = new ArrayBuffer(44 + samples.length * 2);
+        const view = new DataView(buffer);
+        const write = (offset, text) => {
+          for (let i = 0; i < text.length; i += 1) view.setUint8(offset + i, text.charCodeAt(i));
+        };
+        write(0, "RIFF");
+        view.setUint32(4, 36 + samples.length * 2, true);
+        write(8, "WAVE");
+        write(12, "fmt ");
+        view.setUint32(16, 16, true);
+        view.setUint16(20, 1, true);
+        view.setUint16(22, 1, true);
+        view.setUint32(24, rate, true);
+        view.setUint32(28, rate * 2, true);
+        view.setUint16(32, 2, true);
+        view.setUint16(34, 16, true);
+        write(36, "data");
+        view.setUint32(40, samples.length * 2, true);
+        for (let i = 0; i < samples.length; i += 1) {
+          const clamped = Math.max(-1, Math.min(1, samples[i]));
+          view.setInt16(44 + i * 2, clamped < 0 ? clamped * 0x8000 : clamped * 0x7fff, true);
+        }
+        return new Blob([buffer], { type: "audio/wav" });
+      }
+
+      function setMeter(button, value) {
+        const bar = button.parentElement.querySelector(".meter span");
+        if (bar) bar.style.width = Math.min(100, Math.round(value * 400)) + "%";
+      }
+
+      async function start(id, button) {
+        if (recordingId) return;
+        audioContext = new AudioContext();
+        await audioContext.audioWorklet.addModule("capture.js");
+        stream = await navigator.mediaDevices.getUserMedia({
+          audio: { channelCount: 1, echoCancellation: false, noiseSuppression: false, autoGainControl: false },
+        });
+        const source = audioContext.createMediaStreamSource(stream);
+        worklet = new AudioWorkletNode(audioContext, "capture");
+        chunks = [];
+        worklet.port.onmessage = (event) => {
+          chunks.push(event.data);
+          let energy = 0;
+          for (let i = 0; i < event.data.length; i += 32) energy += event.data[i] * event.data[i];
+          setMeter(button, Math.sqrt(energy / Math.ceil(event.data.length / 32)));
+        };
+        source.connect(worklet);
+        recordingId = id;
+        openedAt = audioContext.currentTime;
+        button.textContent = "停";
+        button.classList.add("stop");
+        status.textContent = "正在录 " + filename(id);
+      }
+
+      async function stop(button) {
+        const id = recordingId;
+        recordingId = "";
+        const rate = audioContext.sampleRate;
+        const elapsed = audioContext.currentTime - openedAt;
+        worklet.disconnect();
+        stream.getTracks().forEach((track) => track.stop());
+        await audioContext.close();
+        const length = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
+        const joined = new Float32Array(length);
+        let offset = 0;
+        for (const chunk of chunks) {
+          joined.set(chunk, offset);
+          offset += chunk.length;
+        }
+        const samples = resample(joined, rate, 16000);
+        const blob = encodeWav(samples, 16000);
+        const header = new DataView(await blob.arrayBuffer());
+        const fileRate = header.getUint32(24, true);
+        const channels = header.getUint16(22, true);
+        const name = filename(id);
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = name;
+        link.click();
+        const seconds = (samples.length / fileRate).toFixed(1);
+        status.textContent = "已生成 " + name + "，" + fileRate + " Hz，" + channels + " 声道，" + seconds + " 秒。请保存下载的文件。";
+        button.textContent = "录";
+        button.classList.remove("stop");
+        setMeter(button, 0);
+        audioContext = null;
+        window.__lastTake = { name, rate: fileRate, channels, seconds: Number(seconds), elapsed };
+      }
+
+      function row(item) {
+        const tr = document.createElement("tr");
+        const id = document.createElement("td");
+        id.textContent = item.id;
+        const said = document.createElement("td");
+        said.textContent = item.text || "自由说，不念稿";
+        const note = document.createElement("td");
+        note.className = "hint";
+        note.textContent = item.note;
+        const action = document.createElement("td");
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = "录";
+        button.addEventListener("click", () => {
+          if (recordingId === item.id) {
+            stop(button).catch((error) => {
+              status.textContent = "停不下来：" + error.message;
+            });
+            return;
+          }
+          start(item.id, button).catch((error) => {
+            status.textContent = "麦克风没有打开：" + error.message;
+            recordingId = "";
+          });
+        });
+        const meter = document.createElement("div");
+        meter.className = "meter";
+        meter.append(document.createElement("span"));
+        action.append(button, meter);
+        tr.append(id, said, note, action);
+        return tr;
+      }
+
+      fetch("list.json")
+        .then((response) => {
+          if (!response.ok) throw new Error(String(response.status));
+          return response.json();
+        })
+        .then((items) => {
+          for (const item of items) rows.append(row(item));
+          status.textContent = "共 " + items.length + " 条。";
+        })
+        .catch(() => {
+          status.textContent = "清单没有载入。请在这个目录执行 python3 -m http.server，再用本机地址打开，不要直接双击文件。";
+        });
+    </script>
+  </body>
+</html>
