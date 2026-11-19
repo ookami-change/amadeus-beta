@@ -1,0 +1,67 @@
+{
+  "line": 6,
+  "text": "诶？真的吗？",
+  "hint": "惊讶，但声音不大",
+  "instruction": "惊讶，但是轻声。",
+  "emotion": "surprised",
+  "speed": 1.0,
+  "volume": 0.85,
+  "first_audio_ms": 1803.6,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "诶？真的吗？",
+        "time_begin": 0,
+        "time_end": 1862.0861678004535,
+        "text_begin": 0,
+        "text_end": 6,
+        "timestamped_words": [
+          {
+            "word": "诶",
+            "time_begin": 42.666666666666664,
+            "time_end": 256,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "？",
+            "time_begin": 256,
+            "time_end": 298.66666666666663,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "真",
+            "time_begin": 298.66666666666663,
+            "time_end": 810.6666666666666,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "的",
+            "time_begin": 810.6666666666666,
+            "time_end": 1109.3333333333333,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "吗",
+            "time_begin": 1109.3333333333333,
+            "time_end": 1365.3333333333333,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "？",
+            "time_begin": 1365.3333333333333,
+            "time_end": 1408,
+            "word_begin": 5,
+            "word_end": 6
+          }
+        ]
+      }
+    }
+  ]
+}

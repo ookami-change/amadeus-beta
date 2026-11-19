@@ -1,0 +1,155 @@
+{
+  "line": 8,
+  "text": "已经这么晚了。你明天不是要面试吗，该睡了。",
+  "hint": "关心，平静而坚持",
+  "instruction": "关心，平静，轻轻地坚持。",
+  "emotion": "calm",
+  "speed": 0.98,
+  "volume": 1.0,
+  "first_audio_ms": 600.3,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "已经这么晚了。",
+        "words": [
+          {
+            "confidence": 0.85581744,
+            "endTime": 0.135,
+            "startTime": 0.065,
+            "word": "已"
+          },
+          {
+            "confidence": 0.9629413,
+            "endTime": 0.345,
+            "startTime": 0.135,
+            "word": "经"
+          },
+          {
+            "confidence": 0.8850029,
+            "endTime": 0.495,
+            "startTime": 0.345,
+            "word": "这"
+          },
+          {
+            "confidence": 0.9410582,
+            "endTime": 0.625,
+            "startTime": 0.495,
+            "word": "么"
+          },
+          {
+            "confidence": 0.9103622,
+            "endTime": 0.805,
+            "startTime": 0.625,
+            "word": "晚"
+          },
+          {
+            "confidence": 0.96423,
+            "endTime": 1.085,
+            "startTime": 0.805,
+            "word": "了。"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "已经这么晚了。你明天不是要面试吗，该睡了。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "你明天不是要面试吗，该睡了。",
+        "words": [
+          {
+            "confidence": 0.6505804,
+            "endTime": 1.6350417,
+            "startTime": 1.5600417,
+            "word": "你"
+          },
+          {
+            "confidence": 0.19947362,
+            "endTime": 1.6950417,
+            "startTime": 1.6350417,
+            "word": "明"
+          },
+          {
+            "confidence": 0.7757222,
+            "endTime": 1.8250417,
+            "startTime": 1.6950417,
+            "word": "天"
+          },
+          {
+            "confidence": 0.87813455,
+            "endTime": 1.9550416,
+            "startTime": 1.8250417,
+            "word": "不"
+          },
+          {
+            "confidence": 0.9527827,
+            "endTime": 2.1050417,
+            "startTime": 1.9550416,
+            "word": "是"
+          },
+          {
+            "confidence": 0.92177665,
+            "endTime": 2.2050416,
+            "startTime": 2.1050417,
+            "word": "要"
+          },
+          {
+            "confidence": 0.9772717,
+            "endTime": 2.3850417,
+            "startTime": 2.2050416,
+            "word": "面"
+          },
+          {
+            "confidence": 0.9625625,
+            "endTime": 2.6350417,
+            "startTime": 2.3850417,
+            "word": "试"
+          },
+          {
+            "confidence": 0.9473225,
+            "endTime": 2.8850417,
+            "startTime": 2.6350417,
+            "word": "吗，"
+          },
+          {
+            "confidence": 0.9157913,
+            "endTime": 3.2950416,
+            "startTime": 3.1550417,
+            "word": "该"
+          },
+          {
+            "confidence": 0.96124554,
+            "endTime": 3.6050417,
+            "startTime": 3.2950416,
+            "word": "睡"
+          },
+          {
+            "confidence": 0.9527884,
+            "endTime": 3.8250418,
+            "startTime": 3.6050417,
+            "word": "了。"
+          }
+        ]
+      }
+    }
+  ]
+}

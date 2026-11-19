@@ -1,0 +1,27 @@
+# secrets
+.env
+.env.*
+!.env.tpl
+
+# javascript
+node_modules/
+dist/
+*.tsbuildinfo
+.vite/
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# downloaded models and per-run dumps; summary files under results/ are committed
+evals/latency/models/
+evals/latency/results/runs/
+
+# local models and OS noise
+apps/web/public/models/*.vrm
+.DS_Store
+*.log

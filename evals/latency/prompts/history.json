@@ -1,0 +1,10 @@
+[
+  {"role": "user", "content": "店长，你来了。"},
+  {"role": "assistant", "content": "嗯。杯子刚擦过，柄都朝一边。"},
+  {"role": "user", "content": "今天好累。"},
+  {"role": "assistant", "content": "先坐下吧。要喝点什么吗？"},
+  {"role": "user", "content": "上次说的面试，我还是有点怕。"},
+  {"role": "assistant", "content": "我记下来了。你怕的是哪一部分？"},
+  {"role": "user", "content": "就怕一紧张就说乱。"},
+  {"role": "assistant", "content": "那我们把第一句先说顺。不用一次说完。"}
+]

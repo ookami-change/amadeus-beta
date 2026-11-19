@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amadeus M0 · 形象验证</title>
+  </head>
+  <body>
+    <canvas id="stage"></canvas>
+    <section id="hud" aria-live="polite">
+      <p id="status">正在加载模型…</p>
+      <dl id="perf">
+        <div><dt>帧率</dt><dd id="fps">—</dd></div>
+        <div><dt>帧耗时</dt><dd id="frame">—</dd></div>
+        <div><dt>渲染器</dt><dd id="gpu">—</dd></div>
+        <div><dt>口型</dt><dd id="mouth">—</dd></div>
+      </dl>
+    </section>
+    <section id="controls">
+      <p id="license"></p>
+      <div class="row">
+        <button id="play" type="button">播放台词</button>
+        <button id="stop" type="button">停止</button>
+        <label><input id="mode-audio" type="radio" name="lipsync" value="audio" checked /> 音频驱动口型</label>
+        <label><input id="mode-time" type="radio" name="lipsync" value="timestamp" /> 示意时间轴</label>
+      </div>
+      <p id="mode-note">时间轴模式用的是本地示意数据，不是供应商返回的音素。</p>
+    </section>
+    <audio id="line" src="/audio/sample.wav" preload="auto"></audio>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

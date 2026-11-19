@@ -1,0 +1,103 @@
+{
+  "kind": "smoke",
+  "generated_at": "2026-11-18T06:39:00Z",
+  "region": "ap-shanghai",
+  "zone": "ap-shanghai-2",
+  "instance_id": "ins-658mfauh",
+  "python": "3.11.6",
+  "concurrency": 1,
+  "gap_s": 2,
+  "small_batch": "not_run",
+  "small_batch_reason": "No ASR and no LLM completed a call, so no asr:llm:tts combo was eligible.",
+  "notes": [
+    "TTS first-audio time is from request start to the first audio chunk, not t_tts_first_audio minus t_speech_end.",
+    "DashScope websocket host was the public wss://dashscope.aliyuncs.com/api-ws/v1/inference because the vault item has no workspace id.",
+    "The measurement directory was removed after the run. Listeners were unchanged."
+  ],
+  "calls": [
+    {
+      "kind": "llm",
+      "vendor": "ark",
+      "model": "doubao-seed-1-6-flash-250828",
+      "ok": false,
+      "error_class": "not_found",
+      "status": 404,
+      "error_code": "InvalidEndpointOrModel.NotFound"
+    },
+    {
+      "kind": "llm",
+      "vendor": "ark",
+      "model": "doubao-seed-2-0-mini-260428",
+      "ok": false,
+      "error_class": "model_not_open",
+      "status": 404,
+      "error_code": "ModelNotOpen"
+    },
+    {
+      "kind": "ark-models",
+      "ok": true,
+      "status": 200,
+      "count": 55,
+      "endpoint_count": 0,
+      "flash_chat_ids": []
+    },
+    {
+      "kind": "llm",
+      "vendor": "qwen",
+      "model": "qwen3.6-flash",
+      "ok": false,
+      "error_class": "unpurchased",
+      "status": 403,
+      "error_code": "AccessDenied.Unpurchased"
+    },
+    {
+      "kind": "llm",
+      "vendor": "qwen",
+      "model": "qwen-turbo",
+      "ok": false,
+      "error_class": "rate_limited",
+      "status": 429,
+      "error_code": "limit_requests"
+    },
+    {
+      "kind": "tts",
+      "vendor": "minimax",
+      "model": "speech-2.8-turbo",
+      "ok": true,
+      "first_ms": 932.6,
+      "audio_bytes": 97340,
+      "sample_rate": 32000
+    },
+    {
+      "kind": "tts",
+      "vendor": "volc",
+      "requested_resource": "seed-tts-2.0",
+      "ok": false,
+      "status": 403,
+      "error_class": "resource_not_granted",
+      "server_resource_id": "volc.seedtts.default"
+    },
+    {
+      "kind": "asr",
+      "vendor": "volc",
+      "model": "volc.seedasr.sauc.duration",
+      "ok": false,
+      "status": 403,
+      "error_class": "resource_not_granted"
+    },
+    {
+      "kind": "asr",
+      "vendor": "dashscope",
+      "model": "paraformer-realtime-v2",
+      "ok": false,
+      "error_class": "access_denied"
+    },
+    {
+      "kind": "tts",
+      "vendor": "dashscope",
+      "model": "cosyvoice-v3-flash",
+      "ok": false,
+      "error_class": "account_not_in_good_standing"
+    }
+  ]
+}

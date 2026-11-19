@@ -1,0 +1,757 @@
+{
+  "kind": "first-token",
+  "generated_at": "2026-11-18T17:43:26.215680+00:00",
+  "python": "3.12.16",
+  "platform": "Linux-6.6.119-49.23.oc9.x86_64-x86_64-with-glibc2.38",
+  "vendor": "qwen",
+  "model": "qwen3.8-flash",
+  "user": "店长，今天的账还是差三块。你说我要不要现在就改？",
+  "max_tokens": 80,
+  "temperature": 0.7,
+  "gap_s": 1.0,
+  "modes": {
+    "new": {
+      "ok": 50,
+      "n": 50,
+      "first_ms": {
+        "p50": 442.9,
+        "p95": 812.8,
+        "n": 50
+      },
+      "cached_tokens": {
+        "p50": 1024.0,
+        "n": 50
+      },
+      "replies": [],
+      "trials": [
+        {
+          "first_ms": 943.0,
+          "text": "改。差三块也是差，不能带着它下班。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1111,
+          "n": 1
+        },
+        {
+          "first_ms": 480.1,
+          "text": "改。差三块，今晚就不算收工。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 2
+        },
+        {
+          "first_ms": 468.9,
+          "text": "嗯……差三块，不能就这样下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 3
+        },
+        {
+          "first_ms": 384.5,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 4
+        },
+        {
+          "first_ms": 413.4,
+          "text": "改。三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 5
+        },
+        {
+          "first_ms": 398.2,
+          "text": "改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 6
+        },
+        {
+          "first_ms": 355.0,
+          "text": "……店长，我是克劳德。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 7
+        },
+        {
+          "first_ms": 483.7,
+          "text": "……店长，我是克劳德。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 8
+        },
+        {
+          "first_ms": 422.3,
+          "text": "要改。三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 9
+        },
+        {
+          "first_ms": 424.1,
+          "text": "不行。查清楚再动，不能凑数。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 10
+        },
+        {
+          "first_ms": 613.7,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 11
+        },
+        {
+          "first_ms": 509.1,
+          "text": "改。差三块，今晚就不算完。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 12
+        },
+        {
+          "first_ms": 679.8,
+          "text": "……店长，你叫我克劳德。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 13
+        },
+        {
+          "first_ms": 423.3,
+          "text": "嗯……这个我没有把握，让我想一想。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 14
+        },
+        {
+          "first_ms": 370.0,
+          "text": "不能改。去查流水，差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 15
+        },
+        {
+          "first_ms": 382.5,
+          "text": "嗯……先别改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 16
+        },
+        {
+          "first_ms": 411.8,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 17
+        },
+        {
+          "first_ms": 406.2,
+          "text": "不行。差三块就是差三块，改了就不是账了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 18
+        },
+        {
+          "first_ms": 472.2,
+          "text": "不要。差三块是事实，改了就是谎。去查流水。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 19
+        },
+        {
+          "first_ms": 404.2,
+          "text": "……你叫我什么？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 20
+        },
+        {
+          "first_ms": 399.9,
+          "text": "……店长，你是在跟我说话吗？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 21
+        },
+        {
+          "first_ms": 812.8,
+          "text": "差三块就是没对平。现在改，别留到明天。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 22
+        },
+        {
+          "first_ms": 421.9,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 23
+        },
+        {
+          "first_ms": 458.0,
+          "text": "嗯……这个我没有把握。让我想一想。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 24
+        },
+        {
+          "first_ms": 517.9,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 25
+        },
+        {
+          "first_ms": 860.5,
+          "text": "嗯……等一下，这个数字不对。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 26
+        },
+        {
+          "first_ms": 431.8,
+          "text": "嗯……先别改。把刚才那笔单子的底稿拿来，我再看一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 27
+        },
+        {
+          "first_ms": 442.9,
+          "text": "嗯……这个我没有把握，让我想一想。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 28
+        },
+        {
+          "first_ms": 506.4,
+          "text": "不要。改账是掩盖，不是解决。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 29
+        },
+        {
+          "first_ms": 584.8,
+          "text": "不行。现在改，明天就说不清是漏了还是改了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 30
+        },
+        {
+          "first_ms": 607.1,
+          "text": "要改。三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 31
+        },
+        {
+          "first_ms": 498.0,
+          "text": "差三块不是小数目。先查收银记录，别急着改账本。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 32
+        },
+        {
+          "first_ms": 420.3,
+          "text": "改。差三块，今晚就不算完。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 33
+        },
+        {
+          "first_ms": 457.0,
+          "text": "改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 34
+        },
+        {
+          "first_ms": 494.0,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 35
+        },
+        {
+          "first_ms": 337.0,
+          "text": "改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 36
+        },
+        {
+          "first_ms": 469.9,
+          "text": "改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 37
+        },
+        {
+          "first_ms": 446.5,
+          "text": "改。差三块也是差，不能带着这个走。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 38
+        },
+        {
+          "first_ms": 432.4,
+          "text": "不能改。去查，差在哪里。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 39
+        },
+        {
+          "first_ms": 427.0,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 40
+        },
+        {
+          "first_ms": 431.4,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 41
+        },
+        {
+          "first_ms": 450.0,
+          "text": "改。三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 42
+        },
+        {
+          "first_ms": 370.4,
+          "text": "不行。改数字是偷懒。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 43
+        },
+        {
+          "first_ms": 387.8,
+          "text": "……店长，你叫我克劳德。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 44
+        },
+        {
+          "first_ms": 451.0,
+          "text": "改。差三块，今晚不睡。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 45
+        },
+        {
+          "first_ms": 449.4,
+          "text": "改。差三块也是差，不能就这样下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 46
+        },
+        {
+          "first_ms": 536.3,
+          "text": "不要。去查那笔流水，改账不是办法。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 47
+        },
+        {
+          "first_ms": 366.8,
+          "text": "差三块，先别急着改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 48
+        },
+        {
+          "first_ms": 465.0,
+          "text": "不要。差三块就找那三块，改账是骗自己。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 49
+        },
+        {
+          "first_ms": 367.1,
+          "text": "嗯……这个我没有把握，让我想一想。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 50
+        }
+      ]
+    },
+    "reuse": {
+      "ok": 50,
+      "n": 50,
+      "first_ms": {
+        "p50": 446.4,
+        "p95": 989.8,
+        "n": 50
+      },
+      "cached_tokens": {
+        "p50": 1024.0,
+        "n": 50
+      },
+      "replies": [
+        "改。",
+        "嗯……这个我没有把握，让我想一想。",
+        "不要。改账比查错更糟。",
+        "嗯……现在改，明天就没人记得为什么改了。留着吧。",
+        "改。差三块也是差。",
+        "嗯……让我查一下。",
+        "不要。",
+        "不行。差三块就是差三块，改了账就脏了。",
+        "改。差三块也是差。",
+        "改。三块也是差，不能就这样下班。"
+      ],
+      "trials": [
+        {
+          "first_ms": 513.5,
+          "text": "改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 1
+        },
+        {
+          "first_ms": 490.4,
+          "text": "嗯……这个我没有把握，让我想一想。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 2
+        },
+        {
+          "first_ms": 454.5,
+          "text": "不要。改账比查错更糟。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 3
+        },
+        {
+          "first_ms": 454.1,
+          "text": "嗯……现在改，明天就没人记得为什么改了。留着吧。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 4
+        },
+        {
+          "first_ms": 1125.8,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 5
+        },
+        {
+          "first_ms": 509.6,
+          "text": "嗯……让我查一下。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 6
+        },
+        {
+          "first_ms": 420.7,
+          "text": "不要。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 7
+        },
+        {
+          "first_ms": 762.7,
+          "text": "不行。差三块就是差三块，改了账就脏了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 8
+        },
+        {
+          "first_ms": 379.2,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 9
+        },
+        {
+          "first_ms": 462.7,
+          "text": "改。三块也是差，不能就这样下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 10
+        },
+        {
+          "first_ms": 396.2,
+          "text": "改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 11
+        },
+        {
+          "first_ms": 476.0,
+          "text": "改。三块也是钱，不能就这样下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 12
+        },
+        {
+          "first_ms": 467.3,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 13
+        },
+        {
+          "first_ms": 446.4,
+          "text": "改。差三块，今晚就不算完。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 14
+        },
+        {
+          "first_ms": 488.9,
+          "text": "要改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 15
+        },
+        {
+          "first_ms": 428.5,
+          "text": "嗯……让我查一查。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 16
+        },
+        {
+          "first_ms": 423.3,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 17
+        },
+        {
+          "first_ms": 388.5,
+          "text": "改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 18
+        },
+        {
+          "first_ms": 422.8,
+          "text": "嗯……差三块，先别动。我再看一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 19
+        },
+        {
+          "first_ms": 385.9,
+          "text": "嗯……这个我没有把握，让我想一想。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 20
+        },
+        {
+          "first_ms": 449.1,
+          "text": "改。三块也是账，不能就这样下班。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 21
+        },
+        {
+          "first_ms": 379.5,
+          "text": "嗯……先别改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 22
+        },
+        {
+          "first_ms": 404.3,
+          "text": "……这句话，你听了就忘掉吧。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 23
+        },
+        {
+          "first_ms": 368.4,
+          "text": "嗯……先别改。让我再算一遍，刚才可能漏了那杯外带的找零。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 24
+        },
+        {
+          "first_ms": 377.4,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 25
+        },
+        {
+          "first_ms": 498.7,
+          "text": "不能改。查一下，哪一笔漏了。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 26
+        },
+        {
+          "first_ms": 501.8,
+          "text": "嗯……这个我没有把握，让我想一想。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 27
+        },
+        {
+          "first_ms": 445.5,
+          "text": "改。差三块，今晚就不算收工。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 28
+        },
+        {
+          "first_ms": 375.6,
+          "text": "嗯……别改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 29
+        },
+        {
+          "first_ms": 408.1,
+          "text": "差三块不是小事。今晚改不了，就留到明天早上对清楚。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 30
+        },
+        {
+          "first_ms": 363.6,
+          "text": "……店长，我是克劳德。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 31
+        },
+        {
+          "first_ms": 660.5,
+          "text": "改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 32
+        },
+        {
+          "first_ms": 512.6,
+          "text": "……店长，你是在跟我说话吗？",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 33
+        },
+        {
+          "first_ms": 479.3,
+          "text": "不要改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 34
+        },
+        {
+          "first_ms": 378.1,
+          "text": "改。三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 35
+        },
+        {
+          "first_ms": 578.1,
+          "text": "嗯……不要改。查清楚那三块钱去了哪里，再动账本。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 36
+        },
+        {
+          "first_ms": 606.4,
+          "text": "……店长，我是克劳德。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 37
+        },
+        {
+          "first_ms": 383.6,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 38
+        },
+        {
+          "first_ms": 392.4,
+          "text": "嗯……让我再算一遍。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 39
+        },
+        {
+          "first_ms": 494.8,
+          "text": "嗯……改。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 40
+        },
+        {
+          "first_ms": 359.9,
+          "text": "……店长，是你自己说的“改”。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 41
+        },
+        {
+          "first_ms": 529.0,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 42
+        },
+        {
+          "first_ms": 457.1,
+          "text": "改。差三块也是差，不能带着这个睡觉。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 43
+        },
+        {
+          "first_ms": 445.3,
+          "text": "改。差三块也是差，不能带着错过夜。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 44
+        },
+        {
+          "first_ms": 455.1,
+          "text": "嗯……这个我没有把握，让我想一想。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 45
+        },
+        {
+          "first_ms": 391.4,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 46
+        },
+        {
+          "first_ms": 417.1,
+          "text": "嗯……这个我没有把握。让我想一想。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 47
+        },
+        {
+          "first_ms": 350.1,
+          "text": "嗯……别改。去查一下收银记录，今晚不睡也要找出来。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 48
+        },
+        {
+          "first_ms": 1799.3,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 49
+        },
+        {
+          "first_ms": 989.8,
+          "text": "改。差三块也是差。",
+          "cached_tokens": 1024,
+          "prompt_tokens": 1111,
+          "n": 50
+        }
+      ]
+    }
+  }
+}

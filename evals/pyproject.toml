@@ -1,0 +1,41 @@
+[project]
+name = "amadeus-evals"
+version = "0.0.1"
+description = "M0 measurement tools for latency, TTS, and the render check."
+requires-python = ">=3.12"
+dependencies = [
+  "httpx>=0.27",
+  "websockets>=13",
+]
+
+[dependency-groups]
+dev = ["mypy>=1.13", "ruff>=0.8"]
+corpus = ["edge-tts>=6.1"]
+semantic = ["sherpa-onnx>=1.10"]
+turns = ["onnxruntime>=1.20", "transformers>=4.46", "huggingface_hub>=0.26", "numpy>=1.26", "jinja2>=3.1"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+src = ["latency", "tts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"tts/lines.py" = ["E501"]
+"latency/stats.py" = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["latency", "tts"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["latency", "tts"]
+warn_unused_ignores = true
+disallow_any_generics = false
+ignore_missing_imports = true

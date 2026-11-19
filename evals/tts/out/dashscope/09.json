@@ -1,0 +1,251 @@
+{
+  "line": 9,
+  "text": "嗯。",
+  "hint": "附和声，很短，表示在听",
+  "instruction": "很短的附和，表示在听。",
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 1.0,
+  "first_audio_ms": 2743.4,
+  "sample_rate": 22050,
+  "marks": [
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "cd39a961-957a-4bef-920f-62b95446bb27",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "嗯",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 320
+                },
+                {
+                  "text": "。",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 480,
+                  "end_time": 720
+                }
+              ]
+            },
+            "type": "sentence-begin",
+            "original_text": "嗯。",
+            "normalized_text": "嗯。"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "cd39a961-957a-4bef-920f-62b95446bb27",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "嗯",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 320
+                },
+                {
+                  "text": "。",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 480,
+                  "end_time": 720
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "cd39a961-957a-4bef-920f-62b95446bb27",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "cd39a961-957a-4bef-920f-62b95446bb27",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "cd39a961-957a-4bef-920f-62b95446bb27",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "嗯",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 320
+                },
+                {
+                  "text": "。",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 480,
+                  "end_time": 1040
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "cd39a961-957a-4bef-920f-62b95446bb27",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "cd39a961-957a-4bef-920f-62b95446bb27",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "cd39a961-957a-4bef-920f-62b95446bb27",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "cd39a961-957a-4bef-920f-62b95446bb27",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "嗯",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 0,
+                  "end_time": 320
+                },
+                {
+                  "text": "。",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 480,
+                  "end_time": 1040
+                }
+              ]
+            },
+            "type": "sentence-end",
+            "original_text": "嗯。",
+            "normalized_text": "嗯。"
+          },
+          "usage": {
+            "characters": 3
+          }
+        }
+      }
+    }
+  ]
+}

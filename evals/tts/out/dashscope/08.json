@@ -1,0 +1,1053 @@
+{
+  "line": 8,
+  "text": "已经这么晚了。你明天不是要面试吗，该睡了。",
+  "hint": "关心，平静而坚持",
+  "instruction": "关心，平静，轻轻地坚持。",
+  "emotion": "calm",
+  "speed": 0.98,
+  "volume": 1.0,
+  "first_audio_ms": 3134.5,
+  "sample_rate": 22050,
+  "marks": [
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "已",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 153,
+                  "end_time": 307
+                },
+                {
+                  "text": "经",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 307,
+                  "end_time": 461
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 461,
+                  "end_time": 615
+                },
+                {
+                  "text": "么",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 615,
+                  "end_time": 692
+                }
+              ]
+            },
+            "type": "sentence-begin",
+            "original_text": "已经这么晚了。你明天不是要面试吗，该睡了。",
+            "normalized_text": "已经这么晚了。你明天不是要面试吗，该睡了。"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "已",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 153,
+                  "end_time": 307
+                },
+                {
+                  "text": "经",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 307,
+                  "end_time": 461
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 461,
+                  "end_time": 615
+                },
+                {
+                  "text": "么",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 615,
+                  "end_time": 692
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "已",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 153,
+                  "end_time": 307
+                },
+                {
+                  "text": "经",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 307,
+                  "end_time": 461
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 461,
+                  "end_time": 615
+                },
+                {
+                  "text": "么",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 615,
+                  "end_time": 692
+                },
+                {
+                  "text": "晚",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 692,
+                  "end_time": 846
+                },
+                {
+                  "text": "了",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 923,
+                  "end_time": 1076
+                },
+                {
+                  "text": "。",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1076,
+                  "end_time": 1538
+                },
+                {
+                  "text": "你",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1538,
+                  "end_time": 1692
+                },
+                {
+                  "text": "明",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 1769,
+                  "end_time": 1846
+                },
+                {
+                  "text": "天",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 1923,
+                  "end_time": 2076
+                },
+                {
+                  "text": "不",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 2076,
+                  "end_time": 2230
+                },
+                {
+                  "text": "是",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 2230,
+                  "end_time": 2307
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "已",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 153,
+                  "end_time": 307
+                },
+                {
+                  "text": "经",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 307,
+                  "end_time": 461
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 461,
+                  "end_time": 615
+                },
+                {
+                  "text": "么",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 615,
+                  "end_time": 692
+                },
+                {
+                  "text": "晚",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 692,
+                  "end_time": 846
+                },
+                {
+                  "text": "了",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 923,
+                  "end_time": 1076
+                },
+                {
+                  "text": "。",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1076,
+                  "end_time": 1538
+                },
+                {
+                  "text": "你",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1538,
+                  "end_time": 1692
+                },
+                {
+                  "text": "明",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 1769,
+                  "end_time": 1846
+                },
+                {
+                  "text": "天",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 1923,
+                  "end_time": 2076
+                },
+                {
+                  "text": "不",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 2076,
+                  "end_time": 2230
+                },
+                {
+                  "text": "是",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 2230,
+                  "end_time": 2307
+                },
+                {
+                  "text": "要",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 2307,
+                  "end_time": 2461
+                },
+                {
+                  "text": "面",
+                  "begin_index": 13,
+                  "end_index": 14,
+                  "begin_time": 2461,
+                  "end_time": 2538
+                },
+                {
+                  "text": "试",
+                  "begin_index": 14,
+                  "end_index": 15,
+                  "begin_time": 2615,
+                  "end_time": 2769
+                },
+                {
+                  "text": "吗",
+                  "begin_index": 15,
+                  "end_index": 16,
+                  "begin_time": 2846,
+                  "end_time": 3000
+                },
+                {
+                  "text": "，",
+                  "begin_index": 16,
+                  "end_index": 17,
+                  "begin_time": 3000,
+                  "end_time": 3307
+                },
+                {
+                  "text": "该",
+                  "begin_index": 17,
+                  "end_index": 18,
+                  "begin_time": 3307,
+                  "end_time": 3461
+                },
+                {
+                  "text": "睡",
+                  "begin_index": 18,
+                  "end_index": 19,
+                  "begin_time": 3538,
+                  "end_time": 3692
+                },
+                {
+                  "text": "了",
+                  "begin_index": 19,
+                  "end_index": 20,
+                  "begin_time": 3692,
+                  "end_time": 3846
+                }
+              ]
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": []
+            },
+            "type": "sentence-synthesis"
+          }
+        }
+      }
+    },
+    {
+      "kind": "result-generated",
+      "payload": {
+        "header": {
+          "task_id": "5fdf7899-0258-4448-a433-a338ab19a392",
+          "event": "result-generated",
+          "attributes": {}
+        },
+        "payload": {
+          "output": {
+            "sentence": {
+              "index": 0,
+              "words": [
+                {
+                  "text": "已",
+                  "begin_index": 0,
+                  "end_index": 1,
+                  "begin_time": 153,
+                  "end_time": 307
+                },
+                {
+                  "text": "经",
+                  "begin_index": 1,
+                  "end_index": 2,
+                  "begin_time": 307,
+                  "end_time": 461
+                },
+                {
+                  "text": "这",
+                  "begin_index": 2,
+                  "end_index": 3,
+                  "begin_time": 461,
+                  "end_time": 615
+                },
+                {
+                  "text": "么",
+                  "begin_index": 3,
+                  "end_index": 4,
+                  "begin_time": 615,
+                  "end_time": 692
+                },
+                {
+                  "text": "晚",
+                  "begin_index": 4,
+                  "end_index": 5,
+                  "begin_time": 692,
+                  "end_time": 846
+                },
+                {
+                  "text": "了",
+                  "begin_index": 5,
+                  "end_index": 6,
+                  "begin_time": 923,
+                  "end_time": 1076
+                },
+                {
+                  "text": "。",
+                  "begin_index": 6,
+                  "end_index": 7,
+                  "begin_time": 1076,
+                  "end_time": 1538
+                },
+                {
+                  "text": "你",
+                  "begin_index": 7,
+                  "end_index": 8,
+                  "begin_time": 1538,
+                  "end_time": 1692
+                },
+                {
+                  "text": "明",
+                  "begin_index": 8,
+                  "end_index": 9,
+                  "begin_time": 1769,
+                  "end_time": 1846
+                },
+                {
+                  "text": "天",
+                  "begin_index": 9,
+                  "end_index": 10,
+                  "begin_time": 1923,
+                  "end_time": 2076
+                },
+                {
+                  "text": "不",
+                  "begin_index": 10,
+                  "end_index": 11,
+                  "begin_time": 2076,
+                  "end_time": 2230
+                },
+                {
+                  "text": "是",
+                  "begin_index": 11,
+                  "end_index": 12,
+                  "begin_time": 2230,
+                  "end_time": 2307
+                },
+                {
+                  "text": "要",
+                  "begin_index": 12,
+                  "end_index": 13,
+                  "begin_time": 2307,
+                  "end_time": 2461
+                },
+                {
+                  "text": "面",
+                  "begin_index": 13,
+                  "end_index": 14,
+                  "begin_time": 2461,
+                  "end_time": 2538
+                },
+                {
+                  "text": "试",
+                  "begin_index": 14,
+                  "end_index": 15,
+                  "begin_time": 2615,
+                  "end_time": 2769
+                },
+                {
+                  "text": "吗",
+                  "begin_index": 15,
+                  "end_index": 16,
+                  "begin_time": 2846,
+                  "end_time": 3000
+                },
+                {
+                  "text": "，",
+                  "begin_index": 16,
+                  "end_index": 17,
+                  "begin_time": 3000,
+                  "end_time": 3307
+                },
+                {
+                  "text": "该",
+                  "begin_index": 17,
+                  "end_index": 18,
+                  "begin_time": 3307,
+                  "end_time": 3461
+                },
+                {
+                  "text": "睡",
+                  "begin_index": 18,
+                  "end_index": 19,
+                  "begin_time": 3538,
+                  "end_time": 3692
+                },
+                {
+                  "text": "了",
+                  "begin_index": 19,
+                  "end_index": 20,
+                  "begin_time": 3692,
+                  "end_time": 3846
+                }
+              ]
+            },
+            "type": "sentence-end",
+            "original_text": "已经这么晚了。你明天不是要面试吗，该睡了。",
+            "normalized_text": "已经这么晚了。你明天不是要面试吗，该睡了。"
+          },
+          "usage": {
+            "characters": 39
+          }
+        }
+      }
+    }
+  ]
+}

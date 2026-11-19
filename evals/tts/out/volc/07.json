@@ -1,0 +1,110 @@
+{
+  "line": 7,
+  "text": "……这句话，你听了就忘掉吧。",
+  "hint": "害羞，声音变小",
+  "instruction": "害羞，声音变小，几乎不想让人听清。",
+  "emotion": "calm",
+  "speed": 0.94,
+  "volume": 0.6,
+  "first_audio_ms": 766.5,
+  "sample_rate": 24000,
+  "marks": [
+    {
+      "kind": "350",
+      "payload": {
+        "phonemes": [],
+        "text": "",
+        "words": []
+      }
+    },
+    {
+      "kind": "351",
+      "payload": {
+        "phonemes": [],
+        "text": "……这句话，你听了就忘掉吧。",
+        "words": []
+      }
+    },
+    {
+      "kind": "364",
+      "payload": {
+        "phonemes": [],
+        "text": "……这句话，你听了就忘掉吧。",
+        "words": [
+          {
+            "confidence": 0.33071202,
+            "endTime": 0.045,
+            "startTime": 0,
+            "word": "…"
+          },
+          {
+            "confidence": 0.13656795,
+            "endTime": 0.075,
+            "startTime": 0.045,
+            "word": "…"
+          },
+          {
+            "confidence": 0.59205145,
+            "endTime": 0.165,
+            "startTime": 0.075,
+            "word": "这"
+          },
+          {
+            "confidence": 0.9435192,
+            "endTime": 0.335,
+            "startTime": 0.165,
+            "word": "句"
+          },
+          {
+            "confidence": 0.954033,
+            "endTime": 0.625,
+            "startTime": 0.335,
+            "word": "话，"
+          },
+          {
+            "confidence": 0.94535035,
+            "endTime": 1.005,
+            "startTime": 0.845,
+            "word": "你"
+          },
+          {
+            "confidence": 0.96790993,
+            "endTime": 1.285,
+            "startTime": 1.005,
+            "word": "听"
+          },
+          {
+            "confidence": 0.82976425,
+            "endTime": 1.395,
+            "startTime": 1.285,
+            "word": "了"
+          },
+          {
+            "confidence": 0.9339626,
+            "endTime": 1.535,
+            "startTime": 1.395,
+            "word": "就"
+          },
+          {
+            "confidence": 0.89557874,
+            "endTime": 1.715,
+            "startTime": 1.535,
+            "word": "忘"
+          },
+          {
+            "confidence": 0.9150498,
+            "endTime": 1.895,
+            "startTime": 1.715,
+            "word": "掉"
+          },
+          {
+            "confidence": 0.85197955,
+            "endTime": 2.095,
+            "startTime": 1.895,
+            "word": "吧。"
+          }
+        ]
+      }
+    }
+  ]
+}
