@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import struct
 import tempfile
 import unittest
@@ -222,6 +223,26 @@ class EndpointerUnitTests(unittest.TestCase):
         for end in range(20, 420, 20):
             decision = endpointer.push(float(end), end <= 200, "")
         self.assertIsNone(decision)
+
+
+class RecordingListTests(unittest.TestCase):
+    def test_list_covers_the_script_and_the_two_extra_sets(self) -> None:
+        path = Path(__file__).resolve().parent / "turns" / "record" / "list.json"
+        rows = json.loads(path.read_text(encoding="utf-8"))
+        scripted = [row for row in rows if row["kind"] == "scripted"]
+        self.assertEqual([row["id"] for row in scripted], [line.item_id for line in TURNS])
+        for row, line in zip(scripted, TURNS, strict=True):
+            self.assertEqual(row["text"], line.text)
+            self.assertTrue("然后" in row["note"] or "就是" in row["note"])
+        self.assertEqual(sum(row["kind"] == "free" for row in rows), 20)
+        self.assertEqual(sum(row["kind"] == "short" for row in rows), 10)
+        self.assertTrue(all(row["text"] == "" for row in rows if row["kind"] == "free"))
+        self.assertTrue(all(row["text"] and "不要停" in row["note"] for row in rows if row["kind"] == "short"))
+        ids = [row["id"] for row in rows]
+        self.assertEqual(len(ids), len(set(ids)))
+        page = (path.parent / "index.html").read_text(encoding="utf-8")
+        self.assertIn("16000", page)
+        self.assertIn("list.json", page)
 
 
 def _pause_item(path: Path) -> Item:
