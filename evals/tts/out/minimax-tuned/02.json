@@ -1,0 +1,105 @@
+{
+  "line": 2,
+  "text": "等一下，这个数字不对。",
+  "hint": "较真，认真但不凶",
+  "instruction": "认真，平静，不凶。",
+  "model": "speech-2.8-hd",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 0.98,
+  "volume": 1.0,
+  "pitch": 0,
+  "first_audio_ms": 288.3,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "等一下，这个数字不对。",
+        "time_begin": 0,
+        "time_end": 2593.514739229025,
+        "text_begin": 0,
+        "text_end": 11,
+        "timestamped_words": [
+          {
+            "word": "等",
+            "time_begin": 43.53741496598639,
+            "time_end": 304.7619047619047,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "一",
+            "time_begin": 304.7619047619047,
+            "time_end": 435.3741496598639,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "下",
+            "time_begin": 435.3741496598639,
+            "time_end": 522.4489795918367,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "，",
+            "time_begin": 522.4489795918367,
+            "time_end": 565.9863945578231,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "这",
+            "time_begin": 565.9863945578231,
+            "time_end": 827.2108843537414,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "个",
+            "time_begin": 827.2108843537414,
+            "time_end": 1654.421768707483,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "数",
+            "time_begin": 1654.421768707483,
+            "time_end": 1785.0340136054422,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "字",
+            "time_begin": 1785.0340136054422,
+            "time_end": 1915.6462585034012,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "不",
+            "time_begin": 1915.6462585034012,
+            "time_end": 2089.795918367347,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "对",
+            "time_begin": 2089.795918367347,
+            "time_end": 2220.4081632653056,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "。",
+            "time_begin": 2220.4081632653056,
+            "time_end": 2438.0952380952376,
+            "word_begin": 10,
+            "word_end": 11
+          }
+        ]
+      }
+    }
+  ]
+}

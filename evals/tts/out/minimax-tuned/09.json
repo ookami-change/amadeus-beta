@@ -1,0 +1,42 @@
+{
+  "line": 9,
+  "text": "嗯。",
+  "hint": "附和声，很短，表示在听",
+  "instruction": "很短的附和，表示在听。",
+  "model": "speech-2.8-hd",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 1.05,
+  "volume": 0.9,
+  "pitch": 0,
+  "first_audio_ms": 317.4,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "嗯。",
+        "time_begin": 0,
+        "time_end": 584.9886621315193,
+        "text_begin": 0,
+        "text_end": 2,
+        "timestamped_words": [
+          {
+            "word": "嗯",
+            "time_begin": 40.63492063492063,
+            "time_end": 325.07936507936506,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "。",
+            "time_begin": 325.07936507936506,
+            "time_end": 568.8888888888888,
+            "word_begin": 1,
+            "word_end": 2
+          }
+        ]
+      }
+    }
+  ]
+}

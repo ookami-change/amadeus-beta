@@ -1,0 +1,147 @@
+{
+  "line": 5,
+  "text": "这个我知道。要听吗？可能会有点长。",
+  "hint": "克制的期待",
+  "instruction": "有一点期待，压着，不兴奋。",
+  "model": "speech-2.8-hd",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 1.0,
+  "pitch": 0,
+  "first_audio_ms": 283.1,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "这个我知道。要听吗？可能会有点长。",
+        "time_begin": 0,
+        "time_end": 3963.492063492063,
+        "text_begin": 0,
+        "text_end": 17,
+        "timestamped_words": [
+          {
+            "word": "这",
+            "time_begin": 42.666666666666664,
+            "time_end": 298.66666666666663,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "个",
+            "time_begin": 298.66666666666663,
+            "time_end": 469.3333333333333,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "我",
+            "time_begin": 469.3333333333333,
+            "time_end": 554.6666666666666,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "知",
+            "time_begin": 554.6666666666666,
+            "time_end": 725.3333333333333,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "道",
+            "time_begin": 725.3333333333333,
+            "time_end": 896,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "。",
+            "time_begin": 896,
+            "time_end": 938.6666666666666,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "要",
+            "time_begin": 938.6666666666666,
+            "time_end": 1578.6666666666667,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "听",
+            "time_begin": 1578.6666666666667,
+            "time_end": 1792,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "吗",
+            "time_begin": 1792,
+            "time_end": 1962.6666666666665,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "？",
+            "time_begin": 1962.6666666666665,
+            "time_end": 2005.3333333333333,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "可",
+            "time_begin": 2005.3333333333333,
+            "time_end": 2602.6666666666665,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "能",
+            "time_begin": 2602.6666666666665,
+            "time_end": 2858.6666666666665,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "会",
+            "time_begin": 2858.6666666666665,
+            "time_end": 2944,
+            "word_begin": 12,
+            "word_end": 13
+          },
+          {
+            "word": "有",
+            "time_begin": 2944,
+            "time_end": 3072,
+            "word_begin": 13,
+            "word_end": 14
+          },
+          {
+            "word": "点",
+            "time_begin": 3072,
+            "time_end": 3242.6666666666665,
+            "word_begin": 14,
+            "word_end": 15
+          },
+          {
+            "word": "长",
+            "time_begin": 3242.6666666666665,
+            "time_end": 3413.333333333333,
+            "word_begin": 15,
+            "word_end": 16
+          },
+          {
+            "word": "。",
+            "time_begin": 3413.333333333333,
+            "time_end": 3669.3333333333335,
+            "word_begin": 16,
+            "word_end": 17
+          }
+        ]
+      }
+    }
+  ]
+}

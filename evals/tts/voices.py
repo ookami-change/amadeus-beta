@@ -42,6 +42,13 @@ DESIGNS: tuple[Design, ...] = (
     Design("v3", "claudev3", V3),
 )
 
+# One extra pass after the owner heard noise in V2. Not part of the original three.
+V2_CLEAN = Design(
+    "v2-clean",
+    "claudev2c",
+    V2 + "录音干净，没有底噪，没有电流声，没有房间杂音。",
+)
+
 
 def instruction_units(text: str) -> int:
     """CosyVoice counts a CJK character as two units, and everything else as one."""

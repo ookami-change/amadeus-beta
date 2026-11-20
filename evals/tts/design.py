@@ -20,7 +20,7 @@ from latency.adapters.types import redact
 from latency.env import Settings, load_dotenv
 from tts.lines import DOUBAO_TUNED, LINES
 from tts.synthesize import _one
-from tts.voices import DESIGNS, PREVIEW_TEXT, TARGET_MODEL, Design, instruction_units
+from tts.voices import DESIGNS, PREVIEW_TEXT, TARGET_MODEL, V2_CLEAN, Design, instruction_units
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out" / "design"
@@ -198,7 +198,7 @@ async def _synth(settings: Settings, made: list[dict[str, object]], workspace: s
     return rows
 
 
-async def _run(settings: Settings) -> None:
+async def _run_designs(settings: Settings, designs: tuple[Design, ...], label: str) -> None:
     if not settings.dashscope_key or not settings.dashscope_ws_url:
         raise SystemExit("缺少百炼密钥或业务空间，没有创建设计音色")
     url = _custom_url(settings)
@@ -206,7 +206,7 @@ async def _run(settings: Settings) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     made: list[dict[str, object]] = []
     async with httpx.AsyncClient(timeout=60) as client:
-        for design in DESIGNS:
+        for design in designs:
             try:
                 item = await _create(client, url, settings.dashscope_key, design, workspace)
             except Exception as exc:
@@ -217,7 +217,7 @@ async def _run(settings: Settings) -> None:
             made.append(item)
             print(design.key, item.get("status"), item.get("voice_id", ""), flush=True)
     public = []
-    for design, item in zip(DESIGNS, made, strict=True):
+    for design, item in zip(designs, made, strict=True):
         public.append(
             {
                 "key": design.key,
@@ -230,18 +230,34 @@ async def _run(settings: Settings) -> None:
                 "error": item.get("error"),
             }
         )
-    probe = await _doubao_probe(settings)
-    payload = {"voices": public, "doubao_voice_design": probe}
-    (OUT / "voices.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if label == "v2-clean":
+        payload: dict[str, object] = {"voices": public}
+        (OUT / "v2-clean-voice.json").write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+    else:
+        probe = await _doubao_probe(settings)
+        payload = {"voices": public, "doubao_voice_design": probe}
+        (OUT / "voices.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     rows = await _synth(settings, made, workspace)
-    (OUT / "timings.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    name = "v2-clean-timings.json" if label == "v2-clean" else "timings.json"
+    (OUT / name).write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+async def _run(settings: Settings) -> None:
+    await _run_designs(settings, DESIGNS, "three")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Design three CosyVoice voices and synthesize the 14 lines")
-    parser.parse_args()
+    parser.add_argument("--clean-v2", action="store_true", help="Redesign only V2 with a no-noise sentence")
+    args = parser.parse_args()
     load_dotenv(Path.cwd())
-    asyncio.run(_run(Settings.from_environ()))
+    settings = Settings.from_environ()
+    if args.clean_v2:
+        asyncio.run(_run_designs(settings, (V2_CLEAN,), "v2-clean"))
+    else:
+        asyncio.run(_run(settings))
 
 
 if __name__ == "__main__":

@@ -24,12 +24,16 @@ class MiniMaxTTS:
         emotion: str | None = None,
         speed: float = 1.0,
         volume: float = 1.0,
+        pitch: int = 0,
         model: str | None = None,
     ) -> None:
+        if not isinstance(pitch, int) or not -12 <= pitch <= 12:
+            raise ValueError("minimax pitch must be an integer from -12 to 12")
         self._settings = settings
         self._emotion = emotion
         self._speed = speed
         self._volume = volume
+        self._pitch = pitch
         self._model = model or settings.minimax_model
         self._ws: ClientConnection | None = None
         self._reader: asyncio.Task[None] | None = None
@@ -53,7 +57,7 @@ class MiniMaxTTS:
             "voice_id": self._settings.minimax_voice,
             "speed": self._speed,
             "vol": self._volume,
-            "pitch": 0,
+            "pitch": self._pitch,
         }
         if self._emotion:
             voice["emotion"] = self._emotion

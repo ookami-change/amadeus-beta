@@ -44,6 +44,7 @@ def build_tts(
     emotion: str | None = None,
     speed: float = 1.0,
     volume: float = 1.0,
+    pitch: int = 0,
     model: str | None = None,
     voice: str | None = None,
     allow_instruction: bool | None = None,
@@ -52,7 +53,7 @@ def build_tts(
     if name == "volc":
         return VolcTTS(settings, emotion=emotion, speed=speed, volume=volume)
     if name == "minimax":
-        return MiniMaxTTS(settings, emotion=emotion, speed=speed, volume=volume, model=model)
+        return MiniMaxTTS(settings, emotion=emotion, speed=speed, volume=volume, pitch=pitch, model=model)
     if name == "dashscope":
         return DashScopeTTS(
             settings,

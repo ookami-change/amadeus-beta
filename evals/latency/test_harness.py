@@ -28,8 +28,8 @@ from latency.prompts import load_persona
 from latency.scoring import Pause, classify_endpoint, percentile
 from latency.turn_models import _normalize_livekit
 from latency.turn_script import TURNS, validate
-from tts.lines import DOUBAO_TUNED, LINES
-from tts.voices import DESIGNS, PREVIEW_TEXT, instruction_units
+from tts.lines import DOUBAO_TUNED, LINES, MINIMAX_TUNED
+from tts.voices import DESIGNS, PREVIEW_TEXT, V2_CLEAN, instruction_units
 
 
 def _tone(ms: int, amplitude: int = 9000) -> bytes:
@@ -149,6 +149,38 @@ class VoiceDesignTests(unittest.TestCase):
             self.assertTrue(design.prefix.isalnum())
         self.assertEqual(set(DOUBAO_TUNED), {line.number for line in LINES})
         self.assertTrue(all(instruction_units(text) <= 100 for text in DOUBAO_TUNED.values()))
+        self.assertLessEqual(len(V2_CLEAN.prompt), 500)
+        self.assertLessEqual(len(V2_CLEAN.prefix), 10)
+        self.assertNotIn(V2_CLEAN, DESIGNS)
+
+    def test_minimax_tunes_keep_the_words(self) -> None:
+        import re
+
+        from latency.adapters.tts_minimax import MiniMaxTTS
+
+        self.assertEqual([take.number for take in MINIMAX_TUNED], list(range(1, 15)))
+        allowed = {"happy", "sad", "angry", "fearful", "disgusted", "surprised", "calm", "fluent"}
+        by_number = {line.number: line for line in LINES}
+        focus = {1, 7, 10, 11, 14}
+        for take in MINIMAX_TUNED:
+            line = by_number[take.number]
+            self.assertIn(take.emotion, allowed)
+            self.assertTrue(-12 <= take.pitch <= 12)
+            self.assertTrue(0.5 <= take.speed <= 2)
+            self.assertTrue(0 < take.volume <= 10)
+            bare = re.sub(r"[^\w]", "", take.text, flags=re.UNICODE)
+            self.assertEqual(bare, re.sub(r"[^\w]", "", line.text, flags=re.UNICODE))
+            if take.number in focus:
+                changed = (
+                    take.emotion != line.emotion
+                    or take.speed != line.speed
+                    or take.volume != line.volume
+                    or take.pitch != 0
+                    or take.text != line.text
+                )
+                self.assertTrue(changed)
+        with self.assertRaises(ValueError):
+            MiniMaxTTS(object(), pitch=13)  # type: ignore[arg-type]
 
 
 class RetryTests(unittest.TestCase):

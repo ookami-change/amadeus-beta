@@ -36,11 +36,12 @@
       <h1>克劳德 · 十四句试听</h1>
       <p class="note">
         行是台词。点击播放。音频和本页放在一起，双击本页即可，不需要服务器。没有合成过的按钮会变成“未合成”。
-        盲听把六路声音的顺序打乱并隐去名字，选完再揭晓。
+        六路盲听是已经揭晓过的那一轮。档位盲听只比上海新合成的 hd 和 turbo，揭晓前是「声音甲」「声音乙」。
       </p>
       <div class="bar">
         <button type="button" id="labeled" class="quiet">对照</button>
-        <button type="button" id="blind">盲听</button>
+        <button type="button" id="blind" class="quiet">六路盲听</button>
+        <button type="button" id="tier">档位盲听</button>
         <button type="button" id="reveal" class="quiet" hidden>揭晓</button>
       </div>
       <table id="board">
@@ -72,7 +73,11 @@
         { name: "CosyVoice\nv3-flash\n龙安温", dir: "out/dashscope" },
         { name: "CosyVoice\nv3.5-flash\n设计 V1", dir: "out/design/v1" },
         { name: "CosyVoice\nv3.5-flash\n设计 V2", dir: "out/design/v2" },
-        { name: "CosyVoice\nv3.5-flash\n设计 V3", dir: "out/design/v3" }
+        { name: "CosyVoice\nv3.5-flash\n设计 V3", dir: "out/design/v3" },
+        { name: "MiniMax\nspeech-2.8-hd\n上海", dir: "out/minimax-hd" },
+        { name: "MiniMax\nspeech-2.8-turbo\n上海", dir: "out/minimax-turbo" },
+        { name: "MiniMax\nspeech-2.8-hd\n逐条调优", dir: "out/minimax-tuned" },
+        { name: "CosyVoice\n设计 V2\n去底噪", dir: "out/design/v2-clean" }
       ];
       // Fixed shuffle of the six blind candidates. Names stay hidden until 揭晓.
       const blindOrder = [4, 1, 5, 0, 3, 2];
@@ -84,9 +89,13 @@
         { name: "MiniMax speech-2.8-hd Intellectual Girl", dir: "out/minimax" },
         { name: "CosyVoice v3-flash 龙安温", dir: "out/dashscope" }
       ];
+      const tierPool = [
+        { name: "MiniMax speech-2.8-turbo 上海", dir: "out/minimax-turbo" },
+        { name: "MiniMax speech-2.8-hd 上海", dir: "out/minimax-hd" }
+      ];
       let current = null;
       let revealed = false;
-      let mode = "blind";
+      let mode = "tier";
       const head = document.querySelector("thead tr");
       const body = document.querySelector("tbody");
       const revealButton = document.getElementById("reveal");
@@ -118,11 +127,16 @@
         body.replaceChildren();
         const columns = mode === "blind"
           ? blindOrder.map((index) => blindPool[index])
-          : labeled;
+          : mode === "tier"
+            ? tierPool
+            : labeled;
         head.append(headerCell("台词"), headerCell("情绪提示"));
         columns.forEach((column, index) => {
-          const hidden = mode === "blind" && !revealed;
-          head.append(headerCell(hidden ? "声音 " + String.fromCharCode(65 + index) : column.name));
+          const hidden = (mode === "blind" || mode === "tier") && !revealed;
+          const anonymous = mode === "tier"
+            ? (index === 0 ? "声音甲" : "声音乙")
+            : "声音 " + String.fromCharCode(65 + index);
+          head.append(headerCell(hidden ? anonymous : column.name));
         });
         for (const [id, text, hint] of lines) {
           const row = document.createElement("tr");
@@ -143,7 +157,7 @@
           }
           body.append(row);
         }
-        revealButton.hidden = mode !== "blind" || revealed;
+        revealButton.hidden = (mode !== "blind" && mode !== "tier") || revealed;
       }
 
       document.getElementById("labeled").addEventListener("click", () => {
@@ -152,6 +166,11 @@
       });
       document.getElementById("blind").addEventListener("click", () => {
         mode = "blind";
+        revealed = false;
+        render();
+      });
+      document.getElementById("tier").addEventListener("click", () => {
+        mode = "tier";
         revealed = false;
         render();
       });

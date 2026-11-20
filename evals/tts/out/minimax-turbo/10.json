@@ -1,0 +1,119 @@
+{
+  "line": 10,
+  "text": "呵……抱歉，这个有点好笑。",
+  "hint": "忍不住的轻笑，随即收住",
+  "instruction": "忍不住轻轻笑一下，马上收住。",
+  "model": "speech-2.8-turbo",
+  "voice": null,
+  "emotion": "calm",
+  "speed": 1.0,
+  "volume": 0.9,
+  "pitch": 0,
+  "first_audio_ms": 234.4,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "呵……抱歉，这个有点好笑。",
+        "time_begin": 0,
+        "time_end": 3336.5532879818593,
+        "text_begin": 0,
+        "text_end": 13,
+        "timestamped_words": [
+          {
+            "word": "呵",
+            "time_begin": 42.666666666666664,
+            "time_end": 298.66666666666663,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "…",
+            "time_begin": 298.66666666666663,
+            "time_end": 640,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "…",
+            "time_begin": 640,
+            "time_end": 682.6666666666666,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "抱",
+            "time_begin": 682.6666666666666,
+            "time_end": 1280,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "歉",
+            "time_begin": 1280,
+            "time_end": 1408,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "，",
+            "time_begin": 1408,
+            "time_end": 1450.6666666666665,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "这",
+            "time_begin": 1450.6666666666665,
+            "time_end": 1749.3333333333333,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "个",
+            "time_begin": 1749.3333333333333,
+            "time_end": 2389.333333333333,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "有",
+            "time_begin": 2389.333333333333,
+            "time_end": 2474.666666666667,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "点",
+            "time_begin": 2474.666666666667,
+            "time_end": 2602.6666666666665,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "好",
+            "time_begin": 2602.6666666666665,
+            "time_end": 2773.3333333333335,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "笑",
+            "time_begin": 2773.3333333333335,
+            "time_end": 2944,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "。",
+            "time_begin": 2944,
+            "time_end": 3157.3333333333335,
+            "word_begin": 12,
+            "word_end": 13
+          }
+        ]
+      }
+    }
+  ]
+}
