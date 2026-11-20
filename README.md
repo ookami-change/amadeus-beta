@@ -26,10 +26,12 @@
 | [05 美术需求书](docs/05-art-brief.md) | 角色设定、画风、各需求包的规格与验收标准 |
 | [06 供应商候选](docs/06-vendors.md) | 语音识别、语音合成、大模型的候选名单与首轮测试组合 |
 | [07 测试服务器](docs/07-test-server.md) | 服务器规格、备案、密钥管理 |
+| [08 Voicebox 上手指南](docs/08-voicebox-guide.md) | 负责人在 Mac 上用 Qwen VoiceDesign 试做克劳德声线、导出参考音频 |
 | [开发规约](AGENTS.md) | 分工、工作流程、架构红线、技术约定 |
 | [M0 任务单](docs/tasks/M0.md) | 技术验证阶段的四个开发任务与验收标准 |
 | [M0 第二轮任务单](docs/tasks/M0-round2.md) | 第一轮结果、供应商开通清单、补测任务 |
 | [M0 第三轮任务单](docs/tasks/M0-round3.md) | 试听结论、专属声线、话轮检测重测、提前开口 |
+| [声线试验任务单](docs/tasks/voice-lab.md) | Voicebox 设计 → MiniMax / CosyVoice 复刻 → 盲听，决定是否替换声线 |
 
 ## 本地跑起来
 
