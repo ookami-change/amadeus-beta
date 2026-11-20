@@ -65,7 +65,7 @@
 | 海外 | Fish Audio | 声线克隆与二次元音色生态活跃；第三方测得首包约 290ms，疑难发音通过率偏低，需重点听中文稳定性 |
 | 海外 | Cartesia Sonic | 以低延迟著称，但各方测得的首包数字出入很大（190–450ms）；中文表现未核实 |
 | 自托管 | CosyVoice 开源版、GPT-SoVITS | 用于自训练专属声线。CosyVoice 2 自述流式延迟约 150ms 并支持细粒度情感控制 |
-| 工具 | [Voicebox](https://github.com/jamiepine/voicebox)（MIT） | 本地桌面声音工作台，**做专属声线的试验台，不进实时链路**：它是桌面应用，不是流式服务。macOS 有 Apple Silicon 和 Intel 的 DMG，未签名，打不开时用 `xattr -cr`；模型从 Hugging Face 下载。中文：Qwen3-TTS、Qwen CustomVoice、Qwen VoiceDesign 三个引擎都列了 zh。**Qwen VoiceDesign**（`Qwen3-TTS-12Hz-1.7B-VoiceDesign`，只有 1.7B，约 3.5GB）凭文字描述生成音色；它在 `main` 的 CHANGELOG 里列在"未发布"一节（PR #1012），GitHub 最新发布版是 v0.5.0，所以可能要从源码运行。源码里这个后端在 Mac 上不走 MPS，会落到 CPU。许可：Qwen3-TTS 仓库和权重是 Apache-2.0，可以商用；Hugging Face 模型卡这次没能打开，生成音频的权属 Qwen 没有写。同一应用里的 OmniVoice 是 CC-BY-NC，不可商用，不用。其他引擎的许可没核实。用法：VoiceDesign 生成参考音频，再用 MiniMax / CosyVoice 复刻成可流式调用的音色，见 `docs/08-voicebox-guide.md`、`docs/tasks/voice-lab.md`。（2026-11-20 核对 `main` 提交 `8af7efe`，未在 Mac 上实测） |
+| 工具 | [Voicebox](https://github.com/jamiepine/voicebox)（MIT） | 本地桌面声音工作台，**做专属声线的试验台，不进实时链路**：它是桌面应用，不是流式服务。macOS 有 Apple Silicon 和 Intel 的 DMG，未签名，打不开时用 `xattr -cr`；模型从 Hugging Face 下载。中文：Qwen3-TTS、Qwen CustomVoice、Qwen VoiceDesign 三个引擎都列了 zh。**Qwen VoiceDesign**（`Qwen3-TTS-12Hz-1.7B-VoiceDesign`，只有 1.7B，约 3.5GB）凭文字描述生成音色；它在 `main` 的 CHANGELOG 里列在"未发布"一节（PR #1012），当时查到 GitHub 最新发布版是 v0.5.0；负责人 2026-11-20 确认 Mac 正式安装包里已有"描述声音"，不用从源码运行。源码里这个后端在 Mac 上不走 MPS，会落到 CPU。许可：Qwen3-TTS 仓库和权重是 Apache-2.0，可以商用；Hugging Face 模型卡这次没能打开，生成音频的权属 Qwen 没有写。同一应用里的 OmniVoice 是 CC-BY-NC，不可商用，不用。其他引擎的许可没核实。用法：VoiceDesign 生成参考音频，再用 MiniMax / CosyVoice 复刻成可流式调用的音色，见 `docs/08-voicebox-guide.md`、`docs/tasks/voice-lab.md`。（2026-11-20 核对 `main` 提交 `8af7efe`，未在 Mac 上实测） |
 
 声线的长期方向是**自有声线**：用授权的声音素材训练，或请配音演员录制后定制。不克隆任何现有声优的声音。
 
