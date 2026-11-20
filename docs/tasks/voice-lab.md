@@ -1,6 +1,6 @@
 # 声线试验任务单：Voicebox 设计 → 云端复刻 → 盲听
 
-这是独立于 M0 主线的试验，不改 M0 各轮任务单，也不占 M0 的优先级。克劳德当前的声线仍是 MiniMax `speech-2.8` 的 Intellectual Girl（见 `docs/tasks/M0-round3.md` 的盲听结果）。这次试验只回答一个问题：
+这是独立于 M0 主线的试验，不改 M0 各轮任务单，也不占 M0 的优先级。克劳德当前的声线仍是 MiniMax `speech-2.8-turbo` 的 Intellectual Girl（见 `docs/tasks/M0-round3.md` 的盲听结果和档位决定）。这次试验只回答一个问题：
 
 > **用 Qwen VoiceDesign 凭文字描述生成的声音，经 MiniMax 或 CosyVoice 复刻后，会不会比 Intellectual Girl 更像克劳德，同时延迟和音质不变差？**
 
@@ -39,7 +39,7 @@
 
 1. 快速复刻的源音频要求：格式、时长上下限、大小。`evals/tts/REPORT.md` 的"MiniMax 定稿"写的是"短于 8 秒、不超过 20MB"。架构师查到的说法是：复刻源音频 10 秒到 5 分钟，8 秒以内的是可选示例音频 `prompt_audio` 的限制。两种说法以官方文档 <https://platform.minimaxi.com/docs/api-reference/voice-cloning-clone> 为准，同时更正 REPORT
 2. 降噪、音量归一化之类的参数（如 `need_noise_reduction`、`need_volume_normalization`）：是否存在、默认值。**本试验一律关掉降噪**，源音频本身就是干净的
-3. 复刻音色能用在哪些模型上（`speech-2.8-hd` / `turbo`），是否支持流式、`emotion` 枚举和 R8b 用过的语速 / 音量 / 音高参数
+3. 复刻音色能不能用在 `speech-2.8-turbo` 上（线上档位），是否支持流式、`emotion` 枚举和 R8b 用过的语速 / 音量 / 音高参数
 4. **计费**：R8b 记录的是首次用复刻音色合成时收 9.90 元，试听按合成单价计。核实现价，以及 `api.minimaxi.com` 和百炼代售的 MiniMax 是否同价
 5. **有效期**：据搜索结果，复刻音色 7 天内没有正式调用会被删除。核实。如果属实，VL2 必须在复刻后 7 天内完成合成；之后要长期保留，音色得持续被调用，或者另有保留办法。写清楚
 6. **授权**：开放平台用户协议里关于复刻的条款，尤其是对源音频权利的要求、复刻音色和输出的权属、R8b 已记的第 1.7 条（标识）和第 6.3 条（权属）。源音频是 Apache-2.0 模型的生成物，看协议有没有对这种来源另作规定
@@ -65,12 +65,13 @@
 2. **源音频质检**：用 R8b 的方法（说话帧里高频残差和能量的中位比值）测 `ref.wav`，同时报时长、采样率、峰值。对照：A（Intellectual Girl，俄勒冈 hd）0.178，B（设计 V2）0.274。比 B 还高的候选先不复刻，把数字报给负责人，让他换种子重导
 3. **复刻**：每个候选在 MiniMax 和 CosyVoice 各复刻一次。MiniMax 关降噪。CosyVoice 的 `target_model` 用 `cosyvoice-v3.5-flash`；不支持的话，退到支持复刻的最近型号，并在报告里写明。`voice_id` 写进报告
 4. **合成 14 条**，台词用 `evals/tts/lines.py`，不改字：
-   - MiniMax 复刻：`speech-2.8-hd`，用 R8b"逐条参数"表的 `emotion` / 语速 / 音量 / 音高。这样和 Intellectual Girl 逐条调优版是同一套参数，只差音色
+   - MiniMax 复刻：`speech-2.8-turbo`（2026-11-20 定的线上档位），用 R8b"逐条参数"表的 `emotion` / 语速 / 音量 / 音高
+   - 基线：Intellectual Girl，同样用 `speech-2.8-turbo` 和同一套参数，同场重新合成 14 条，输出到 `out/clone/minimax-baseline/`。这样基线和复刻只差音色。R8b 的逐条调优版是用 hd 调的，不拿来当基线
    - CosyVoice 复刻：`instruction` 用 `DOUBAO_TUNED`，和 R8 设计音色那次一样，打开 `word_timestamp_enabled`
    - 输出到 `evals/tts/out/clone/{vendor}-{候选}/01.wav … 14.wav`，每条附 json（首包时间、参数、是否有字级时间戳）
 5. **测量**（同 R8b 的口径：上海二区那台机器，每条单独开一条连接，说完整句，最近秩）：
    - 首包 P50 / P95 / 最小 / 最大。14 条合成本身只是一轮样本，另外每个音色用第 1、8、12 条各跑 10 次，凑够 30 个样本再算分位
-   - 对照组同场重测：Intellectual Girl `speech-2.8-hd` 和 `turbo`，同样 30 次。不要拿 R8b 的旧数字去比
+   - 对照组同场重测：Intellectual Girl `speech-2.8-turbo`，同样 30 次。不要拿 R8b 的旧数字去比
    - 14 条的底噪比值中位数，和 A 对照
    - 指令是否被接受、字级时间戳有几条（x/14）
    - 结果输出 JSON 加 Markdown 表（AGENTS.md 的约定）
@@ -84,7 +85,7 @@
 
 在 `evals/tts/index.html` 加一个"声线试验盲听"模式，沿用现有盲听的做法：
 
-1. 列：基线 Intellectual Girl hd 逐条调优（`out/minimax-tuned/`），加上每个候选的 MiniMax 复刻和 CosyVoice 复刻。3 个候选就是 7 列
+1. 列：基线 Intellectual Girl turbo（`out/clone/minimax-baseline/`），加上每个候选的 MiniMax 复刻和 CosyVoice 复刻。3 个候选就是 7 列
 2. 固定打乱一次，揭晓前表头是"声音 A、B、C……"，揭晓后显示名字
 3. 对照模式另加两类列：Voicebox 原始 14 条（`evals/tts/voice-lab/{候选}/lines/`）和各复刻版。原始 14 条不进盲听，因为它不能流式上线
 4. 页面在本地双击打开就能用，不加依赖
