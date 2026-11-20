@@ -14,7 +14,8 @@ VOLC_ACCESS_TOKEN=
 ARK_API_KEY=op://Amadeus/polvab6c6hawg5pjoh6eouzmjm/credential
 ARK_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
 # Cascade model from the Shanghai run. Thinking is disabled by the benchmark.
-# Doubao seed lite/turbo are listed by Ark but are not activated on this account.
+# R5b measured doubao-seed-2-1-lite-260915 and doubao-seed-2-1-turbo-260628.
+# Both were slower than qwen3.8-flash, so the fast brain stays on Qwen.
 ARK_MODEL=deepseek-v4-1-flash-261017
 
 # Aliyun Bailian / Model Studio. One key covers ASR, Qwen, and CosyVoice.

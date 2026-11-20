@@ -1,0 +1,757 @@
+{
+  "kind": "first-token",
+  "generated_at": "2026-11-19T08:03:03.681824+00:00",
+  "python": "3.12.16",
+  "platform": "Linux-6.6.119-49.23.oc9.x86_64-x86_64-with-glibc2.38",
+  "vendor": "ark",
+  "model": "doubao-seed-2-1-turbo-260628",
+  "user": "店长，今天的账还是差三块。你说我要不要现在就改？",
+  "max_tokens": 80,
+  "temperature": 0.7,
+  "gap_s": 1.0,
+  "modes": {
+    "new": {
+      "ok": 50,
+      "n": 50,
+      "first_ms": {
+        "p50": 1981.0,
+        "p95": 3362.9,
+        "n": 50
+      },
+      "cached_tokens": {
+        "p50": 0.0,
+        "n": 50
+      },
+      "replies": [],
+      "trials": [
+        {
+          "first_ms": 2276.0,
+          "text": "等一下，我看看。先别改，我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 1
+        },
+        {
+          "first_ms": 2766.5,
+          "text": "先别改。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 2
+        },
+        {
+          "first_ms": 2242.5,
+          "text": "等一下，我看看。你把小票给我。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 3
+        },
+        {
+          "first_ms": 2745.7,
+          "text": "等一下，这个数字不对。我再对一遍小票。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 4
+        },
+        {
+          "first_ms": 6239.1,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 5
+        },
+        {
+          "first_ms": 3362.9,
+          "text": "等一下，让我再对一遍。刚才收银条里夹了三张一块的，我没算进去。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 6
+        },
+        {
+          "first_ms": 2505.8,
+          "text": "等一下，我看看。差在哪一笔？",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 7
+        },
+        {
+          "first_ms": 1360.7,
+          "text": "等一下，我再对一遍。先别改。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 8
+        },
+        {
+          "first_ms": 2632.1,
+          "text": "等一下，我对一下。刚才数钢镚儿的时候，可能漏了收银机缝里那枚。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 9
+        },
+        {
+          "first_ms": 1406.8,
+          "text": "等一下，我再数一遍零钱。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 10
+        },
+        {
+          "first_ms": 2208.1,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 11
+        },
+        {
+          "first_ms": 1472.8,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 12
+        },
+        {
+          "first_ms": 1420.9,
+          "text": "等一下，我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 13
+        },
+        {
+          "first_ms": 1878.1,
+          "text": "等一下，我先对一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 14
+        },
+        {
+          "first_ms": 1532.4,
+          "text": "不要改。我来对一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 15
+        },
+        {
+          "first_ms": 1306.8,
+          "text": "等一下，我再算一遍。你先别动账。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 16
+        },
+        {
+          "first_ms": 3387.7,
+          "text": "等一下。我再数一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 17
+        },
+        {
+          "first_ms": 1929.2,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 18
+        },
+        {
+          "first_ms": 1421.5,
+          "text": "等一下，我再数一遍。刚才那杯冰美式的零钱，我好像压在杯垫底下了。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 19
+        },
+        {
+          "first_ms": 3121.8,
+          "text": "嗯……先别改。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 20
+        },
+        {
+          "first_ms": 2614.0,
+          "text": "等一下，我对一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 21
+        },
+        {
+          "first_ms": 2802.7,
+          "text": "我先对一遍。差在哪笔，你别急着改。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 22
+        },
+        {
+          "first_ms": 3148.4,
+          "text": "嗯……先别改。我再对一遍小票，刚才数硬币可能漏了。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 23
+        },
+        {
+          "first_ms": 2073.3,
+          "text": "先别改。我再对一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 24
+        },
+        {
+          "first_ms": 2416.8,
+          "text": "等一下。我再对一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 25
+        },
+        {
+          "first_ms": 1728.7,
+          "text": "等一下。我再数一遍零钱抽屉。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 26
+        },
+        {
+          "first_ms": 1857.8,
+          "text": "等一下，我再对一遍。差三块，不能就这么下班。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 27
+        },
+        {
+          "first_ms": 2547.7,
+          "text": "先别改。我再数一遍抽屉里的硬币。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 28
+        },
+        {
+          "first_ms": 1724.0,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 29
+        },
+        {
+          "first_ms": 1981.0,
+          "text": "等一下，我再算一遍。差的是哪一栏？",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 30
+        },
+        {
+          "first_ms": 1574.7,
+          "text": "先别改。我再对一遍小票。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 31
+        },
+        {
+          "first_ms": 1969.7,
+          "text": "先别改。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 32
+        },
+        {
+          "first_ms": 2234.2,
+          "text": "差三块。你先坐，我来对。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 33
+        },
+        {
+          "first_ms": 1862.9,
+          "text": "等一下，我再算一遍。别改，先找。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 34
+        },
+        {
+          "first_ms": 1660.7,
+          "text": "等一下，我查一查。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 35
+        },
+        {
+          "first_ms": 1626.8,
+          "text": "等一下，我再算一遍。刚才那盒奶是不是没记进去？",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 36
+        },
+        {
+          "first_ms": 1077.2,
+          "text": "差在哪？先找，别先改。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 37
+        },
+        {
+          "first_ms": 2542.2,
+          "text": "等一下，我再算一遍。差三块不能就这么下班。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 38
+        },
+        {
+          "first_ms": 2263.4,
+          "text": "等一下。我再对一遍小票。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 39
+        },
+        {
+          "first_ms": 1897.0,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 40
+        },
+        {
+          "first_ms": 2695.2,
+          "text": "等一下。我再数一遍收银机里的硬币。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 41
+        },
+        {
+          "first_ms": 1083.3,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 42
+        },
+        {
+          "first_ms": 1469.2,
+          "text": "等一下。我再数一遍抽屉。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 43
+        },
+        {
+          "first_ms": 2858.6,
+          "text": "差三块也要找。先翻小票，我来对流水。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 44
+        },
+        {
+          "first_ms": 1320.0,
+          "text": "不要改。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 45
+        },
+        {
+          "first_ms": 1474.2,
+          "text": "等一下，我再数一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 46
+        },
+        {
+          "first_ms": 2949.6,
+          "text": "差三块就找三块。账不能改。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 47
+        },
+        {
+          "first_ms": 1166.3,
+          "text": "嗯……先别改。我再对一遍收银条。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 48
+        },
+        {
+          "first_ms": 2736.0,
+          "text": "等一下，我再数一遍抽屉里的硬币。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 49
+        },
+        {
+          "first_ms": 2096.7,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 50
+        }
+      ]
+    },
+    "reuse": {
+      "ok": 50,
+      "n": 50,
+      "first_ms": {
+        "p50": 1788.0,
+        "p95": 3103.7,
+        "n": 50
+      },
+      "cached_tokens": {
+        "p50": 0.0,
+        "n": 50
+      },
+      "replies": [
+        "等一下，我再算一遍。差三块不能就这么放着。",
+        "先别改。我再对一遍流水。",
+        "等一下。我再算一遍。",
+        "等一下。我再数一遍。",
+        "别改。我再核一遍。",
+        "等一下。这个不能改，得找出差在哪。",
+        "等一下。我再数一遍收银机里的硬币。",
+        "先别改。我再对一遍小票。",
+        "等一下，我再算一遍。刚才我数过，硬币盒里多了三个一块。",
+        "等一下，我再算一遍。差在哪里，不能随便改。"
+      ],
+      "trials": [
+        {
+          "first_ms": 1441.5,
+          "text": "等一下，我再算一遍。差三块不能就这么放着。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 1
+        },
+        {
+          "first_ms": 2358.7,
+          "text": "先别改。我再对一遍流水。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 2
+        },
+        {
+          "first_ms": 1724.8,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 3
+        },
+        {
+          "first_ms": 2032.0,
+          "text": "等一下。我再数一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 4
+        },
+        {
+          "first_ms": 973.9,
+          "text": "别改。我再核一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 5
+        },
+        {
+          "first_ms": 1162.1,
+          "text": "等一下。这个不能改，得找出差在哪。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 6
+        },
+        {
+          "first_ms": 2246.7,
+          "text": "等一下。我再数一遍收银机里的硬币。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 7
+        },
+        {
+          "first_ms": 1855.5,
+          "text": "先别改。我再对一遍小票。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 8
+        },
+        {
+          "first_ms": 933.9,
+          "text": "等一下，我再算一遍。刚才我数过，硬币盒里多了三个一块。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 9
+        },
+        {
+          "first_ms": 1574.8,
+          "text": "等一下，我再算一遍。差在哪里，不能随便改。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 10
+        },
+        {
+          "first_ms": 1779.7,
+          "text": "差在哪里，我来对。先别改。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 11
+        },
+        {
+          "first_ms": 1330.7,
+          "text": "不要改账。我再点一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 12
+        },
+        {
+          "first_ms": 3291.8,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 13
+        },
+        {
+          "first_ms": 2496.7,
+          "text": "等一下，我先对一遍。你先别急着改。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 14
+        },
+        {
+          "first_ms": 2942.5,
+          "text": "等一下，我再对一遍。刚才算到第三张收银条，有个冰美式的零头可能没拢上。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 15
+        },
+        {
+          "first_ms": 1691.9,
+          "text": "嗯……等一下，我再算一遍。\n差三块的话，先别改。找着错处再说。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 16
+        },
+        {
+          "first_ms": 1788.0,
+          "text": "等一下，这个数字不对。我再核一遍小票，你先别改。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 17
+        },
+        {
+          "first_ms": 1803.8,
+          "text": "等一下，我看看。\n差三块不能就这么下班，我来对。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 18
+        },
+        {
+          "first_ms": 2214.8,
+          "text": "等一下，这个数字不对。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 19
+        },
+        {
+          "first_ms": 2186.0,
+          "text": "等一下。我再数一遍抽屉里的硬币。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 20
+        },
+        {
+          "first_ms": 1681.2,
+          "text": "等一下，我看看。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 21
+        },
+        {
+          "first_ms": 1353.3,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 22
+        },
+        {
+          "first_ms": 2850.4,
+          "text": "等一下，这个数字不对。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 23
+        },
+        {
+          "first_ms": 1291.8,
+          "text": "等一下。我再数一遍找零的抽屉。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 24
+        },
+        {
+          "first_ms": 1744.8,
+          "text": "等一下，我再算一遍。\n差三块不能就这么放着。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 25
+        },
+        {
+          "first_ms": 1760.8,
+          "text": "等一下，我再算一遍。刚才点单里有个三块的打包袋，可能漏记了。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 26
+        },
+        {
+          "first_ms": 1961.8,
+          "text": "等一下，我再对一遍。\n差三块不能就这么放着。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 27
+        },
+        {
+          "first_ms": 2112.4,
+          "text": "不要改。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 28
+        },
+        {
+          "first_ms": 2915.2,
+          "text": "先别改。我再对一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 29
+        },
+        {
+          "first_ms": 1786.8,
+          "text": "等一下，我再算一遍。别改，先找。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 30
+        },
+        {
+          "first_ms": 2393.1,
+          "text": "等一下，我再算一遍。差三块不能就这么放着。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 31
+        },
+        {
+          "first_ms": 2620.4,
+          "text": "等一下，我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 32
+        },
+        {
+          "first_ms": 3163.4,
+          "text": "嗯……先别改。我再把收银机的小票对一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 33
+        },
+        {
+          "first_ms": 3103.7,
+          "text": "等一下，我看看。第三行那杯燕麦拿铁，你记成小杯了，今天卖的是大杯，刚好差三块。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 34
+        },
+        {
+          "first_ms": 1523.4,
+          "text": "先别改。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 35
+        },
+        {
+          "first_ms": 2833.7,
+          "text": "等一下。我再数一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 36
+        },
+        {
+          "first_ms": 2074.4,
+          "text": "等一下，我再算一遍。差三块不能就这么下班。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 37
+        },
+        {
+          "first_ms": 1721.6,
+          "text": "等一下，我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 38
+        },
+        {
+          "first_ms": 2151.4,
+          "text": "等一下，我看看。刚才对到第三张小票，有杯美式少刷了三块——是你下午请门口发传单的那个姑娘的，对吧？",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 39
+        },
+        {
+          "first_ms": 2502.0,
+          "text": "不要改。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 40
+        },
+        {
+          "first_ms": 1797.2,
+          "text": "等一下，这个数字不对。我再对一遍小票。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 41
+        },
+        {
+          "first_ms": 1734.6,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 42
+        },
+        {
+          "first_ms": 1702.7,
+          "text": "等一下，我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 43
+        },
+        {
+          "first_ms": 1720.2,
+          "text": "等一下，我再算一遍。\n差的是哪一栏？",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 44
+        },
+        {
+          "first_ms": 1946.7,
+          "text": "等一下，这个数字不对。\n我再算一遍，你别急着改。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 45
+        },
+        {
+          "first_ms": 1426.6,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 46
+        },
+        {
+          "first_ms": 1589.2,
+          "text": "先别改。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 47
+        },
+        {
+          "first_ms": 1227.9,
+          "text": "等一下，我再算一遍。差三块，不能就这么下班。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 48
+        },
+        {
+          "first_ms": 1457.0,
+          "text": "等一下。我再算一遍。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 49
+        },
+        {
+          "first_ms": 2446.3,
+          "text": "等一下，我再算一遍。刚才可能是我把找零算错了。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 50
+        }
+      ]
+    }
+  }
+}

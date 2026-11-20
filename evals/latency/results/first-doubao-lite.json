@@ -1,0 +1,757 @@
+{
+  "kind": "first-token",
+  "generated_at": "2026-11-19T08:03:03.681812+00:00",
+  "python": "3.12.16",
+  "platform": "Linux-6.6.119-49.23.oc9.x86_64-x86_64-with-glibc2.38",
+  "vendor": "ark",
+  "model": "doubao-seed-2-1-lite-260915",
+  "user": "店长，今天的账还是差三块。你说我要不要现在就改？",
+  "max_tokens": 80,
+  "temperature": 0.7,
+  "gap_s": 1.0,
+  "modes": {
+    "new": {
+      "ok": 50,
+      "n": 50,
+      "first_ms": {
+        "p50": 624.7,
+        "p95": 1212.0,
+        "n": 50
+      },
+      "cached_tokens": {
+        "p50": 1222.0,
+        "n": 50
+      },
+      "replies": [],
+      "trials": [
+        {
+          "first_ms": 1212.0,
+          "text": "现在就改。差三块不是小事，拖到明天就更查不出来了。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 1
+        },
+        {
+          "first_ms": 527.5,
+          "text": "要。差三块也是差。现在改完再走。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 2
+        },
+        {
+          "first_ms": 813.8,
+          "text": "要。差三块也是差。现在对，对完再睡。",
+          "cached_tokens": 0,
+          "prompt_tokens": 1222,
+          "n": 3
+        },
+        {
+          "first_ms": 5499.0,
+          "text": "现在就改。三块钱不能过夜，这是规矩。",
+          "cached_tokens": 1080,
+          "prompt_tokens": 1222,
+          "n": 4
+        },
+        {
+          "first_ms": 533.3,
+          "text": "要现在改。差三块就不是三块的事，是哪一笔记错了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 5
+        },
+        {
+          "first_ms": 3701.8,
+          "text": "现在就改。差三块不是小事，不能留到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 6
+        },
+        {
+          "first_ms": 1024.3,
+          "text": "要。现在改，明天才不会忘。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 7
+        },
+        {
+          "first_ms": 624.7,
+          "text": "要现在改。差三块不是小事，拖到明天就更对不上了。你把今天的小票给我，我们一笔一笔对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 8
+        },
+        {
+          "first_ms": 438.2,
+          "text": "要改。差三块就不是三块的事，是哪一笔记错了。现在对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 9
+        },
+        {
+          "first_ms": 467.6,
+          "text": "嗯……差三块就现在找，不能留到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 10
+        },
+        {
+          "first_ms": 546.4,
+          "text": "现在就改。差三块也是差，拖到明天就成糊涂账了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 11
+        },
+        {
+          "first_ms": 358.5,
+          "text": "现在改。差三块也是差。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 12
+        },
+        {
+          "first_ms": 438.3,
+          "text": "要改。差三块不是小事，现在就对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 13
+        },
+        {
+          "first_ms": 1151.9,
+          "text": "要现在改。差三块不是小事，拖到明天就更对不上。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 14
+        },
+        {
+          "first_ms": 604.8,
+          "text": "要现在改。差三块不是小事，拖到明天就更对不上了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 15
+        },
+        {
+          "first_ms": 422.3,
+          "text": "要现在改。差三块不是三块的事，是哪一笔记错了。把下午那本小票再翻一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 16
+        },
+        {
+          "first_ms": 873.7,
+          "text": "要改。差三块也是差，明天再对就记不清了。现在对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 17
+        },
+        {
+          "first_ms": 775.6,
+          "text": "要现在改。差三块不是小事，放一夜就更难找。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 18
+        },
+        {
+          "first_ms": 540.6,
+          "text": "要现在改。拖到明天，差的就不是三块了，是一整天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 19
+        },
+        {
+          "first_ms": 775.5,
+          "text": "要。差三块也是差，不能留到明天。是哪一笔，我们现在对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 20
+        },
+        {
+          "first_ms": 970.2,
+          "text": "要。三块钱不能过夜。现在就对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 21
+        },
+        {
+          "first_ms": 481.0,
+          "text": "要现在就改。差三块不是三块的事，是明天会一直挂在心上。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 22
+        },
+        {
+          "first_ms": 744.0,
+          "text": "要。差三块就是差三块，不记到明天。我陪你对一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 23
+        },
+        {
+          "first_ms": 835.5,
+          "text": "要改。三块钱不是小数目，差在哪一笔，我们现在对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 24
+        },
+        {
+          "first_ms": 714.1,
+          "text": "要。差三块也是差。现在就对，从早上那笔开始。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 25
+        },
+        {
+          "first_ms": 969.2,
+          "text": "要现在改。差三块不是三块的事，是明天的账会跟着错。你把今天的流水给我，我们一笔一笔对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 26
+        },
+        {
+          "first_ms": 404.8,
+          "text": "要改。差三块不是小事，现在对清楚再走。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 27
+        },
+        {
+          "first_ms": 1050.7,
+          "text": "要改。差三块也是差，明天会更乱。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 28
+        },
+        {
+          "first_ms": 726.3,
+          "text": "要。差三块就差三块，现在对，对完再走。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 29
+        },
+        {
+          "first_ms": 575.3,
+          "text": "现在就改。差三块不是小事，是有一笔记错了。你把小票给我，我们一起对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 30
+        },
+        {
+          "first_ms": 402.4,
+          "text": "现在就改。三块钱的事，拖到明天更难对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 31
+        },
+        {
+          "first_ms": 678.8,
+          "text": "要改。差三块也是差。现在就查。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 32
+        },
+        {
+          "first_ms": 1117.1,
+          "text": "要改。三块也是三块，现在对清楚，明天才不会带着错下班。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 33
+        },
+        {
+          "first_ms": 355.5,
+          "text": "要改。差三块也是差，今晚对不平，明天更对不平。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 34
+        },
+        {
+          "first_ms": 522.2,
+          "text": "现在就改。差三块不是三块钱的事，是账不对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 35
+        },
+        {
+          "first_ms": 711.3,
+          "text": "要。差三块也是差。现在就改。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 36
+        },
+        {
+          "first_ms": 910.2,
+          "text": "现在就改。差三块不是三块的事，是账不平。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 37
+        },
+        {
+          "first_ms": 362.9,
+          "text": "要改。三块钱不能留到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 38
+        },
+        {
+          "first_ms": 670.2,
+          "text": "要。差三块也是差，不能放到明天。我陪你对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 39
+        },
+        {
+          "first_ms": 360.4,
+          "text": "要改。差三块不是小事，现在就对一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 40
+        },
+        {
+          "first_ms": 747.6,
+          "text": "现在就改。差三块不是小事，不能留到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 41
+        },
+        {
+          "first_ms": 504.0,
+          "text": "现在就改。差三块也是差，放过夜更睡不着。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 42
+        },
+        {
+          "first_ms": 337.3,
+          "text": "要。差三块就不是三块的事，是账没平。现在对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 43
+        },
+        {
+          "first_ms": 651.9,
+          "text": "要现在改。差的三块不找出来，今晚谁都睡不好。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 44
+        },
+        {
+          "first_ms": 393.0,
+          "text": "要现在改。差三块不是三块的事，是哪一笔记错了。拿单子来，我们对一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 45
+        },
+        {
+          "first_ms": 653.8,
+          "text": "要现在改。差三块不隔夜，这是规矩。你把本子给我，我们一起对一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 46
+        },
+        {
+          "first_ms": 541.4,
+          "text": "要。现在差的三块，明天就会变成三块加一个借口。你把本子给我。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 47
+        },
+        {
+          "first_ms": 379.2,
+          "text": "要改。差三块不是小数目，现在对清楚再睡。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 48
+        },
+        {
+          "first_ms": 367.0,
+          "text": "要改。差三块就不能过夜，规矩是这样。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 49
+        },
+        {
+          "first_ms": 794.9,
+          "text": "要改。差三块不是小事，现在对清楚再下班。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 50
+        }
+      ]
+    },
+    "reuse": {
+      "ok": 50,
+      "n": 50,
+      "first_ms": {
+        "p50": 632.7,
+        "p95": 1790.4,
+        "n": 50
+      },
+      "cached_tokens": {
+        "p50": 1222.0,
+        "n": 50
+      },
+      "replies": [
+        "要现在改。差三块也是差，留到明天就更难找。",
+        "现在就改。差三块不能过夜，过夜就忘。",
+        "现在就改。差三块不能过夜，我陪你对。",
+        "要现在改。差三块不能过夜，你忘了？",
+        "要。差三块也是差。你把今天的流水拿出来，我们一笔一笔对。",
+        "要改。差三块不是三块的事，是账不肯自己对平。",
+        "要改。差三块也是差。现在就对，别留到明天。",
+        "要。差三块也是差，现在对清楚再走。你把下午那叠小票给我。",
+        "要现在改。明天就记不清是哪一笔了。",
+        "要现在改。差三块不是三块的事，是账对不上的事。你把本子给我。"
+      ],
+      "trials": [
+        {
+          "first_ms": 893.2,
+          "text": "要现在改。差三块也是差，留到明天就更难找。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 1
+        },
+        {
+          "first_ms": 454.5,
+          "text": "现在就改。差三块不能过夜，过夜就忘。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 2
+        },
+        {
+          "first_ms": 664.9,
+          "text": "现在就改。差三块不能过夜，我陪你对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 3
+        },
+        {
+          "first_ms": 381.8,
+          "text": "要现在改。差三块不能过夜，你忘了？",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 4
+        },
+        {
+          "first_ms": 497.3,
+          "text": "要。差三块也是差。你把今天的流水拿出来，我们一笔一笔对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 5
+        },
+        {
+          "first_ms": 615.3,
+          "text": "要改。差三块不是三块的事，是账不肯自己对平。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 6
+        },
+        {
+          "first_ms": 497.5,
+          "text": "要改。差三块也是差。现在就对，别留到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 7
+        },
+        {
+          "first_ms": 972.5,
+          "text": "要。差三块也是差，现在对清楚再走。你把下午那叠小票给我。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 8
+        },
+        {
+          "first_ms": 484.5,
+          "text": "要现在改。明天就记不清是哪一笔了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 9
+        },
+        {
+          "first_ms": 459.2,
+          "text": "要现在改。差三块不是三块的事，是账对不上的事。你把本子给我。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 10
+        },
+        {
+          "first_ms": 668.3,
+          "text": "要。差三块也是差，今晚不平，明天还得翻。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 11
+        },
+        {
+          "first_ms": 596.6,
+          "text": "要。差三块也是差。现在就改，别留到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 12
+        },
+        {
+          "first_ms": 748.0,
+          "text": "现在改。差三块也是差，留到明天就不记得是哪一笔了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 13
+        },
+        {
+          "first_ms": 626.2,
+          "text": "要。差三块也是差。现在改完再走，明天才不会一直惦记。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 14
+        },
+        {
+          "first_ms": 1414.9,
+          "text": "要现在改。三块钱的事，拖到明天就不是三块了。我陪你对一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 15
+        },
+        {
+          "first_ms": 687.8,
+          "text": "要。差三块不是小事，现在对清楚再走。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 16
+        },
+        {
+          "first_ms": 5922.5,
+          "text": "要。差三块也是差，现在对清楚再走。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 17
+        },
+        {
+          "first_ms": 704.8,
+          "text": "要改。差三块也是差，现在对清楚再走。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 18
+        },
+        {
+          "first_ms": 509.0,
+          "text": "要改。差三块就不是小问题。现在对，明天才睡得着。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 19
+        },
+        {
+          "first_ms": 632.7,
+          "text": "要。差三块就不是三块的事，是规矩的事。现在拿出来对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 20
+        },
+        {
+          "first_ms": 416.9,
+          "text": "现在改。差三块不是三块的事，是对不上的事。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 21
+        },
+        {
+          "first_ms": 608.5,
+          "text": "三块钱不是小事。是哪一笔对不上？",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 22
+        },
+        {
+          "first_ms": 563.8,
+          "text": "现在就改。三块钱不是小事，差着就是差着。把单子给我。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 23
+        },
+        {
+          "first_ms": 392.2,
+          "text": "要。差三块就找三块，不拖到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 24
+        },
+        {
+          "first_ms": 673.1,
+          "text": "现在就改。差三块不是小事，留到明天就更说不清了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 25
+        },
+        {
+          "first_ms": 808.2,
+          "text": "要现在就改。差三块也是差，留到明天就更对不上了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 26
+        },
+        {
+          "first_ms": 402.1,
+          "text": "要现在就改。差三块不是小事，拖到明天更对不上。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 27
+        },
+        {
+          "first_ms": 781.1,
+          "text": "要现在就改。差三块不是小事。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 28
+        },
+        {
+          "first_ms": 1205.0,
+          "text": "现在就改。差三块不是三块的事，是规矩。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 29
+        },
+        {
+          "first_ms": 555.1,
+          "text": "现在改。差三块不放下。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 30
+        },
+        {
+          "first_ms": 846.0,
+          "text": "现在就改。差三块不是小问题，我陪你对一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 31
+        },
+        {
+          "first_ms": 703.4,
+          "text": "现在就改。差三块不是小数目。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 32
+        },
+        {
+          "first_ms": 2793.7,
+          "text": "要改。差三块也是差。现在对，明天就不用惦记。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 33
+        },
+        {
+          "first_ms": 1790.4,
+          "text": "现在就改。差三块也是差，拖到明天就不是三块的事了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 34
+        },
+        {
+          "first_ms": 976.5,
+          "text": "要。现在对清楚，明天就不用再想这件事。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 35
+        },
+        {
+          "first_ms": 601.2,
+          "text": "现在就改。差三块不是小事。你把单子给我，我们一起对一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 36
+        },
+        {
+          "first_ms": 652.7,
+          "text": "现在就改。差三块也是差，不能留到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 37
+        },
+        {
+          "first_ms": 468.5,
+          "text": "要。差三块就现在对清楚，不能留到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 38
+        },
+        {
+          "first_ms": 477.6,
+          "text": "现在就改。差三块不是小事，拖到明天就更找不回来了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 39
+        },
+        {
+          "first_ms": 915.3,
+          "text": "要现在改。差三块不是三块的事，是账不平。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 40
+        },
+        {
+          "first_ms": 801.2,
+          "text": "要现在就改。差三块不能过夜。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 41
+        },
+        {
+          "first_ms": 833.1,
+          "text": "现在就改。差三块也是差，留到明天就变成两块旧账了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 42
+        },
+        {
+          "first_ms": 481.7,
+          "text": "要改。三块钱的差，不是三块钱的事。你先把单子给我，我们对一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 43
+        },
+        {
+          "first_ms": 475.5,
+          "text": "要现在改。差三块不是三块的事，是今天的账没合上。你把小票拿出来，我们一笔一笔对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 44
+        },
+        {
+          "first_ms": 262.4,
+          "text": "要改。差三块就差三块，现在对清楚再走。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 45
+        },
+        {
+          "first_ms": 757.9,
+          "text": "要现在就改。差三块不是三块的事，是今晚没对上，明天就更对不上。你把单子给我，我们一笔一笔过。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 46
+        },
+        {
+          "first_ms": 702.4,
+          "text": "要。差三块就是差三块，不能留到明天。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 47
+        },
+        {
+          "first_ms": 476.2,
+          "text": "要。差三块就不能算完，现在就对一遍。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 48
+        },
+        {
+          "first_ms": 675.2,
+          "text": "嗯……差三块不是小事。现在就改吧，我陪你对。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 49
+        },
+        {
+          "first_ms": 568.3,
+          "text": "要现在改。差三块不是小事，拖到明天就更对不上了。",
+          "cached_tokens": 1222,
+          "prompt_tokens": 1222,
+          "n": 50
+        }
+      ]
+    }
+  }
+}
