@@ -93,12 +93,15 @@ class Endpointer:
         if self.mode == "fixed":
             if silence_ms >= self.fixed_silence_ms:
                 self.fired = True
-                return Decision(end_ms, 0.0, text, "silence-500")
+                return Decision(end_ms, 0.0, text, f"silence-{int(self.fixed_silence_ms)}")
             return None
         if silence_ms < self.consult_ms:
             return None
         if self._checked_text != text:
             assert self.model is not None
+            note = getattr(self.model, "note_silence", None)
+            if callable(note):
+                note(silence_ms, end_ms)
             started = time.perf_counter()
             self._complete = self.model.is_complete(text)
             self._compute_ms = (time.perf_counter() - started) * 1000.0

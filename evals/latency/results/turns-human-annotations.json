@@ -1,0 +1,4190 @@
+{
+  "kind": "human-turn-annotations",
+  "generated_at": "2026-11-20T18:48:18.871292+00:00",
+  "audio_dir": "/var/lib/amadeus/turns",
+  "vad": "silero-vad v5.1.2 onnx, threshold 0.5, hop 32 ms, min speech 100 ms, merge silence under 80 ms",
+  "alignment": "豆包流式识别 bigmodel_async 的 show_utterances 词时间。照着说的句子用清单文本做字符对齐检查；自由说没有稿，对齐的是识别文本本身。",
+  "pause_min_ms": 300.0,
+  "notes": [
+    "句中停顿是两段语音之间、时长至少 300ms 的静音。80ms 到 300ms 的间隙记在 short_gaps，不算标注停顿。",
+    "真实说完时刻在 VAD 末尾和最后一个词的末尾相差不超过 250ms 时取较晚的那个。",
+    "review 为 true 的条目要抽查：两端时钟差太多、稿子对不上、连接词不在停顿前，或短句里出现了长停顿。",
+    "词时间来自补了 2500ms 尾部静音的识别。起点不早于原文件时长的词是这段静音上的幻觉，标注时丢掉。",
+    "照着说的句子里，清单要求停在「然后」或「就是」后面。词时间显示这个词经常贴在停顿结束、话重新开始的地方，所以 connector_ok 为 false。停顿区间按 VAD 留，不按稿子改。"
+  ],
+  "spot_check": {
+    "t01": "长停顿 3488–3808ms 在「然后」和「饼」之间，词边界对齐。清单希望停在「然后」后面，实际「然后」在 2752ms，中间还有一段有声。停顿不按稿子挪。",
+    "t05": "丢掉落在文件时长之后的「七」「八」「糟」。剩下的说完时刻用 VAD 6912ms，和「乱」的词尾一致。",
+    "t10": "丢掉落在文件时长之后的「写」。说完时刻用 VAD 6688ms，「这么」的词尾是 6162ms，差 526ms，保留较晚的 VAD。",
+    "f01": "四处至少 300ms 的停顿都落在词与词之间。",
+    "f05": "词尾 2172ms，VAD 2624ms，后面是长静音。保留较晚的 VAD。",
+    "s01": "没有句中长停顿，VAD 和词尾相差不到 250ms。",
+    "s02": "没有句中长停顿。VAD 比词尾晚 266ms，当作收尾余音，不改。",
+    "s07": "没有句中长停顿，VAD 和词尾相差不到 250ms。"
+  },
+  "items": [
+    {
+      "id": "t01",
+      "kind": "scripted",
+      "duration_ms": 5754.7,
+      "speech_end_ms": 5152.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 5152.0,
+      "word_end_ms": 4972.0,
+      "reference": "杯子我都擦过了，然后柄再转到同一边。",
+      "transcript": "杯子我都擦过了然后饼再转到同一边",
+      "char_match": 0.938,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 3488.0,
+          "end_ms": 3808.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 2688.0,
+          "end_ms": 2816.0,
+          "aligned": false
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "杯子",
+          "start_ms": 1312.0,
+          "end_ms": 1392.0
+        },
+        {
+          "text": "我",
+          "start_ms": 1552.0,
+          "end_ms": 1632.0
+        },
+        {
+          "text": "都",
+          "start_ms": 1712.0,
+          "end_ms": 1792.0
+        },
+        {
+          "text": "擦",
+          "start_ms": 2032.0,
+          "end_ms": 2112.0
+        },
+        {
+          "text": "过",
+          "start_ms": 2192.0,
+          "end_ms": 2272.0
+        },
+        {
+          "text": "了",
+          "start_ms": 2272.0,
+          "end_ms": 2352.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 2672.0,
+          "end_ms": 2752.0
+        },
+        {
+          "text": "饼",
+          "start_ms": 3952.0,
+          "end_ms": 4032.0
+        },
+        {
+          "text": "再",
+          "start_ms": 4192.0,
+          "end_ms": 4272.0
+        },
+        {
+          "text": "转",
+          "start_ms": 4352.0,
+          "end_ms": 4432.0
+        },
+        {
+          "text": "到",
+          "start_ms": 4432.0,
+          "end_ms": 4512.0
+        },
+        {
+          "text": "同",
+          "start_ms": 4512.0,
+          "end_ms": 4592.0
+        },
+        {
+          "text": "一",
+          "start_ms": 4672.0,
+          "end_ms": 4752.0
+        },
+        {
+          "text": "边",
+          "start_ms": 4892.0,
+          "end_ms": 4972.0
+        }
+      ]
+    },
+    {
+      "id": "t02",
+      "kind": "scripted",
+      "duration_ms": 7562.7,
+      "speech_end_ms": 6880.0,
+      "speech_end_source": "vad-after-words",
+      "vad_end_ms": 6880.0,
+      "word_end_ms": 6612.0,
+      "reference": "账我又对了一遍，就是还差三块，我不能就这样下班。",
+      "transcript": "仗我又对了一遍就是还差3块钱我不能就这样下班",
+      "char_match": 0.884,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 2368.0,
+          "end_ms": 2944.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 4832.0,
+          "end_ms": 4960.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5120.0,
+          "end_ms": 5376.0,
+          "aligned": false
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "仗",
+          "start_ms": 1272.0,
+          "end_ms": 1352.0
+        },
+        {
+          "text": "我",
+          "start_ms": 1512.0,
+          "end_ms": 1592.0
+        },
+        {
+          "text": "又",
+          "start_ms": 1592.0,
+          "end_ms": 1672.0
+        },
+        {
+          "text": "对了",
+          "start_ms": 1832.0,
+          "end_ms": 1912.0
+        },
+        {
+          "text": "一",
+          "start_ms": 1992.0,
+          "end_ms": 2072.0
+        },
+        {
+          "text": "遍",
+          "start_ms": 2072.0,
+          "end_ms": 2152.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 3032.0,
+          "end_ms": 3112.0
+        },
+        {
+          "text": "还",
+          "start_ms": 3752.0,
+          "end_ms": 3832.0
+        },
+        {
+          "text": "差",
+          "start_ms": 3912.0,
+          "end_ms": 3992.0
+        },
+        {
+          "text": "3",
+          "start_ms": 4072.0,
+          "end_ms": 4152.0
+        },
+        {
+          "text": "块钱",
+          "start_ms": 4392.0,
+          "end_ms": 4472.0
+        },
+        {
+          "text": "我",
+          "start_ms": 5192.0,
+          "end_ms": 5272.0
+        },
+        {
+          "text": "不能",
+          "start_ms": 5352.0,
+          "end_ms": 5432.0
+        },
+        {
+          "text": "就",
+          "start_ms": 5832.0,
+          "end_ms": 5912.0
+        },
+        {
+          "text": "这样",
+          "start_ms": 5912.0,
+          "end_ms": 5992.0
+        },
+        {
+          "text": "下班",
+          "start_ms": 6532.0,
+          "end_ms": 6612.0
+        }
+      ]
+    },
+    {
+      "id": "t03",
+      "kind": "scripted",
+      "duration_ms": 7205.3,
+      "speech_end_ms": 6464.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6464.0,
+      "word_end_ms": 6242.0,
+      "reference": "这本书我看到第三章，然后讲的是时间为什么有方向。",
+      "transcript": "这本书我看到第三章然后讲的是时间为什么有方向",
+      "char_match": 1.0,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 2848.0,
+          "end_ms": 3424.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "这",
+          "start_ms": 1062.0,
+          "end_ms": 1142.0
+        },
+        {
+          "text": "本书",
+          "start_ms": 1142.0,
+          "end_ms": 1222.0
+        },
+        {
+          "text": "我",
+          "start_ms": 1462.0,
+          "end_ms": 1542.0
+        },
+        {
+          "text": "看到",
+          "start_ms": 1782.0,
+          "end_ms": 1862.0
+        },
+        {
+          "text": "第",
+          "start_ms": 2022.0,
+          "end_ms": 2102.0
+        },
+        {
+          "text": "三",
+          "start_ms": 2182.0,
+          "end_ms": 2262.0
+        },
+        {
+          "text": "章",
+          "start_ms": 2502.0,
+          "end_ms": 2582.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 3302.0,
+          "end_ms": 3382.0
+        },
+        {
+          "text": "讲",
+          "start_ms": 4182.0,
+          "end_ms": 4262.0
+        },
+        {
+          "text": "的",
+          "start_ms": 4262.0,
+          "end_ms": 4342.0
+        },
+        {
+          "text": "是",
+          "start_ms": 4662.0,
+          "end_ms": 4742.0
+        },
+        {
+          "text": "时间",
+          "start_ms": 5062.0,
+          "end_ms": 5142.0
+        },
+        {
+          "text": "为什么",
+          "start_ms": 5382.0,
+          "end_ms": 5462.0
+        },
+        {
+          "text": "有",
+          "start_ms": 5702.0,
+          "end_ms": 5782.0
+        },
+        {
+          "text": "方向",
+          "start_ms": 6162.0,
+          "end_ms": 6242.0
+        }
+      ]
+    },
+    {
+      "id": "t04",
+      "kind": "scripted",
+      "duration_ms": 6890.7,
+      "speech_end_ms": 6240.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6240.0,
+      "word_end_ms": 6062.0,
+      "reference": "你要是累了，就是先坐下，咖啡我重新热一下。",
+      "transcript": "你要是累了就是先坐下咖啡我重新热一下",
+      "char_match": 1.0,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 3712.0,
+          "end_ms": 4800.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 1952.0,
+          "end_ms": 2208.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 2752.0,
+          "end_ms": 2944.0,
+          "aligned": true
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "你",
+          "start_ms": 1042.0,
+          "end_ms": 1122.0
+        },
+        {
+          "text": "要是",
+          "start_ms": 1202.0,
+          "end_ms": 1282.0
+        },
+        {
+          "text": "累",
+          "start_ms": 1362.0,
+          "end_ms": 1442.0
+        },
+        {
+          "text": "了",
+          "start_ms": 1442.0,
+          "end_ms": 1522.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 2402.0,
+          "end_ms": 2482.0
+        },
+        {
+          "text": "先",
+          "start_ms": 3122.0,
+          "end_ms": 3202.0
+        },
+        {
+          "text": "坐下",
+          "start_ms": 3442.0,
+          "end_ms": 3522.0
+        },
+        {
+          "text": "咖啡",
+          "start_ms": 4722.0,
+          "end_ms": 4802.0
+        },
+        {
+          "text": "我",
+          "start_ms": 5042.0,
+          "end_ms": 5122.0
+        },
+        {
+          "text": "重新",
+          "start_ms": 5362.0,
+          "end_ms": 5442.0
+        },
+        {
+          "text": "热",
+          "start_ms": 5682.0,
+          "end_ms": 5762.0
+        },
+        {
+          "text": "一",
+          "start_ms": 5762.0,
+          "end_ms": 5842.0
+        },
+        {
+          "text": "下",
+          "start_ms": 5982.0,
+          "end_ms": 6062.0
+        }
+      ]
+    },
+    {
+      "id": "t05",
+      "kind": "scripted",
+      "duration_ms": 7546.7,
+      "speech_end_ms": 6912.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6912.0,
+      "word_end_ms": 6662.0,
+      "reference": "上次你说面试很紧张，就是怕一开口就说乱。",
+      "transcript": "上次你说面试很紧张就是怕一开口就说乱",
+      "char_match": 1.0,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 5120.0,
+          "end_ms": 5568.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 4384.0,
+          "end_ms": 4608.0,
+          "aligned": true
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "上次",
+          "start_ms": 2022.0,
+          "end_ms": 2102.0
+        },
+        {
+          "text": "你",
+          "start_ms": 2422.0,
+          "end_ms": 2502.0
+        },
+        {
+          "text": "说",
+          "start_ms": 2582.0,
+          "end_ms": 2662.0
+        },
+        {
+          "text": "面试",
+          "start_ms": 2902.0,
+          "end_ms": 2982.0
+        },
+        {
+          "text": "很",
+          "start_ms": 3222.0,
+          "end_ms": 3302.0
+        },
+        {
+          "text": "紧张",
+          "start_ms": 3462.0,
+          "end_ms": 3542.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 4742.0,
+          "end_ms": 4822.0
+        },
+        {
+          "text": "怕",
+          "start_ms": 5462.0,
+          "end_ms": 5542.0
+        },
+        {
+          "text": "一",
+          "start_ms": 5782.0,
+          "end_ms": 5862.0
+        },
+        {
+          "text": "开口",
+          "start_ms": 5942.0,
+          "end_ms": 6022.0
+        },
+        {
+          "text": "就",
+          "start_ms": 6262.0,
+          "end_ms": 6342.0
+        },
+        {
+          "text": "说",
+          "start_ms": 6502.0,
+          "end_ms": 6582.0
+        },
+        {
+          "text": "乱",
+          "start_ms": 6582.0,
+          "end_ms": 6662.0
+        }
+      ]
+    },
+    {
+      "id": "t06",
+      "kind": "scripted",
+      "duration_ms": 9248.0,
+      "speech_end_ms": 8640.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 8640.0,
+      "word_end_ms": 8552.0,
+      "reference": "打烊之后店里会安静，然后我才能把今天的账写完。",
+      "transcript": "打烊之后店里会安静然后我才能把今天的账写完",
+      "char_match": 1.0,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 4096.0,
+          "end_ms": 5088.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5792.0,
+          "end_ms": 6336.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "打",
+          "start_ms": 2092.0,
+          "end_ms": 2172.0
+        },
+        {
+          "text": "烊",
+          "start_ms": 2252.0,
+          "end_ms": 2412.0
+        },
+        {
+          "text": "之后",
+          "start_ms": 2412.0,
+          "end_ms": 2492.0
+        },
+        {
+          "text": "店里",
+          "start_ms": 3132.0,
+          "end_ms": 3212.0
+        },
+        {
+          "text": "会",
+          "start_ms": 3372.0,
+          "end_ms": 3452.0
+        },
+        {
+          "text": "安静",
+          "start_ms": 3692.0,
+          "end_ms": 3772.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 5052.0,
+          "end_ms": 5132.0
+        },
+        {
+          "text": "我",
+          "start_ms": 6332.0,
+          "end_ms": 6412.0
+        },
+        {
+          "text": "才能",
+          "start_ms": 6892.0,
+          "end_ms": 6972.0
+        },
+        {
+          "text": "把",
+          "start_ms": 7052.0,
+          "end_ms": 7132.0
+        },
+        {
+          "text": "今天",
+          "start_ms": 7452.0,
+          "end_ms": 7532.0
+        },
+        {
+          "text": "的",
+          "start_ms": 7612.0,
+          "end_ms": 7692.0
+        },
+        {
+          "text": "账",
+          "start_ms": 8092.0,
+          "end_ms": 8172.0
+        },
+        {
+          "text": "写",
+          "start_ms": 8252.0,
+          "end_ms": 8332.0
+        },
+        {
+          "text": "完",
+          "start_ms": 8472.0,
+          "end_ms": 8552.0
+        }
+      ]
+    },
+    {
+      "id": "t07",
+      "kind": "scripted",
+      "duration_ms": 6944.0,
+      "speech_end_ms": 6048.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6048.0,
+      "word_end_ms": 5882.0,
+      "reference": "外面在下雨，就是伞还放在门口，你别忘了。",
+      "transcript": "外面在下雨就是伞还放在门口你别忘了",
+      "char_match": 1.0,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 2144.0,
+          "end_ms": 2624.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 3296.0,
+          "end_ms": 4128.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5216.0,
+          "end_ms": 5536.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "外面",
+          "start_ms": 1021.0,
+          "end_ms": 1102.0
+        },
+        {
+          "text": "在",
+          "start_ms": 1502.0,
+          "end_ms": 1582.0
+        },
+        {
+          "text": "下雨",
+          "start_ms": 1582.0,
+          "end_ms": 1662.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 2942.0,
+          "end_ms": 3022.0
+        },
+        {
+          "text": "伞",
+          "start_ms": 4142.0,
+          "end_ms": 4222.0
+        },
+        {
+          "text": "还",
+          "start_ms": 4382.0,
+          "end_ms": 4462.0
+        },
+        {
+          "text": "放在",
+          "start_ms": 4462.0,
+          "end_ms": 4542.0
+        },
+        {
+          "text": "门口",
+          "start_ms": 4782.0,
+          "end_ms": 4862.0
+        },
+        {
+          "text": "你",
+          "start_ms": 5342.0,
+          "end_ms": 5422.0
+        },
+        {
+          "text": "别",
+          "start_ms": 5502.0,
+          "end_ms": 5582.0
+        },
+        {
+          "text": "忘了",
+          "start_ms": 5802.0,
+          "end_ms": 5882.0
+        }
+      ]
+    },
+    {
+      "id": "t08",
+      "kind": "scripted",
+      "duration_ms": 8581.3,
+      "speech_end_ms": 7744.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 7744.0,
+      "word_end_ms": 7622.0,
+      "reference": "这个配方不能再少糖，然后少了会苦，我试过。",
+      "transcript": "这个配方不能再少糖然后少了会苦我试过",
+      "char_match": 1.0,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 3392.0,
+          "end_ms": 4320.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 4832.0,
+          "end_ms": 5184.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 6560.0,
+          "end_ms": 7136.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "这个",
+          "start_ms": 1322.0,
+          "end_ms": 1402.0
+        },
+        {
+          "text": "配方",
+          "start_ms": 1642.0,
+          "end_ms": 1722.0
+        },
+        {
+          "text": "不能",
+          "start_ms": 2122.0,
+          "end_ms": 2202.0
+        },
+        {
+          "text": "再",
+          "start_ms": 2842.0,
+          "end_ms": 2922.0
+        },
+        {
+          "text": "少",
+          "start_ms": 2922.0,
+          "end_ms": 3002.0
+        },
+        {
+          "text": "糖",
+          "start_ms": 3002.0,
+          "end_ms": 3082.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 4202.0,
+          "end_ms": 4282.0
+        },
+        {
+          "text": "少",
+          "start_ms": 5802.0,
+          "end_ms": 5882.0
+        },
+        {
+          "text": "了",
+          "start_ms": 5882.0,
+          "end_ms": 5962.0
+        },
+        {
+          "text": "会",
+          "start_ms": 5962.0,
+          "end_ms": 6042.0
+        },
+        {
+          "text": "苦",
+          "start_ms": 6202.0,
+          "end_ms": 6282.0
+        },
+        {
+          "text": "我",
+          "start_ms": 7162.0,
+          "end_ms": 7242.0
+        },
+        {
+          "text": "试",
+          "start_ms": 7322.0,
+          "end_ms": 7402.0
+        },
+        {
+          "text": "过",
+          "start_ms": 7542.0,
+          "end_ms": 7622.0
+        }
+      ]
+    },
+    {
+      "id": "t09",
+      "kind": "scripted",
+      "duration_ms": 8432.0,
+      "speech_end_ms": 7968.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 7968.0,
+      "word_end_ms": 7862.0,
+      "reference": "我把你上次说的话记在便签上，就是怕我明天早上忘掉。",
+      "transcript": "我把你上次说的话记在便签上就是怕我明天早上忘掉",
+      "char_match": 1.0,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 5056.0,
+          "end_ms": 6016.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 3936.0,
+          "end_ms": 4192.0,
+          "aligned": true
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "我",
+          "start_ms": 1162.0,
+          "end_ms": 1242.0
+        },
+        {
+          "text": "把",
+          "start_ms": 1322.0,
+          "end_ms": 1402.0
+        },
+        {
+          "text": "你",
+          "start_ms": 1482.0,
+          "end_ms": 1562.0
+        },
+        {
+          "text": "上次",
+          "start_ms": 1722.0,
+          "end_ms": 1802.0
+        },
+        {
+          "text": "说",
+          "start_ms": 2202.0,
+          "end_ms": 2282.0
+        },
+        {
+          "text": "的话",
+          "start_ms": 2282.0,
+          "end_ms": 2362.0
+        },
+        {
+          "text": "记",
+          "start_ms": 2602.0,
+          "end_ms": 2682.0
+        },
+        {
+          "text": "在",
+          "start_ms": 2842.0,
+          "end_ms": 2922.0
+        },
+        {
+          "text": "便",
+          "start_ms": 3162.0,
+          "end_ms": 3242.0
+        },
+        {
+          "text": "签",
+          "start_ms": 3322.0,
+          "end_ms": 3402.0
+        },
+        {
+          "text": "上",
+          "start_ms": 3402.0,
+          "end_ms": 3482.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 4362.0,
+          "end_ms": 4442.0
+        },
+        {
+          "text": "怕",
+          "start_ms": 5962.0,
+          "end_ms": 6042.0
+        },
+        {
+          "text": "我",
+          "start_ms": 6282.0,
+          "end_ms": 6362.0
+        },
+        {
+          "text": "明天",
+          "start_ms": 6842.0,
+          "end_ms": 6922.0
+        },
+        {
+          "text": "早上",
+          "start_ms": 7242.0,
+          "end_ms": 7322.0
+        },
+        {
+          "text": "忘",
+          "start_ms": 7562.0,
+          "end_ms": 7642.0
+        },
+        {
+          "text": "掉",
+          "start_ms": 7782.0,
+          "end_ms": 7862.0
+        }
+      ]
+    },
+    {
+      "id": "t10",
+      "kind": "scripted",
+      "duration_ms": 7285.3,
+      "speech_end_ms": 6688.0,
+      "speech_end_source": "vad-after-words",
+      "vad_end_ms": 6688.0,
+      "word_end_ms": 6162.0,
+      "reference": "理论上这样写是对的，然后没有人会真的这么做。",
+      "transcript": "理论上这样写是对的然后没有人会真的这么",
+      "char_match": 0.974,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 4832.0,
+          "end_ms": 5248.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 3904.0,
+          "end_ms": 4096.0,
+          "aligned": true
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "理论",
+          "start_ms": 1842.0,
+          "end_ms": 1922.0
+        },
+        {
+          "text": "上",
+          "start_ms": 2242.0,
+          "end_ms": 2322.0
+        },
+        {
+          "text": "这样",
+          "start_ms": 2402.0,
+          "end_ms": 2482.0
+        },
+        {
+          "text": "写",
+          "start_ms": 2882.0,
+          "end_ms": 2962.0
+        },
+        {
+          "text": "是",
+          "start_ms": 3042.0,
+          "end_ms": 3122.0
+        },
+        {
+          "text": "对",
+          "start_ms": 3282.0,
+          "end_ms": 3362.0
+        },
+        {
+          "text": "的",
+          "start_ms": 3522.0,
+          "end_ms": 3602.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 4081.0,
+          "end_ms": 4162.0
+        },
+        {
+          "text": "没有",
+          "start_ms": 5202.0,
+          "end_ms": 5282.0
+        },
+        {
+          "text": "人",
+          "start_ms": 5442.0,
+          "end_ms": 5522.0
+        },
+        {
+          "text": "会",
+          "start_ms": 5682.0,
+          "end_ms": 5762.0
+        },
+        {
+          "text": "真的",
+          "start_ms": 5842.0,
+          "end_ms": 5922.0
+        },
+        {
+          "text": "这么",
+          "start_ms": 6082.0,
+          "end_ms": 6162.0
+        }
+      ]
+    },
+    {
+      "id": "t11",
+      "kind": "scripted",
+      "duration_ms": 9973.3,
+      "speech_end_ms": 9408.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 9408.0,
+      "word_end_ms": 9222.0,
+      "reference": "家规里不许说没有把握的话，然后这个我先不回答你。",
+      "transcript": "家规里不许说没有把握的话然后这个我先不回答你",
+      "char_match": 1.0,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 3392.0,
+          "end_ms": 4352.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5536.0,
+          "end_ms": 6304.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 6976.0,
+          "end_ms": 8064.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "家",
+          "start_ms": 1242.0,
+          "end_ms": 1322.0
+        },
+        {
+          "text": "规",
+          "start_ms": 1482.0,
+          "end_ms": 1562.0
+        },
+        {
+          "text": "里",
+          "start_ms": 1722.0,
+          "end_ms": 1802.0
+        },
+        {
+          "text": "不许",
+          "start_ms": 2282.0,
+          "end_ms": 2362.0
+        },
+        {
+          "text": "说",
+          "start_ms": 3082.0,
+          "end_ms": 3162.0
+        },
+        {
+          "text": "没有",
+          "start_ms": 4362.0,
+          "end_ms": 4442.0
+        },
+        {
+          "text": "把握",
+          "start_ms": 4682.0,
+          "end_ms": 4762.0
+        },
+        {
+          "text": "的话",
+          "start_ms": 5162.0,
+          "end_ms": 5242.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 6202.0,
+          "end_ms": 6282.0
+        },
+        {
+          "text": "这个",
+          "start_ms": 7962.0,
+          "end_ms": 8042.0
+        },
+        {
+          "text": "我",
+          "start_ms": 8202.0,
+          "end_ms": 8282.0
+        },
+        {
+          "text": "先",
+          "start_ms": 8442.0,
+          "end_ms": 8522.0
+        },
+        {
+          "text": "不",
+          "start_ms": 8682.0,
+          "end_ms": 8762.0
+        },
+        {
+          "text": "回答",
+          "start_ms": 8842.0,
+          "end_ms": 8922.0
+        },
+        {
+          "text": "你",
+          "start_ms": 9142.0,
+          "end_ms": 9222.0
+        }
+      ]
+    },
+    {
+      "id": "t12",
+      "kind": "scripted",
+      "duration_ms": 7573.3,
+      "speech_end_ms": 6882.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6848.0,
+      "word_end_ms": 6882.0,
+      "reference": "你明天不是要面试吗，就是第一句我们先说顺就好。",
+      "transcript": "你明天不是要面试吗就是第一句我们先说顺就好",
+      "char_match": 1.0,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 2816.0,
+          "end_ms": 3392.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 4128.0,
+          "end_ms": 4864.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "你",
+          "start_ms": 742.0,
+          "end_ms": 822.0
+        },
+        {
+          "text": "明天",
+          "start_ms": 1142.0,
+          "end_ms": 1222.0
+        },
+        {
+          "text": "不是",
+          "start_ms": 1542.0,
+          "end_ms": 1622.0
+        },
+        {
+          "text": "要",
+          "start_ms": 1702.0,
+          "end_ms": 1782.0
+        },
+        {
+          "text": "面试",
+          "start_ms": 2022.0,
+          "end_ms": 2102.0
+        },
+        {
+          "text": "吗",
+          "start_ms": 2262.0,
+          "end_ms": 2342.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 3462.0,
+          "end_ms": 3542.0
+        },
+        {
+          "text": "第",
+          "start_ms": 4742.0,
+          "end_ms": 4822.0
+        },
+        {
+          "text": "一",
+          "start_ms": 4902.0,
+          "end_ms": 4982.0
+        },
+        {
+          "text": "句",
+          "start_ms": 5462.0,
+          "end_ms": 5542.0
+        },
+        {
+          "text": "我们",
+          "start_ms": 5622.0,
+          "end_ms": 5702.0
+        },
+        {
+          "text": "先",
+          "start_ms": 5862.0,
+          "end_ms": 5942.0
+        },
+        {
+          "text": "说",
+          "start_ms": 6262.0,
+          "end_ms": 6342.0
+        },
+        {
+          "text": "顺",
+          "start_ms": 6502.0,
+          "end_ms": 6582.0
+        },
+        {
+          "text": "就",
+          "start_ms": 6582.0,
+          "end_ms": 6662.0
+        },
+        {
+          "text": "好",
+          "start_ms": 6802.0,
+          "end_ms": 6882.0
+        }
+      ]
+    },
+    {
+      "id": "t13",
+      "kind": "scripted",
+      "duration_ms": 7424.0,
+      "speech_end_ms": 6944.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6944.0,
+      "word_end_ms": 6792.0,
+      "reference": "我刚才把杯子扣好了，然后灯只留了一半。",
+      "transcript": "我刚才把杯子扣好了然后灯只留了一半",
+      "char_match": 1.0,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 3232.0,
+          "end_ms": 4064.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 4672.0,
+          "end_ms": 5472.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "我",
+          "start_ms": 1132.0,
+          "end_ms": 1212.0
+        },
+        {
+          "text": "刚才",
+          "start_ms": 1452.0,
+          "end_ms": 1532.0
+        },
+        {
+          "text": "把",
+          "start_ms": 1772.0,
+          "end_ms": 1852.0
+        },
+        {
+          "text": "杯子",
+          "start_ms": 2172.0,
+          "end_ms": 2252.0
+        },
+        {
+          "text": "扣",
+          "start_ms": 2572.0,
+          "end_ms": 2652.0
+        },
+        {
+          "text": "好了",
+          "start_ms": 2892.0,
+          "end_ms": 2972.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 3932.0,
+          "end_ms": 4012.0
+        },
+        {
+          "text": "灯",
+          "start_ms": 5932.0,
+          "end_ms": 6012.0
+        },
+        {
+          "text": "只",
+          "start_ms": 6252.0,
+          "end_ms": 6332.0
+        },
+        {
+          "text": "留",
+          "start_ms": 6332.0,
+          "end_ms": 6412.0
+        },
+        {
+          "text": "了",
+          "start_ms": 6412.0,
+          "end_ms": 6492.0
+        },
+        {
+          "text": "一",
+          "start_ms": 6492.0,
+          "end_ms": 6572.0
+        },
+        {
+          "text": "半",
+          "start_ms": 6712.0,
+          "end_ms": 6792.0
+        }
+      ]
+    },
+    {
+      "id": "t14",
+      "kind": "scripted",
+      "duration_ms": 6933.3,
+      "speech_end_ms": 6304.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6304.0,
+      "word_end_ms": 6202.0,
+      "reference": "这件事我没有把握，就是我想一想再告诉你。",
+      "transcript": "这件事我没有把握就是我想一想再告诉你",
+      "char_match": 1.0,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 2784.0,
+          "end_ms": 3616.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 4480.0,
+          "end_ms": 4928.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "这件",
+          "start_ms": 1182.0,
+          "end_ms": 1262.0
+        },
+        {
+          "text": "事",
+          "start_ms": 1502.0,
+          "end_ms": 1582.0
+        },
+        {
+          "text": "我",
+          "start_ms": 1822.0,
+          "end_ms": 1902.0
+        },
+        {
+          "text": "没有",
+          "start_ms": 1982.0,
+          "end_ms": 2062.0
+        },
+        {
+          "text": "把握",
+          "start_ms": 2302.0,
+          "end_ms": 2382.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 3662.0,
+          "end_ms": 3742.0
+        },
+        {
+          "text": "我",
+          "start_ms": 4862.0,
+          "end_ms": 4942.0
+        },
+        {
+          "text": "想",
+          "start_ms": 5262.0,
+          "end_ms": 5342.0
+        },
+        {
+          "text": "一",
+          "start_ms": 5342.0,
+          "end_ms": 5422.0
+        },
+        {
+          "text": "想",
+          "start_ms": 5502.0,
+          "end_ms": 5582.0
+        },
+        {
+          "text": "再",
+          "start_ms": 5662.0,
+          "end_ms": 5742.0
+        },
+        {
+          "text": "告诉",
+          "start_ms": 5742.0,
+          "end_ms": 5822.0
+        },
+        {
+          "text": "你",
+          "start_ms": 6122.0,
+          "end_ms": 6202.0
+        }
+      ]
+    },
+    {
+      "id": "t15",
+      "kind": "scripted",
+      "duration_ms": 7061.3,
+      "speech_end_ms": 6624.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6624.0,
+      "word_end_ms": 6522.0,
+      "reference": "店长你说的那件事，然后我记下来了，不是第一次听说。",
+      "transcript": "店长你说的那件事然后我记下来了不是第一次听说",
+      "char_match": 1.0,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 2752.0,
+          "end_ms": 3456.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5248.0,
+          "end_ms": 5568.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 4096.0,
+          "end_ms": 4352.0,
+          "aligned": true
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "店",
+          "start_ms": 1102.0,
+          "end_ms": 1182.0
+        },
+        {
+          "text": "长",
+          "start_ms": 1342.0,
+          "end_ms": 1422.0
+        },
+        {
+          "text": "你",
+          "start_ms": 1422.0,
+          "end_ms": 1502.0
+        },
+        {
+          "text": "说的",
+          "start_ms": 1662.0,
+          "end_ms": 1742.0
+        },
+        {
+          "text": "那",
+          "start_ms": 1982.0,
+          "end_ms": 2062.0
+        },
+        {
+          "text": "件",
+          "start_ms": 2062.0,
+          "end_ms": 2142.0
+        },
+        {
+          "text": "事",
+          "start_ms": 2462.0,
+          "end_ms": 2542.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 3422.0,
+          "end_ms": 3502.0
+        },
+        {
+          "text": "我",
+          "start_ms": 4142.0,
+          "end_ms": 4222.0
+        },
+        {
+          "text": "记",
+          "start_ms": 4542.0,
+          "end_ms": 4622.0
+        },
+        {
+          "text": "下来",
+          "start_ms": 4702.0,
+          "end_ms": 4782.0
+        },
+        {
+          "text": "了",
+          "start_ms": 4782.0,
+          "end_ms": 4862.0
+        },
+        {
+          "text": "不是",
+          "start_ms": 5502.0,
+          "end_ms": 5582.0
+        },
+        {
+          "text": "第",
+          "start_ms": 5742.0,
+          "end_ms": 5822.0
+        },
+        {
+          "text": "一",
+          "start_ms": 5822.0,
+          "end_ms": 5902.0
+        },
+        {
+          "text": "次",
+          "start_ms": 5902.0,
+          "end_ms": 5982.0
+        },
+        {
+          "text": "听说",
+          "start_ms": 6442.0,
+          "end_ms": 6522.0
+        }
+      ]
+    },
+    {
+      "id": "t16",
+      "kind": "scripted",
+      "duration_ms": 8122.7,
+      "speech_end_ms": 7648.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 7648.0,
+      "word_end_ms": 7552.0,
+      "reference": "要是没有那本厚书，就是我也不知道自己会变成什么样。",
+      "transcript": "要是没有那本厚书就是我也不知道自己会变成什么样",
+      "char_match": 1.0,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 4672.0,
+          "end_ms": 5152.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 2752.0,
+          "end_ms": 2848.0,
+          "aligned": false
+        },
+        {
+          "start_ms": 3616.0,
+          "end_ms": 3712.0,
+          "aligned": false
+        },
+        {
+          "start_ms": 3872.0,
+          "end_ms": 4096.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5312.0,
+          "end_ms": 5408.0,
+          "aligned": false
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "要是",
+          "start_ms": 1572.0,
+          "end_ms": 1652.0
+        },
+        {
+          "text": "没有",
+          "start_ms": 1812.0,
+          "end_ms": 1892.0
+        },
+        {
+          "text": "那",
+          "start_ms": 2132.0,
+          "end_ms": 2212.0
+        },
+        {
+          "text": "本",
+          "start_ms": 2772.0,
+          "end_ms": 2852.0
+        },
+        {
+          "text": "厚",
+          "start_ms": 3092.0,
+          "end_ms": 3172.0
+        },
+        {
+          "text": "书",
+          "start_ms": 3172.0,
+          "end_ms": 3252.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 4292.0,
+          "end_ms": 4372.0
+        },
+        {
+          "text": "我",
+          "start_ms": 5412.0,
+          "end_ms": 5492.0
+        },
+        {
+          "text": "也",
+          "start_ms": 5572.0,
+          "end_ms": 5652.0
+        },
+        {
+          "text": "不",
+          "start_ms": 5732.0,
+          "end_ms": 5812.0
+        },
+        {
+          "text": "知道",
+          "start_ms": 5812.0,
+          "end_ms": 5892.0
+        },
+        {
+          "text": "自己",
+          "start_ms": 6372.0,
+          "end_ms": 6452.0
+        },
+        {
+          "text": "会",
+          "start_ms": 6532.0,
+          "end_ms": 6612.0
+        },
+        {
+          "text": "变成",
+          "start_ms": 7012.0,
+          "end_ms": 7092.0
+        },
+        {
+          "text": "什么样",
+          "start_ms": 7472.0,
+          "end_ms": 7552.0
+        }
+      ]
+    },
+    {
+      "id": "t17",
+      "kind": "scripted",
+      "duration_ms": 7120.0,
+      "speech_end_ms": 6624.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6624.0,
+      "word_end_ms": 6522.0,
+      "reference": "今天的豆子我已经称好，然后明天不用再称一遍。",
+      "transcript": "今天的豆子我已经称好了然后明天不用再称一遍",
+      "char_match": 0.976,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 2944.0,
+          "end_ms": 3968.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 4608.0,
+          "end_ms": 5120.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "今天",
+          "start_ms": 862.0,
+          "end_ms": 942.0
+        },
+        {
+          "text": "的",
+          "start_ms": 1102.0,
+          "end_ms": 1182.0
+        },
+        {
+          "text": "豆",
+          "start_ms": 1422.0,
+          "end_ms": 1502.0
+        },
+        {
+          "text": "子",
+          "start_ms": 1662.0,
+          "end_ms": 1742.0
+        },
+        {
+          "text": "我",
+          "start_ms": 1822.0,
+          "end_ms": 1902.0
+        },
+        {
+          "text": "已经",
+          "start_ms": 1982.0,
+          "end_ms": 2062.0
+        },
+        {
+          "text": "称",
+          "start_ms": 2462.0,
+          "end_ms": 2542.0
+        },
+        {
+          "text": "好了",
+          "start_ms": 2622.0,
+          "end_ms": 2702.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 3822.0,
+          "end_ms": 3902.0
+        },
+        {
+          "text": "明天",
+          "start_ms": 5182.0,
+          "end_ms": 5262.0
+        },
+        {
+          "text": "不用",
+          "start_ms": 5502.0,
+          "end_ms": 5582.0
+        },
+        {
+          "text": "再",
+          "start_ms": 5822.0,
+          "end_ms": 5902.0
+        },
+        {
+          "text": "称",
+          "start_ms": 6062.0,
+          "end_ms": 6142.0
+        },
+        {
+          "text": "一",
+          "start_ms": 6222.0,
+          "end_ms": 6302.0
+        },
+        {
+          "text": "遍",
+          "start_ms": 6442.0,
+          "end_ms": 6522.0
+        }
+      ]
+    },
+    {
+      "id": "t18",
+      "kind": "scripted",
+      "duration_ms": 6026.7,
+      "speech_end_ms": 5600.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 5600.0,
+      "word_end_ms": 5542.0,
+      "reference": "你要是不想讲，就是我去擦杯子，不问了。",
+      "transcript": "你要是不想讲就是我去擦杯子不问了",
+      "char_match": 1.0,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 2304.0,
+          "end_ms": 2848.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 3328.0,
+          "end_ms": 4000.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 4928.0,
+          "end_ms": 5216.0,
+          "aligned": true
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "你",
+          "start_ms": 1082.0,
+          "end_ms": 1162.0
+        },
+        {
+          "text": "要是",
+          "start_ms": 1402.0,
+          "end_ms": 1482.0
+        },
+        {
+          "text": "不想",
+          "start_ms": 1722.0,
+          "end_ms": 1802.0
+        },
+        {
+          "text": "讲",
+          "start_ms": 1962.0,
+          "end_ms": 2042.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 3002.0,
+          "end_ms": 3082.0
+        },
+        {
+          "text": "我",
+          "start_ms": 3962.0,
+          "end_ms": 4041.0
+        },
+        {
+          "text": "去",
+          "start_ms": 4122.0,
+          "end_ms": 4202.0
+        },
+        {
+          "text": "擦",
+          "start_ms": 4362.0,
+          "end_ms": 4442.0
+        },
+        {
+          "text": "杯子",
+          "start_ms": 4522.0,
+          "end_ms": 4602.0
+        },
+        {
+          "text": "不",
+          "start_ms": 5162.0,
+          "end_ms": 5242.0
+        },
+        {
+          "text": "问",
+          "start_ms": 5242.0,
+          "end_ms": 5322.0
+        },
+        {
+          "text": "了",
+          "start_ms": 5462.0,
+          "end_ms": 5542.0
+        }
+      ]
+    },
+    {
+      "id": "t19",
+      "kind": "scripted",
+      "duration_ms": 7370.7,
+      "speech_end_ms": 6784.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6784.0,
+      "word_end_ms": 6562.0,
+      "reference": "我不是要上课，然后只是这个数字确实不对。",
+      "transcript": "我不是要上课然后只是这个数字确实不对",
+      "char_match": 1.0,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 2976.0,
+          "end_ms": 4224.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "我",
+          "start_ms": 742.0,
+          "end_ms": 822.0
+        },
+        {
+          "text": "不是",
+          "start_ms": 1062.0,
+          "end_ms": 1142.0
+        },
+        {
+          "text": "要",
+          "start_ms": 1302.0,
+          "end_ms": 1382.0
+        },
+        {
+          "text": "上课",
+          "start_ms": 1542.0,
+          "end_ms": 1622.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 2342.0,
+          "end_ms": 2422.0
+        },
+        {
+          "text": "只是",
+          "start_ms": 4182.0,
+          "end_ms": 4262.0
+        },
+        {
+          "text": "这个",
+          "start_ms": 4582.0,
+          "end_ms": 4662.0
+        },
+        {
+          "text": "数字",
+          "start_ms": 4982.0,
+          "end_ms": 5062.0
+        },
+        {
+          "text": "确实",
+          "start_ms": 5862.0,
+          "end_ms": 5942.0
+        },
+        {
+          "text": "不对",
+          "start_ms": 6482.0,
+          "end_ms": 6562.0
+        }
+      ]
+    },
+    {
+      "id": "t20",
+      "kind": "scripted",
+      "duration_ms": 5856.0,
+      "speech_end_ms": 5248.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 5248.0,
+      "word_end_ms": 5122.0,
+      "reference": "已经这么晚了，就是你该睡了，面试在明天。",
+      "transcript": "已经这么晚了就是你该睡了面试在明天",
+      "char_match": 1.0,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 1600.0,
+          "end_ms": 2176.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 2688.0,
+          "end_ms": 2848.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 3680.0,
+          "end_ms": 3776.0,
+          "aligned": false
+        },
+        {
+          "start_ms": 4064.0,
+          "end_ms": 4352.0,
+          "aligned": true
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "已经",
+          "start_ms": 582.0,
+          "end_ms": 662.0
+        },
+        {
+          "text": "这么",
+          "start_ms": 982.0,
+          "end_ms": 1062.0
+        },
+        {
+          "text": "晚",
+          "start_ms": 1062.0,
+          "end_ms": 1142.0
+        },
+        {
+          "text": "了",
+          "start_ms": 1222.0,
+          "end_ms": 1302.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 2342.0,
+          "end_ms": 2422.0
+        },
+        {
+          "text": "你",
+          "start_ms": 2902.0,
+          "end_ms": 2982.0
+        },
+        {
+          "text": "该",
+          "start_ms": 3062.0,
+          "end_ms": 3142.0
+        },
+        {
+          "text": "睡",
+          "start_ms": 3302.0,
+          "end_ms": 3382.0
+        },
+        {
+          "text": "了",
+          "start_ms": 3382.0,
+          "end_ms": 3462.0
+        },
+        {
+          "text": "面试",
+          "start_ms": 4422.0,
+          "end_ms": 4502.0
+        },
+        {
+          "text": "在",
+          "start_ms": 4662.0,
+          "end_ms": 4742.0
+        },
+        {
+          "text": "明天",
+          "start_ms": 5042.0,
+          "end_ms": 5122.0
+        }
+      ]
+    },
+    {
+      "id": "f01",
+      "kind": "free",
+      "duration_ms": 10896.0,
+      "speech_end_ms": 10208.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 10208.0,
+      "word_end_ms": 10062.0,
+      "reference": "",
+      "transcript": "今天早上看到一个up很厉害然后我给他点赞了还交流了一下",
+      "char_match": null,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 4064.0,
+          "end_ms": 4704.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5536.0,
+          "end_ms": 5856.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 6720.0,
+          "end_ms": 7232.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 8416.0,
+          "end_ms": 9280.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 5088.0,
+          "end_ms": 5248.0,
+          "aligned": true
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "今天",
+          "start_ms": 1122.0,
+          "end_ms": 1202.0
+        },
+        {
+          "text": "早上",
+          "start_ms": 1682.0,
+          "end_ms": 1762.0
+        },
+        {
+          "text": "看到",
+          "start_ms": 2082.0,
+          "end_ms": 2162.0
+        },
+        {
+          "text": "一",
+          "start_ms": 2242.0,
+          "end_ms": 2322.0
+        },
+        {
+          "text": "个",
+          "start_ms": 2402.0,
+          "end_ms": 2482.0
+        },
+        {
+          "text": " ",
+          "start_ms": -1.0,
+          "end_ms": -1.0
+        },
+        {
+          "text": "up",
+          "start_ms": 2802.0,
+          "end_ms": 2882.0
+        },
+        {
+          "text": "很",
+          "start_ms": 4001.0,
+          "end_ms": 4081.0
+        },
+        {
+          "text": "厉害",
+          "start_ms": 4722.0,
+          "end_ms": 4802.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 5682.0,
+          "end_ms": 5762.0
+        },
+        {
+          "text": "我",
+          "start_ms": 7202.0,
+          "end_ms": 7282.0
+        },
+        {
+          "text": "给他",
+          "start_ms": 7602.0,
+          "end_ms": 7682.0
+        },
+        {
+          "text": "点赞",
+          "start_ms": 7842.0,
+          "end_ms": 7922.0
+        },
+        {
+          "text": "了",
+          "start_ms": 8002.0,
+          "end_ms": 8082.0
+        },
+        {
+          "text": "还",
+          "start_ms": 9282.0,
+          "end_ms": 9362.0
+        },
+        {
+          "text": "交流",
+          "start_ms": 9522.0,
+          "end_ms": 9602.0
+        },
+        {
+          "text": "了",
+          "start_ms": 9602.0,
+          "end_ms": 9682.0
+        },
+        {
+          "text": "一",
+          "start_ms": 9762.0,
+          "end_ms": 9842.0
+        },
+        {
+          "text": "下",
+          "start_ms": 9982.0,
+          "end_ms": 10062.0
+        }
+      ]
+    },
+    {
+      "id": "f02",
+      "kind": "free",
+      "duration_ms": 18752.0,
+      "speech_end_ms": 17732.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 17728.0,
+      "word_end_ms": 17732.0,
+      "reference": "",
+      "transcript": "嗯我觉得在北京这段时间挺自由的回去的话不知道会怎么样希望能适应一下但是我很想我的高娃",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 5792.0,
+          "end_ms": 6240.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 7776.0,
+          "end_ms": 9152.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 10848.0,
+          "end_ms": 12544.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 13408.0,
+          "end_ms": 14112.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 15232.0,
+          "end_ms": 16288.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 4128.0,
+          "end_ms": 4384.0,
+          "aligned": true
+        }
+      ],
+      "review": false,
+      "words": [
+        {
+          "text": "嗯",
+          "start_ms": 4152.0,
+          "end_ms": 4232.0
+        },
+        {
+          "text": "我",
+          "start_ms": 4472.0,
+          "end_ms": 4552.0
+        },
+        {
+          "text": "觉得",
+          "start_ms": 4552.0,
+          "end_ms": 4632.0
+        },
+        {
+          "text": "在",
+          "start_ms": 4792.0,
+          "end_ms": 4872.0
+        },
+        {
+          "text": "北京",
+          "start_ms": 5032.0,
+          "end_ms": 5112.0
+        },
+        {
+          "text": "这段",
+          "start_ms": 6152.0,
+          "end_ms": 6232.0
+        },
+        {
+          "text": "时间",
+          "start_ms": 6392.0,
+          "end_ms": 6472.0
+        },
+        {
+          "text": "挺",
+          "start_ms": 6952.0,
+          "end_ms": 7032.0
+        },
+        {
+          "text": "自由",
+          "start_ms": 7192.0,
+          "end_ms": 7272.0
+        },
+        {
+          "text": "的",
+          "start_ms": 7352.0,
+          "end_ms": 7432.0
+        },
+        {
+          "text": "回去",
+          "start_ms": 9352.0,
+          "end_ms": 9432.0
+        },
+        {
+          "text": "的话",
+          "start_ms": 9992.0,
+          "end_ms": 10072.0
+        },
+        {
+          "text": "不",
+          "start_ms": 12392.0,
+          "end_ms": 12472.0
+        },
+        {
+          "text": "知道",
+          "start_ms": 12472.0,
+          "end_ms": 12552.0
+        },
+        {
+          "text": "会",
+          "start_ms": 12712.0,
+          "end_ms": 12792.0
+        },
+        {
+          "text": "怎么样",
+          "start_ms": 12952.0,
+          "end_ms": 13032.0
+        },
+        {
+          "text": "希望",
+          "start_ms": 13992.0,
+          "end_ms": 14072.0
+        },
+        {
+          "text": "能",
+          "start_ms": 14392.0,
+          "end_ms": 14472.0
+        },
+        {
+          "text": "适应",
+          "start_ms": 14712.0,
+          "end_ms": 14792.0
+        },
+        {
+          "text": "一",
+          "start_ms": 14872.0,
+          "end_ms": 14952.0
+        },
+        {
+          "text": "下",
+          "start_ms": 14952.0,
+          "end_ms": 15032.0
+        },
+        {
+          "text": "但是",
+          "start_ms": 16232.0,
+          "end_ms": 16312.0
+        },
+        {
+          "text": "我",
+          "start_ms": 16392.0,
+          "end_ms": 16472.0
+        },
+        {
+          "text": "很",
+          "start_ms": 16552.0,
+          "end_ms": 16632.0
+        },
+        {
+          "text": "想",
+          "start_ms": 16952.0,
+          "end_ms": 17032.0
+        },
+        {
+          "text": "我",
+          "start_ms": 17112.0,
+          "end_ms": 17192.0
+        },
+        {
+          "text": "的",
+          "start_ms": 17192.0,
+          "end_ms": 17272.0
+        },
+        {
+          "text": "高",
+          "start_ms": 17432.0,
+          "end_ms": 17512.0
+        },
+        {
+          "text": "娃",
+          "start_ms": 17652.0,
+          "end_ms": 17732.0
+        }
+      ]
+    },
+    {
+      "id": "f03",
+      "kind": "free",
+      "duration_ms": 9285.3,
+      "speech_end_ms": 8448.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 8448.0,
+      "word_end_ms": 8302.0,
+      "reference": "",
+      "transcript": "早点睡啦别呃明天明天可以啊明天",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 2272.0,
+          "end_ms": 3840.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 4224.0,
+          "end_ms": 5216.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 7552.0,
+          "end_ms": 8096.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 6560.0,
+          "end_ms": 6656.0,
+          "aligned": false
+        },
+        {
+          "start_ms": 7296.0,
+          "end_ms": 7424.0,
+          "aligned": true
+        }
+      ],
+      "review": false,
+      "words": [
+        {
+          "text": "早点",
+          "start_ms": 1362.0,
+          "end_ms": 1442.0
+        },
+        {
+          "text": "睡",
+          "start_ms": 1442.0,
+          "end_ms": 1522.0
+        },
+        {
+          "text": "啦",
+          "start_ms": 1682.0,
+          "end_ms": 1762.0
+        },
+        {
+          "text": "别",
+          "start_ms": 4402.0,
+          "end_ms": 4482.0
+        },
+        {
+          "text": "呃",
+          "start_ms": 5442.0,
+          "end_ms": 5522.0
+        },
+        {
+          "text": "明天",
+          "start_ms": 5922.0,
+          "end_ms": 6002.0
+        },
+        {
+          "text": "明天",
+          "start_ms": 6722.0,
+          "end_ms": 6802.0
+        },
+        {
+          "text": "可以",
+          "start_ms": 6882.0,
+          "end_ms": 6962.0
+        },
+        {
+          "text": "啊",
+          "start_ms": 7202.0,
+          "end_ms": 7282.0
+        },
+        {
+          "text": "明天",
+          "start_ms": 8222.0,
+          "end_ms": 8302.0
+        }
+      ]
+    },
+    {
+      "id": "f04",
+      "kind": "free",
+      "duration_ms": 6608.0,
+      "speech_end_ms": 5216.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 5216.0,
+      "word_end_ms": 5002.0,
+      "reference": "",
+      "transcript": "886不是88",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 2784.0,
+          "end_ms": 3584.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 3936.0,
+          "end_ms": 4768.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "8",
+          "start_ms": 2302.0,
+          "end_ms": 2382.0
+        },
+        {
+          "text": "8",
+          "start_ms": 2382.0,
+          "end_ms": 2462.0
+        },
+        {
+          "text": "6",
+          "start_ms": 2462.0,
+          "end_ms": 2542.0
+        },
+        {
+          "text": "不是",
+          "start_ms": 3422.0,
+          "end_ms": 3502.0
+        },
+        {
+          "text": "8",
+          "start_ms": 4622.0,
+          "end_ms": 4702.0
+        },
+        {
+          "text": "8",
+          "start_ms": 4922.0,
+          "end_ms": 5002.0
+        }
+      ]
+    },
+    {
+      "id": "f05",
+      "kind": "free",
+      "duration_ms": 5365.3,
+      "speech_end_ms": 2624.0,
+      "speech_end_source": "vad-after-words",
+      "vad_end_ms": 2624.0,
+      "word_end_ms": 2172.0,
+      "reference": "",
+      "transcript": "你明天有什么安排",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "你",
+          "start_ms": 992.0,
+          "end_ms": 1072.0
+        },
+        {
+          "text": "明天",
+          "start_ms": 1312.0,
+          "end_ms": 1392.0
+        },
+        {
+          "text": "有",
+          "start_ms": 1632.0,
+          "end_ms": 1712.0
+        },
+        {
+          "text": "什么",
+          "start_ms": 1712.0,
+          "end_ms": 1792.0
+        },
+        {
+          "text": "安排",
+          "start_ms": 2092.0,
+          "end_ms": 2172.0
+        }
+      ]
+    },
+    {
+      "id": "f06",
+      "kind": "free",
+      "duration_ms": 9216.0,
+      "speech_end_ms": 8448.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 8448.0,
+      "word_end_ms": 8272.0,
+      "reference": "",
+      "transcript": "今天有4笔单总共19块3毛7",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 4192.0,
+          "end_ms": 4672.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5408.0,
+          "end_ms": 6592.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "今天",
+          "start_ms": 1812.0,
+          "end_ms": 1892.0
+        },
+        {
+          "text": "有",
+          "start_ms": 3012.0,
+          "end_ms": 3092.0
+        },
+        {
+          "text": "4",
+          "start_ms": 3332.0,
+          "end_ms": 3412.0
+        },
+        {
+          "text": "笔",
+          "start_ms": 3732.0,
+          "end_ms": 3812.0
+        },
+        {
+          "text": "单",
+          "start_ms": 3892.0,
+          "end_ms": 3972.0
+        },
+        {
+          "text": "总共",
+          "start_ms": 5092.0,
+          "end_ms": 5172.0
+        },
+        {
+          "text": "19",
+          "start_ms": 6452.0,
+          "end_ms": 6772.0
+        },
+        {
+          "text": "块",
+          "start_ms": 7492.0,
+          "end_ms": 7572.0
+        },
+        {
+          "text": "3",
+          "start_ms": 7572.0,
+          "end_ms": 7652.0
+        },
+        {
+          "text": "毛",
+          "start_ms": 7812.0,
+          "end_ms": 7892.0
+        },
+        {
+          "text": "7",
+          "start_ms": 8192.0,
+          "end_ms": 8272.0
+        }
+      ]
+    },
+    {
+      "id": "f07",
+      "kind": "free",
+      "duration_ms": 8234.7,
+      "speech_end_ms": 7616.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 7616.0,
+      "word_end_ms": 7492.0,
+      "reference": "",
+      "transcript": "面试码呃嗯有有点紧张吧",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 4768.0,
+          "end_ms": 5440.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 6176.0,
+          "end_ms": 6592.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 3744.0,
+          "end_ms": 3968.0,
+          "aligned": true
+        }
+      ],
+      "review": false,
+      "words": [
+        {
+          "text": "面试",
+          "start_ms": 2712.0,
+          "end_ms": 2792.0
+        },
+        {
+          "text": "码",
+          "start_ms": 3592.0,
+          "end_ms": 3672.0
+        },
+        {
+          "text": "呃",
+          "start_ms": 4152.0,
+          "end_ms": 4232.0
+        },
+        {
+          "text": "嗯",
+          "start_ms": 5352.0,
+          "end_ms": 5432.0
+        },
+        {
+          "text": "有",
+          "start_ms": 6632.0,
+          "end_ms": 6712.0
+        },
+        {
+          "text": "有点",
+          "start_ms": 6792.0,
+          "end_ms": 6872.0
+        },
+        {
+          "text": "紧张",
+          "start_ms": 7032.0,
+          "end_ms": 7112.0
+        },
+        {
+          "text": "吧",
+          "start_ms": 7412.0,
+          "end_ms": 7492.0
+        }
+      ]
+    },
+    {
+      "id": "f08",
+      "kind": "free",
+      "duration_ms": 6229.3,
+      "speech_end_ms": 5568.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 5568.0,
+      "word_end_ms": 5462.0,
+      "reference": "",
+      "transcript": "出门记得带伞啊伞在在门后面挂着",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 3968.0,
+          "end_ms": 4544.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 2304.0,
+          "end_ms": 2528.0,
+          "aligned": true
+        }
+      ],
+      "review": false,
+      "words": [
+        {
+          "text": "出门",
+          "start_ms": 922.0,
+          "end_ms": 1002.0
+        },
+        {
+          "text": "记得",
+          "start_ms": 1402.0,
+          "end_ms": 1482.0
+        },
+        {
+          "text": "带",
+          "start_ms": 1562.0,
+          "end_ms": 1642.0
+        },
+        {
+          "text": "伞",
+          "start_ms": 1722.0,
+          "end_ms": 1802.0
+        },
+        {
+          "text": "啊",
+          "start_ms": 1882.0,
+          "end_ms": 1962.0
+        },
+        {
+          "text": "伞",
+          "start_ms": 2762.0,
+          "end_ms": 2842.0
+        },
+        {
+          "text": "在",
+          "start_ms": 3242.0,
+          "end_ms": 3322.0
+        },
+        {
+          "text": "在",
+          "start_ms": 4522.0,
+          "end_ms": 4602.0
+        },
+        {
+          "text": "门",
+          "start_ms": 4682.0,
+          "end_ms": 4762.0
+        },
+        {
+          "text": "后面",
+          "start_ms": 4842.0,
+          "end_ms": 4922.0
+        },
+        {
+          "text": "挂",
+          "start_ms": 5082.0,
+          "end_ms": 5162.0
+        },
+        {
+          "text": "着",
+          "start_ms": 5382.0,
+          "end_ms": 5462.0
+        }
+      ]
+    },
+    {
+      "id": "f09",
+      "kind": "free",
+      "duration_ms": 9621.3,
+      "speech_end_ms": 8822.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 8800.0,
+      "word_end_ms": 8822.0,
+      "reference": "",
+      "transcript": "洋刀的配方极限法球然后神秘法杖和875",
+      "char_match": null,
+      "expected_connector": "然后",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 1952.0,
+          "end_ms": 2784.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 3936.0,
+          "end_ms": 4384.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5216.0,
+          "end_ms": 6112.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 7744.0,
+          "end_ms": 8256.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 7232.0,
+          "end_ms": 7328.0,
+          "aligned": false
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "洋",
+          "start_ms": 1002.0,
+          "end_ms": 1082.0
+        },
+        {
+          "text": "刀",
+          "start_ms": 1162.0,
+          "end_ms": 1242.0
+        },
+        {
+          "text": "的",
+          "start_ms": 1242.0,
+          "end_ms": 1322.0
+        },
+        {
+          "text": "配方",
+          "start_ms": 1322.0,
+          "end_ms": 1402.0
+        },
+        {
+          "text": "极限",
+          "start_ms": 3242.0,
+          "end_ms": 3322.0
+        },
+        {
+          "text": "法",
+          "start_ms": 3482.0,
+          "end_ms": 3562.0
+        },
+        {
+          "text": "球",
+          "start_ms": 3562.0,
+          "end_ms": 3642.0
+        },
+        {
+          "text": "然后",
+          "start_ms": 4282.0,
+          "end_ms": 4362.0
+        },
+        {
+          "text": "神秘",
+          "start_ms": 6282.0,
+          "end_ms": 6362.0
+        },
+        {
+          "text": "法",
+          "start_ms": 6602.0,
+          "end_ms": 6682.0
+        },
+        {
+          "text": "杖",
+          "start_ms": 6762.0,
+          "end_ms": 6842.0
+        },
+        {
+          "text": "和",
+          "start_ms": 7242.0,
+          "end_ms": 7322.0
+        },
+        {
+          "text": "8",
+          "start_ms": 8442.0,
+          "end_ms": 8522.0
+        },
+        {
+          "text": "7",
+          "start_ms": 8522.0,
+          "end_ms": 8602.0
+        },
+        {
+          "text": "5",
+          "start_ms": 8742.0,
+          "end_ms": 8822.0
+        }
+      ]
+    },
+    {
+      "id": "f10",
+      "kind": "free",
+      "duration_ms": 15413.3,
+      "speech_end_ms": 14240.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 14240.0,
+      "word_end_ms": 14142.0,
+      "reference": "",
+      "transcript": "高上次说爸爸你什么时候回来呀就是哎呀很想人家了",
+      "char_match": null,
+      "expected_connector": "就是",
+      "connector_ok": false,
+      "pauses": [
+        {
+          "start_ms": 4320.0,
+          "end_ms": 5312.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 8416.0,
+          "end_ms": 10592.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 11936.0,
+          "end_ms": 12928.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 6304.0,
+          "end_ms": 6528.0,
+          "aligned": true
+        }
+      ],
+      "review": true,
+      "words": [
+        {
+          "text": "高",
+          "start_ms": 3282.0,
+          "end_ms": 3362.0
+        },
+        {
+          "text": "上次",
+          "start_ms": 3602.0,
+          "end_ms": 3682.0
+        },
+        {
+          "text": "说",
+          "start_ms": 3762.0,
+          "end_ms": 3842.0
+        },
+        {
+          "text": "爸爸",
+          "start_ms": 5362.0,
+          "end_ms": 5442.0
+        },
+        {
+          "text": "你",
+          "start_ms": 6482.0,
+          "end_ms": 6562.0
+        },
+        {
+          "text": "什么",
+          "start_ms": 6882.0,
+          "end_ms": 6962.0
+        },
+        {
+          "text": "时候",
+          "start_ms": 7042.0,
+          "end_ms": 7122.0
+        },
+        {
+          "text": "回来",
+          "start_ms": 7522.0,
+          "end_ms": 7602.0
+        },
+        {
+          "text": "呀",
+          "start_ms": 7762.0,
+          "end_ms": 7842.0
+        },
+        {
+          "text": "就是",
+          "start_ms": 10802.0,
+          "end_ms": 10882.0
+        },
+        {
+          "text": "哎",
+          "start_ms": 12802.0,
+          "end_ms": 12882.0
+        },
+        {
+          "text": "呀",
+          "start_ms": 13042.0,
+          "end_ms": 13122.0
+        },
+        {
+          "text": "很",
+          "start_ms": 13522.0,
+          "end_ms": 13602.0
+        },
+        {
+          "text": "想",
+          "start_ms": 13602.0,
+          "end_ms": 13682.0
+        },
+        {
+          "text": "人家",
+          "start_ms": 13682.0,
+          "end_ms": 13762.0
+        },
+        {
+          "text": "了",
+          "start_ms": 14062.0,
+          "end_ms": 14142.0
+        }
+      ]
+    },
+    {
+      "id": "f11",
+      "kind": "free",
+      "duration_ms": 5541.3,
+      "speech_end_ms": 4864.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 4864.0,
+      "word_end_ms": 4812.0,
+      "reference": "",
+      "transcript": "因为我困了",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 2240.0,
+          "end_ms": 4096.0,
+          "aligned": false
+        }
+      ],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "因为",
+          "start_ms": 3952.0,
+          "end_ms": 4032.0
+        },
+        {
+          "text": "我",
+          "start_ms": 4192.0,
+          "end_ms": 4272.0
+        },
+        {
+          "text": "困",
+          "start_ms": 4432.0,
+          "end_ms": 4512.0
+        },
+        {
+          "text": "了",
+          "start_ms": 4732.0,
+          "end_ms": 4812.0
+        }
+      ]
+    },
+    {
+      "id": "f12",
+      "kind": "free",
+      "duration_ms": 6864.0,
+      "speech_end_ms": 6048.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6048.0,
+      "word_end_ms": 5802.0,
+      "reference": "",
+      "transcript": "杯子我已经收好啦灯也关啦",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 2784.0,
+          "end_ms": 5056.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "杯子",
+          "start_ms": 1502.0,
+          "end_ms": 1582.0
+        },
+        {
+          "text": "我",
+          "start_ms": 1742.0,
+          "end_ms": 1822.0
+        },
+        {
+          "text": "已经",
+          "start_ms": 1902.0,
+          "end_ms": 1982.0
+        },
+        {
+          "text": "收",
+          "start_ms": 2222.0,
+          "end_ms": 2302.0
+        },
+        {
+          "text": "好",
+          "start_ms": 2462.0,
+          "end_ms": 2542.0
+        },
+        {
+          "text": "啦",
+          "start_ms": 2542.0,
+          "end_ms": 2622.0
+        },
+        {
+          "text": "灯",
+          "start_ms": 5182.0,
+          "end_ms": 5262.0
+        },
+        {
+          "text": "也",
+          "start_ms": 5422.0,
+          "end_ms": 5502.0
+        },
+        {
+          "text": "关",
+          "start_ms": 5502.0,
+          "end_ms": 5582.0
+        },
+        {
+          "text": "啦",
+          "start_ms": 5722.0,
+          "end_ms": 5802.0
+        }
+      ]
+    },
+    {
+      "id": "f13",
+      "kind": "free",
+      "duration_ms": 5456.0,
+      "speech_end_ms": 4672.0,
+      "speech_end_source": "vad-after-words",
+      "vad_end_ms": 4672.0,
+      "word_end_ms": 4382.0,
+      "reference": "",
+      "transcript": "大阳之后电离很安静",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 2656.0,
+          "end_ms": 3648.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "大",
+          "start_ms": 1282.0,
+          "end_ms": 1362.0
+        },
+        {
+          "text": "阳",
+          "start_ms": 1762.0,
+          "end_ms": 1842.0
+        },
+        {
+          "text": "之后",
+          "start_ms": 1922.0,
+          "end_ms": 2002.0
+        },
+        {
+          "text": "电",
+          "start_ms": 3842.0,
+          "end_ms": 3922.0
+        },
+        {
+          "text": "离",
+          "start_ms": 3922.0,
+          "end_ms": 4001.0
+        },
+        {
+          "text": "很",
+          "start_ms": 4001.0,
+          "end_ms": 4081.0
+        },
+        {
+          "text": "安静",
+          "start_ms": 4302.0,
+          "end_ms": 4382.0
+        }
+      ]
+    },
+    {
+      "id": "f14",
+      "kind": "free",
+      "duration_ms": 5450.7,
+      "speech_end_ms": 4032.0,
+      "speech_end_source": "vad-after-words",
+      "vad_end_ms": 4032.0,
+      "word_end_ms": 3780.0,
+      "reference": "",
+      "transcript": "嗯行吧行吧",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 1888.0,
+          "end_ms": 3072.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "嗯",
+          "start_ms": 1720.0,
+          "end_ms": 1800.0
+        },
+        {
+          "text": "行",
+          "start_ms": 3000.0,
+          "end_ms": 3080.0
+        },
+        {
+          "text": "吧",
+          "start_ms": 3080.0,
+          "end_ms": 3160.0
+        },
+        {
+          "text": "行",
+          "start_ms": 3400.0,
+          "end_ms": 3480.0
+        },
+        {
+          "text": "吧",
+          "start_ms": 3700.0,
+          "end_ms": 3780.0
+        }
+      ]
+    },
+    {
+      "id": "f15",
+      "kind": "free",
+      "duration_ms": 9557.3,
+      "speech_end_ms": 8128.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 8128.0,
+      "word_end_ms": 7992.0,
+      "reference": "",
+      "transcript": "我在看超越感觉嗯讲的是批判性思考",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 2368.0,
+          "end_ms": 2688.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 3744.0,
+          "end_ms": 5088.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 6912.0,
+          "end_ms": 7264.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "我",
+          "start_ms": 1052.0,
+          "end_ms": 1132.0
+        },
+        {
+          "text": "在",
+          "start_ms": 1372.0,
+          "end_ms": 1452.0
+        },
+        {
+          "text": "看",
+          "start_ms": 2332.0,
+          "end_ms": 2412.0
+        },
+        {
+          "text": "超越",
+          "start_ms": 2732.0,
+          "end_ms": 2812.0
+        },
+        {
+          "text": "感觉",
+          "start_ms": 3132.0,
+          "end_ms": 3212.0
+        },
+        {
+          "text": "嗯",
+          "start_ms": 4972.0,
+          "end_ms": 5052.0
+        },
+        {
+          "text": "讲",
+          "start_ms": 5692.0,
+          "end_ms": 5772.0
+        },
+        {
+          "text": "的",
+          "start_ms": 5772.0,
+          "end_ms": 5852.0
+        },
+        {
+          "text": "是",
+          "start_ms": 6972.0,
+          "end_ms": 7052.0
+        },
+        {
+          "text": "批判",
+          "start_ms": 7292.0,
+          "end_ms": 7372.0
+        },
+        {
+          "text": "性",
+          "start_ms": 7532.0,
+          "end_ms": 7612.0
+        },
+        {
+          "text": "思考",
+          "start_ms": 7912.0,
+          "end_ms": 7992.0
+        }
+      ]
+    },
+    {
+      "id": "f16",
+      "kind": "free",
+      "duration_ms": 6501.3,
+      "speech_end_ms": 5888.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 5888.0,
+      "word_end_ms": 5732.0,
+      "reference": "",
+      "transcript": "不是不是不是这个意思你听我说",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [
+        {
+          "start_ms": 3328.0,
+          "end_ms": 3520.0,
+          "aligned": true
+        }
+      ],
+      "review": false,
+      "words": [
+        {
+          "text": "不是",
+          "start_ms": 2232.0,
+          "end_ms": 2312.0
+        },
+        {
+          "text": "不是",
+          "start_ms": 2552.0,
+          "end_ms": 2632.0
+        },
+        {
+          "text": "不是",
+          "start_ms": 3512.0,
+          "end_ms": 3592.0
+        },
+        {
+          "text": "这个",
+          "start_ms": 3832.0,
+          "end_ms": 3912.0
+        },
+        {
+          "text": "意思",
+          "start_ms": 4072.0,
+          "end_ms": 4152.0
+        },
+        {
+          "text": "你",
+          "start_ms": 4712.0,
+          "end_ms": 4792.0
+        },
+        {
+          "text": "听",
+          "start_ms": 4952.0,
+          "end_ms": 5032.0
+        },
+        {
+          "text": "我",
+          "start_ms": 5032.0,
+          "end_ms": 5112.0
+        },
+        {
+          "text": "说",
+          "start_ms": 5652.0,
+          "end_ms": 5732.0
+        }
+      ]
+    },
+    {
+      "id": "f17",
+      "kind": "free",
+      "duration_ms": 6160.0,
+      "speech_end_ms": 5152.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 5152.0,
+      "word_end_ms": 5092.0,
+      "reference": "",
+      "transcript": "东西已经准备好了明天早点起",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 2496.0,
+          "end_ms": 3520.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 4480.0,
+          "end_ms": 4704.0,
+          "aligned": true
+        }
+      ],
+      "review": false,
+      "words": [
+        {
+          "text": "东西",
+          "start_ms": 1192.0,
+          "end_ms": 1272.0
+        },
+        {
+          "text": "已经",
+          "start_ms": 1432.0,
+          "end_ms": 1512.0
+        },
+        {
+          "text": "准备",
+          "start_ms": 1672.0,
+          "end_ms": 1752.0
+        },
+        {
+          "text": "好了",
+          "start_ms": 2072.0,
+          "end_ms": 2152.0
+        },
+        {
+          "text": "明天",
+          "start_ms": 4472.0,
+          "end_ms": 4552.0
+        },
+        {
+          "text": "早点",
+          "start_ms": 4792.0,
+          "end_ms": 4872.0
+        },
+        {
+          "text": "起",
+          "start_ms": 5012.0,
+          "end_ms": 5092.0
+        }
+      ]
+    },
+    {
+      "id": "f18",
+      "kind": "free",
+      "duration_ms": 6090.7,
+      "speech_end_ms": 5248.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 5248.0,
+      "word_end_ms": 5182.0,
+      "reference": "",
+      "transcript": "不想讲就算了嗯我去干活了",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 3200.0,
+          "end_ms": 4192.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [
+        {
+          "start_ms": 4320.0,
+          "end_ms": 4448.0,
+          "aligned": true
+        }
+      ],
+      "review": false,
+      "words": [
+        {
+          "text": "不想",
+          "start_ms": 2162.0,
+          "end_ms": 2242.0
+        },
+        {
+          "text": "讲",
+          "start_ms": 2402.0,
+          "end_ms": 2482.0
+        },
+        {
+          "text": "就算",
+          "start_ms": 2642.0,
+          "end_ms": 2722.0
+        },
+        {
+          "text": "了",
+          "start_ms": 2722.0,
+          "end_ms": 2802.0
+        },
+        {
+          "text": "嗯",
+          "start_ms": 4242.0,
+          "end_ms": 4322.0
+        },
+        {
+          "text": "我",
+          "start_ms": 4482.0,
+          "end_ms": 4562.0
+        },
+        {
+          "text": "去",
+          "start_ms": 4642.0,
+          "end_ms": 4722.0
+        },
+        {
+          "text": "干",
+          "start_ms": 4722.0,
+          "end_ms": 4802.0
+        },
+        {
+          "text": "活",
+          "start_ms": 4802.0,
+          "end_ms": 4882.0
+        },
+        {
+          "text": "了",
+          "start_ms": 5102.0,
+          "end_ms": 5182.0
+        }
+      ]
+    },
+    {
+      "id": "f19",
+      "kind": "free",
+      "duration_ms": 6021.3,
+      "speech_end_ms": 5728.0,
+      "speech_end_source": "vad-after-words",
+      "vad_end_ms": 5728.0,
+      "word_end_ms": 5322.0,
+      "reference": "",
+      "transcript": "我跟你说也有个东西超搞笑哈哈哈",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 3520.0,
+          "end_ms": 4736.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "我",
+          "start_ms": 1021.0,
+          "end_ms": 1102.0
+        },
+        {
+          "text": "跟",
+          "start_ms": 1182.0,
+          "end_ms": 1262.0
+        },
+        {
+          "text": "你",
+          "start_ms": 1262.0,
+          "end_ms": 1342.0
+        },
+        {
+          "text": "说",
+          "start_ms": 1342.0,
+          "end_ms": 1422.0
+        },
+        {
+          "text": "也",
+          "start_ms": 1582.0,
+          "end_ms": 1662.0
+        },
+        {
+          "text": "有",
+          "start_ms": 1662.0,
+          "end_ms": 1742.0
+        },
+        {
+          "text": "个",
+          "start_ms": 1742.0,
+          "end_ms": 1822.0
+        },
+        {
+          "text": "东西",
+          "start_ms": 1822.0,
+          "end_ms": 1902.0
+        },
+        {
+          "text": "超",
+          "start_ms": 2542.0,
+          "end_ms": 2622.0
+        },
+        {
+          "text": "搞笑",
+          "start_ms": 3022.0,
+          "end_ms": 3102.0
+        },
+        {
+          "text": "哈哈哈",
+          "start_ms": 5242.0,
+          "end_ms": 5322.0
+        }
+      ]
+    },
+    {
+      "id": "f20",
+      "kind": "free",
+      "duration_ms": 7568.0,
+      "speech_end_ms": 6912.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 6912.0,
+      "word_end_ms": 6842.0,
+      "reference": "",
+      "transcript": "嗯好了好了不说了我我要去我要去写账了",
+      "char_match": null,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [
+        {
+          "start_ms": 2720.0,
+          "end_ms": 3104.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 3520.0,
+          "end_ms": 4320.0,
+          "aligned": true
+        },
+        {
+          "start_ms": 5760.0,
+          "end_ms": 6144.0,
+          "aligned": true
+        }
+      ],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "嗯",
+          "start_ms": 1502.0,
+          "end_ms": 1582.0
+        },
+        {
+          "text": "好了",
+          "start_ms": 1742.0,
+          "end_ms": 1822.0
+        },
+        {
+          "text": "好了",
+          "start_ms": 1902.0,
+          "end_ms": 1982.0
+        },
+        {
+          "text": "不",
+          "start_ms": 2222.0,
+          "end_ms": 2302.0
+        },
+        {
+          "text": "说了",
+          "start_ms": 2302.0,
+          "end_ms": 2382.0
+        },
+        {
+          "text": "我",
+          "start_ms": 4382.0,
+          "end_ms": 4462.0
+        },
+        {
+          "text": "我",
+          "start_ms": 4462.0,
+          "end_ms": 4542.0
+        },
+        {
+          "text": "要",
+          "start_ms": 4702.0,
+          "end_ms": 4782.0
+        },
+        {
+          "text": "去",
+          "start_ms": 5822.0,
+          "end_ms": 5902.0
+        },
+        {
+          "text": "我",
+          "start_ms": 6062.0,
+          "end_ms": 6142.0
+        },
+        {
+          "text": "要",
+          "start_ms": 6142.0,
+          "end_ms": 6222.0
+        },
+        {
+          "text": "去",
+          "start_ms": 6302.0,
+          "end_ms": 6382.0
+        },
+        {
+          "text": "写",
+          "start_ms": 6382.0,
+          "end_ms": 6462.0
+        },
+        {
+          "text": "账",
+          "start_ms": 6542.0,
+          "end_ms": 6622.0
+        },
+        {
+          "text": "了",
+          "start_ms": 6762.0,
+          "end_ms": 6842.0
+        }
+      ]
+    },
+    {
+      "id": "s01",
+      "kind": "short",
+      "duration_ms": 1621.3,
+      "speech_end_ms": 1152.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 1152.0,
+      "word_end_ms": 1052.0,
+      "reference": "好的。",
+      "transcript": "好的",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "好",
+          "start_ms": 672.0,
+          "end_ms": 752.0
+        },
+        {
+          "text": "的",
+          "start_ms": 972.0,
+          "end_ms": 1052.0
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "kind": "short",
+      "duration_ms": 3072.0,
+      "speech_end_ms": 2368.0,
+      "speech_end_source": "vad-after-words",
+      "vad_end_ms": 2368.0,
+      "word_end_ms": 2102.0,
+      "reference": "你今天几点下班？",
+      "transcript": "你今天几点下班",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": true,
+      "words": [
+        {
+          "text": "你",
+          "start_ms": 1082.0,
+          "end_ms": 1162.0
+        },
+        {
+          "text": "今天",
+          "start_ms": 1242.0,
+          "end_ms": 1322.0
+        },
+        {
+          "text": "几点",
+          "start_ms": 1482.0,
+          "end_ms": 1562.0
+        },
+        {
+          "text": "下班",
+          "start_ms": 2022.0,
+          "end_ms": 2102.0
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "kind": "short",
+      "duration_ms": 1829.3,
+      "speech_end_ms": 1376.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 1376.0,
+      "word_end_ms": 1212.0,
+      "reference": "我知道了。",
+      "transcript": "我知道了",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "我",
+          "start_ms": 672.0,
+          "end_ms": 752.0
+        },
+        {
+          "text": "知道",
+          "start_ms": 832.0,
+          "end_ms": 912.0
+        },
+        {
+          "text": "了",
+          "start_ms": 1132.0,
+          "end_ms": 1212.0
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "kind": "short",
+      "duration_ms": 1749.3,
+      "speech_end_ms": 1332.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 1312.0,
+      "word_end_ms": 1332.0,
+      "reference": "账是对的。",
+      "transcript": "账是对的",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "账",
+          "start_ms": 872.0,
+          "end_ms": 952.0
+        },
+        {
+          "text": "是",
+          "start_ms": 952.0,
+          "end_ms": 1032.0
+        },
+        {
+          "text": "对",
+          "start_ms": 1032.0,
+          "end_ms": 1112.0
+        },
+        {
+          "text": "的",
+          "start_ms": 1252.0,
+          "end_ms": 1332.0
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "kind": "short",
+      "duration_ms": 1648.0,
+      "speech_end_ms": 1312.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 1312.0,
+      "word_end_ms": 1272.0,
+      "reference": "先坐下。",
+      "transcript": "先坐下",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "先",
+          "start_ms": 892.0,
+          "end_ms": 972.0
+        },
+        {
+          "text": "坐下",
+          "start_ms": 1192.0,
+          "end_ms": 1272.0
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "kind": "short",
+      "duration_ms": 2304.0,
+      "speech_end_ms": 1696.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 1696.0,
+      "word_end_ms": 1512.0,
+      "reference": "明天再说。",
+      "transcript": "明天再说",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "明天",
+          "start_ms": 1052.0,
+          "end_ms": 1132.0
+        },
+        {
+          "text": "再说",
+          "start_ms": 1432.0,
+          "end_ms": 1512.0
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "kind": "short",
+      "duration_ms": 2170.7,
+      "speech_end_ms": 1760.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 1760.0,
+      "word_end_ms": 1632.0,
+      "reference": "我去热咖啡。",
+      "transcript": "我去热咖啡",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "我",
+          "start_ms": 692.0,
+          "end_ms": 772.0
+        },
+        {
+          "text": "去",
+          "start_ms": 1172.0,
+          "end_ms": 1252.0
+        },
+        {
+          "text": "热",
+          "start_ms": 1252.0,
+          "end_ms": 1332.0
+        },
+        {
+          "text": "咖啡",
+          "start_ms": 1552.0,
+          "end_ms": 1632.0
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "kind": "short",
+      "duration_ms": 2101.3,
+      "speech_end_ms": 1504.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 1504.0,
+      "word_end_ms": 1462.0,
+      "reference": "伞在门口。",
+      "transcript": "伞在门口",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "伞",
+          "start_ms": 1002.0,
+          "end_ms": 1082.0
+        },
+        {
+          "text": "在",
+          "start_ms": 1162.0,
+          "end_ms": 1242.0
+        },
+        {
+          "text": "门口",
+          "start_ms": 1382.0,
+          "end_ms": 1462.0
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "kind": "short",
+      "duration_ms": 2277.3,
+      "speech_end_ms": 1696.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 1696.0,
+      "word_end_ms": 1582.0,
+      "reference": "这次算了。",
+      "transcript": "这次算了",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "这次",
+          "start_ms": 1042.0,
+          "end_ms": 1122.0
+        },
+        {
+          "text": "算了",
+          "start_ms": 1502.0,
+          "end_ms": 1582.0
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "kind": "short",
+      "duration_ms": 2432.0,
+      "speech_end_ms": 1568.0,
+      "speech_end_source": "agree",
+      "vad_end_ms": 1568.0,
+      "word_end_ms": 1462.0,
+      "reference": "你该睡了。",
+      "transcript": "你该睡了",
+      "char_match": 1.0,
+      "expected_connector": null,
+      "connector_ok": null,
+      "pauses": [],
+      "short_gaps": [],
+      "review": false,
+      "words": [
+        {
+          "text": "你",
+          "start_ms": 682.0,
+          "end_ms": 762.0
+        },
+        {
+          "text": "该",
+          "start_ms": 922.0,
+          "end_ms": 1002.0
+        },
+        {
+          "text": "睡",
+          "start_ms": 1162.0,
+          "end_ms": 1242.0
+        },
+        {
+          "text": "了",
+          "start_ms": 1382.0,
+          "end_ms": 1462.0
+        }
+      ]
+    }
+  ]
+}
