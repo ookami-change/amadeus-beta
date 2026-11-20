@@ -20,7 +20,7 @@ from latency.adapters.types import (
 from latency.clauses import ClauseBuffer
 from latency.corpus import Item
 from latency.endpoint import CompletenessModel, Decision, Endpointer, EnergyGate
-from latency.pcm import frames, read_wav
+from latency.pcm import frames, read_wav, silence
 from latency.scoring import classify_endpoint
 
 FRAME_MS = 20.0
@@ -53,6 +53,10 @@ class Trial:
     cached_tokens: int | None
     prompt_tokens: int | None
     mock: bool
+    t_ready_ms: float | None = None
+    t_tts_open_ms: float | None = None
+    t_llm_start_ms: float | None = None
+    schedule: str = "serial"
 
     def as_json(self) -> dict[str, object]:
         return asdict(self)
@@ -97,11 +101,20 @@ async def realtime_trial(
     oracle_partials: bool,
     mock: bool,
     instruction: str,
+    defer_tts: bool = False,
+    hold_asr: bool = False,
+    fixed_silence_ms: float = 500.0,
+    pad_ms: float = 0.0,
 ) -> Trial:
-    """Real-time audio in, wall-clock stamps out. TTS is opened at the endpoint."""
+    """Real-time audio in, wall-clock stamps out. TTS is opened at the endpoint.
+
+    ``defer_tts`` opens the synthesizer after the first LLM token, so the
+    handshake is not inside the first-token wait. ``hold_asr`` leaves the
+    recognizer socket up until that token arrives.
+    """
 
     gate = EnergyGate()
-    endpointer = Endpointer(mode, model)
+    endpointer = Endpointer(mode, model, fixed_silence_ms=fixed_silence_ms)
     origin = time.perf_counter()
 
     def wall_ms() -> float:
@@ -140,7 +153,7 @@ async def realtime_trial(
     decision: Decision | None = None
     packet = bytearray()
     packet_ms = 0.0
-    pcm = read_wav(item.audio)
+    pcm = read_wav(item.audio) + (silence(pad_ms) if pad_ms else b"")
     try:
         for frame in frames(pcm, FRAME_MS):
             delay = frame.end_ms / 1000.0 - (time.perf_counter() - origin)
@@ -171,16 +184,10 @@ async def realtime_trial(
         if asr_task.done():
             break
         await asyncio.sleep(0.02)
-    try:
-        await asyncio.wait_for(asr_task, timeout=3.0)
-    except TimeoutError:
-        asr_task.cancel()
-        try:
-            await asr_task
-        except asyncio.CancelledError:
-            pass
-        except Exception:
-            pass
+    if not hold_asr:
+        await _finish_asr(asr_task)
+
+    ready_ms = wall_ms()
 
     # Decision.t_ms is the paced audio time plus model compute, which matches the
     # wall clock at the moment of the decision. Measuring it again after the ASR
@@ -205,11 +212,6 @@ async def realtime_trial(
             item, combo, mode, repeat, mock, "ASR returned an empty transcript", oracle_partials, decision, early, barge
         )
 
-    try:
-        await tts.open(instruction=instruction)
-    except Exception as exc:
-        return _failed(item, combo, mode, repeat, mock, redact(str(exc)), oracle_partials, decision, early, barge)
-
     clause_queue: asyncio.Queue[str | None] = asyncio.Queue()
     first_token: float | None = None
     first_clause: float | None = None
@@ -219,6 +221,8 @@ async def realtime_trial(
     usage_cached: int | None = None
     llm_error: str | None = None
     tts_error: str | None = None
+    opened_ms: float | None = None
+    tts_task: asyncio.Task[None] | None = None
 
     async def clauses() -> AsyncIterator[str]:
         while True:
@@ -236,13 +240,36 @@ async def realtime_trial(
         except Exception as exc:
             tts_error = redact(str(exc))
 
-    tts_task = asyncio.create_task(consume_tts())
+    async def ensure_tts() -> None:
+        nonlocal opened_ms, tts_error, tts_task
+        if tts_task is not None or tts_error is not None:
+            return
+        try:
+            await tts.open(instruction=instruction)
+        except Exception as exc:
+            tts_error = redact(str(exc))
+            return
+        opened_ms = wall_ms()
+        tts_task = asyncio.create_task(consume_tts())
+
+    if not defer_tts:
+        await ensure_tts()
+        if tts_error is not None:
+            if hold_asr:
+                await _finish_asr(asr_task)
+            return _failed(item, combo, mode, repeat, mock, tts_error, oracle_partials, decision, early, barge)
+
     buffer = ClauseBuffer()
+    llm_start_ms = wall_ms()
     try:
         async for piece in llm.stream(system=system, history=history, user=transcript):
             if isinstance(piece, LLMDelta) and piece.text:
                 if first_token is None:
                     first_token = wall_ms()
+                    if hold_asr:
+                        await _finish_asr(asr_task)
+                    if defer_tts:
+                        await ensure_tts()
                 reply_parts.append(piece.text)
                 for clause in buffer.push(piece.text):
                     if first_clause is None:
@@ -259,23 +286,27 @@ async def realtime_trial(
     except Exception as exc:
         llm_error = redact(str(exc))
     finally:
+        if hold_asr:
+            await _finish_asr(asr_task)
         await clause_queue.put(None)
 
-    while first_audio is None and not tts_task.done():
-        await asyncio.sleep(0.01)
-    try:
-        await asyncio.wait_for(tts_task, timeout=30.0)
-    except TimeoutError:
-        tts_task.cancel()
-        tts_error = tts_error or "TTS produced no audio within 30s"
-    try:
-        await tts.close()
-    except Exception as exc:
-        tts_error = tts_error or redact(str(exc))
+    if tts_task is not None:
+        while first_audio is None and not tts_task.done():
+            await asyncio.sleep(0.01)
+        try:
+            await asyncio.wait_for(tts_task, timeout=30.0)
+        except TimeoutError:
+            tts_task.cancel()
+            tts_error = tts_error or "TTS produced no audio within 30s"
+        try:
+            await tts.close()
+        except Exception as exc:
+            tts_error = tts_error or redact(str(exc))
 
     error = llm_error or tts_error
     if first_audio is None and error is None:
         error = "TTS produced no audio"
+    schedule = "defer-tts" if defer_tts else "hold-asr" if hold_asr else "serial"
     return Trial(
         combo=combo,
         endpoint=mode,
@@ -300,7 +331,26 @@ async def realtime_trial(
         cached_tokens=usage_cached,
         prompt_tokens=usage_prompt,
         mock=mock,
+        t_ready_ms=ready_ms,
+        t_tts_open_ms=opened_ms,
+        t_llm_start_ms=llm_start_ms,
+        schedule=schedule,
     )
+
+
+async def _finish_asr(task: asyncio.Task[None]) -> None:
+    if task.done():
+        return
+    try:
+        await asyncio.wait_for(task, timeout=3.0)
+    except TimeoutError:
+        task.cancel()
+        try:
+            await task
+        except asyncio.CancelledError:
+            pass
+        except Exception:
+            pass
 
 
 def _from_decision(

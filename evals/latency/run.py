@@ -52,6 +52,15 @@ def main() -> None:
         help="Stop a combo after this many failures in a row. Earlier trials are kept.",
     )
     parser.add_argument("--punct-model", type=Path, default=HERE / "models" / "punct" / "model.onnx")
+    parser.add_argument(
+        "--schedule",
+        default="serial",
+        choices=("serial", "defer-tts", "hold-asr"),
+        help=(
+            "serial opens TTS before the LLM. defer-tts opens it after the first token. "
+            "hold-asr keeps ASR up until then."
+        ),
+    )
     args = parser.parse_args()
 
     load_dotenv(Path.cwd())
@@ -103,6 +112,8 @@ def main() -> None:
                 mock=args.mock,
                 gap=args.gap,
                 max_consecutive_failures=args.max_consecutive_failures,
+                defer_tts=args.schedule == "defer-tts",
+                hold_asr=args.schedule == "hold-asr",
             )
         )
         kind = "mock" if args.mock else "cascade"
@@ -202,6 +213,8 @@ async def _realtime_matrix(
     mock: bool,
     gap: float,
     max_consecutive_failures: int,
+    defer_tts: bool = False,
+    hold_asr: bool = False,
 ) -> tuple[list[Trial], list[str]]:
     system = PERSONA_PATH.read_text(encoding="utf-8").strip() + "\n"
     history = _history()
@@ -232,6 +245,8 @@ async def _realtime_matrix(
                         model=model,
                         oracle=oracle,
                         mock=mock,
+                        defer_tts=defer_tts,
+                        hold_asr=hold_asr,
                     )
                     trials.append(trial)
                     state = "ok" if trial.ok else trial.error
@@ -265,6 +280,8 @@ async def _one_trial(
     model: CompletenessModel | None,
     oracle: bool,
     mock: bool,
+    defer_tts: bool = False,
+    hold_asr: bool = False,
 ) -> Trial:
     trial: Trial | None = None
     for attempt in range(1, 4):
@@ -288,6 +305,8 @@ async def _one_trial(
                 oracle_partials=oracle,
                 mock=mock,
                 instruction=STABLE_INSTRUCTION,
+                defer_tts=defer_tts,
+                hold_asr=hold_asr,
             )
         except Exception as exc:
             trial = _failed_trial(item, asr_name, llm_name, tts_name, mode, repeat, mock, oracle, redact(str(exc)))
