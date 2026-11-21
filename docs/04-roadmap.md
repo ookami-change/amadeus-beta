@@ -94,10 +94,10 @@
 | 语言 | 中文对话 + 中文语音 |
 | 部署 | 国内线：语音识别、大模型、语音合成、智能体服务全部用国内厂商并部署在国内，见 [06 供应商候选](06-vendors.md) |
 | 发布节奏 | 先免费推广，之后再考虑商业化 |
-| 3D 模型 | 负责人用 VRoid Studio 制作（需求包 A8）；到位前开发用公开示例模型 |
+| 3D 模型 | 由 Kimi 制作（需求包 A8，2026-11-21 改为外包），规格见 [guides/vroid-claude.md](guides/vroid-claude.md)；到位前开发用公开示例模型 |
 | 声线 | MiniMax 系统音色 Intellectual Girl（负责人 2026-11-19 盲听选定：冷静可靠，最贴克劳德）。档位用 `speech-2.8-turbo`（负责人 2026-11-20 盲听 turbo 与 hd 不相上下；turbo 首包更稳、价格低约四成）；逐条情绪参数待试听；CosyVoice 设计音色 V2 活人感最强，留作备选和其他角色 |
 | 测试环境 | 腾讯云 CVM，上海二区，见 [07 测试服务器](07-test-server.md)；密钥存于负责人的 1Password |
-| 美术 | 由 Grok、Kimi 负责，需求见 [05 美术需求书](05-art-brief.md) |
+| 美术 | 由 Grok、Kimi 负责，需求见 [05 美术需求书](05-art-brief.md)；Kimi 同时负责 3D 模型 |
 | 开发 | 由 Cursor 负责，规约见 [AGENTS.md](../AGENTS.md)，任务单在 [tasks/](tasks/) |
 | 项目管理与架构 | 由 Claude 负责：需求、架构、任务单、验收评审 |
 
