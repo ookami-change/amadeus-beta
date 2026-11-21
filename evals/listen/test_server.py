@@ -80,6 +80,18 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(self.get(f"/l/{SLUG}/../../outside.html")[0], 404)
         self.assertIsNone(resolve_static(self.root / "pages", SLUG, "../../outside.html"))
 
+    def test_unreadable_page_is_404(self) -> None:
+        import os
+
+        if os.geteuid() == 0:
+            self.skipTest("root can read everything")
+        page = self.root / "pages" / SLUG
+        page.chmod(0o000)
+        try:
+            self.assertEqual(self.get(f"/l/{SLUG}/")[0], 404)
+        finally:
+            page.chmod(0o755)
+
     def test_audio_range(self) -> None:
         status, body, headers = self.get(f"/l/{SLUG}/audio/01.wav", {"Range": "bytes=10-19"})
         self.assertEqual(status, 206)

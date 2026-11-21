@@ -66,7 +66,10 @@ def resolve_static(pages: Path, slug: str, rel: str) -> Path | None:
         return None
     base = (pages / slug).resolve()
     target = (base / (rel or "index.html")).resolve()
-    if not target.is_relative_to(base) or not target.is_file():
+    try:
+        if not target.is_relative_to(base) or not target.is_file():
+            return None
+    except OSError:  # unreadable folder or file: treat as missing rather than drop the connection
         return None
     if target.suffix.lower() not in TYPES:
         return None

@@ -49,7 +49,7 @@ REMOTE
 publish)
 	dir="${2:?built page dir}" slug="${3:?slug}"
 	[[ "$slug" =~ ^[A-Za-z0-9_-]{16,64}$ ]] || { echo "slug must be 16-64 of [A-Za-z0-9_-]" >&2; exit 1; }
-	tar -C "$dir" -cf - . | ssh "$HOST" "sudo rm -rf /srv/amadeus-listen/pages/$slug.new && sudo mkdir -p /srv/amadeus-listen/pages/$slug.new && sudo tar -C /srv/amadeus-listen/pages/$slug.new -xf - && sudo rm -rf /srv/amadeus-listen/pages/$slug && sudo mv /srv/amadeus-listen/pages/$slug.new /srv/amadeus-listen/pages/$slug"
+	tar -C "$dir" -cf - . | ssh "$HOST" "sudo rm -rf /srv/amadeus-listen/pages/$slug.new && sudo mkdir -p /srv/amadeus-listen/pages/$slug.new && sudo tar --no-same-owner --no-same-permissions -C /srv/amadeus-listen/pages/$slug.new -xf - && sudo chmod -R u=rwX,go=rX /srv/amadeus-listen/pages/$slug.new && sudo rm -rf /srv/amadeus-listen/pages/$slug && sudo mv /srv/amadeus-listen/pages/$slug.new /srv/amadeus-listen/pages/$slug"
 	echo "published /l/$slug/"
 	;;
 feedback)
