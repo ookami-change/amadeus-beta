@@ -55,9 +55,9 @@ class ServerTests(unittest.TestCase):
         except urllib.error.HTTPError as err:
             return err.code, err.read(), dict(err.headers)
 
-    def put(self, path: str, body: bytes) -> int:
+    def put(self, path: str, body: bytes, method: str = "PUT") -> int:
         req = urllib.request.Request(
-            self.base + path, data=body, method="PUT", headers={"Content-Type": "application/json"}
+            self.base + path, data=body, method=method, headers={"Content-Type": "application/json"}
         )
         try:
             with urllib.request.urlopen(req) as res:
@@ -101,6 +101,33 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(self.put(f"/l/{SLUG}/api/feedback", b"not json"), 400)
         self.assertEqual(self.put(f"/l/{SLUG}/api/feedback", b"{" + b" " * 300_000 + b"}"), 413)
         self.assertEqual(self.put("/l/short/api/feedback", b"{}"), 404)
+
+    def test_reports_append(self) -> None:
+        url = f"/l/{SLUG}/api/report"
+        self.assertEqual(json.loads(self.get(url)[1]), [])
+        self.assertEqual(self.put(url, json.dumps({"device": "a"}).encode(), "POST"), 200)
+        self.assertEqual(self.put(url, json.dumps({"device": "b"}).encode(), "POST"), 200)
+        self.assertEqual(self.put(url, json.dumps({"device": "c"}).encode(), "PUT"), 405)
+        self.assertEqual(self.put(url, b"[1]", "POST"), 400)
+        reports = json.loads(self.get(url)[1])
+        self.assertEqual([r["report"]["device"] for r in reports], ["a", "b"])
+        self.assertEqual([r["n"] for r in reports], [1, 2])
+
+    def test_reports_cap(self) -> None:
+        from listen import server
+
+        folder = self.root / "data" / SLUG
+        folder.mkdir(parents=True)
+        (folder / "reports.jsonl").write_text('{"n": 0, "report": {}}\n' * server.MAX_REPORTS, encoding="utf-8")
+        self.assertEqual(self.put(f"/l/{SLUG}/api/report", b"{}", "POST"), 507)
+
+    def test_model_and_blob_csp(self) -> None:
+        (self.root / "pages" / SLUG / "avatar.vrm").write_bytes(b"glTF")
+        status, _, headers = self.get(f"/l/{SLUG}/avatar.vrm")
+        self.assertEqual(status, 200)
+        self.assertEqual(headers["Content-Type"], "model/gltf-binary")
+        csp = self.get(f"/l/{SLUG}/")[2]["Content-Security-Policy"]
+        self.assertIn("connect-src 'self' blob:", csp)
 
 
 if __name__ == "__main__":

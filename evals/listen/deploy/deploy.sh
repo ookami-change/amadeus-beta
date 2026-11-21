@@ -4,6 +4,8 @@
 #   HOST=ubuntu@<server> SITE=<domain> evals/listen/deploy/deploy.sh install
 #   HOST=ubuntu@<server> evals/listen/deploy/deploy.sh publish <built-page-dir> <slug>
 #   HOST=ubuntu@<server> evals/listen/deploy/deploy.sh feedback <slug>
+#   HOST=ubuntu@<server> evals/listen/deploy/deploy.sh reports <slug>
+#   HOST=ubuntu@<server> evals/listen/deploy/deploy.sh update     # ship server.py only, restart
 #
 # The server address is not kept in the repository. Ask the architect.
 set -euo pipefail
@@ -54,8 +56,16 @@ feedback)
 	slug="${2:?slug}"
 	ssh "$HOST" "sudo cat /srv/amadeus-listen/data/$slug/feedback.json 2>/dev/null || echo '{}'"
 	;;
+reports)
+	slug="${2:?slug}"
+	ssh "$HOST" "sudo cat /srv/amadeus-listen/data/$slug/reports.jsonl 2>/dev/null || true"
+	;;
+update)
+	tar -C "$here/../.." -cf - listen/__init__.py listen/server.py \
+		| ssh "$HOST" 'sudo tar -C /srv/amadeus-listen/app -xf - && sudo systemctl restart amadeus-listen && systemctl is-active amadeus-listen'
+	;;
 *)
-	sed -n '2,8p' "$0"
+	sed -n '2,10p' "$0"
 	exit 1
 	;;
 esac

@@ -8,10 +8,10 @@
 
 | 文件 | 作用 |
 |---|---|
-| `server.py` | 只用标准库。托管 `pages/<slug>/` 下的页面，把反馈存进 `data/<slug>/feedback.json`，同时每次追加到 `history.jsonl`。音频支持 Range 请求，Safari 播放需要这个。全站 `noindex`，`/robots.txt` 禁止所有爬虫 |
+| `server.py` | 只用标准库。托管 `pages/<slug>/` 下的页面（html、js、css、音频、图片、`.vrm` 模型）。音频支持 Range 请求，Safari 播放需要这个。全站 `noindex`，`/robots.txt` 禁止所有爬虫。两个接口：<br>`api/feedback`：负责人的答卷，每页一份，反复覆盖，存在 `data/<slug>/feedback.json`，每次覆盖都追加一行到 `history.jsonl`<br>`api/report`：只追加，多台设备可以往同一页各报一份（比如 R4 的帧率测量），存在 `data/<slug>/reports.jsonl`，每页最多 500 条 |
 | `page/index.html` | 通用试听页模板。题目从嵌入的 manifest 读取。每版回答「还是她吗」「情绪到位吗」两个问题，每组可以选最好的一版、写备注；点「完成」后才能揭晓参数。页脚标注「AI 合成」（MiniMax 协议第 1.7 条） |
 | `make_page.py` | 用一份 spec 生成页面目录。音频改成 `audio/01.wav` 这种编号名，听的人看文件名猜不出是哪一版 |
-| `deploy/deploy.sh` | 三个用法：`install`（装服务和 Caddy）、`publish`（发布一页）、`feedback`（读结果） |
+| `deploy/deploy.sh` | 五个用法：<br>`install`：装服务和 Caddy<br>`update`：只更新 server.py 并重启<br>`publish`：发布一页<br>`feedback`：读答卷<br>`reports`：读追加的报告 |
 | `deploy/amadeus-listen.service` | systemd 服务：独立用户、只读文件系统、只能写 `data/`、只监听 127.0.0.1:8080 |
 | `deploy/Caddyfile` | Caddy 自动申请 HTTPS 证书，反代到 8080 |
 
@@ -55,6 +55,15 @@
    ```bash
    HOST=ubuntu@<服务器> evals/listen/deploy/deploy.sh feedback <slug>
    ```
+
+## 托管别的页面（比如形象演示）
+
+任何静态构建产物都能放进来，只要页面里的路径全是相对路径（Vite 用 `--base ./`）。页面要往服务器报数据时：
+
+- `POST api/report`，请求体是一个 JSON 对象，最大 256 KiB。服务器加上序号和收到的时间，一行一条存下。
+- `GET api/report` 返回这一页收到的全部报告。拿到链接的人都能读，所以报告里不要放个人信息。
+
+CSP 允许 `blob:` 形式的图片和请求，GLTFLoader 加载模型内嵌的贴图需要这个。
 
 ## 首次安装
 

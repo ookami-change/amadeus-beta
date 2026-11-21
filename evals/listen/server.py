@@ -11,7 +11,12 @@ Routes:
 * ``GET /l/<slug>/...``            static files of one page
 * ``GET /l/<slug>/api/feedback``   the latest saved answers, or ``{}``
 * ``PUT /l/<slug>/api/feedback``   replace the answers (JSON object)
+* ``POST /l/<slug>/api/report``    append one report (JSON object), e.g. one device's frame-rate run
+* ``GET /l/<slug>/api/report``     every report so far, oldest first
 * ``GET /robots.txt``              disallow everything
+
+Feedback is one record per page that the owner keeps editing. Reports are
+append-only, so several devices can post to the same page.
 """
 
 from __future__ import annotations
@@ -30,6 +35,7 @@ from urllib.parse import unquote, urlsplit
 
 SLUG = re.compile(r"^[A-Za-z0-9_-]{16,64}$")
 MAX_BODY = 256 * 1024
+MAX_REPORTS = 500
 TYPES = {
     ".html": "text/html; charset=utf-8",
     ".json": "application/json; charset=utf-8",
@@ -39,13 +45,18 @@ TYPES = {
     ".js": "text/javascript; charset=utf-8",
     ".css": "text/css; charset=utf-8",
     ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".webp": "image/webp",
     ".svg": "image/svg+xml",
+    ".woff2": "font/woff2",
+    ".vrm": "model/gltf-binary",
+    ".glb": "model/gltf-binary",
 }
 CSP = (
     "default-src 'self'; script-src 'self' 'unsafe-inline'; "
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
-    "font-src https://fonts.gstatic.com; media-src 'self'; connect-src 'self'; "
-    "img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+    "font-src 'self' https://fonts.gstatic.com; media-src 'self'; connect-src 'self' blob:; "
+    "img-src 'self' data: blob:; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
 )
 
 
@@ -105,6 +116,33 @@ def save_feedback(data: Path, slug: str, feedback: dict[str, Any]) -> dict[str, 
     return record
 
 
+def load_reports(data: Path, slug: str) -> list[dict[str, Any]]:
+    path = data / slug / "reports.jsonl"
+    if not path.is_file():
+        return []
+    reports: list[dict[str, Any]] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.strip():
+            record = json.loads(line)
+            if isinstance(record, dict):
+                reports.append(record)
+    return reports
+
+
+def append_report(data: Path, slug: str, report: dict[str, Any]) -> dict[str, Any] | None:
+    """Append one report. Return the stored record, or None once the page has MAX_REPORTS."""
+    folder = data / slug
+    folder.mkdir(parents=True, exist_ok=True)
+    path = folder / "reports.jsonl"
+    count = len(path.read_text(encoding="utf-8").splitlines()) if path.is_file() else 0
+    if count >= MAX_REPORTS:
+        return None
+    record = {"n": count + 1, "receivedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "report": report}
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+    return record
+
+
 def make_handler(root: Path) -> type[BaseHTTPRequestHandler]:
     pages = root / "pages"
     data = root / "data"
@@ -160,6 +198,9 @@ def make_handler(root: Path) -> type[BaseHTTPRequestHandler]:
             if rel == "api/feedback":
                 self._json(HTTPStatus.OK, load_feedback(data, slug))
                 return
+            if rel == "api/report":
+                self._json(HTTPStatus.OK, load_reports(data, slug))
+                return
             target = resolve_static(pages, slug, rel)
             if target is None:
                 self._not_found()
@@ -197,28 +238,45 @@ def make_handler(root: Path) -> type[BaseHTTPRequestHandler]:
             if self.command != "HEAD":
                 self.wfile.write(chunk)
 
-        def do_PUT(self) -> None:
-            route = self._route()
-            if route is None or route[1] != "api/feedback":
-                self._not_found()
-                return
+        def _body(self) -> dict[str, Any] | None:
+            """Read a JSON object body, or answer the error and return None."""
             try:
                 length = int(self.headers.get("Content-Length", "0"))
             except ValueError:
                 length = -1
             if length <= 0 or length > MAX_BODY:
                 self._json(HTTPStatus.REQUEST_ENTITY_TOO_LARGE, {"error": "body must be 1 byte to 256 KiB"})
-                return
+                return None
             try:
                 payload = json.loads(self.rfile.read(length).decode("utf-8"))
             except (UnicodeDecodeError, json.JSONDecodeError):
                 self._json(HTTPStatus.BAD_REQUEST, {"error": "body must be JSON"})
-                return
+                return None
             if not isinstance(payload, dict):
                 self._json(HTTPStatus.BAD_REQUEST, {"error": "body must be a JSON object"})
+                return None
+            return payload
+
+        def do_PUT(self) -> None:
+            route = self._route()
+            if route is None or route[1] not in ("api/feedback", "api/report"):
+                self._not_found()
                 return
-            record = save_feedback(data, route[0], payload)
-            self._json(HTTPStatus.OK, {"savedAt": record["savedAt"]})
+            if route[1] == "api/report" and self.command != "POST":
+                self._json(HTTPStatus.METHOD_NOT_ALLOWED, {"error": "reports are append-only; use POST"})
+                return
+            payload = self._body()
+            if payload is None:
+                return
+            if route[1] == "api/feedback":
+                record = save_feedback(data, route[0], payload)
+                self._json(HTTPStatus.OK, {"savedAt": record["savedAt"]})
+                return
+            stored = append_report(data, route[0], payload)
+            if stored is None:
+                self._json(HTTPStatus.INSUFFICIENT_STORAGE, {"error": f"this page already has {MAX_REPORTS} reports"})
+                return
+            self._json(HTTPStatus.OK, {"n": stored["n"], "receivedAt": stored["receivedAt"]})
 
         do_POST = do_PUT
 
