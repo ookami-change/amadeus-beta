@@ -1,0 +1,14 @@
+evals/tts/REPORT.md
+  h_4582651661fad9 144-234,279
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "14d964c90df8d1df6ff0d5be0c8bc288390bbea0",
+  "prompts": {},
+  "humans": {
+    "h_4582651661fad9": {
+      "author": "hanchenggang.4869 <hanchenggang.4869@jd.com>"
+    }
+  }
+}
