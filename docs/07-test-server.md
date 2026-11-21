@@ -50,3 +50,13 @@
 - 为测试服务器建一个**只读、只能访问该保险库**的服务账号（Service Account），服务器上用 1Password CLI 在启动时注入环境变量：`op run --env-file=.env.tpl -- <启动命令>`。`.env.tpl` 里只写引用（`op://Amadeus/...`），可以入库
 - 服务器磁盘上不落明文密钥；服务账号令牌本身按 1Password 的说明保存，泄露时在 1Password 里吊销即可
 - 开发者本机同理，用自己的 1Password 账号执行 `op run`
+
+## 6. 试听反馈服务器
+
+给负责人做盲听的页面放在公网上，部署在负责人的 AWS 服务器上（负责人 2026-11-22 决定）。这台机器和上面的国内测试机是两台，只跑试听页，不跑智能体。
+
+- 用 Caddy 自动签发 HTTPS 证书，域名用 sslip.io 按 IP 自动解析；负责人有了自己的域名可以随时换
+- 每一期页面放在随机路径下，全站 noindex，页面上标注「AI 合成」
+- 反馈存在这台服务器上，架构师用 `evals/listen/deploy/deploy.sh feedback <slug>` 读取
+- 仓库是公开的，**服务器地址不写进仓库**，记在 agent-bus 的 KV `infra/listen-server`
+- 代码、发布方法和回滚步骤见 `evals/listen/README.md`

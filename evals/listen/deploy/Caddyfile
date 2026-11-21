@@ -1,0 +1,6 @@
+# SITE is set in /etc/default/caddy, e.g. a sslip.io name or the owner's domain.
+{$SITE} {
+	encode gzip
+	header -Server
+	reverse_proxy 127.0.0.1:8080
+}

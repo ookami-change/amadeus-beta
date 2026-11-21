@@ -1,0 +1,25 @@
+[Unit]
+Description=Amadeus listening-feedback server
+After=network.target
+
+[Service]
+User=amadeus-listen
+Group=amadeus-listen
+WorkingDirectory=/srv/amadeus-listen/app
+ExecStart=/usr/bin/python3 -I /srv/amadeus-listen/app/listen/server.py --root /srv/amadeus-listen --host 127.0.0.1 --port 8080
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+ReadWritePaths=/srv/amadeus-listen/data
+MemoryMax=200M
+
+[Install]
+WantedBy=multi-user.target

@@ -20,7 +20,7 @@ package = false
 [tool.ruff]
 target-version = "py312"
 line-length = 120
-src = ["latency", "tts"]
+src = ["latency", "tts", "listen"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
@@ -30,12 +30,12 @@ select = ["E", "F", "I", "UP", "B"]
 "latency/stats.py" = ["E501"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["latency", "tts"]
+known-first-party = ["latency", "tts", "listen"]
 
 [tool.mypy]
 python_version = "3.12"
 strict = true
-files = ["latency", "tts"]
+files = ["latency", "tts", "listen"]
 warn_unused_ignores = true
 disallow_any_generics = false
 ignore_missing_imports = true

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>克劳德试听</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+/* One narrow listening column: a sheet per line, reference clips on top, blind takes below. */
+:root {
+  --bg: #f3f4f7; --sheet: #ffffff; --ink: #1d2230; --muted: #5d6475; --line: #dde0e8;
+  --accent: #3b4f8f; --accent-soft: #e6eaf6; --yes: #2f7a55; --maybe: #a26b12; --no: #b03a3a;
+  --display: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #13161d; --sheet: #1c2029; --ink: #e7e9ef; --muted: #9aa1b2; --line: #2e3340;
+    --accent: #9fb2ef; --accent-soft: #263050; --yes: #6cc49a; --maybe: #e0b15a; --no: #ee8686;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 64px;
+}
+main { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h1 { font-size: 1.75rem; line-height: 1.3; }
+h2 { font-size: 1.3rem; }
+p { margin: 0; }
+.lede { color: var(--muted); max-width: 62ch; }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--muted); }
+.howto { padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--sheet); }
+.howto ol { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; }
+.sheet { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+.quote { font-family: var(--display); font-size: 1.35rem; line-height: 1.5; }
+.hint { color: var(--muted); font-size: 0.9rem; }
+.refs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.ref { background: var(--accent-soft); border-radius: 8px; padding: 10px 12px; display: grid; gap: 6px; min-width: 0; }
+.ref b { font-weight: 500; font-size: 0.9rem; }
+audio { width: 100%; height: 36px; }
+.take { border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 8px; }
+.take-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.take-name { font-family: var(--display); font-size: 1.1rem; font-weight: 700; }
+.reveal { font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.q { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.q > span { font-size: 0.85rem; color: var(--muted); min-width: 5.5em; }
+.chip { font: inherit; font-size: 0.9rem; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px; padding: 3px 12px; cursor: pointer; }
+.chip:hover { border-color: var(--accent); }
+.chip:focus-visible, .btn:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chip[aria-pressed="true"][data-tone="good"] { background: var(--yes); border-color: var(--yes); color: var(--sheet); }
+.chip[aria-pressed="true"][data-tone="mid"] { background: var(--maybe); border-color: var(--maybe); color: var(--sheet); }
+.chip[aria-pressed="true"][data-tone="bad"] { background: var(--no); border-color: var(--no); color: var(--sheet); }
+.foot { border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 10px; }
+label.lbl { font-size: 0.85rem; color: var(--muted); display: grid; gap: 4px; }
+select, textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; width: 100%; }
+textarea { min-height: 64px; resize: vertical; }
+.bar { position: sticky; bottom: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.status { flex: 1 1 220px; font-size: 0.9rem; color: var(--muted); min-width: 0; }
+.status.err { color: var(--no); }
+.btn { font: inherit; font-weight: 500; border-radius: 8px; padding: 8px 16px; cursor: pointer; border: 1px solid var(--accent); }
+.btn.primary { background: var(--accent); color: var(--sheet); }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.ai { font-size: 0.8rem; color: var(--muted); text-align: center; }
+@media (prefers-reduced-motion: no-preference) { .chip, .btn { transition: background-color .15s, border-color .15s; } }
+</style>
+</head>
+<body>
+<main>
+  <header style="display:grid;gap:10px">
+    <p class="eyebrow" id="eyebrow"></p>
+    <h1 id="heading">正在载入…</h1>
+    <p class="lede" id="lede"></p>
+  </header>
+  <section class="howto" aria-label="怎么听"><ol id="steps"></ol></section>
+  <div id="lines"></div>
+  <section class="sheet" aria-label="总体意见">
+    <h2>总体意见</h2>
+    <label class="lbl" for="overall">还有什么想说的？</label>
+    <textarea id="overall" placeholder="可以不填"></textarea>
+  </section>
+  <div class="bar" role="region" aria-label="保存状态">
+    <p class="status" id="status">正在连接…</p>
+    <button class="btn ghost" id="revealBtn" type="button" disabled>揭晓参数</button>
+    <button class="btn primary" id="doneBtn" type="button" disabled>完成</button>
+  </div>
+  <p class="ai">本页音频均为 AI 合成（语音合成模型生成），仅供内部试听。</p>
+</main>
+<script id="manifest" type="application/json">null</script>
+<script>
+"use strict";
+const NAMES = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛"];
+const DEFAULT_QUESTIONS = [
+  { field: "voice", label: "还是她吗", options: [["yes", "是她", "good"], ["maybe", "有点不像", "mid"], ["no", "不是她", "bad"]] },
+  { field: "emotion", label: "情绪到位吗", options: [["good", "到位", "good"], ["ok", "一般", "mid"], ["bad", "没到位", "bad"]] },
+];
+let M = null;
+let state = { takes: {}, lines: {}, overall: "", submitted: false };
+let revealed = false, ready = false, saveTimer = null, saving = false, dirty = false;
+const $ = (id) => document.getElementById(id);
+function setStatus(text, err) { $("status").textContent = text; $("status").classList.toggle("err", !!err); }
+function el(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (k === "class") e.className = v; else if (k === "text") e.textContent = v; else e.setAttribute(k, v);
+  }
+  for (const k of kids) if (k) e.append(k);
+  return e;
+}
+function questions() { return M.questions || DEFAULT_QUESTIONS; }
+function takeCount() { return M.lines.reduce((n, L) => n + L.takes.length, 0); }
+function lineState(id) { return (state.lines[id] = state.lines[id] || { best: "", note: "" }); }
+
+function chipRow(q, key) {
+  const row = el("div", { class: "q", role: "group", "aria-label": q.label }, el("span", { text: q.label }));
+  for (const [val, txt, tone] of q.options) {
+    const b = el("button", { class: "chip", type: "button", "data-tone": tone || "mid", "data-v": val, "data-key": key, "data-field": q.field, "aria-pressed": "false", text: txt });
+    b.addEventListener("click", () => {
+      const cur = (state.takes[key] || {})[q.field];
+      state.takes[key] = { ...(state.takes[key] || {}), [q.field]: cur === val ? null : val };
+      render(); queueSave();
+    });
+    row.append(b);
+  }
+  return row;
+}
+function clip(label, src, reveal) {
+  return el("div", { class: "ref" }, el("b", { text: label }),
+    el("audio", { controls: "", preload: "none", src }),
+    reveal ? el("span", { class: "reveal", "data-reveal": reveal }) : null);
+}
+function build() {
+  document.title = M.title || "克劳德试听";
+  $("eyebrow").textContent = M.eyebrow || "";
+  $("heading").textContent = M.heading || M.title || "试听";
+  $("lede").textContent = M.lede || "";
+  for (const s of M.steps || []) $("steps").append(el("li", { text: s }));
+  const root = $("lines");
+  if (M.reference) root.append(el("section", { class: "sheet", "aria-label": "参照" },
+    el("p", { class: "eyebrow", text: "参照" }), clip(M.reference.label, M.reference.src, M.reference.reveal)));
+  for (const L of M.lines) {
+    const refs = el("div", { class: "refs" });
+    for (const r of L.refs || []) refs.append(clip(r.label, r.src, r.reveal));
+    const sheet = el("section", { class: "sheet", "aria-label": L.title || L.id },
+      el("p", { class: "eyebrow", text: L.title || L.id }),
+      L.text ? el("p", { class: "quote", text: "「" + L.text + "」" }) : null,
+      L.hint ? el("p", { class: "hint", text: "想要的效果：" + L.hint }) : null,
+      (L.refs || []).length ? refs : null);
+    L.takes.forEach((t, i) => {
+      const key = L.id + "-" + (i + 1);
+      const take = el("div", { class: "take" },
+        el("div", { class: "take-head" }, el("span", { class: "take-name", text: NAMES[i] || String(i + 1) }),
+          el("span", { class: "reveal", "data-reveal": t.reveal || "" })),
+        el("audio", { controls: "", preload: "none", src: t.src }));
+      for (const q of questions()) take.append(chipRow(q, key));
+      sheet.append(take);
+    });
+    const best = el("select", { id: "best-" + L.id });
+    best.append(el("option", { value: "", text: "还没选" }));
+    L.takes.forEach((_, i) => best.append(el("option", { value: L.id + "-" + (i + 1), text: NAMES[i] || String(i + 1) })));
+    (L.refs || []).forEach((r, i) => best.append(el("option", { value: L.id + "-ref" + i, text: r.label })));
+    best.append(el("option", { value: "none", text: "都不行" }));
+    best.addEventListener("change", () => { lineState(L.id).best = best.value; queueSave(); });
+    const note = el("textarea", { id: "note-" + L.id, placeholder: "可以不填" });
+    note.addEventListener("input", () => { lineState(L.id).note = note.value; queueSave(); });
+    sheet.append(el("div", { class: "foot" },
+      el("label", { class: "lbl", for: "best-" + L.id }, document.createTextNode("这一组最好的是"), best),
+      el("label", { class: "lbl", for: "note-" + L.id }, document.createTextNode("备注"), note)));
+    root.append(sheet);
+  }
+  document.addEventListener("play", (e) => { for (const a of document.querySelectorAll("audio")) if (a !== e.target) a.pause(); }, true);
+  $("overall").addEventListener("input", (e) => { state.overall = e.target.value; queueSave(); });
+}
+function render() {
+  for (const b of document.querySelectorAll(".chip")) {
+    const cur = (state.takes[b.dataset.key] || {})[b.dataset.field];
+    b.setAttribute("aria-pressed", cur === b.dataset.v ? "true" : "false");
+  }
+  for (const L of M.lines) {
+    const ls = state.lines[L.id] || {}, best = $("best-" + L.id), note = $("note-" + L.id);
+    if (best.value !== (ls.best || "")) best.value = ls.best || "";
+    if (document.activeElement !== note && note.value !== (ls.note || "")) note.value = ls.note || "";
+  }
+  const ov = $("overall");
+  if (document.activeElement !== ov && ov.value !== (state.overall || "")) ov.value = state.overall || "";
+  for (const r of document.querySelectorAll(".reveal")) r.textContent = revealed ? r.dataset.reveal : "";
+  const first = questions()[0].field;
+  const answered = Object.values(state.takes).filter((t) => t && t[first]).length;
+  $("revealBtn").disabled = !state.submitted;
+  $("revealBtn").textContent = revealed ? "隐藏参数" : "揭晓参数";
+  $("doneBtn").textContent = state.submitted ? "已完成" : "完成（" + answered + "/" + takeCount() + "）";
+  $("doneBtn").disabled = !ready || state.submitted;
+}
+function queueSave() {
+  dirty = true;
+  if (!ready) return;
+  setStatus("有改动，正在保存…");
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(save, 700);
+}
+async function save() {
+  if (saving) { queueSave(); return; }
+  saving = true; dirty = false;
+  try {
+    const res = await fetch("api/feedback", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state) });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    setStatus(state.submitted ? "已完成并保存。之后的改动也会自动保存。" : "已保存 " + new Date().toLocaleTimeString("zh-CN", { hour12: false }));
+  } catch (e) {
+    dirty = true;
+    setStatus("保存失败（" + e.message + "），几秒后重试。", true);
+    setTimeout(() => { if (dirty) save(); }, 4000);
+  } finally { saving = false; }
+}
+$("doneBtn").addEventListener("click", () => { state.submitted = true; state.submittedAt = new Date().toISOString(); render(); clearTimeout(saveTimer); save(); });
+$("revealBtn").addEventListener("click", () => { revealed = !revealed; render(); });
+(async () => {
+  try {
+    M = JSON.parse($("manifest").textContent || "null");
+    if (!M) {
+      const res = await fetch("manifest.json", { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      M = await res.json();
+    }
+  } catch (e) { setStatus("页面数据载入失败（" + e.message + "），请刷新。", true); $("heading").textContent = "载入失败"; return; }
+  build(); render();
+  try {
+    const res = await fetch("api/feedback", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const rec = await res.json();
+    const d = rec && rec.feedback;
+    if (d && typeof d === "object") state = { takes: d.takes || {}, lines: d.lines || {}, overall: d.overall || "", submitted: !!d.submitted, submittedAt: d.submittedAt };
+    ready = true;
+    setStatus(d ? "已载入上次的选择。选择会自动保存。" : "已连接。选择会自动保存。");
+  } catch (e) { setStatus("连不上保存服务（" + e.message + "），选择暂时不会保存，请刷新重试。", true); }
+  render();
+})();
+</script>
+</body>
+</html>
