@@ -141,6 +141,97 @@ V3：
 
 这次准备走的是 API 创建。即使那样，协议给的也是「权属仍归用户、商用自行评估」，不是一份干净的商用许可。体验入口的生成物不能商用。
 
+## 声线试验 · 核实
+
+核实日期：2026-11-21。本节的“支持”均指官方文档能力，不是本轮实测。本轮只用 HTTP GET 阅读公开官方文档，没有调用复刻或合成接口、没有上传音频、没有产生费用；复刻音色的实际表现留到 VL2 验证。
+
+### MiniMax（国内直供）
+
+1. **源音频与可选示例音频不是同一项。** `file_id` 指向的待复刻源音频支持 mp3、m4a、wav，时长为 **10 秒至 5 分钟**，大小不超过 20MB。可选 `clone_prompt.prompt_audio` 是增强相似度和稳定性的示例音频，要求**小于 8 秒**、不超过 20MB；使用 `clone_prompt` 时其两个子属性都必填。VL0 计划的 15–20 秒有声部分符合源音频时长要求。来源：[音色快速复刻](https://platform.minimaxi.com/docs/api-reference/voice-cloning-clone)。原文：
+   > 上传的音频文件的时长最少应不低于 10 秒，最长应不超过 5 分钟
+
+   > 音色复刻示例音频，提供本参数将有助于增强语音合成的音色相似度和稳定性。
+
+   > 上传的音频文件的时长小于 8 秒
+
+2. **降噪和音量归一化参数都存在，默认均为 `false`。** `need_noise_reduction` 控制降噪，`need_volume_normalization` 控制音量归一化。本试验源音频干净，VL2 应显式传 `need_noise_reduction=false`，不开启降噪。来源：[音色快速复刻](https://platform.minimaxi.com/docs/api-reference/voice-cloning-clone)。原文：
+   > 音频复刻参数，表示是否开启降噪，默认值为 false
+
+   > 音频复刻参数，是否开启音量归一化，默认值为 false
+
+3. **复刻音色可用于 `speech-2.8-turbo`；该模型有流式输出及 R8b 所用参数。** 复刻接口的试听 `model` 枚举包含 `speech-2.8-turbo`；T2A 接口也包含该模型，`stream=true` 开启流式输出。`voice_setting` 支持 `speed`（`[0.5,2]`，默认 1.0）、`vol`（`(0,10]`，默认 1.0）、`pitch`（`[-12,12]`，默认 0）和 `emotion`。2.8 不支持 `whisper`。当前页一面把 `fluent` 放入 `emotion` 总枚举，一面又写“选项 `fluent`, `whisper` 仅对 `speech-2.6-turbo`, `speech-2.6-hd` 模型生效”；这与 R8b 第 4 条在 2.8 上成功使用 `fluent` 的历史记录不一致，VL2 第 4 条须实测复核，不能靠文档推定。复刻音色上的逐条参数本轮未实测。来源：[音色快速复刻](https://platform.minimaxi.com/docs/api-reference/voice-cloning-clone)、[同步语音合成](https://platform.minimaxi.com/docs/api-reference/speech-t2a-http)。原文：
+   > 可用选项: speech-2.8-hd,speech-2.8-turbo,speech-2.6-hd,speech-2.6-turbo,speech-02-hd,speech-02-turbo,speech-01-hd,speech-01-turbo
+
+   > 同步语音合成通过 HTTP 请求一次提交完整文本并返回合成音频，支持流式输出。
+
+   > 合成音频的语速，取值越大，语速越快。取值范围 `[0.5,2]`，默认值为1.0
+
+   > 合成音频的音量，取值越大，音量越高。取值范围 `(0,10]`，默认值为 1.0
+
+   > 合成音频的语调，取值范围 `[-12,12]`，默认值为 0，其中 0 为原音色输出
+
+4. **国内直供与百炼代售的这两项当前目录价一致：复刻音色 9.90 元，首次实际用于合成时收取；turbo 合成 2.00 元/万字符。** 创建时不立即收费，复刻接口里的试听另按所选模型合成单价计费。百炼同步合成参考的“支持的模型”表明确列出 `MiniMax/speech-2.8-turbo` 为 2 元/万字符，复刻一个音色 9.9 元，在首次使用复刻出来的音色进行语音合成时收取，无免费额度。两条渠道的入口和账单仍然分开；本预算只采用 MiniMax 国内直供价格，不与百炼代售混算。来源：[MiniMax 定价概览](https://platform.minimaxi.com/docs/pricing/overview)、[百炼 MiniMax 同步语音合成 API 参考](https://help.aliyun.com/zh/model-studio/minimax-synchronous-speech-synthesis-api)。原文：
+   > 复刻音色时不立即收费，首次使用该音色进行合成时才计入。试听字符按所选试听模型的单价计费。
+
+   > 以下价格均以人民币计价。
+
+   > MiniMax/speech-2.8-turbo 2元
+
+   > 9.9元 （在首次使用复刻出来的音色进行语音合成的时候收取）
+
+   > 无
+
+5. **7 天规则只明确了首次正式调用前的删除条件。** 复刻后 7 天内未正式调用，音色会被删除，所以 VL2 必须在复刻后 7 天内完成首次正式合成。当前文档没有说首次正式调用后还必须每 7 天持续调用，也没有给出靠持续调用续期的规则；长期保留或其他保留办法**未查到**，不能自行推导。来源：[音色快速复刻](https://platform.minimaxi.com/docs/api-reference/voice-cloning-clone)。原文：
+   > 复刻得到的音色若 7 天内未正式调用，则系统会删除该音色。
+
+6. **授权不是 Apache-2.0 模型许可所能替代的。** 用户协议第 3.18、6.2 条要求上传内容权属归用户或已获合法授权，并明确涉及声音权等第三方权利；第 1.7 条要求发布或传播生成音频时显著标识，且不得擅自去除平台标识；第 6.3 条只在用户依法享有输出权利的前提下讨论输入输出使用，并不是 MiniMax 额外授予输出权属或商用许可。复刻音色本身的单独权属条款、以及针对 Apache-2.0 模型生成源音频的专门规定均**未查到**。因此，上游模型采用 Apache-2.0 不等于 MiniMax 允许或担保这种源音频；VL2 前仍须确认生成音频的使用权及第三方权利。来源：[MiniMax 开放平台用户协议](https://platform.minimaxi.com/docs/guides/terms-of-service)（当前跳转至 `platform.minimax.cn/protocol/user-agreement`）。原文：
+   > 您知悉并承诺，通过本服务提交、提供、上传、输入、输出、发布、传播的全部信息内容，权属完整归属于您，或已事先取得对应权利持有人完整、合法的处理授权
+
+   > 您在发布或传播输出内容，或者其他基于深度学习、虚拟现实、生成式人工智能等新技术新应用制作的文字、图片、音频、视频等信息内容时，应当以显著方式予以标识、说明或提示，避免造成误导、混淆或误认。
+
+   > 对于用户使用我们服务而产生的输出内容，如果用户根据相关法律法规规定享有其所有权或知识产权的
+
+### CosyVoice（阿里云百炼，华北 2·北京）
+
+1. **当前指南的源音频要求是推荐 10–20 秒、最长 60 秒，而不是硬性 5–20 秒。** 支持 16-bit WAV、MP3、M4A，文件不超过 10MB，采样率不低于 16kHz；单声道或双声道（双声道仅处理首声道）。至少包含 5 秒连续清晰朗读，其余停顿不超过 2 秒，避免背景音、环境噪声和其他人声。本次所查当前官方页未写“5–20 秒”这一组上下限；VL0 的 15–20 秒有声部分符合当前推荐区间。来源：[音色复刻指南](https://help.aliyun.com/zh/model-studio/voice-cloning-user-guide)。原文：
+   > 音频时长推荐 10～20 秒，最长不超过 60 秒。
+
+   > 至少包含 5 秒连续清晰的朗读内容，其余部分仅允许短暂停顿（≤ 2 秒）。避免背景音乐、环境噪声和其他人声。
+
+2. **北京支持 `cosyvoice-v3.5-flash`，复刻音色与创建时的 `target_model` 绑定，不能跨模型。** 北京 CosyVoice 支持 `cosyvoice-v3.5-plus`、`cosyvoice-v3.5-flash`、`cosyvoice-v3-plus`、`cosyvoice-v3-flash`、`cosyvoice-v2`。模型页写明 v3.5-flash 升级了克隆能力并支持 free-style 指令；HTTP 文档明确其复刻音色可在流式输出中开启字级时间戳。但**复刻音色是否接受本试验自由指令、14 条实际返回多少条字级时间戳均列为 VL2 待验证，本次不调用，不能沿用设计音色的 R8 实测结论**。来源：[音色复刻指南](https://help.aliyun.com/zh/model-studio/voice-cloning-user-guide)、[cosyvoice-v3.5-flash](https://help.aliyun.com/zh/model-studio/cosyvoice-v3-5-flash)、[CosyVoice HTTP API](https://help.aliyun.com/zh/model-studio/cosyvoice-tts-http-api)。原文：
+   > Qwen-Audio-TTS / Qwen-Audio-Realtime / CosyVoice 的复刻音色在创建时绑定到 target_model，不能跨模型使用。
+
+   > 对声音克隆和声音设计的语音合成效果进行全面升级，确保说话人高相似度的前提下，支持free-style指令控制
+
+   > 支持的音色范围：cosyvoice-v3.5-plus、cosyvoice-v3.5-flash、cosyvoice-v3-flash、cosyvoice-v3-plus、cosyvoice-v2模型的复刻音色
+
+3. **创建复刻音色免费，合成按目标模型收费；北京 v3.5-flash 目录价为人民币 0.8 元/万字符。** 每个百炼账号的自定义音色总数上限为 1000 个，复刻与设计共用，不按模型分别计算；MiniMax 音色不占这项配额。国际站的美元价格不是本预算口径。来源：[音色复刻指南](https://help.aliyun.com/zh/model-studio/voice-cloning-user-guide)、[cosyvoice-v3.5-flash 中文价格页](https://help.aliyun.com/zh/model-studio/cosyvoice-v3-5-flash)。原文：
+   > Qwen-Audio-TTS / Qwen-Audio-Realtime / CosyVoice：创建音色免费。使用复刻音色合成语音或进行实时语音对话时，按目标模型计费。
+
+   > 每个阿里云百炼账号的自定义音色总数上限为 1000 个。音色复刻和音色设计共用该配额，不按模型分别计算。
+
+   > 华北2（北京）计费项价格（元）单位语音合成0.8每万字符
+
+4. **API 与体验入口的限制必须区分。** 本次所查 API 复刻指南、HTTP API 和《阿里云百炼服务协议》中，未查到“只能使用本人声音”的 API 专项条款；但 API 仍受一般条款约束：第 4.3.1(2)、7.4 条要求输入及素材归用户所有或已获授权，第 7.5 条以用户对上传内容有合法知识产权为条件讨论合成内容权属，第 7.6 条要求商业化前自行评估并承担后果。《体验功能特别说明》第 4 条则明确，模型广场体验声音复刻只能上传本人声音且仅供体验；第 5 条禁止体验生成内容商用。本试验只能走 API，不能使用体验入口；API 入口也不是无条件的商用授权。来源：[阿里云百炼服务协议](https://terms.alicdn.com/legal-agreement/terms/common_platform_service/20230728213935489/20230728213935489.html)、[阿里云百炼体验功能特别说明](https://terms.alicdn.com/legal-agreement/terms/common_platform_service/20260716114753386/20260716114753386.html)。原文：
+   > 您确保，您使用本服务制作的信息内容，是您所有或被相关权利人授权同意处理的信息
+
+   > 请您仔细评估后再进行对外商业化使用，您需确保您及您的下游客户合法合理进行输入、输出行为，并自行承担一切后果
+
+   > 如您使用模型广场体验声音复刻等功能，您承诺并保证您上传的是您本人声音录制的音频
+
+### 预算（仅预估，待负责人批准）
+
+字符口径来自 `evals/tts/lines.py` 的原始 `LINES` 14 条，不采用 `MINIMAX_TUNED` 改过标点的文本，也没有改台词。14 条共 **246 个 Unicode 码点**。MiniMax 按其官方规则“1 个汉字计 2 个字符；英文字母、希腊字母、标点、特殊符号、空格、回车等各计 1 个字符”计算为 **443 个计费字符**（[计数规则来源](https://platform.minimaxi.com/docs/pricing/overview)）。CosyVoice 当前价格页只写“每万字符”，其汉字及标点的具体计数规则本次**未查到**；下表以 `C` 表示其实际有效计费字符数，并仅用 246 个码点作暂估，实际以接口 `usage.characters` 和账单为准。
+
+| 供应商与区域 | 单候选创建 / 解锁 | 单候选合成 14 条 | 单候选小计 | 3 候选合计 |
+|---|---:|---:|---:|---:|
+| MiniMax 国内直供，人民币 | 9.90 元（首次合成时收取） | `443 × 2.00 / 10000` = 0.0886 元 | **9.9886 元** | **29.9658 元** |
+| CosyVoice 百炼北京，人民币 | 0 元 | `C × 0.8 / 10000`；暂估 `C=246` 为 0.01968 元 | 公式 `0.00008C`；暂估 **0.01968 元** | 公式 `0.00024C`；暂估 **0.05904 元** |
+
+价格来源分别是 [MiniMax 国内定价](https://platform.minimaxi.com/docs/pricing/overview) 和 [CosyVoice 北京中文目录价](https://help.aliyun.com/zh/model-studio/cosyvoice-v3-5-flash)。按上述目录价和 CosyVoice 暂估口径，**单候选两家合计 10.00828 元，不超过 20 元；3 候选两家合计 30.02484 元**。CosyVoice 实际计费字符数不同则须按公式重算。
+
+这张表只覆盖题目指定的“3 个候选在两家各复刻一次并各合成 14 条”，不含复刻试听、失败重跑、VL2 延迟补测、MiniMax 基线 14 条、资源包或优惠。**所有待估费用均未获负责人批准；本轮实际费用为 0 元。** VL2 的任何付费调用仍须先获负责人批准。
+
 ## MiniMax 定稿
 
 负责人盲听选定 MiniMax `speech-2.8-hd` Intellectual Girl。这一节是 R8b：上海补了 turbo、测了 hd 首包、逐条调了参数，并核对了自定义能力和授权。档位仍等负责人听完再定。
@@ -185,7 +276,7 @@ V3：
 两样都有，这次都没有调用，所以没有产生 9.90 元的音色费。
 
 - 声音设计：`POST /v1/voice_design`，用文字描述生成 `voice_id`。生成当时不收费，第一次用这个音色合成时收 9.90 元。接口里的试听按 2.00 元/万字符。来源：<https://platform.minimaxi.com/docs/api-reference/voice-design-design>，价格表在 <https://platform.minimaxi.com/docs/pricing/overview>。
-- 快速复刻：上传 mp3、m4a 或 wav，短于 8 秒、不超过 20MB。同样是首次用该音色合成时收 9.90 元。试听按所选模型的合成单价。来源：<https://platform.minimaxi.com/docs/api-reference/voice-cloning-clone>。
+- 快速复刻：`file_id` 源音频为 mp3、m4a 或 wav，时长 10 秒至 5 分钟、不超过 20MB；可选 `clone_prompt.prompt_audio` 示例音频才要求小于 8 秒、不超过 20MB。首次用该音色合成时收 9.90 元。试听按所选模型的合成单价。来源：<https://platform.minimaxi.com/docs/api-reference/voice-cloning-clone>。
 - 合成：`speech-2.8-hd` 3.50 元/万字符，`speech-2.8-turbo` 2.00 元/万字符。1 个汉字算 2 个字符，字母、标点、空格各算 1 个。同一页。
 
 ### 商用授权
