@@ -8,10 +8,11 @@ import struct
 import tempfile
 import unittest
 import wave
+from collections.abc import AsyncIterator
 from pathlib import Path
 
 from latency.adapters.mock import MockASR, MockLLM, MockTTS
-from latency.adapters.types import retryable_error
+from latency.adapters.types import LLMItem, retryable_error
 from latency.adapters.volc_frame import (
     build_asr_audio,
     build_asr_full_client,
@@ -32,6 +33,7 @@ from latency.human_labels import (
     replay_semantic,
     silence_reached,
 )
+from latency.overlap import overlap_trial, texts_continue
 from latency.pcm import frames
 from latency.pipeline import endpoint_trial, realtime_trial
 from latency.prompts import load_persona
@@ -345,6 +347,52 @@ class RealtimeTests(unittest.TestCase):
         self.assertIn("店长", trial.transcript)
         # The fixed endpointer must not look ahead of the frame grid.
         self.assertEqual(len(frames(pcm, 20)), (200 + 700) // 20)
+
+    def test_overlap_cancels_a_speculative_call_when_speech_resumes(self) -> None:
+        self.assertTrue(texts_continue("店长，你来了。", "店长你来了"))
+        self.assertFalse(texts_continue("店长", "店长，你来了。"))
+        pcm = _tone(200) + _silence(300) + _tone(200) + _silence(800)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "hi.wav"
+            _write(path, pcm)
+            item = Item(
+                item_id="01",
+                category="greeting",
+                text="店长，你来了。",
+                audio=path,
+                speech_end_ms=700,
+                segments=(Segment("店长，你来了。", 0, 700),),
+                pauses=(),
+            )
+
+            class CountingLLM(MockLLM):
+                def __init__(self) -> None:
+                    super().__init__()
+                    self.calls = 0
+
+                def stream(self, *, system: str, history: list[dict[str, str]], user: str) -> AsyncIterator[LLMItem]:
+                    self.calls += 1
+                    return super().stream(system=system, history=history, user=user)
+
+            llm = CountingLLM()
+            result = asyncio.run(
+                overlap_trial(
+                    item,
+                    asr=MockASR(transcript=item.text, partial="店长"),
+                    llm=llm,
+                    make_tts=MockTTS,
+                    system="你是克劳德。",
+                    history=[],
+                    probable=lambda pcm, text: bool(text.strip()),
+                    commit_ms=400,
+                    speculate_ms=150,
+                    pad_ms=0,
+                )
+            )
+        self.assertTrue(result.ok, result.error)
+        self.assertGreaterEqual(result.cancelled, 1)
+        self.assertGreaterEqual(llm.calls, 2)
+        self.assertIn("店长", result.reply)
 
 
 class EndpointerUnitTests(unittest.TestCase):

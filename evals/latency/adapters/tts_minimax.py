@@ -41,6 +41,7 @@ class MiniMaxTTS:
 
     async def open(self, *, instruction: str | None = None) -> None:
         del instruction  # MiniMax expresses style through emotion, speed, and volume.
+        self._drain()
         url = _ws_url(self._settings.minimax_base_url)
         headers = {"Authorization": f"Bearer {self._settings.minimax_key}"}
         self._ws = await connect(
@@ -128,11 +129,26 @@ class MiniMaxTTS:
     async def close(self) -> None:
         ws = self._ws
         self._ws = None
+        reader = self._reader
+        self._reader = None
         if ws is not None:
             await ws.close()
-        if self._reader is not None:
-            self._reader.cancel()
-            self._reader = None
+        if reader is not None:
+            reader.cancel()
+            try:
+                await reader
+            except asyncio.CancelledError:
+                pass
+            except Exception:
+                pass
+        self._drain()
+
+    def _drain(self) -> None:
+        while True:
+            try:
+                self._queue.get_nowait()
+            except asyncio.QueueEmpty:
+                return
 
     async def _read(self) -> None:
         ws = self._ws
