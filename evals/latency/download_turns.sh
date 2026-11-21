@@ -5,6 +5,11 @@ root="$(cd "$(dirname "$0")" && pwd)"
 models="$root/models"
 mkdir -p "$models/paraformer" "$models/livekit-turn"
 
+if [[ ! -f "$models/silero_vad.onnx" ]]; then
+  curl -fL --retry 3 -o "$models/silero_vad.onnx" \
+    "https://github.com/snakers4/silero-vad/raw/v5.1.2/src/silero_vad/data/silero_vad.onnx"
+fi
+
 if [[ ! -f "$models/smart-turn-v3.2-cpu.onnx" ]]; then
   curl -fL --retry 3 -o "$models/smart-turn-v3.2-cpu.onnx" \
     "https://huggingface.co/pipecat-ai/smart-turn-v3/resolve/main/smart-turn-v3.2-cpu.onnx"

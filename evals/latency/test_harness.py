@@ -18,14 +18,25 @@ from latency.adapters.volc_frame import (
     build_tts_event,
     parse_frame,
 )
+from latency.annotate_human import annotate_item
 from latency.clauses import ClauseBuffer
 from latency.corpus import Item, Segment
 from latency.corpus_script import SCRIPT, counts
 from latency.endpoint import Endpointer, EnergyGate, KeywordCompleteness
+from latency.human_labels import (
+    Consult,
+    classify_human_endpoint,
+    connector_before_pause,
+    explode_words,
+    interior_gaps,
+    replay_semantic,
+    silence_reached,
+)
 from latency.pcm import frames
 from latency.pipeline import endpoint_trial, realtime_trial
 from latency.prompts import load_persona
 from latency.scoring import Pause, classify_endpoint, percentile
+from latency.turn_human import server_clock
 from latency.turn_models import _normalize_livekit
 from latency.turn_script import TURNS, validate
 from tts.lines import DOUBAO_TUNED, LINES, MINIMAX_TUNED
@@ -201,6 +212,80 @@ class ScoreTests(unittest.TestCase):
         self.assertTrue(early and barge)
         early, barge = classify_endpoint(speech_end_ms=1560, pauses=pauses, t_endpoint_ms=1760)
         self.assertFalse(early or barge)
+
+    def test_human_barge_counts_every_early_endpoint(self) -> None:
+        pauses = [Pause(400, 1160)]
+        barge, where = classify_human_endpoint(speech_end_ms=2000, pauses=pauses, t_endpoint_ms=900)
+        self.assertTrue(barge)
+        self.assertEqual(where, "labeled-pause")
+        barge, where = classify_human_endpoint(speech_end_ms=2000, pauses=pauses, t_endpoint_ms=200)
+        self.assertTrue(barge)
+        self.assertEqual(where, "short-gap")
+        barge, where = classify_human_endpoint(speech_end_ms=2000, pauses=pauses, t_endpoint_ms=1960)
+        self.assertFalse(barge)
+        self.assertEqual(where, "after")
+
+    def test_silence_clock_matches_the_fixed_endpointer(self) -> None:
+        voiced = [False] * 5 + [True] * 10 + [False] * 40
+        reached = silence_reached(voiced, 500)
+        endpointer = Endpointer("fixed", fixed_silence_ms=500)
+        decision = None
+        for index, is_speech in enumerate(voiced):
+            decision = endpointer.push((index + 1) * 20.0, is_speech, "")
+            if decision is not None:
+                break
+        self.assertIsNotNone(decision)
+        assert decision is not None
+        self.assertEqual(reached, decision.t_ms)
+
+    def test_replay_waits_out_a_low_score_then_hits_the_cap(self) -> None:
+        voiced = [True] * 10 + [False] * 80
+        consults = [Consult(200, 200, 0.1, 10, 0.0, 5)]
+        endpoint, reason, spent = replay_semantic(
+            consults,
+            voiced,
+            kind="smart",
+            smart_threshold=0.5,
+            livekit_threshold=0.01,
+            consult_ms=200,
+            cap_ms=1200,
+        )
+        self.assertEqual(reason, "silence-cap")
+        self.assertEqual(spent, [10])
+        self.assertAlmostEqual(endpoint, 1400 + 10, delta=0.1)
+
+    def test_connector_uses_the_word_clock(self) -> None:
+        chars = explode_words(
+            [
+                {"text": "然后", "start_ms": 400, "end_ms": 700},
+                {"text": "柄", "start_ms": 1200, "end_ms": 1400},
+            ]
+        )
+        gaps = interior_gaps([(0, 700), (1200, 2000)])
+        self.assertEqual(gaps, [(700, 1200)])
+        self.assertTrue(connector_before_pause(chars, [Pause(700, 1200)], "然后"))
+
+    def test_annotation_drops_words_that_start_after_the_file(self) -> None:
+        pcm = b"\x00\x00" * 16000
+        row = annotate_item(
+            item_id="x",
+            kind="short",
+            note="",
+            reference="",
+            pcm=pcm,
+            probabilities=[],
+            words=[
+                {"text": "好", "start_ms": 100, "end_ms": 200},
+                {"text": "的", "start_ms": 1500, "end_ms": 1600},
+            ],
+        )
+        self.assertEqual(row["transcript"], "好")
+        self.assertEqual(row["word_end_ms"], 200.0)
+        self.assertEqual(row["speech_end_source"], "words-only")
+
+    def test_doubao_definite_on_the_last_packet_is_not_an_endpoint(self) -> None:
+        self.assertEqual(server_clock(8254.7, 5754.7, 2500), "stream-end")
+        self.assertEqual(server_clock(7200.0, 7573.3, 2500), "server-definite")
 
 
 class PersonaTests(unittest.TestCase):

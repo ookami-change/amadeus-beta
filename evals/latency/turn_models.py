@@ -43,8 +43,9 @@ class SmartTurn:
         # The constructor is untyped when transformers is installed, and Any when it is not.
         factory: Any = WhisperFeatureExtractor
         self._features = factory(chunk_length=SMART_SECONDS)
+        self.threshold = 0.5
 
-    def complete(self, pcm: bytes, text: str) -> bool:
+    def probability(self, pcm: bytes, text: str) -> float:
         import numpy as np
 
         del text
@@ -67,8 +68,10 @@ class SmartTurn:
         )
         features = np.expand_dims(extracted.input_features.squeeze(0).astype(np.float32), axis=0)
         raw = self._session.run(None, {"input_features": features})[0]
-        probability = float(np.asarray(raw).reshape(-1)[0])
-        return probability > 0.5
+        return float(np.asarray(raw).reshape(-1)[0])
+
+    def complete(self, pcm: bytes, text: str) -> bool:
+        return self.probability(pcm, text) > self.threshold
 
 
 def _normalize_livekit(text: str) -> str:
@@ -111,11 +114,11 @@ class LiveKitTurn:
             raise RuntimeError("languages.json has no numeric zh threshold")
         self.threshold = float(chinese["threshold"])
 
-    def complete(self, pcm: bytes, text: str) -> bool:
+    def probability(self, pcm: bytes, text: str) -> float:
         del pcm
         content = _normalize_livekit(text)
         if not content:
-            return False
+            return 0.0
         rendered = self._tokenizer.apply_chat_template(
             [{"role": "user", "content": content}],
             add_generation_prompt=False,
@@ -130,5 +133,7 @@ class LiveKitTurn:
             prompt, add_special_tokens=False, return_tensors="np", max_length=128, truncation=True
         )
         token_ids = encoded["input_ids"].astype("int64")
-        probability = float(self._session.run(None, {"input_ids": token_ids})[0].flatten()[-1])
-        return probability >= self.threshold
+        return float(self._session.run(None, {"input_ids": token_ids})[0].flatten()[-1])
+
+    def complete(self, pcm: bytes, text: str) -> bool:
+        return self.probability(pcm, text) >= self.threshold
