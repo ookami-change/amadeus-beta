@@ -37,11 +37,16 @@
       <p class="note">
         行是台词。点击播放。音频和本页放在一起，双击本页即可，不需要服务器。没有合成过的按钮会变成“未合成”。
         六路盲听是已经揭晓过的那一轮。档位盲听只比上海新合成的 hd 和 turbo，揭晓前是「声音甲」「声音乙」。
+        安全范围只放第 10、11、14 条：左边是 turbo 原版，右边四个版本都用 turbo。
+      </p>
+      <p class="note" id="safe-note" hidden>
+        四个版本的语速和音量都沿用调优版，台词用原句。a 是 calm、音高 0。b 在 a 上加文本标签：第 10 条 (chuckle)，第 11 条 (sighs)，第 14 条 (breath)。c 用调优版的枚举、音高回到 0：第 10 条 happy，第 11、14 条 sad。d 是 calm、音高 −1。
       </p>
       <div class="bar">
         <button type="button" id="labeled" class="quiet">对照</button>
         <button type="button" id="blind" class="quiet">六路盲听</button>
         <button type="button" id="tier">档位盲听</button>
+        <button type="button" id="safe" class="quiet">安全范围</button>
         <button type="button" id="reveal" class="quiet" hidden>揭晓</button>
       </div>
       <table id="board">
@@ -93,6 +98,14 @@
         { name: "MiniMax speech-2.8-turbo 上海", dir: "out/minimax-turbo" },
         { name: "MiniMax speech-2.8-hd 上海", dir: "out/minimax-hd" }
       ];
+      const safeLines = lines.filter((line) => line[0] === "10" || line[0] === "11" || line[0] === "14");
+      const safePool = [
+        { name: "turbo\n原版", dir: "out/minimax-turbo", suffix: "" },
+        { name: "a\ncalm · 音高 0\n只调语速音量", dir: "out/minimax-safe", suffix: "a" },
+        { name: "b\n同 a\n加语气标签", dir: "out/minimax-safe", suffix: "b" },
+        { name: "c\n原枚举\n音高 0", dir: "out/minimax-safe", suffix: "c" },
+        { name: "d\ncalm\n音高 −1", dir: "out/minimax-safe", suffix: "d" }
+      ];
       let current = null;
       let revealed = false;
       let mode = "tier";
@@ -129,7 +142,10 @@
           ? blindOrder.map((index) => blindPool[index])
           : mode === "tier"
             ? tierPool
-            : labeled;
+            : mode === "safe"
+              ? safePool
+              : labeled;
+        const shown = mode === "safe" ? safeLines : lines;
         head.append(headerCell("台词"), headerCell("情绪提示"));
         columns.forEach((column, index) => {
           const hidden = (mode === "blind" || mode === "tier") && !revealed;
@@ -138,7 +154,7 @@
             : "声音 " + String.fromCharCode(65 + index);
           head.append(headerCell(hidden ? anonymous : column.name));
         });
-        for (const [id, text, hint] of lines) {
+        for (const [id, text, hint] of shown) {
           const row = document.createElement("tr");
           const said = document.createElement("td");
           said.textContent = id + "  " + text;
@@ -151,13 +167,15 @@
             const button = document.createElement("button");
             button.type = "button";
             button.textContent = "播放";
-            button.addEventListener("click", () => play(column.dir + "/" + id + ".wav", button));
+            const suffix = column.suffix || "";
+            button.addEventListener("click", () => play(column.dir + "/" + id + suffix + ".wav", button));
             cell.append(button);
             row.append(cell);
           }
           body.append(row);
         }
         revealButton.hidden = (mode !== "blind" && mode !== "tier") || revealed;
+        document.getElementById("safe-note").hidden = mode !== "safe";
       }
 
       document.getElementById("labeled").addEventListener("click", () => {
@@ -172,6 +190,10 @@
       document.getElementById("tier").addEventListener("click", () => {
         mode = "tier";
         revealed = false;
+        render();
+      });
+      document.getElementById("safe").addEventListener("click", () => {
+        mode = "safe";
         render();
       });
       revealButton.addEventListener("click", () => {

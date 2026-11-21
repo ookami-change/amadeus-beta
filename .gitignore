@@ -20,6 +20,7 @@ __pycache__/
 # downloaded models and per-run dumps; summary files under results/ are committed
 evals/latency/models/
 evals/latency/results/runs/
+evals/tts/models/
 
 # local models and OS noise
 apps/web/public/models/*.vrm

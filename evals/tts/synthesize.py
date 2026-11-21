@@ -17,7 +17,7 @@ from pathlib import Path
 from latency.adapters.factory import build_tts
 from latency.adapters.types import AudioChunk, TTSMark, redact
 from latency.env import Settings, load_dotenv
-from tts.lines import DOUBAO_TUNED, LINES, MINIMAX_TUNED, Line, MiniMaxTune
+from tts.lines import DOUBAO_TUNED, LINES, MINIMAX_SAFE, MINIMAX_TUNED, Line, MiniMaxTune
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"
@@ -38,6 +38,8 @@ async def _one(
     sample_rate: int = 22050,
     pitch: int = 0,
     text: str | None = None,
+    stem: str | None = None,
+    extra: dict[str, object] | None = None,
 ) -> dict[str, object]:
     spoken = line.instruction if instruction is None else instruction
     said = line.text if text is None else text
@@ -80,29 +82,28 @@ async def _one(
         raise RuntimeError(f"{vendor} line {line.number} produced no audio")
     target = out_dir / (folder or vendor)
     target.mkdir(parents=True, exist_ok=True)
-    wav_path = target / f"{line.number:02d}.wav"
+    name = stem or f"{line.number:02d}"
+    wav_path = target / f"{name}.wav"
     _write_wav(wav_path, bytes(pcm), sample_rate)
-    (target / f"{line.number:02d}.json").write_text(
-        json.dumps(
-            {
-                "line": line.number,
-                "text": said,
-                "hint": line.hint,
-                "instruction": spoken,
-                "model": model,
-                "voice": voice,
-                "emotion": line.emotion,
-                "speed": line.speed,
-                "volume": line.volume,
-                "pitch": pitch,
-                "first_audio_ms": round(first_ms, 1),
-                "sample_rate": sample_rate,
-                "marks": marks,
-            },
-            ensure_ascii=False,
-            indent=2,
-        )
-        + "\n",
+    record: dict[str, object] = {
+        "line": line.number,
+        "text": said,
+        "hint": line.hint,
+        "instruction": spoken,
+        "model": model,
+        "voice": voice,
+        "emotion": line.emotion,
+        "speed": line.speed,
+        "volume": line.volume,
+        "pitch": pitch,
+        "first_audio_ms": round(first_ms, 1),
+        "sample_rate": sample_rate,
+        "marks": marks,
+    }
+    if extra:
+        record.update(extra)
+    (target / f"{name}.json").write_text(
+        json.dumps(record, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     return {
@@ -201,6 +202,57 @@ async def _run(vendors: list[str], settings: Settings, out_dir: Path, *, tuned: 
     return results
 
 
+async def _minimax_safe(settings: Settings, out_dir: Path, *, model: str, folder: str) -> list[dict[str, object]]:
+    missing = settings.missing_for("-", "-", "minimax")
+    if missing:
+        raise SystemExit("缺少语音合成密钥，没有写出试听音频：" + ", ".join(missing))
+    results: list[dict[str, object]] = []
+    for take in MINIMAX_SAFE:
+        line = _line_for(take.number)
+        tuned_line = Line(line.number, line.text, line.hint, line.instruction, take.emotion, take.speed, take.volume)
+        stem = f"{take.number:02d}{take.variant}"
+        result: dict[str, object] = {
+            "vendor": "minimax",
+            "line": take.number,
+            "variant": take.variant,
+            "error": "not started",
+        }
+        for attempt in range(1, 4):
+            try:
+                result = await _one(
+                    "minimax",
+                    tuned_line,
+                    settings,
+                    out_dir,
+                    folder=folder,
+                    model=model,
+                    voice=settings.minimax_voice,
+                    pitch=take.pitch,
+                    text=take.text,
+                    stem=stem,
+                    extra={"variant": take.variant, "note": take.note},
+                )
+                break
+            except Exception as exc:
+                message = redact(str(exc))
+                result = {
+                    "vendor": "minimax",
+                    "line": take.number,
+                    "variant": take.variant,
+                    "error": message,
+                }
+                if attempt == 3 or "rate limit" not in message.lower():
+                    break
+                await asyncio.sleep(8.0 * attempt)
+        result["model"] = model
+        result["folder"] = folder
+        result["variant"] = take.variant
+        results.append(result)
+        print(json.dumps(result, ensure_ascii=False), flush=True)
+        await asyncio.sleep(1.2)
+    return results
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Synthesize the D2 listening set")
     parser.add_argument("--out", type=Path, default=OUT)
@@ -209,9 +261,21 @@ def main() -> None:
     parser.add_argument("--model", help="Override the vendor model. MiniMax uses this as speech-2.8-hd or turbo")
     parser.add_argument("--folder", help="Subfolder under --out. Defaults to the vendor name")
     parser.add_argument("--minimax-tuned", action="store_true", help="Write tuned takes to minimax-tuned")
+    parser.add_argument("--minimax-safe", action="store_true", help="Write the four turbo safety takes")
     args = parser.parse_args()
     load_dotenv(Path.cwd())
     settings = Settings.from_environ()
+    if args.minimax_safe:
+        model = args.model or "speech-2.8-turbo"
+        folder = args.folder or "minimax-safe"
+        results = asyncio.run(_minimax_safe(settings, args.out, model=model, folder=folder))
+        target = args.out / folder
+        target.mkdir(parents=True, exist_ok=True)
+        (target / "timings.json").write_text(
+            json.dumps(results, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        return
     if args.minimax_tuned or (args.model and args.vendors == ["minimax"]):
         model = args.model or "speech-2.8-hd"
         if args.minimax_tuned:

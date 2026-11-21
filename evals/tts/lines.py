@@ -116,6 +116,59 @@ MINIMAX_TUNED: tuple[MiniMaxTune, ...] = (
     MiniMaxTune(14, "sad", 0.86, 0.62, -2, _base(14).text, "道歉再轻、再低。"),
 )
 
+
+@dataclass(frozen=True)
+class MiniMaxSafe:
+    """One turbo take that isolates a single suspected cause of the voice drift.
+
+    Speed and volume stay on the R8b tuned values. The four variants then differ
+    only by emotion, pitch, and whether a speech-2.8 inline tag is present.
+    """
+
+    number: int
+    variant: str
+    emotion: str
+    speed: float
+    volume: float
+    pitch: int
+    text: str
+    note: str
+
+
+def _pace(number: int) -> tuple[float, float]:
+    tune = next(item for item in MINIMAX_TUNED if item.number == number)
+    return tune.speed, tune.volume
+
+
+def _tagged(number: int, tag: str) -> str:
+    return f"({tag}){_base(number).text}"
+
+
+def _safe(number: int, variant: str, emotion: str, pitch: int, text: str, note: str) -> MiniMaxSafe:
+    speed, volume = _pace(number)
+    return MiniMaxSafe(number, variant, emotion, speed, volume, pitch, text, note)
+
+
+# Lines 10, 11, and 14 are the ones the owner heard as a different person.
+# (a) keeps calm and pitch 0. (b) adds one 2.8 text tag. (c) restores the enum
+# used in the drifted take, still at pitch 0. (d) is calm at one semitone down.
+# Line 11 uses (sighs) because the line is a sigh. Line 14 uses (breath), the
+# other tag the task allows, so both tags are actually heard.
+MINIMAX_SAFE: tuple[MiniMaxSafe, ...] = (
+    _safe(10, "a", "calm", 0, _base(10).text, "calm，音高 0，只留调优版的语速和音量。"),
+    _safe(10, "b", "calm", 0, _tagged(10, "chuckle"), "同 a，句首加 (chuckle)。"),
+    _safe(10, "c", "happy", 0, _base(10).text, "调优版的 happy，音高回到 0。"),
+    _safe(10, "d", "calm", -1, _base(10).text, "calm，音高 −1。"),
+    _safe(11, "a", "calm", 0, _base(11).text, "calm，音高 0，只留调优版的语速和音量。"),
+    _safe(11, "b", "calm", 0, _tagged(11, "sighs"), "同 a，句首加 (sighs)。"),
+    _safe(11, "c", "sad", 0, _base(11).text, "调优版的 sad，音高回到 0。"),
+    _safe(11, "d", "calm", -1, _base(11).text, "calm，音高 −1。"),
+    _safe(14, "a", "calm", 0, _base(14).text, "calm，音高 0，只留调优版的语速和音量。"),
+    _safe(14, "b", "calm", 0, _tagged(14, "breath"), "同 a，句首加 (breath)。"),
+    _safe(14, "c", "sad", 0, _base(14).text, "调优版的 sad，音高回到 0。"),
+    _safe(14, "d", "calm", -1, _base(14).text, "calm，音高 −1。"),
+)
+
 # Second-person requests, the shape Doubao's context_texts examples use.
 # These do not replace LINES. The original 14 recordings stay as they were.
 DOUBAO_TUNED: dict[int, str] = {

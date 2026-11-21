@@ -1,0 +1,122 @@
+[
+  {
+    "vendor": "minimax",
+    "line": 10,
+    "first_audio_ms": 2303.1,
+    "mark_count": 1,
+    "bytes": 221742,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "a"
+  },
+  {
+    "vendor": "minimax",
+    "line": 10,
+    "first_audio_ms": 1922.3,
+    "mark_count": 1,
+    "bytes": 211766,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "b"
+  },
+  {
+    "vendor": "minimax",
+    "line": 10,
+    "first_audio_ms": 1700.9,
+    "mark_count": 1,
+    "bytes": 230342,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "c"
+  },
+  {
+    "vendor": "minimax",
+    "line": 10,
+    "first_audio_ms": 1799.6,
+    "mark_count": 1,
+    "bytes": 230342,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "d"
+  },
+  {
+    "vendor": "minimax",
+    "line": 11,
+    "first_audio_ms": 1847.0,
+    "mark_count": 1,
+    "bytes": 248918,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "a"
+  },
+  {
+    "vendor": "minimax",
+    "line": 11,
+    "first_audio_ms": 1752.7,
+    "mark_count": 1,
+    "bytes": 238378,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "b"
+  },
+  {
+    "vendor": "minimax",
+    "line": 11,
+    "first_audio_ms": 1870.3,
+    "mark_count": 1,
+    "bytes": 335834,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "c"
+  },
+  {
+    "vendor": "minimax",
+    "line": 11,
+    "first_audio_ms": 1841.9,
+    "mark_count": 1,
+    "bytes": 248918,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "d"
+  },
+  {
+    "vendor": "minimax",
+    "line": 14,
+    "first_audio_ms": 1902.7,
+    "mark_count": 1,
+    "bytes": 226628,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "a"
+  },
+  {
+    "vendor": "minimax",
+    "line": 14,
+    "first_audio_ms": 1861.1,
+    "mark_count": 1,
+    "bytes": 270468,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "b"
+  },
+  {
+    "vendor": "minimax",
+    "line": 14,
+    "first_audio_ms": 1723.0,
+    "mark_count": 1,
+    "bytes": 234662,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "c"
+  },
+  {
+    "vendor": "minimax",
+    "line": 14,
+    "first_audio_ms": 1754.5,
+    "mark_count": 1,
+    "bytes": 226628,
+    "model": "speech-2.8-turbo",
+    "folder": "minimax-safe",
+    "variant": "d"
+  }
+]

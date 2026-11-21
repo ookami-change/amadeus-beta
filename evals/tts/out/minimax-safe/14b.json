@@ -1,0 +1,135 @@
+{
+  "line": 14,
+  "text": "(breath)对不起，刚才是我说得太重了。",
+  "hint": "低落，真诚",
+  "instruction": "低落，真诚，声音放轻。",
+  "model": "speech-2.8-turbo",
+  "voice": "Chinese (Mandarin)_IntellectualGirl",
+  "emotion": "calm",
+  "speed": 0.86,
+  "volume": 0.62,
+  "pitch": 0,
+  "first_audio_ms": 1861.1,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "(breath)对不起，刚才是我说得太重了。",
+        "time_begin": 0,
+        "time_end": 4126.0317460317465,
+        "text_begin": 0,
+        "text_end": 22,
+        "timestamped_words": [
+          {
+            "word": "(breath)",
+            "time_begin": 49.61240310077519,
+            "time_end": 297.6744186046512,
+            "word_begin": 0,
+            "word_end": 8
+          },
+          {
+            "word": "对",
+            "time_begin": 297.6744186046512,
+            "time_end": 1438.759689922481,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "不",
+            "time_begin": 1438.759689922481,
+            "time_end": 1587.596899224806,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "起",
+            "time_begin": 1587.596899224806,
+            "time_end": 1686.8217054263564,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "，",
+            "time_begin": 1686.8217054263564,
+            "time_end": 1736.4341085271317,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "刚",
+            "time_begin": 1736.4341085271317,
+            "time_end": 2034.108527131783,
+            "word_begin": 12,
+            "word_end": 13
+          },
+          {
+            "word": "才",
+            "time_begin": 2034.108527131783,
+            "time_end": 2579.84496124031,
+            "word_begin": 13,
+            "word_end": 14
+          },
+          {
+            "word": "是",
+            "time_begin": 2579.84496124031,
+            "time_end": 2778.2945736434103,
+            "word_begin": 14,
+            "word_end": 15
+          },
+          {
+            "word": "我",
+            "time_begin": 2778.2945736434103,
+            "time_end": 2927.131782945736,
+            "word_begin": 15,
+            "word_end": 16
+          },
+          {
+            "word": "说",
+            "time_begin": 2927.131782945736,
+            "time_end": 3075.968992248062,
+            "word_begin": 16,
+            "word_end": 17
+          },
+          {
+            "word": "得",
+            "time_begin": 3075.968992248062,
+            "time_end": 3224.806201550388,
+            "word_begin": 17,
+            "word_end": 18
+          },
+          {
+            "word": "太",
+            "time_begin": 3224.806201550388,
+            "time_end": 3324.031007751938,
+            "word_begin": 18,
+            "word_end": 19
+          },
+          {
+            "word": "重",
+            "time_begin": 3324.031007751938,
+            "time_end": 3572.093023255814,
+            "word_begin": 19,
+            "word_end": 20
+          },
+          {
+            "word": "了",
+            "time_begin": 3572.093023255814,
+            "time_end": 3770.5426356589146,
+            "word_begin": 20,
+            "word_end": 21
+          },
+          {
+            "word": "。",
+            "time_begin": 3770.5426356589146,
+            "time_end": 3968.9922480620153,
+            "word_begin": 21,
+            "word_end": 22
+          }
+        ]
+      }
+    }
+  ],
+  "variant": "b",
+  "note": "同 a，句首加 (breath)。"
+}

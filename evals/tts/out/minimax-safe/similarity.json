@@ -1,0 +1,174 @@
+{
+  "model": "3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx",
+  "model_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx",
+  "license": "Apache-2.0",
+  "source": "3D-Speaker CAM++, packed by sherpa-onnx",
+  "metric": "cosine similarity of speaker embeddings",
+  "anchor_line": 2,
+  "originals_versus_anchor": [
+    {
+      "line": 10,
+      "same_line": 1.0,
+      "versus_anchor": 0.8827,
+      "anchor": 2
+    },
+    {
+      "line": 11,
+      "same_line": 1.0,
+      "versus_anchor": 0.8597,
+      "anchor": 2
+    },
+    {
+      "line": 14,
+      "same_line": 1.0,
+      "versus_anchor": 0.861,
+      "anchor": 2
+    }
+  ],
+  "takes": [
+    {
+      "line": 10,
+      "variant": "a",
+      "emotion": "calm",
+      "speed": 1.0,
+      "volume": 0.7,
+      "pitch": 0,
+      "text": "呵……抱歉，这个有点好笑。",
+      "same_line": 0.9499,
+      "versus_anchor": 0.8896,
+      "anchor": 2
+    },
+    {
+      "line": 10,
+      "variant": "b",
+      "emotion": "calm",
+      "speed": 1.0,
+      "volume": 0.7,
+      "pitch": 0,
+      "text": "(chuckle)呵……抱歉，这个有点好笑。",
+      "same_line": 0.9456,
+      "versus_anchor": 0.8958,
+      "anchor": 2
+    },
+    {
+      "line": 10,
+      "variant": "c",
+      "emotion": "happy",
+      "speed": 1.0,
+      "volume": 0.7,
+      "pitch": 0,
+      "text": "呵……抱歉，这个有点好笑。",
+      "same_line": 0.8919,
+      "versus_anchor": 0.8416,
+      "anchor": 2
+    },
+    {
+      "line": 10,
+      "variant": "d",
+      "emotion": "calm",
+      "speed": 1.0,
+      "volume": 0.7,
+      "pitch": -1,
+      "text": "呵……抱歉，这个有点好笑。",
+      "same_line": 0.8582,
+      "versus_anchor": 0.8141,
+      "anchor": 2
+    },
+    {
+      "line": 11,
+      "variant": "a",
+      "emotion": "calm",
+      "speed": 0.84,
+      "volume": 0.78,
+      "pitch": 0,
+      "text": "唉……好吧，这次就算了。",
+      "same_line": 0.9524,
+      "versus_anchor": 0.8654,
+      "anchor": 2
+    },
+    {
+      "line": 11,
+      "variant": "b",
+      "emotion": "calm",
+      "speed": 0.84,
+      "volume": 0.78,
+      "pitch": 0,
+      "text": "(sighs)唉……好吧，这次就算了。",
+      "same_line": 0.9327,
+      "versus_anchor": 0.8479,
+      "anchor": 2
+    },
+    {
+      "line": 11,
+      "variant": "c",
+      "emotion": "sad",
+      "speed": 0.84,
+      "volume": 0.78,
+      "pitch": 0,
+      "text": "唉……好吧，这次就算了。",
+      "same_line": 0.8363,
+      "versus_anchor": 0.7385,
+      "anchor": 2
+    },
+    {
+      "line": 11,
+      "variant": "d",
+      "emotion": "calm",
+      "speed": 0.84,
+      "volume": 0.78,
+      "pitch": -1,
+      "text": "唉……好吧，这次就算了。",
+      "same_line": 0.8815,
+      "versus_anchor": 0.8261,
+      "anchor": 2
+    },
+    {
+      "line": 14,
+      "variant": "a",
+      "emotion": "calm",
+      "speed": 0.86,
+      "volume": 0.62,
+      "pitch": 0,
+      "text": "对不起，刚才是我说得太重了。",
+      "same_line": 0.922,
+      "versus_anchor": 0.8864,
+      "anchor": 2
+    },
+    {
+      "line": 14,
+      "variant": "b",
+      "emotion": "calm",
+      "speed": 0.86,
+      "volume": 0.62,
+      "pitch": 0,
+      "text": "(breath)对不起，刚才是我说得太重了。",
+      "same_line": 0.9209,
+      "versus_anchor": 0.8582,
+      "anchor": 2
+    },
+    {
+      "line": 14,
+      "variant": "c",
+      "emotion": "sad",
+      "speed": 0.86,
+      "volume": 0.62,
+      "pitch": 0,
+      "text": "对不起，刚才是我说得太重了。",
+      "same_line": 0.9529,
+      "versus_anchor": 0.8923,
+      "anchor": 2
+    },
+    {
+      "line": 14,
+      "variant": "d",
+      "emotion": "calm",
+      "speed": 0.86,
+      "volume": 0.62,
+      "pitch": -1,
+      "text": "对不起，刚才是我说得太重了。",
+      "same_line": 0.8482,
+      "versus_anchor": 0.7733,
+      "anchor": 2
+    }
+  ]
+}
