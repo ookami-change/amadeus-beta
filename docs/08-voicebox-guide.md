@@ -1,6 +1,6 @@
 # 08 Voicebox 上手指南：在 Mac 上试做克劳德的声线
 
-给负责人看的。目标是在自己的 Mac 上，用文字描述生成克劳德的候选音色，挑出满意的，导出一段干净的参考音频交给 Cursor。Cursor 再用 MiniMax 或 CosyVoice 的声音复刻，把它做成能流式调用的音色，放进盲听页。整个流程和分工见任务单 `docs/tasks/voice-lab.md`。
+给负责人看的。目标是在自己的 Mac 上，用文字描述生成克劳德的候选音色，挑出满意的，导出一段干净的参考音频交给开发（通过 agent-bus 派单）。开发再用 MiniMax 或 CosyVoice 的声音复刻，把它做成能流式调用的音色，放进盲听页。整个流程和分工见任务单 `docs/tasks/voice-lab.md`。
 
 资料核对时间：2026-11-20。本文的事实来自 Voicebox 仓库 `main` 分支的 README、文档、CHANGELOG 和源码（读的是提交 `8af7efe`，2026-10-07），以及 Qwen3-TTS 的 GitHub 仓库。**这些都还没在 Mac 上实测过。**哪里和你看到的不一样，以你看到的为准，并告诉架构师。
 
@@ -8,7 +8,7 @@
 
 ## 0. 先知道这几件事
 
-1. **Voicebox 只是试验台。** 它是本地桌面应用，不是流式服务，不进实时链路。在 Voicebox 里听到的 14 条只用来判断音色像不像克劳德。最终能不能用，要听 Cursor 复刻之后的 14 条。
+1. **Voicebox 只是试验台。** 它是本地桌面应用，不是流式服务，不进实时链路。在 Voicebox 里听到的 14 条只用来判断音色像不像克劳德。最终能不能用，要听复刻之后的 14 条。
 2. **要用的引擎是 Qwen VoiceDesign**，模型是 `Qwen3-TTS-12Hz-1.7B-VoiceDesign`。只有 1.7B 这一个尺寸，没有 0.6B 版。支持中文，Qwen 自己的评测里中文指令遵循分数很高，不过这是自报的数字。描述可以直接写中文，Qwen 官方 README 的例子就是中文描述。
 3. **许可。** Qwen3-TTS 仓库是 Apache-2.0（`LICENSE` 文件第一行，"Copyright 2026 Alibaba Cloud"）。Qwen 的技术报告和 Voicebox 的 CHANGELOG 也都写着权重是 Apache-2.0。Apache-2.0 允许商用，也不限制生成的音频。**没查到的部分**：Hugging Face 模型卡本身没打开（这台云端机器连不上 huggingface.co 和 modelscope.cn），Qwen 也没写生成音频的权属。下载模型时请顺手看一眼模型卡上的 License 一栏，是 `apache-2.0` 就对了。
 4. **不要用 OmniVoice。** Voicebox 新加的 OmniVoice 引擎也能按描述生成声音，但权重是 CC-BY-NC，不能商用，界面上标着"non-commercial"。其他引擎（Chatterbox、TADA、Kokoro、LuxTTS）的许可这次没逐个核实，这个试验也用不到。
@@ -202,7 +202,7 @@ C3  种子 2   夜里的感觉对，略闷
 2. 冷静可靠，而且不是冷冰冰的？
 3. 第 1、7、10、11、14 条，情绪的细微差别有没有出来？
 
-这 14 条也请导出，一起交给 Cursor，放进试听页的对照模式。它们不参加盲听：盲听比的是复刻以后能上线的声音。
+这 14 条也请导出，一起交给开发，放进试听页的对照模式。它们不参加盲听：盲听比的是复刻以后能上线的声音。
 
 ---
 
@@ -243,7 +243,7 @@ afinfo 参考.wav
 afconvert -f WAVE -d LEI16 -c 1 参考.wav 参考-mono.wav
 ```
 
-首尾静音不用自己剪，Cursor 会处理，并在报告里写明剪了多少。
+首尾静音不用自己剪，开发会处理，并在报告里写明剪了多少。
 
 ### 6.4 可选：在本机先克隆一遍
 
@@ -251,7 +251,7 @@ afconvert -f WAVE -d LEI16 -c 1 参考.wav 参考-mono.wav
 
 ---
 
-## 7. 交付给 Cursor
+## 7. 交付给开发
 
 每个候选一个文件夹，名字是 `cand-C1-s3` 这种形式（描述编号加种子号）：
 

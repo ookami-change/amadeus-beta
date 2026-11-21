@@ -15,6 +15,8 @@
 
 ## 2. 推荐规格
 
+> 以下是采购时的推荐，实际在用的是腾讯云 CVM 上海二区。
+
 | 项 | 推荐 | 理由 |
 |---|---|---|
 | 规格 | **4 核 8G** | Postgres、LiveKit、智能体、静态站点、Docker 构建同时运行时，2 核 4G 会吃紧；4 核 8G 留有余量且价差不大 |
@@ -44,7 +46,7 @@
 
 密钥存放在负责人的 1Password 中。规则：
 
-- 为本项目单独建一个保险库（如 `Amadeus-Dev`），只放本项目的密钥
-- 为测试服务器建一个**只读、只能访问该保险库**的服务账号（Service Account），服务器上用 1Password CLI 在启动时注入环境变量：`op run --env-file=.env.tpl -- <启动命令>`。`.env.tpl` 里只写引用（`op://Amadeus-Dev/...`），可以入库
+- 为本项目单独建一个保险库 `Amadeus`，只放本项目的密钥
+- 为测试服务器建一个**只读、只能访问该保险库**的服务账号（Service Account），服务器上用 1Password CLI 在启动时注入环境变量：`op run --env-file=.env.tpl -- <启动命令>`。`.env.tpl` 里只写引用（`op://Amadeus/...`），可以入库
 - 服务器磁盘上不落明文密钥；服务账号令牌本身按 1Password 的说明保存，泄露时在 1Password 里吊销即可
 - 开发者本机同理，用自己的 1Password 账号执行 `op run`
