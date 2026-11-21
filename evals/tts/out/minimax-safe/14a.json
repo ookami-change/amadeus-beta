@@ -1,0 +1,128 @@
+{
+  "line": 14,
+  "text": "对不起，刚才是我说得太重了。",
+  "hint": "低落，真诚",
+  "instruction": "低落，真诚，声音放轻。",
+  "model": "speech-2.8-turbo",
+  "voice": "Chinese (Mandarin)_IntellectualGirl",
+  "emotion": "calm",
+  "speed": 0.86,
+  "volume": 0.62,
+  "pitch": 0,
+  "first_audio_ms": 1902.7,
+  "sample_rate": 32000,
+  "marks": [
+    {
+      "kind": "subtitle",
+      "payload": {
+        "text": "对不起，刚才是我说得太重了。",
+        "time_begin": 0,
+        "time_end": 3441.043083900227,
+        "text_begin": 0,
+        "text_end": 14,
+        "timestamped_words": [
+          {
+            "word": "对",
+            "time_begin": 49.61240310077519,
+            "time_end": 347.2868217054263,
+            "word_begin": 0,
+            "word_end": 1
+          },
+          {
+            "word": "不",
+            "time_begin": 347.2868217054263,
+            "time_end": 496.1240310077519,
+            "word_begin": 1,
+            "word_end": 2
+          },
+          {
+            "word": "起",
+            "time_begin": 496.1240310077519,
+            "time_end": 595.3488372093024,
+            "word_begin": 2,
+            "word_end": 3
+          },
+          {
+            "word": "，",
+            "time_begin": 595.3488372093024,
+            "time_end": 644.9612403100775,
+            "word_begin": 3,
+            "word_end": 4
+          },
+          {
+            "word": "刚",
+            "time_begin": 644.9612403100775,
+            "time_end": 1389.1472868217052,
+            "word_begin": 4,
+            "word_end": 5
+          },
+          {
+            "word": "才",
+            "time_begin": 1389.1472868217052,
+            "time_end": 1835.6589147286822,
+            "word_begin": 5,
+            "word_end": 6
+          },
+          {
+            "word": "是",
+            "time_begin": 1835.6589147286822,
+            "time_end": 2034.108527131783,
+            "word_begin": 6,
+            "word_end": 7
+          },
+          {
+            "word": "我",
+            "time_begin": 2034.108527131783,
+            "time_end": 2232.5581395348836,
+            "word_begin": 7,
+            "word_end": 8
+          },
+          {
+            "word": "说",
+            "time_begin": 2232.5581395348836,
+            "time_end": 2381.3953488372094,
+            "word_begin": 8,
+            "word_end": 9
+          },
+          {
+            "word": "得",
+            "time_begin": 2381.3953488372094,
+            "time_end": 2530.2325581395344,
+            "word_begin": 9,
+            "word_end": 10
+          },
+          {
+            "word": "太",
+            "time_begin": 2530.2325581395344,
+            "time_end": 2679.0697674418607,
+            "word_begin": 10,
+            "word_end": 11
+          },
+          {
+            "word": "重",
+            "time_begin": 2679.0697674418607,
+            "time_end": 2877.519379844962,
+            "word_begin": 11,
+            "word_end": 12
+          },
+          {
+            "word": "了",
+            "time_begin": 2877.519379844962,
+            "time_end": 3125.581395348837,
+            "word_begin": 12,
+            "word_end": 13
+          },
+          {
+            "word": "。",
+            "time_begin": 3125.581395348837,
+            "time_end": 3274.4186046511627,
+            "word_begin": 13,
+            "word_end": 14
+          }
+        ]
+      }
+    }
+  ],
+  "variant": "a",
+  "note": "calm，音高 0，只留调优版的语速和音量。"
+}
