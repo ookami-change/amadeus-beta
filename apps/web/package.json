@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
+    "build:bench": "tsc --noEmit && VITE_BENCH=1 vite build --base ./",
     "preview": "vite preview --host 127.0.0.1",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit"

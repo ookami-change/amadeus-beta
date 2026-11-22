@@ -6,6 +6,11 @@ import { Gaze } from "./gaze";
 import { Idle } from "./idle";
 import { LipSync, type VisemeKey } from "./lipsync";
 import { PerfMonitor } from "./perf";
+import { Bench } from "./bench";
+
+// Public files resolve against the page, so the build also works under /l/<slug>/.
+const asset = (path: string): string => `${import.meta.env.BASE_URL}${path}`;
+const benchOn = import.meta.env.VITE_BENCH === "1" || new URLSearchParams(location.search).has("bench");
 
 const canvas = document.querySelector<HTMLCanvasElement>("#stage");
 const statusNode = document.querySelector<HTMLElement>("#status");
@@ -42,6 +47,7 @@ const status = statusNode;
 const license = licenseNode;
 const lineAudio = audio;
 const mouthLabel = mouthNode;
+lineAudio.src = asset("audio/sample.wav");
 
 const renderer = new THREE.WebGLRenderer({
   canvas: stage,
@@ -75,6 +81,7 @@ analyser.connect(audioContext.destination);
 let idle: Idle | null = null;
 let gaze: Gaze | null = null;
 let lips: LipSync | null = null;
+let bench: Bench | null = null;
 
 window.addEventListener("pointermove", (event) => {
   gaze?.pointer(event.clientX, event.clientY);
@@ -110,20 +117,47 @@ function frameCamera(object: THREE.Object3D): void {
 
 async function boot(): Promise<void> {
   try {
-    const vrm = await loadVrm("/models/avatar.vrm");
+    const vrm = await loadVrm(asset("models/avatar.vrm"));
     scene.add(vrm.scene);
     frameCamera(vrm.scene);
     idle = new Idle(vrm);
     gaze = new Gaze(vrm);
     lips = new LipSync(vrm, analyser, lineAudio);
-    const timeline = await loadTimeline("/lipsync/demo-timeline.json");
+    const timeline = await loadTimeline(asset("lipsync/demo-timeline.json"));
     lips.setTimeline(timeline);
     license.textContent = `${modelCredit(vrm)}。来源与许可见 public/models/SOURCE.md。`;
     status.textContent = "待机。鼠标会带动视线，头部跟得慢一些。";
     clock(vrm);
+    if (benchOn) bench = startBench(vrm);
   } catch (error) {
     status.textContent = error instanceof Error ? error.message : "模型没有加载";
   }
+}
+
+function startBench(vrm: VRM): Bench {
+  return new Bench({
+    play: () =>
+      new Promise<void>((resolve) => {
+        void audioContext.resume();
+        lineAudio.currentTime = 0;
+        lineAudio.addEventListener("ended", () => resolve(), { once: true });
+        lineAudio.addEventListener("error", () => resolve(), { once: true });
+        void lineAudio.play().catch(() => resolve());
+      }),
+    mouth: () => (lips ? lips.readout : "—"),
+    mouthWeight: () =>
+      Math.max(0, ...["aa", "ih", "ou", "ee", "oh"].map((v) => vrm.expressionManager?.getValue(v) ?? 0)),
+    renderer: () => {
+      const ext = gl.getExtension("WEBGL_debug_renderer_info");
+      const gpu = (ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)) as string;
+      return {
+        gpu,
+        pixelRatio: renderer.getPixelRatio(),
+        bufferWidth: gl.drawingBufferWidth,
+        bufferHeight: gl.drawingBufferHeight,
+      };
+    },
+  });
 }
 
 function modelCredit(vrm: VRM): string {
@@ -138,6 +172,7 @@ function modelCredit(vrm: VRM): string {
 function clock(vrm: VRM): void {
   function loop(now: number): void {
     const delta = perf.tick(now);
+    bench?.frame(now);
     idle?.update(delta);
     gaze?.update(delta);
     lips?.update(delta);
