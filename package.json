@@ -6,7 +6,7 @@
     "lint": "pnpm -r --if-present lint && uv run --directory services/agent ruff check . && uv run --directory services/agent ruff format --check . && uv run --directory evals ruff check . && uv run --directory evals ruff format --check .",
     "format": "uv run --directory services/agent ruff format . && uv run --directory services/agent ruff check --fix . && uv run --directory evals ruff format . && uv run --directory evals ruff check --fix .",
     "typecheck": "pnpm -r --if-present typecheck && uv run --directory services/agent mypy && uv run --directory evals mypy",
-    "test": "uv run --directory evals python -m unittest latency.test_harness latency.test_turn_combo listen.test_server",
+    "test": "uv run --directory evals python -m unittest latency.test_harness latency.test_turn_combo latency.test_early listen.test_server",
     "latency": "uv run --directory evals python -m latency.run --endpoint-only --oracle-text",
     "latency:full": "uv run --directory evals python -m latency.run",
     "tts": "uv run --directory evals python -m tts.synthesize",
