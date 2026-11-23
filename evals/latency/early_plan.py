@@ -13,7 +13,7 @@ the Doubao partials with their arrival clocks) and counts, per rule:
   speech end.
 
 The commit point is R3c's adaptive 1400/1800. Nothing here calls a vendor.
-The live run (``latency.overlap``) checks whichever rule wins.
+The live run (``latency.early_live``) checks the rules that win.
 """
 
 from __future__ import annotations
