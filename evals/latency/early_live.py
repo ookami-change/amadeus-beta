@@ -276,7 +276,9 @@ async def run_turn(
         except Exception as exc:
             asr_error = redact(str(exc))
 
-    async def drive(att: Attempt) -> None:
+    async def drive(att: Attempt, wait_s: float) -> None:
+        if wait_s:
+            await asyncio.sleep(wait_s)
         voice, how, waited = await voices.take()
         att.tts, att.socket, att.gate_wait_ms = voice, how, waited
         clause_queue: asyncio.Queue[str | None] = asyncio.Queue()
@@ -337,9 +339,10 @@ async def run_turn(
     attempts: list[Attempt] = []
     active: Attempt | None = None
 
-    def launch(text: str, reason: str, audio_ms: float) -> Attempt:
+    def launch(text: str, reason: str, audio_ms: float, *, replacing: bool = False) -> Attempt:
+        """``replacing``: R6 waited before reopening MiniMax after a restart, not after a cancel."""
         att = Attempt(text=text, reason=reason, audio_ms=audio_ms, launch_ms=wall_ms())
-        att.task = asyncio.create_task(drive(att))
+        att.task = asyncio.create_task(drive(att, arm.replace_wait_s if replacing else 0.0))
         attempts.append(att)
         return att
 
@@ -356,14 +359,13 @@ async def run_turn(
                 pass
         await voices.give_back(att.tts, spoke=att.spoke)
         att.tts = None
-        if arm.replace_wait_s:
-            await asyncio.sleep(arm.replace_wait_s)
 
     asr_task = asyncio.create_task(consume_asr())
     commit_audio: float | None = None
     commit_wall: float | None = None
     commit_text = ""
     speculated = False
+    smart_check: asyncio.Task[bool] | None = None
     heard = bytearray()
     packet = bytearray()
     packet_ms = 0.0
@@ -385,6 +387,7 @@ async def run_turn(
             quiet = silence_at(item, t)
             if quiet is None:
                 speculated = False
+                smart_check = None
                 if active is not None:
                     await retire(active, "cancelled")
                     active = None
@@ -393,11 +396,12 @@ async def run_turn(
             text = tc.latest(item.partials, t)
             if fire:
                 commit_audio, commit_wall, commit_text = t + cost, wall_ms(), text
-                if active is not None and not texts_continue(active.text, text):
+                replacing = active is not None and not texts_continue(active.text, text)
+                if active is not None and replacing:
                     await retire(active, "restart-commit")
                     active = None
                 if active is None and text.strip():
-                    active = launch(text, "commit", t)
+                    active = launch(text, "commit", t, replacing=replacing)
                 continue
             if (
                 arm.launch_ms is not None
@@ -405,10 +409,19 @@ async def run_turn(
                 and not speculated
                 and text.strip()
                 and quiet + 1e-6 >= arm.launch_ms
-                and (not arm.smart or turn.smart is None or turn.smart(bytes(heard), text))
             ):
-                speculated = True
-                active = launch(text, "speculate", t)
+                if not arm.smart or turn.smart is None:
+                    speculated = True
+                    active = launch(text, "speculate", t)
+                elif smart_check is None:
+                    # Smart Turn takes ~100 ms of CPU; off the loop so audio keeps flowing.
+                    smart_check = asyncio.create_task(asyncio.to_thread(turn.smart, bytes(heard), text))
+                elif smart_check.done():
+                    yes = not smart_check.cancelled() and smart_check.exception() is None and smart_check.result()
+                    smart_check = None
+                    if yes:
+                        speculated = True
+                        active = launch(text, "speculate", t)
         if packet:
             await audio_queue.put(bytes(packet))
         await audio_queue.put(None)
@@ -418,11 +431,12 @@ async def run_turn(
             asr_task.cancel()
         transcript = final or tc.latest(item.partials, float("inf"))
         if asr_error is None and transcript.strip():
-            if active is not None and not texts_continue(active.text, transcript):
+            replacing = active is not None and not texts_continue(active.text, transcript)
+            if active is not None and replacing:
                 await retire(active, "restart-final")
                 active = None
             if active is None:
-                active = launch(transcript, "final", item.total_ms)
+                active = launch(transcript, "final", item.total_ms, replacing=replacing)
         if active is not None and active.task is not None:
             await active.task
     finally:

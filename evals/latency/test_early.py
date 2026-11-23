@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import time
 import unittest
 from collections.abc import AsyncIterator
 
@@ -177,6 +178,26 @@ class LiveRunnerTests(unittest.TestCase):
         self.assertTrue(row["false_barge_in"])
         self.assertFalse(row["commit_barge"])
         self.assertEqual(row["sockets"], 2)
+
+    def test_slow_smart_turn_does_not_stall_the_audio(self) -> None:
+        def slow_yes(pcm: bytes, text: str) -> bool:
+            time.sleep(0.25)
+            return True
+
+        CountingTTS.made = 0
+        arm = el.Arm("r6ish", "fixed500", 60.0, "early", warm=False, smart=True, replace_wait_s=0.6)
+        turn = el.Turn(_item(), silence(1800.0), arm, tc.fixed(500.0), "你是克劳德。", [], slow_yes)
+        voices = el.Voices(CountingTTS, RateGate(100), warm=False)
+        row = asyncio.run(
+            el.run_turn(turn, asr=MockASR(transcript=TEXT, partial=TEXT), llm=SlowLLM(0.0), voices=voices)
+        )
+        self.assertTrue(row["ok"], row["error"])
+        wall, audio = row["commit_wall_ms"], row["commit_audio_ms"]
+        assert isinstance(wall, float) and isinstance(audio, float)
+        self.assertLess(wall - audio, 60.0)  # the frame loop kept real time
+        attempts = row["attempts"]
+        assert isinstance(attempts, list)
+        self.assertGreaterEqual(attempts[0]["audio_ms"], 300.0 + 60.0 + 240.0)  # launched after the check returned
 
     def test_breakdown_is_relative_to_speech_end(self) -> None:
         row = self._run(el.Arm("hold", "fixed500", 200.0, "hold", warm=True), SlowLLM(0.0))
