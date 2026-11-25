@@ -51,12 +51,14 @@ def energy_probability(hop: bytes) -> float:
 
 
 class Vendors:
-    """Process-wide clients: one HTTP pool for the LLM, one MiniMax rate gate."""
+    """Process-wide clients: one HTTP pool for the LLM, one MiniMax rate gate and socket pool."""
 
     def __init__(self, settings: Settings, *, mock: bool) -> None:
         self.mock = mock
         self.settings = settings
-        self.gate = RateGate(settings.minimax_rpm if not mock else 600)
+        # 1.5 s of slack on the window: at 10/min with no slack MiniMax still
+        # refused 3 opens in the first M1-2 replay, so its clock and ours differ.
+        self.gate = RateGate(settings.minimax_rpm if not mock else 600, window_s=61.5)
         self.http: httpx.AsyncClient | None = None
         self.llm: LLM
         self.asr: ASR
@@ -67,6 +69,9 @@ class Vendors:
             self.http = http_client()
             self.asr = VolcASR(settings)
             self.llm = QwenLLM(settings, self.http)
+        # One warm socket for the process, not one per session: a session that
+        # ends would otherwise throw away a socket it paid quota for.
+        self.voices = Voices(self.voice, self.gate)
 
     def voice(self) -> Voice:
         if self.mock:
@@ -83,6 +88,7 @@ class Vendors:
             await self.llm.warm()
 
     async def close(self) -> None:
+        await self.voices.close()
         if self.http is not None:
             await self.http.aclose()
 
@@ -138,7 +144,7 @@ async def session(
     engine = Engine(
         asr=vendors.asr,
         llm=vendors.llm,
-        voices=Voices(vendors.voice, vendors.gate),
+        voices=vendors.voices,
         tracker=SpeechTracker(vendors.probability()),
         sink=sink,
         system=system,

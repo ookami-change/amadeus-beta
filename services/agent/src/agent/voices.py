@@ -1,4 +1,4 @@
-"""Synthesizer sockets for one session (R6b's warm socket, made long-lived).
+"""Synthesizer sockets (R6b's warm socket, made long-lived; the server shares one pool).
 
 One socket is kept open and handed to whichever attempt reaches its first
 clause. An attempt cancelled before it spoke gives the socket back; one that

@@ -147,6 +147,8 @@ def score(item_id: str, speech_end_ms: float, pauses: list[Pause], run: dict[str
         "launches": sum(int(r["launches"]) for r in reports),
         "cancelled": sum(int(r["cancelled"]) for r in reports),
         "restarts": sum(int(r["restarts"]) for r in reports),
+        "sockets": sum(int(r.get("sockets", 0)) for r in reports),
+        "voice_wait_ms": answered.get("voice_wait_ms") if answered else None,
         "vendor_errors": [e.get("message") for e in errors],
         "breakdown": {
             "commit": rel(answered.get("commit_ms")) if answered else None,
@@ -174,6 +176,7 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
         for r in clean
         if r["breakdown"]["first_token"] is not None and r["breakdown"]["launch"] is not None
     ]
+    waits = [float(w) for r in clean if (w := r.get("voice_wait_ms")) is not None]
     return {
         "n": len(rows),
         "ok": sum(1 for r in rows if r["ok"]),
@@ -191,6 +194,8 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "launches": sum(r["launches"] for r in rows),
         "cancelled": sum(r["cancelled"] for r in rows),
         "restarts": sum(r["restarts"] for r in rows),
+        "sockets": sum(r.get("sockets", 0) for r in rows),
+        "voice_wait_ms": {"p50": percentile(waits, 50), "p95": percentile(waits, 95)},
         "trial_retries": sum(r.get("trial_retries", 0) for r in rows),
         "vendor_errors": sum(len(r["vendor_errors"]) for r in rows),
     }
@@ -231,7 +236,8 @@ async def campaign(args: argparse.Namespace) -> dict[str, Any]:
         print(
             f"{item_id} {'ok' if row.get('ok') else row.get('error')} e2e={row.get('e2e_ms')} "
             f"barge={row.get('false_barge_in')} launches={row.get('launches')} "
-            f"cancel={row.get('cancelled')} restart={row.get('restarts')}",
+            f"cancel={row.get('cancelled')} restart={row.get('restarts')} "
+            f"sockets={row.get('sockets')} voice_wait={row.get('voice_wait_ms')}",
             flush=True,
         )
         await asyncio.sleep(args.gap_s)

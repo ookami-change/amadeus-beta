@@ -171,6 +171,8 @@ class TurnReport(Message):
     first_token_ms: float | None
     ready_ms: float | None
     speak_ms: float | None
+    sockets: int
+    voice_wait_ms: float | None
     error: str | None
 
 

@@ -95,6 +95,7 @@ class Rig:
         while len(self.sink.of(p.TurnReport)) < wait_reports and loop.time() < deadline:
             await asyncio.sleep(0.01)
         await self.engine.close()
+        await self.voices.close()
 
     def report(self, index: int = 0) -> p.TurnReport:
         found = self.sink.of(p.TurnReport)[index]
@@ -143,6 +144,21 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(rig.llm.calls, ["我想想，", "我想想，明天再说。"])
         fates = [r for r in rig.sink.of(p.SpeakStart)]
         self.assertEqual(len(fates), 1)  # the cancelled reply was never played
+        # It was cancelled at 1500 ms, before the synthesis point (commit - 400 ms),
+        # so it never took the socket: the warm one spoke the kept reply.
+        self.assertEqual(len([v for v in rig.made if v.said]), 1)
+        self.assertEqual(MockVoice.opened, 2)
+        self.assertEqual(report.sockets, 1)  # the spare opened after the reply
+
+    def test_speculation_waits_for_the_synthesis_point(self) -> None:
+        rig = Rig([(0, 1000)], lambda ms: "店长，你来了。" if ms > 300 else "")
+        asyncio.run(rig.run(3200))
+        report = rig.report()
+        assert report.ready_ms is not None and report.commit_ms is not None
+        # Thought at +400 ms, but synthesized only from +1000 ms (1400 - 400).
+        self.assertGreaterEqual(report.ready_ms, 1024 + 1000 - FRAME_MS)
+        self.assertLess(report.ready_ms, report.commit_ms)
+        self.assertIsNotNone(report.voice_wait_ms)
 
     def test_partial_that_lagged_restarts_at_commit(self) -> None:
         rig = Rig([(0, 600)], lambda ms: "好" if ms < 1300 else "好的。")
@@ -196,6 +212,7 @@ class EngineTests(unittest.TestCase):
                     await asyncio.sleep(0)
             await asyncio.sleep(1.0)
             await rig.engine.close()
+            await rig.voices.close()
 
         asyncio.run(go())
         reports = rig.sink.of(p.TurnReport)

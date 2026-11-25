@@ -107,6 +107,10 @@ export interface TurnReport {
   first_token_ms: number | null;
   ready_ms: number | null;
   speak_ms: number | null;
+  /** Synthesizer sockets opened during the turn (MiniMax counts these against its RPM). */
+  sockets: number;
+  /** How long the kept reply waited for a synthesizer socket after its first clause. */
+  voice_wait_ms: number | null;
   error: string | null;
 }
 export interface ErrorMessage {

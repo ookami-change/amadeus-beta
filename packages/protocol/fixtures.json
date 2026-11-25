@@ -37,6 +37,8 @@
     "first_token_ms": 6012.4,
     "ready_ms": 6490,
     "speak_ms": 6560,
+    "sockets": 1,
+    "voice_wait_ms": 0.4,
     "error": null
   },
   { "type": "error", "code": "tts", "message": "rate limit exceeded(RPM)", "retryable": true }

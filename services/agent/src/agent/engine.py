@@ -9,6 +9,11 @@ The rules are the ones M0 measured (``evals/latency/REPORT.md``, R3c and R6b):
 * **Hold**: a reply may be prepared early but is never played before the commit
   point. R6 played as soon as audio existed and cut in on 21/50 human
   recordings.
+* **Late synthesis**: a speculation only thinks until the silence is within
+  ``synth_lead_ms`` of the commit point; then it takes the synthesizer socket.
+  A socket that has been sent text cannot be reused, and MiniMax allows 10 a
+  minute on this account. The first M1-2 replay synthesized every speculation
+  and queued for sockets for up to 13 s.
 * **Same-turn check**: at the commit point, and again on the final transcript
   while nothing has been played, an attempt whose text is not the same turn
   (R6's ``texts_continue``) is dropped and restarted.
@@ -60,6 +65,8 @@ class TurnConfig:
     """Audio before the confirmed onset that still goes to the recogniser."""
     retries: int = 2
     retry_wait_s: float = 1.0
+    synth_lead_ms: float = 400.0
+    """Start synthesizing this long before the commit point (MiniMax first audio: P95 ~360 ms)."""
 
 
 class Sink(Protocol):
@@ -83,11 +90,14 @@ class Attempt:
     ready_ms: float | None = None
     speak_ms: float | None = None
     spoke: bool = False
+    voice_wait_ms: float | None = None
     error: str | None = None
     clauses: list[str] = field(default_factory=list)
     held: list[AudioChunk | WordMark | str] = field(default_factory=list)
     task: asyncio.Task[None] | None = field(default=None, repr=False)
     done: asyncio.Event = field(default_factory=asyncio.Event, repr=False)
+    may_speak: asyncio.Event = field(default_factory=asyncio.Event, repr=False)
+    """Set near the commit point or on release; until then the attempt only thinks."""
 
 
 @dataclass
@@ -107,6 +117,7 @@ class Turn:
     speculated: bool = False
     retries: int = 0
     ended: bool = False
+    sockets_before: int = 0
 
 
 class Engine:
@@ -158,7 +169,7 @@ class Engine:
         for task in list(self._tasks):
             task.cancel()
         await asyncio.gather(*self._tasks, return_exceptions=True)
-        await self.voices.close()
+        # The voice pool belongs to whoever made it (process-wide in the server).
 
     def _spawn(self, coro: object) -> asyncio.Task[None]:
         task: asyncio.Task[None] = asyncio.create_task(coro)  # type: ignore[arg-type]
@@ -204,7 +215,7 @@ class Engine:
             if self.tracker.speech_start_ms is not None
             else self.now_ms()
         )
-        turn = Turn(id=self._turns, onset_ms=start)
+        turn = Turn(id=self._turns, onset_ms=start, sockets_before=self.voices.opened)
         self.turn = turn
         await self.voices.refresh()
         await self.sink.message(p.State("listening", turn.id))
@@ -247,6 +258,9 @@ class Engine:
             if silence + 1e-6 >= launch:
                 turn.speculated = True
                 self._launch(turn, text, "speculate")
+        active = turn.active
+        if active is not None and silence + 1e-6 >= need - self.config.synth_lead_ms:
+            active.may_speak.set()
 
     async def _commit(self, turn: Turn, text: str) -> None:
         turn.committed = True
@@ -305,7 +319,10 @@ class Engine:
             async def say(clause: str) -> None:
                 nonlocal voice, reader
                 if voice is None:
+                    await att.may_speak.wait()
+                    asked = self.now_ms()
                     voice, _how = await self.voices.take()
+                    att.voice_wait_ms = self.now_ms() - asked
                     reader = asyncio.create_task(self._read_voice(att, voice.events))
                 att.spoke = True
                 att.clauses.append(clause)
@@ -389,6 +406,7 @@ class Engine:
 
     async def _release(self, att: Attempt) -> None:
         att.released = True
+        att.may_speak.set()
         held, att.held = att.held, []
         audio = [one for one in held if isinstance(one, AudioChunk)]
         rest = [one for one in held if not isinstance(one, AudioChunk)]
@@ -488,6 +506,8 @@ class Engine:
             first_token_ms=_round(kept.first_token_ms if kept else None),
             ready_ms=_round(kept.ready_ms if kept else None),
             speak_ms=_round(kept.speak_ms if kept else None),
+            sockets=self.voices.opened - turn.sockets_before,
+            voice_wait_ms=_round(kept.voice_wait_ms if kept else None),
             error=error,
         )
         self.reports.append(report)

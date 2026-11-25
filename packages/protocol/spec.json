@@ -120,6 +120,8 @@
         "first_token_ms": "number?",
         "ready_ms": "number?",
         "speak_ms": "number?",
+        "sockets": "int",
+        "voice_wait_ms": "number?",
         "error": "string?"
       }
     },
