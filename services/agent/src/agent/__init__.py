@@ -1,8 +1,8 @@
 """Amadeus realtime agent.
 
-M0 only creates the project shell. The speech pipeline, director, and memory
-start in later milestones. Measurement adapters live under ``evals/`` until
-they are lifted into this service.
+``agent.server`` serves the conversation protocol (``packages/protocol``) over
+WebSocket; ``agent.engine`` holds the turn rules M0 measured. See
+``docs/tasks/M1.md`` (M1-1, M1-2) and ``services/agent/README.md``.
 """
 
-__version__ = "0.0.1"
+__version__ = "0.1.0"

@@ -21,6 +21,9 @@ __pycache__/
 evals/latency/models/
 evals/latency/results/runs/
 evals/tts/models/
+services/agent/models/
+# agent session logs hold transcripts; they stay on the machine that ran the server
+services/agent/logs/
 
 # local models and OS noise
 apps/web/public/models/*.vrm

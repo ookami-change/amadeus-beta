@@ -1,0 +1,132 @@
+{
+  "version": "0.1.0",
+  "transport": "WebSocket. Text frames carry one JSON message each; binary frames carry audio.",
+  "binary": {
+    "mic": {
+      "from": "client",
+      "tag": 1,
+      "layout": "tag u8, then PCM s16le mono at hello.sample_rate",
+      "sample_rate": 16000
+    },
+    "speech": {
+      "from": "server",
+      "tag": 2,
+      "layout": "tag u8, utterance u32 little-endian, then PCM s16le mono at welcome.speech_rate",
+      "sample_rate": 32000
+    }
+  },
+  "structs": {
+    "lipsync_mark": {
+      "start_ms": "number",
+      "end_ms": "number",
+      "text": "string"
+    }
+  },
+  "messages": {
+    "hello": {
+      "from": "client",
+      "doc": "First message on a new socket.",
+      "fields": { "protocol": "string", "client": "string", "sample_rate": "int" }
+    },
+    "ping": {
+      "from": "client",
+      "doc": "Round trip probe; the server answers with pong.",
+      "fields": { "id": "int", "client_ms": "number" }
+    },
+    "playback": {
+      "from": "client",
+      "doc": "What the speaker actually played. played_ms is audio played of this utterance.",
+      "fields": {
+        "utterance": "int",
+        "event": "enum:started|stopped|finished",
+        "played_ms": "number",
+        "client_ms": "number"
+      }
+    },
+    "bye": {
+      "from": "client",
+      "doc": "The client is leaving.",
+      "fields": {}
+    },
+    "welcome": {
+      "from": "server",
+      "doc": "Answer to hello.",
+      "fields": { "protocol": "string", "session": "string", "speech_rate": "int" }
+    },
+    "pong": {
+      "from": "server",
+      "doc": "Answer to ping. server_ms is the session audio clock.",
+      "fields": { "id": "int", "client_ms": "number", "server_ms": "number" }
+    },
+    "transcript": {
+      "from": "server",
+      "doc": "Recognised text of the user's current turn. text is the whole hypothesis, not a diff.",
+      "fields": { "turn": "int", "text": "string", "final": "bool" }
+    },
+    "state": {
+      "from": "server",
+      "doc": "Director state.",
+      "fields": {
+        "state": "enum:idle|listening|thinking|speaking|interrupted",
+        "turn": "int?"
+      }
+    },
+    "prepare": {
+      "from": "server",
+      "doc": "The user's turn is over and she is about to speak (T2 body cue).",
+      "fields": { "turn": "int" }
+    },
+    "speak_start": {
+      "from": "server",
+      "doc": "Speech audio for this utterance follows in binary frames.",
+      "fields": { "utterance": "int", "turn": "int" }
+    },
+    "speak_text": {
+      "from": "server",
+      "doc": "One clause of the utterance, in the order it is spoken.",
+      "fields": { "utterance": "int", "text": "string" }
+    },
+    "lipsync": {
+      "from": "server",
+      "doc": "Word timings from the synthesizer, relative to the utterance's first sample.",
+      "fields": { "utterance": "int", "marks": "lipsync_mark[]" }
+    },
+    "speak_end": {
+      "from": "server",
+      "doc": "No more audio for this utterance.",
+      "fields": {
+        "utterance": "int",
+        "reason": "enum:done|interrupted|error"
+      }
+    },
+    "stop_audio": {
+      "from": "server",
+      "doc": "Drop any queued audio of this utterance now.",
+      "fields": { "utterance": "int" }
+    },
+    "turn_report": {
+      "from": "server",
+      "doc": "Timings of a finished turn on the session audio clock (ms of mic audio received). For logs and replays.",
+      "fields": {
+        "turn": "int",
+        "onset_ms": "number",
+        "commit_ms": "number?",
+        "commit_text": "string",
+        "final_text": "string",
+        "launches": "int",
+        "cancelled": "int",
+        "restarts": "int",
+        "launch_ms": "number?",
+        "first_token_ms": "number?",
+        "ready_ms": "number?",
+        "speak_ms": "number?",
+        "error": "string?"
+      }
+    },
+    "error": {
+      "from": "server",
+      "doc": "Something failed. retryable means the next turn may work.",
+      "fields": { "code": "string", "message": "string", "retryable": "bool" }
+    }
+  }
+}

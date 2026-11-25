@@ -8,7 +8,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
-    "lib": ["ES2022"]
+    "lib": [
+      "ES2022"
+    ],
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

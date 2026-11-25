@@ -1,0 +1,43 @@
+[
+  { "type": "hello", "protocol": "0.1.0", "client": "web", "sample_rate": 16000 },
+  { "type": "ping", "id": 3, "client_ms": 1523.5 },
+  { "type": "playback", "utterance": 1, "event": "started", "played_ms": 0, "client_ms": 8812.25 },
+  { "type": "playback", "utterance": 1, "event": "stopped", "played_ms": 1460, "client_ms": 10272 },
+  { "type": "bye" },
+  { "type": "welcome", "protocol": "0.1.0", "session": "s-7f3a", "speech_rate": 32000 },
+  { "type": "pong", "id": 3, "client_ms": 1523.5, "server_ms": 1480 },
+  { "type": "transcript", "turn": 1, "text": "杯子我都擦过了，然后", "final": false },
+  { "type": "transcript", "turn": 1, "text": "杯子我都擦过了，然后饼再转到同一边。", "final": true },
+  { "type": "state", "state": "listening", "turn": 1 },
+  { "type": "state", "state": "idle", "turn": null },
+  { "type": "prepare", "turn": 1 },
+  { "type": "speak_start", "utterance": 1, "turn": 1 },
+  { "type": "speak_text", "utterance": 1, "text": "嗯，柄都朝一边了。" },
+  {
+    "type": "lipsync",
+    "utterance": 1,
+    "marks": [
+      { "start_ms": 0, "end_ms": 180, "text": "嗯" },
+      { "start_ms": 240, "end_ms": 410.5, "text": "柄" }
+    ]
+  },
+  { "type": "speak_end", "utterance": 1, "reason": "done" },
+  { "type": "stop_audio", "utterance": 1 },
+  {
+    "type": "turn_report",
+    "turn": 1,
+    "onset_ms": 320,
+    "commit_ms": 6560,
+    "commit_text": "杯子我都擦过了，然后饼再转到同一边。",
+    "final_text": "杯子我都擦过了，然后饼再转到同一边。",
+    "launches": 2,
+    "cancelled": 1,
+    "restarts": 0,
+    "launch_ms": 5600,
+    "first_token_ms": 6012.4,
+    "ready_ms": 6490,
+    "speak_ms": 6560,
+    "error": null
+  },
+  { "type": "error", "code": "tts", "message": "rate limit exceeded(RPM)", "retryable": true }
+]
