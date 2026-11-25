@@ -14,6 +14,10 @@ The rules are the ones M0 measured (``evals/latency/REPORT.md``, R3c and R6b):
   A socket that has been sent text cannot be reused, and MiniMax allows 10 a
   minute on this account. The first M1-2 replay synthesized every speculation
   and queued for sockets for up to 13 s.
+* **Two requests a reply**: MiniMax counts each ``task_continue`` against the
+  same quota (the second replay met RPM refusals mid-synthesis at 5 opens a
+  minute). The first send waits for ``first_send_chars``; the rest of the reply
+  goes in one send when the LLM is done. Every send passes the rate gate.
 * **Same-turn check**: at the commit point, and again on the final transcript
   while nothing has been played, an attempt whose text is not the same turn
   (R6's ``texts_continue``) is dropped and restarted.
@@ -67,6 +71,8 @@ class TurnConfig:
     retry_wait_s: float = 1.0
     synth_lead_ms: float = 400.0
     """Start synthesizing this long before the commit point (MiniMax first audio: P95 ~360 ms)."""
+    first_send_chars: int = 8
+    """The first synthesis request carries at least this much text (「嗯。」 alone waits)."""
 
 
 class Sink(Protocol):
@@ -315,6 +321,21 @@ class Engine:
         reader: asyncio.Task[None] | None = None
         try:
             buffer = ClauseBuffer()
+            pending: list[str] = []
+            sends = 0
+
+            async def send() -> None:
+                nonlocal sends
+                if voice is None or not pending:
+                    return
+                text = "".join(pending)
+                pending.clear()
+                asked = self.now_ms()
+                await self.voices.request()
+                if sends == 0:
+                    att.voice_wait_ms = (att.voice_wait_ms or 0.0) + self.now_ms() - asked
+                sends += 1
+                await voice.say(text)
 
             async def say(clause: str) -> None:
                 nonlocal voice, reader
@@ -327,7 +348,9 @@ class Engine:
                 att.spoke = True
                 att.clauses.append(clause)
                 await self._emit(att, clause)
-                await voice.say(clause)
+                pending.append(clause)
+                if sends == 0 and len("".join(pending)) >= self.config.first_send_chars:
+                    await send()
 
             if att.fixed is not None:
                 att.first_token_ms = self.now_ms()
@@ -343,6 +366,7 @@ class Engine:
                 tail = buffer.flush()
                 if tail:
                     await say(tail)
+            await send()
             if voice is not None and reader is not None:
                 await voice.finish()
                 await asyncio.wait_for(asyncio.shield(reader), timeout=30.0)

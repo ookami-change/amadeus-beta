@@ -150,6 +150,13 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(MockVoice.opened, 2)
         self.assertEqual(report.sockets, 1)  # the spare opened after the reply
 
+    def test_a_reply_is_at_most_two_synthesis_requests(self) -> None:
+        reply = "嗯。店长，你来了。今天好冷。外面下雨了吗？"
+        rig = Rig([(0, 600)], lambda ms: "你好。", llm=MockLLM(reply=reply))
+        asyncio.run(rig.run(2600))
+        spoken = [v.said for v in rig.made if v.said]
+        self.assertEqual(spoken, [["嗯。店长，你来了。", "今天好冷。外面下雨了吗？"]])
+
     def test_speculation_waits_for_the_synthesis_point(self) -> None:
         rig = Rig([(0, 1000)], lambda ms: "店长，你来了。" if ms > 300 else "")
         asyncio.run(rig.run(3200))
@@ -195,8 +202,8 @@ class EngineTests(unittest.TestCase):
         rig = Rig(
             [(0, 600), (2200, 2800)],
             lambda ms: "你好。",
-            llm=MockLLM(reply="嗯。" * 3),
-            voice_delay_s=0.3,
+            llm=MockLLM(reply="店长，你先坐一下。我去热咖啡。"),
+            voice_delay_s=0.6,  # two sends: audio at +0.6 s and +1.2 s
             config=TurnConfig(launch_ms=None, retry_wait_s=0.0),
         )
 
@@ -207,7 +214,7 @@ class EngineTests(unittest.TestCase):
                 await rig.engine.feed(FRAME)
                 t += FRAME_MS
                 if 2100 <= t < 2120:
-                    await asyncio.sleep(0.4)  # let the first reply start playing
+                    await asyncio.sleep(0.8)  # the first part is playing, the second is not out
                 for _ in range(4):
                     await asyncio.sleep(0)
             await asyncio.sleep(1.0)

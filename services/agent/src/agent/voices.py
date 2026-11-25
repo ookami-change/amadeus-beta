@@ -56,6 +56,10 @@ class Voices:
             return voice
         raise AssertionError("unreachable")
 
+    async def request(self) -> float:
+        """One synthesis request (``task_continue``) against the same quota as an open."""
+        return await self._gate.acquire()
+
     def prefetch(self) -> None:
         """Open a spare in the background if there is none."""
         if self._spare is None and self._pending is None:
